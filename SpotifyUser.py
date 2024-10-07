@@ -46,53 +46,41 @@ class SpotifyUser:
         self.name = self.user.current_user()['display_name']
         self.id   = self.user.current_user()['id']
 
-    def _get_items(self, type: str, num_items: int|str = 'all', time_range: str = 'medium_term') -> list[dict]:
+    def _get_items(self, type: str, num_items: int = 200, time_range: str = 'medium_term') -> list[dict]:
         """Get specified items for the user
 
         Args:
-            type (str): Which items to get. Must be one of "followed_artists", "top_artists", "top_tracks"
-            num_items (int, optional): The number of items to collect. Must be one of (int > 0 <= 50) or "all". Defaults to 'all'.
-            time_range (str, optional): The time range if applicable. Must be one of 'short_term', 'medium_term', or 'long_term'. 
+            type (str): Which items to get. Must be one of "top_artists", "top_tracks"
+            num_items (int, optional): The number of items to collect. Must be > 0, <= 200. Defaults to 200
+            time_range (str, optional): The time range. Must be one of 'short_term', 'medium_term', or 'long_term'. 
                 Defaults to 'medium_term'.
 
         Returns:
             list[dict]: A list of the items requested
         """
-        assert((num_items == 'all') or ((num_items > 0) and (num_items <= 50)) )
+        assert((num_items > 0) and (num_items <= 200))
         assert((time_range == 'short_term') or (time_range == 'medium_term') or (time_range == 'long_term'))
-        assert((type == "followed_artists") or (type == "top_artists") or (type == "top_tracks"))
+        assert((type == "top_artists") or (type == "top_tracks"))
 
-        # Generate limit and set bool for all items
-        if num_items == "all":
-            limit = 50
-            all_items = True
-        else:
-            limit = num_items
-            all_items = False
-
+        # TODO - Refactor (DRY)
         items = []
+        offset = 0
+        while True:
+            # Generate limit and set bool for all items
+            limit = (50 if (num_items >= 50) else num_items)
 
-        # Get initial items
-        if (type == "followed_artists"):
-            results = self.user.current_user_followed_artists(limit = limit)
-            items.extend(results['artists']['items'])
-        elif (type == "top_artists"):
-            results = self.user.current_user_top_artists(limit = limit, time_range = time_range)
+            # Get initial items
+            if (type == "top_artists"):
+                results = self.user.current_user_top_artists(limit = limit, time_range = time_range, offset = offset)
+            elif (type == "top_tracks"):
+                results = self.user.current_user_top_tracks(limit = limit, time_range = time_range, offset = offset)
+
             items.extend(results['items'])
-        elif (type == "top_tracks"):
-            results = self.user.current_user_top_tracks(limit = limit, time_range = time_range)
-            items.extend(results['items'])
-        
-        # If all items, iterate the rest of the objects
-        if (all_items):
-            if ((type == "followed_artists")):
-                while results['artists']['next']:
-                    results = self.user.next(results['artists'])
-                    items.extend(results['artists']['items'])
-            else:
-                while results['next']:
-                    results = self.user.next(results)
-                    items.extend(results['items'])
+            num_items -= limit
+            offset += limit
+
+            if (not ((results['next']) and (num_items > 0))):
+                break
 
         return(items)
     
@@ -112,33 +100,20 @@ class SpotifyUser:
         top_artists = self._get_items(type = 'top_artists')
         # Get top tracks
         top_tracks = self._get_items(type = 'top_tracks')
-        # Get followed artists
-        followed_artists = self._get_items(type = 'followed_artists')
 
-        print("1")
         # Get artist ids 
         artist_ids_top_artists, genres_top_artists = get_artists_ids_and_genres_from_artists(top_artists)
         artist_ids_top_tracks = get_artist_ids_from_tracks(top_tracks)
-        artist_ids_followed_artists = get_artist_ids_from_artists(followed_artists)
-
-        print("2")
 
         # Remove artist IDs already in top artists for track genre checking
         #   We do this second because we already have genres from top artists
         artist_ids_top_tracks_only = artist_ids_top_tracks - artist_ids_top_artists
-        # Remove artist IDs already in top artists for followed artist genre checking
-        #   We do this last because we weight artists that are followed but don't show up in top tracks or artists the least
-        artist_ids_followed_only = artist_ids_followed_artists - artist_ids_top_artists - artist_ids_top_tracks_only
 
         # Get genres from track artists
         genres_top_tracks = search.get_genres_from_artist_ids(artist_ids_top_tracks_only)
-        # Get genres from followed artists
-        genres_followed_artists = search.get_genres_from_artist_ids(artist_ids_followed_only)
-
-        print("3")
 
         # Merge genres with appropriate weights
-        genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks, genres_followed_artists], [1, 1, 0.5])
+        genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])
 
         barely_enjoyed_genres = []
 

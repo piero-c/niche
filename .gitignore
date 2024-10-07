@@ -1,3 +1,5 @@
 admin/*
 .env
 working_pocs/*
+.cache
+__pycache__/*

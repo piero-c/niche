@@ -5,7 +5,7 @@ import spotipy
 from SpotifySearch import SpotifySearch
 
 from spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_artist_ids_from_artists
-from util import merge_dicts_with_weight
+from scripts.util import merge_dicts_with_weight
 
 
 def load_env():

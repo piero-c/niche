@@ -1,26 +1,9 @@
-from dotenv import load_dotenv
-import os
 from spotipy.oauth2 import SpotifyOAuth
 import spotipy
-from SpotifySearch import SpotifySearch
+from scripts.spotify_genre.SpotifySearch import SpotifySearch
 
-from spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_artist_ids_from_artists
-from scripts.util import merge_dicts_with_weight
-
-
-def load_env():
-    load_dotenv()
-    global CLIENT_ID
-    global CLIENT_SECRET
-    global REDIRECT_URI
-    global SCOPE
-    global CACHE_PATH
-
-    CLIENT_ID     = os.getenv('SPOTIFY_CLIENT_ID')
-    CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-    REDIRECT_URI  = os.getenv('SPOTIFY_REDIRECT_URI')
-    SCOPE         = "user-top-read user-follow-read"
-    CACHE_PATH    = ".cache"
+from scripts.spotify_genre.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_artist_ids_from_artists
+from scripts.util import merge_dicts_with_weight, load_env
 
 class SpotifyUser:
     """
@@ -32,14 +15,14 @@ class SpotifyUser:
     def __init__(self) -> None:
         """Creates a Spotify User.
         """
-        load_env()
+        env = load_env()
         # Initialize Spotipy with SpotifyOAuth
         self.user = spotipy.Spotify(auth_manager=SpotifyOAuth(
-            client_id     = CLIENT_ID,
-            client_secret = CLIENT_SECRET,
-            redirect_uri  = REDIRECT_URI,
-            scope         = SCOPE,
-            cache_path    = CACHE_PATH
+            client_id     = env['CLIENT_ID'],
+            client_secret = env['CLIENT_SECRET'],
+            redirect_uri  = env['REDIRECT_URI'],
+            scope         = env['SCOPE'],
+            cache_path    = env['CACHE_PATH']
         ))
 
         # Collect identifying information from user

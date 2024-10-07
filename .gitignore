@@ -1,5 +1,5 @@
 admin/*
 .env
 working_pocs/*
-__pycache__/*
+**/__pycache__/
 scripts/spotify_genre/.cache

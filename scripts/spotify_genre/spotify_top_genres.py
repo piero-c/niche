@@ -1,4 +1,6 @@
-from SpotifyUser import SpotifyUser
+# USAGE - python3 -m scripts.spotify_genre.spotify_top_genres
+
+from scripts.spotify_genre.SpotifyUser import SpotifyUser
 
 def main() -> dict[str, int|float]:
     user = SpotifyUser()

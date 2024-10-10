@@ -18,9 +18,9 @@ class SpotifyUser:
         env = load_env()
         # Initialize Spotipy with SpotifyOAuth
         self.user = spotipy.Spotify(auth_manager=SpotifyOAuth(
-            client_id     = env['CLIENT_ID'],
-            client_secret = env['CLIENT_SECRET'],
-            redirect_uri  = env['REDIRECT_URI'],
+            client_id     = env['SPOTIFY_CLIENT_ID'],
+            client_secret = env['SPOTIFY_CLIENT_SECRET'],
+            redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
             scope         = env['SCOPE'],
             cache_path    = env['CACHE_PATH']
         ))
@@ -67,7 +67,7 @@ class SpotifyUser:
 
         return(items)
     
-    def _create_search(self) -> SpotifySearch:
+    def create_search(self) -> SpotifySearch:
         """Create a Spotify Search object
 
         Returns:
@@ -77,7 +77,7 @@ class SpotifyUser:
     
     def get_top_genres(self) -> dict[str, int|float]:
         # TODO - Add args for all method functions and for this function and add pydoc
-        search = self._create_search()
+        search = self.create_search()
 
         # Get top artists
         top_artists = self._get_items(type = 'top_artists')

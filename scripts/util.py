@@ -40,9 +40,9 @@ def load_env() -> dict[str, str]:
     load_dotenv()
     return({
         #SPOTIFY
-        "CLIENT_ID"          : os.getenv('SPOTIFY_CLIENT_ID'),
-        "CLIENT_SECRET"      : os.getenv('SPOTIFY_CLIENT_SECRET'),
-        "REDIRECT_URI"       : os.getenv('SPOTIFY_REDIRECT_URI'),
+        "SPOTIFY_CLIENT_ID"          : os.getenv('SPOTIFY_SPOTIFY_CLIENT_ID'),
+        "SPOTIFY_CLIENT_SECRET"      : os.getenv('SPOTIFY_SPOTIFY_CLIENT_SECRET'),
+        "SPOTIFY_REDIRECT_URI"       : os.getenv('SPOTIFY_SPOTIFY_REDIRECT_URI'),
         "SCOPE"              : "user-top-read user-follow-read",
         "CACHE_PATH"         : ".cache",
         #LASTFM

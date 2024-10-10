@@ -40,13 +40,13 @@ def load_env() -> dict[str, str]:
     load_dotenv()
     return({
         #SPOTIFY
-        "SPOTIFY_CLIENT_ID"          : os.getenv('SPOTIFY_SPOTIFY_CLIENT_ID'),
-        "SPOTIFY_CLIENT_SECRET"      : os.getenv('SPOTIFY_SPOTIFY_CLIENT_SECRET'),
-        "SPOTIFY_REDIRECT_URI"       : os.getenv('SPOTIFY_SPOTIFY_REDIRECT_URI'),
-        "SCOPE"              : "user-top-read user-follow-read",
-        "CACHE_PATH"         : ".cache",
+        "SPOTIFY_CLIENT_ID"    : os.getenv('SPOTIFY_SPOTIFY_CLIENT_ID'),
+        "SPOTIFY_CLIENT_SECRET": os.getenv('SPOTIFY_SPOTIFY_CLIENT_SECRET'),
+        "SPOTIFY_REDIRECT_URI" : os.getenv('SPOTIFY_SPOTIFY_REDIRECT_URI'),
+        "SCOPE"                : "user-top-read user-follow-read",
+        "CACHE_PATH"           : ".cache",
         #LASTFM
-        "LASTFM_API_KEY"     : os.getenv('LASTFM_API_KEY'),
+        "LASTFM_API_KEY": os.getenv('LASTFM_API_KEY'),
         #APPLICATION(MUSICBRAINZ)
         "APPLICATION_NAME"   : os.getenv("APPLICATION_NAME"),
         "APPLICATION_VERSION": os.getenv("APPLICATION_VERSION"),

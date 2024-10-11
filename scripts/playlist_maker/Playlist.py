@@ -18,8 +18,7 @@ class PlaylistInfo(TypedDict):
 
 # Playlist Class
 class Playlist:
-    """
-    Playlist Object
+    """Playlist Object
 
     Attributes:
         id (str): Spotify Playlist ID.

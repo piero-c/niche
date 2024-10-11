@@ -32,6 +32,11 @@ MS_TO_SECS_DIVISOR               = 1000
 NICHE_APP_URL                    = 'http://niche-app.net'
 
 class NicheTrackFinder:
+    """Niche Track Finder
+        
+    Attributes:
+        TODO
+    """
     def __init__(self, request: PlaylistRequest) -> None:
         env = load_env()
         # Musicbrainz user agent identification
@@ -60,10 +65,26 @@ class NicheTrackFinder:
         """
         time.sleep(self.api_sleep_length)
 
-    def _get_artist_genre(musicbrainzArtist: dict) -> Language:
+    def _get_artist_language(musicbrainzArtist: dict) -> Language:
+        """Return the language of the artist.
+
+        Args:
+            musicbrainzArtist (dict): MusicBrainz artist object.
+
+        Returns:
+            Language: The artist's language.
+        """
         pass
     
     def _fetch_artists_from_musicbrainz(self, offset: int = 0) -> list[ArtistObject]:
+        """Get a list of ArtistObject s from MusicBrainz at the offset.
+
+        Args:
+            offset (int, optional): Offset. Defaults to 0.
+
+        Returns:
+            list[ArtistObject]: List of artist objects.
+        """
         try:
             ## BEGIN REQUEST ##
             result = self.musicbrainz.search_artists(
@@ -77,7 +98,7 @@ class NicheTrackFinder:
             artists = []
 
             for artist in current_artists:
-                if((self.request.language == Language.ANY) or (self._get_artist_genre(artist) != self.request.language)):
+                if((self.request.language == Language.ANY) or (self._get_artist_language(artist) != self.request.language)):
                     artist_name    = artist.get('name')
                     musicbrainz_id = artist.get('id')
                     artists.append({'name': artist_name, 'musicbrainz_id': musicbrainz_id})
@@ -92,7 +113,15 @@ class NicheTrackFinder:
             return([])
     
 
-    def _find_max_offset_musicbrainz_artists(self, initial_guess: int = 5000):
+    def _find_max_offset_musicbrainz_artists(self, initial_guess: int = 5000) -> int:
+        """Get the highest offset where musicbrainz returns artists.
+
+        Args:
+            initial_guess (int, optional): Initial guess. Defaults to 5000.
+
+        Returns:
+            int: The highest offset.
+        """
         tolerance = self.musicbrainz_limit_pagination
         lower = 0
         upper = initial_guess
@@ -116,6 +145,14 @@ class NicheTrackFinder:
         return(max_valid_offset)
     
     def _get_artist_spotify_id(self, artist: ArtistObject) -> str:
+        """Get artist spotify id.
+
+        Args:
+            artist (ArtistObject): Artist object.
+
+        Returns:
+            str: The spotify artist id.
+        """
         try:
             ## BEGIN REQUEST ##
             results = self.spotipy_methods.search(q=f'artist:"{artist['name']}"', type='artist', limit=1)
@@ -132,6 +169,16 @@ class NicheTrackFinder:
             return(None)
 
     def _get_artist_top_tracks_spotify(self, artist_id: str, country: str = 'US', limit: int = 10) -> dict:
+        """Get the artists top tracks on spotify.
+
+        Args:
+            artist_id (str): spotify artist id.
+            country (str, optional): Only content that is available in this country will be returned. Defaults to 'US'.
+            limit (int, optional): Max number of songs to return. Defaults to 10.
+
+        Returns:
+            dict: Dict of tracks
+        """
         try:
             results = self.spotipy_methods.artist_top_tracks(artist_id, country = country)
             tracks = results.get('tracks', [])
@@ -144,6 +191,15 @@ class NicheTrackFinder:
             return([])
 
     def _get_track_info_lastfm(self, artist_name: str, track_name: str) -> LastFMTrackInfo:
+        """Retrieve track info from LastFM.
+
+        Args:
+            artist_name (str): Artist name.
+            track_name (str): Track name.
+
+        Returns:
+            LastFMTrackInfo: Object describing the track
+        """
         params = {
             'method': 'track.getInfo',
             'api_key': self.LASTFM_API_KEY,
@@ -181,6 +237,11 @@ class NicheTrackFinder:
             return{}
 
     def _find_niche_tracks(self) -> list[NicheTrack]:
+        """Get a list of niche tracks based on self's attributes
+
+        Returns:
+            list[NicheTrack]: A list of niche tracks that align with the playlist request
+        """
         # TODO - Pick random num of tracks from artist (edit remaining artists needed and anything w tracks / artist) - get it to go closer to 1 bias
         # TODO - If hit max songs per artist, save the rest of the songs just in case playlist not filled? Or have functionality to expand artist top song count?
         #   Hence looking at all artists for genre, and all of their songs
@@ -329,6 +390,11 @@ class NicheTrackFinder:
         return(niche_tracks)
 
     def _get_playlist_info(self) -> PlaylistInfo:
+        """Generate playlist info based on self.
+
+        Returns:
+            PlaylistInfo: Playlist info.
+        """
         # TODO - Make the names unique based on the user? Like indie whatever 1
         return({
             'name': f'Niche {self.request.genre} Songs',
@@ -336,6 +402,11 @@ class NicheTrackFinder:
         })
 
     def create_playlist(self) -> Playlist:
+        """Create and return a playlist for the user based on self.
+
+        Returns:
+            Playlist: The playlist.
+        """
         tracks = self._find_niche_tracks()
         playlist_info = self._get_playlist_info()
         return(Playlist(tracks, playlist_info, self.spotify_user))

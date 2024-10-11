@@ -6,6 +6,11 @@ PlaylistLength = Enum('PlaylistLength', ['SHORT', 'MEDIUM', 'LONG'])
 NicheLevel     = Enum('NicheLevel', ['VERY', 'MODERATELY', 'ONLY_KINDA'])
 
 class PlaylistRequest:
+    """Playlist Request
+
+    Attributes:
+        TODO
+    """
     def __init__(self, songs_min_year_created: int, language: Language, playlist_length: PlaylistLength, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, max_songs_per_artist: int, genre: str) -> None:
         self.songs_min_year_created = songs_min_year_created

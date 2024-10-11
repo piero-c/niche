@@ -1,6 +1,5 @@
 from spotipy.oauth2 import SpotifyOAuth
 import spotipy
-from scripts.spotify_genre.SpotifySearch import SpotifySearch
 
 from scripts.spotify_genre.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_artist_ids_from_artists
 from scripts.util import merge_dicts_with_weight, load_env
@@ -67,17 +66,29 @@ class SpotifyUser:
 
         return(items)
     
-    def create_search(self) -> SpotifySearch:
-        """Create a Spotify Search object
+    def search_get_genres_from_artist_ids(self, artist_ids: list[str], artist_cache: dict[str, dict] = {}) -> dict[str, int]:
+        """Collect a list of genre instances from a list of artist ids
+
+        Args:
+            artist_ids (list[str]): List of artist ids to check.
+            artist_cache (dict[str, dict], optional): Dict of artist ids to artist objects. Defaults to {}.
 
         Returns:
-            SpotifySearch: The spotify search object
+            dict[str, int]: key: genre, val: instance count from artists
         """
-        return(SpotifySearch(user = self.user))
+        genres = {}
+        for artist_id in artist_ids:
+            if artist_id not in artist_cache:
+                artist_details = self.user.artist(artist_id)
+                artist_cache[artist_id] = artist_details
+            else:
+                artist_details = artist_cache[artist_id]
+            for genre in artist_details['genres']:
+                genres[genre] = genres.get(genre, 0) + 1
+        return genres
     
     def get_top_genres(self) -> dict[str, int|float]:
         # TODO - Add args for all method functions and for this function and add pydoc
-        search = self.create_search()
 
         # Get top artists
         top_artists = self._get_items(type = 'top_artists')
@@ -93,7 +104,7 @@ class SpotifyUser:
         artist_ids_top_tracks_only = artist_ids_top_tracks - artist_ids_top_artists
 
         # Get genres from track artists
-        genres_top_tracks = search.get_genres_from_artist_ids(artist_ids_top_tracks_only)
+        genres_top_tracks = self.search_get_genres_from_artist_ids(artist_ids_top_tracks_only)
 
         # Merge genres with appropriate weights
         genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])

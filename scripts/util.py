@@ -1,17 +1,5 @@
-from langdetect import detect, DetectorFactory, LangDetectException
 from dotenv import load_dotenv
 import os
-
-# TODO - Fix or remove language constraints
-# TODO - pydocs
-def is_text_in_english(text):
-    # Fix random seed in langdetect for consistency
-    DetectorFactory.seed = 0
-    try:
-        language = detect(text)
-        return language == 'en'
-    except LangDetectException:
-        return False
 
 def merge_dicts_with_weight(dicts: list[dict[any, int|float]], weights: list[int]) -> dict[any, int|float]:
     """Merge a list of dictionaries into one, considering the weight of each.
@@ -40,10 +28,10 @@ def load_env() -> dict[str, str]:
     load_dotenv()
     return({
         #SPOTIFY
-        "SPOTIFY_CLIENT_ID"    : os.getenv('SPOTIFY_SPOTIFY_CLIENT_ID'),
-        "SPOTIFY_CLIENT_SECRET": os.getenv('SPOTIFY_SPOTIFY_CLIENT_SECRET'),
-        "SPOTIFY_REDIRECT_URI" : os.getenv('SPOTIFY_SPOTIFY_REDIRECT_URI'),
-        "SCOPE"                : "user-top-read user-follow-read",
+        "SPOTIFY_CLIENT_ID"    : os.getenv('SPOTIFY_CLIENT_ID'),
+        "SPOTIFY_CLIENT_SECRET": os.getenv('SPOTIFY_CLIENT_SECRET'),
+        "SPOTIFY_REDIRECT_URI" : os.getenv('SPOTIFY_REDIRECT_URI'),
+        "SCOPE"                : "user-top-read user-follow-read playlist-modify-public playlist-modify-private",
         "CACHE_PATH"           : ".cache",
         #LASTFM
         "LASTFM_API_KEY": os.getenv('LASTFM_API_KEY'),

@@ -1,8 +1,10 @@
 from spotipy.oauth2 import SpotifyOAuth
 import spotipy
-
-from scripts.spotify_genre.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_artist_ids_from_artists
+from scripts.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount
 from scripts.util import merge_dicts_with_weight, load_env
+
+SPOTIFY_MAX_LIMIT_PAGINATION = 50
+GENRE_INTEREST_COUNT_CUTOFF  = 2
 
 class SpotifyUser:
     """
@@ -28,28 +30,27 @@ class SpotifyUser:
         self.name = self.user.current_user()['display_name']
         self.id   = self.user.current_user()['id']
 
-    def _get_items(self, type: str, num_items: int = 200, time_range: str = 'medium_term') -> list[dict]:
-        """Get specified items for the user
+    def _get_items(self, type: str, num_items: int = 200, time_range: str = 'medium_term') -> list[SpotifyArtist|SpotifyTrack]:
+        """Get specified items for the user.
 
         Args:
-            type (str): Which items to get. Must be one of "top_artists", "top_tracks"
-            num_items (int, optional): The number of items to collect. Must be > 0, <= 200. Defaults to 200
+            type (str): Which items to get. Must be one of "top_artists", "top_tracks".
+            num_items (int, optional): The number of items to collect. Must be > 0, <= 200. Defaults to 200.
             time_range (str, optional): The time range. Must be one of 'short_term', 'medium_term', or 'long_term'. 
                 Defaults to 'medium_term'.
 
         Returns:
-            list[dict]: A list of the items requested
+            list[SpotifyArtist|SpotifyTrack]: A list of the items requested.
         """
         assert((num_items > 0) and (num_items <= 200))
         assert((time_range == 'short_term') or (time_range == 'medium_term') or (time_range == 'long_term'))
         assert((type == "top_artists") or (type == "top_tracks"))
 
-        # TODO - Refactor (DRY)
         items = []
         offset = 0
         while True:
             # Generate limit and set bool for all items
-            limit = (50 if (num_items >= 50) else num_items)
+            limit = (SPOTIFY_MAX_LIMIT_PAGINATION if (num_items >= SPOTIFY_MAX_LIMIT_PAGINATION) else num_items)
 
             # Get initial items
             if (type == "top_artists"):
@@ -66,15 +67,15 @@ class SpotifyUser:
 
         return(items)
     
-    def search_get_genres_from_artist_ids(self, artist_ids: list[str], artist_cache: dict[str, dict] = {}) -> dict[str, int]:
-        """Collect a list of genre instances from a list of artist ids
+    def search_get_genres_from_artist_ids(self, artist_ids: list[SpotifyArtistID], artist_cache: dict[str, dict] = {}) -> SpotifyGenreInterestCount:
+        """Collect a list of genre instances from a list of artist ids.
 
         Args:
             artist_ids (list[str]): List of artist ids to check.
             artist_cache (dict[str, dict], optional): Dict of artist ids to artist objects. Defaults to {}.
 
         Returns:
-            dict[str, int]: key: genre, val: instance count from artists
+            dict[str, int]: key: genre, val: instance count from artists.
         """
         genres = {}
         for artist_id in artist_ids:
@@ -87,9 +88,12 @@ class SpotifyUser:
                 genres[genre] = genres.get(genre, 0) + 1
         return genres
     
-    def get_top_genres(self) -> dict[str, int|float]:
-        # TODO - Add args for all method functions and for this function and add pydoc
+    def get_top_genres(self) -> SpotifyGenreInterestCount:
+        """_summary_
 
+        Returns:
+            SpotifyGenreInterestCount: _description_
+        """
         # Get top artists
         top_artists = self._get_items(type = 'top_artists')
         # Get top tracks
@@ -113,7 +117,7 @@ class SpotifyUser:
 
         # Remove genres with a weight < 2
         for key, val in genre_dict.items():
-            if val < 2:
+            if val < GENRE_INTEREST_COUNT_CUTOFF:
                 barely_enjoyed_genres.append(key)
         for genre in barely_enjoyed_genres:
             del genre_dict[genre]

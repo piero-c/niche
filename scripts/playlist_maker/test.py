@@ -3,7 +3,7 @@ from scripts.playlist_maker.Playlist import Playlist
 from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language, PlaylistLength, NicheLevel
 
 def main():
-    req = PlaylistRequest(2000, Language.ANY, PlaylistLength.SHORT, NicheLevel.VERY, 120, 360, 2, 'indie')
+    req = PlaylistRequest(2000, Language.ANY, PlaylistLength.SHORT, NicheLevel.VERY, 120, 360, 2, 'indie pop')
     finder = NicheTrackFinder(req)
     pl = finder.create_playlist()
 

@@ -3,4 +3,8 @@ admin/*
 working_pocs/*
 **/__pycache__/
 **/.cache
-
+**/node_modules
+**/package-lock.json
+data/artists.jsonl
+**/config.json
+data/documentation/process.txt

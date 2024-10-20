@@ -1,11 +1,17 @@
 from scripts.playlist_maker.NicheTrackFinder import NicheTrackFinder
-from scripts.playlist_maker.Playlist import Playlist
-from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language, PlaylistLength, NicheLevel
+from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language, NicheLevel
+from scripts.auth_objects.SpotifyUser import SpotifyUser
+import time
 
 def main():
-    req = PlaylistRequest(2000, Language.ANY, PlaylistLength.SHORT, NicheLevel.VERY, 120, 360, 2, 'indie')
-    finder = NicheTrackFinder(req)
-    pl = finder.create_playlist()
+    t0     = time.time()
+    user   = SpotifyUser()
+    req    = PlaylistRequest(2000, Language.ANY, NicheLevel.MODERATELY, 120, 360, 'hip hop')
+    finder = NicheTrackFinder(req, user)
+    pl     = finder.create_playlist()
+    t1     = time.time()
+    total  = (t1-t0)/60
+    print(f'TOTAL MINUTES RUN: {total}')
 
     print(pl.url)
 if __name__ == '__main__':

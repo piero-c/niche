@@ -34,7 +34,7 @@ class Track:
         except Exception as e:
             raise Exception(f"Couldn't create track {name} by {artist_name} from lastfm: {e}")
 
-    def attach_spotify_track_information(self) -> SpotifyTrack:
+    def attach_spotify_track_information(self, spotify_artist_id = "") -> SpotifyTrack:
         # Return existing Spotify track information if already attached
         if getattr(self, 'spotify_track', None):
             return(self.spotify_track)
@@ -59,7 +59,9 @@ class Track:
                 self.spotify_uri = spotify_track.get('uri', '')
                 self.spotify_url = spotify_track.get('external_urls', {}).get('spotify', '')
                 self.track_length_seconds = convert_ms_to_s(spotify_track.get('duration_ms', 0))
-                return(self.spotify_track)
+
+                if ((not spotify_artist_id) or self.artist_id_in_spotify_track(spotify_artist_id)):
+                    return(self.spotify_track)
             except Exception as e:
                 raise Exception(f"Unexpected error when attaching track {self.name} by {self.artist}: {e}")
             

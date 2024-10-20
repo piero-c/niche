@@ -171,6 +171,7 @@ class NicheTrackFinder:
                     try:
                         # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
                         artist.attach_spotify_artist_from_track(top_track)
+                        spotify_artist_id = artist.spotify_artist_id
                         print(f'Attached spotify artist {artist.name} from lastfm top track')
                         attached = True
                         break
@@ -191,7 +192,7 @@ class NicheTrackFinder:
                         break
                     
                     try:
-                        track.attach_spotify_track_information()
+                        track.attach_spotify_track_information(spotify_artist_id)
                         print(f'Attached spotify track info for {track.name}')
                     except Exception as e:
                         print(e)

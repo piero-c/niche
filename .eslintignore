@@ -1,0 +1,13 @@
+node_modules/**
+build/**
+dictionary/**
+coverage/**
+public/**
+logs/**
+src/models/**/*.js
+*.example
+*.txt
+*.rest
+models/**
+tests/*.js
+!.tests/*.tests.js

@@ -1,0 +1,1 @@
+LastFmArtist = dict[str, any]

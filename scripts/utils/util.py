@@ -145,7 +145,7 @@ def get_shuffled_offsets(offsets: list[int], niche_level: NicheLevel) -> list[in
     """
     percentiles = {
         NicheLevel.VERY: 25,
-        NicheLevel.MODERATELY: 20,
-        NicheLevel.ONLY_KINDA: 15
+        NicheLevel.MODERATELY: 17,
+        NicheLevel.ONLY_KINDA: 10
     }
     return shuffle_with_percentile_bias_numpy(offsets, percentiles[niche_level])

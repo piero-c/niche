@@ -1,34 +1,74 @@
-from spotipy.oauth2 import SpotifyOAuth
+from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from scripts.utils.util import merge_dicts_with_weight
 import spotipy
-from scripts.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount
-from scripts.util import merge_dicts_with_weight, load_env
+from spotipy import SpotifyOAuth
+from scripts.utils.util import load_env, sleep, RequestType
+from typing import Optional, Type, ClassVar
+from scripts.utils.spotify_util import get_top_matching_track, SpotifyArtist, SpotifyTrack
 
-SPOTIFY_MAX_LIMIT_PAGINATION = 50
 GENRE_INTEREST_COUNT_CUTOFF  = 2
 
 class SpotifyUser:
-    """
-    Spotify Authenticated User Object
+    _instance: ClassVar[Optional['SpotifyUser']] = None
 
-    Attributes:
+    client: spotipy.Spotify
+    user  : dict
+    name  : str
+    id    : str
 
-    """
-    def __init__(self) -> None:
-        """Creates a Spotify User.
-        """
-        env = load_env()
-        # Initialize Spotipy with SpotifyOAuth
-        self.user = spotipy.Spotify(auth_manager=SpotifyOAuth(
-            client_id     = env['SPOTIFY_CLIENT_ID'],
-            client_secret = env['SPOTIFY_CLIENT_SECRET'],
-            redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
-            scope         = env['SCOPE'],
-            cache_path    = env['CACHE_PATH']
-        ))
+    def __new__(cls: Type['SpotifyUser']) -> 'SpotifyUser':
+        if cls._instance is None:
+            env = load_env()
+            cls._instance = super(SpotifyUser, cls).__new__(cls)
+            cls._instance.client = spotipy.Spotify(auth_manager=SpotifyOAuth(
+                client_id     = env['SPOTIFY_CLIENT_ID'],
+                client_secret = env['SPOTIFY_CLIENT_SECRET'],
+                redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
+                scope         = env['SCOPE'],
+                cache_path    = env['CACHE_PATH']
+            ))
+            cls._instance.user = cls._instance.client.current_user()
+            cls._instance.name = cls._instance.user['display_name']
+            cls._instance.id   = cls._instance.user['id']
 
-        # Collect identifying information from user
-        self.name = self.user.current_user()['display_name']
-        self.id   = self.user.current_user()['id']
+        return cls._instance
+    
+    ## GENERAL SEARCH ##
+    
+    def get_spotify_tracks_direct(self, name: str, artist: str) -> list[SpotifyTrack]:
+        # Construct the search query with specific field filters
+        q = f"track:{name} artist:{artist}"
+
+        ## BEGIN REQUEST ##
+        # Perform the search on Spotify for the track with a limit of 1
+        search_results = self.client.search(q=q, type='track', limit=1)
+        sleep(RequestType.SPOTIFY)  # Respect API rate limits
+        ## END REQUEST ##
+
+        # Extract the list of track items from the search results
+        spotify_tracks = search_results.get('tracks', {}).get('items', [])
+        if(not spotify_tracks):
+            print(f"No Spotify tracks found for {name} by {artist}.")
+            raise Exception()
+
+        # Select the first track from the search results
+        return (spotify_tracks)
+
+    def get_spotify_track_fuzzy(self, name: str, artist: str) -> SpotifyTrack:
+        tracks = self.get_spotify_tracks_direct(name, artist)
+        threshold_track_match = 90
+        return (get_top_matching_track(name, artist, tracks, threshold_track_match))
+
+    def get_spotify_artist_by_id(self, id: str) -> SpotifyArtist:
+        ## BEGIN REQUEST ##
+        # Retrieve the full artist object from Spotify using the artist ID
+        spotify_artist = self.client.artist(id)
+        sleep(RequestType.SPOTIFY)
+        ## END REQUEST ##
+
+        return(spotify_artist)
+
+    ## USER SPECIFIC ITEMS ##
 
     def _get_items(self, type: str, num_items: int = 200, time_range: str = 'medium_term') -> list[SpotifyArtist|SpotifyTrack]:
         """Get specified items for the user.
@@ -54,9 +94,9 @@ class SpotifyUser:
 
             # Get initial items
             if (type == "top_artists"):
-                results = self.user.current_user_top_artists(limit = limit, time_range = time_range, offset = offset)
+                results = self.client.current_user_top_artists(limit = limit, time_range = time_range, offset = offset)
             elif (type == "top_tracks"):
-                results = self.user.current_user_top_tracks(limit = limit, time_range = time_range, offset = offset)
+                results = self.client.current_user_top_tracks(limit = limit, time_range = time_range, offset = offset)
 
             items.extend(results['items'])
             num_items -= limit
@@ -80,7 +120,7 @@ class SpotifyUser:
         genres = {}
         for artist_id in artist_ids:
             if artist_id not in artist_cache:
-                artist_details = self.user.artist(artist_id)
+                artist_details = self.client.artist(artist_id)
                 artist_cache[artist_id] = artist_details
             else:
                 artist_details = artist_cache[artist_id]

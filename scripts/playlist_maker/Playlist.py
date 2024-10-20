@@ -1,5 +1,5 @@
 # Module for the final playlist
-from scripts.spotify_genre.SpotifyUser import SpotifyUser
+from scripts.auth_objects.SpotifyUser import SpotifyUser
 from typing import TypedDict
 
 class NicheTrack(TypedDict):
@@ -34,7 +34,7 @@ class Playlist:
         track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
 
         # Create a new playlist with placeholder name and description
-        playlist = spotify_user.user.user_playlist_create(
+        playlist = spotify_user.client.user_playlist_create(
             user          = spotify_user.id,
             name          = playlist_info['name'],
             public        = True,
@@ -46,7 +46,7 @@ class Playlist:
         # Spotify API allows adding up to 100 tracks per request
         for i in range(0, len(track_uris), 100):
             batch = track_uris[i:i+100]
-            spotify_user.user.playlist_add_items(playlist_id=playlist['id'], items=batch)
+            spotify_user.client.playlist_add_items(playlist_id=playlist['id'], items=batch)
 
         # Store playlist information as attributes
         self.id          = playlist['id']

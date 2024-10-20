@@ -1,7 +1,11 @@
+from rapidfuzz import fuzz
+
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]
 SpotifyArtistID           = str
 SpotifyGenreInterestCount = dict[str, int|float]
+
+SPOTIFY_MAX_LIMIT_PAGINATION = 50
 
 def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tuple[set[SpotifyArtistID], SpotifyGenreInterestCount]:
     """From a list of artist objects, get ids and genres.
@@ -47,3 +51,30 @@ def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArti
         set[SpotifyArtistID]: Set of artist ids.
     """
     return(set(artist['id'] for artist in artists))
+
+def get_top_matching_track(track_name: str, artist_name: str, tracks: list[SpotifyTrack], threshold: int) -> str:
+        # Initialize variables to track the best match
+        best_match = None
+        highest_score = 0
+
+        # Iterate through the search results to find the best fuzzy match
+        for track in tracks:
+            name = track.get('name', '').lower()
+            artist = track.get('artists', [{}])[0].get('name', '').lower()
+
+            # Compute similarity scores for track name and artist
+            name_score = fuzz.ratio(track_name.lower(), name)
+            artist_score = fuzz.ratio(artist_name.lower(), artist)
+
+            # Calculate an overall score
+            overall_score = (name_score * 0.3) + (artist_score * 0.7)
+
+            # Update the best match if this track has a higher score
+            if overall_score > highest_score:
+                highest_score = overall_score
+                best_match = track
+
+        if best_match and highest_score >= threshold:
+            return(best_match)
+        else:
+            raise Exception(f"No suitable Spotify track found for '{track_name}' by '{artist_name}'.")

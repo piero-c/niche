@@ -104,7 +104,7 @@ class SpotifyUser:
 
         return(items)
     
-    def search_get_genres_from_artist_ids(self, artist_ids: list[SpotifyArtistID], artist_cache: dict[str, dict] = {}) -> SpotifyGenreInterestCount:
+    def get_genres_from_artist_ids(self, artist_ids: list[SpotifyArtistID], artist_cache: dict[str, dict] = {}) -> SpotifyGenreInterestCount:
         """Collect a list of genre instances from a list of artist ids.
 
         Args:
@@ -145,7 +145,7 @@ class SpotifyUser:
         artist_ids_top_tracks_only = artist_ids_top_tracks - artist_ids_top_artists
 
         # Get genres from track artists
-        genres_top_tracks = self.search_get_genres_from_artist_ids(artist_ids_top_tracks_only)
+        genres_top_tracks = self.get_genres_from_artist_ids(artist_ids_top_tracks_only)
 
         # Merge genres with appropriate weights
         genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])

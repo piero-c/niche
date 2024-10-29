@@ -85,8 +85,7 @@ class NicheTrackFinder:
         """
         return([
             artist for artist in artists if (
-                (self._artist_listeners_and_plays_valid(artist)) and
-                (artist.artist_in_lastfm_genre(self.request.genre))
+                (self._artist_listeners_and_plays_valid(artist))
             )
         ])
 

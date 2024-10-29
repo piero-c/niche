@@ -80,7 +80,6 @@ def convert_language_to_language_enum(language: str) -> Language:
         return(LANGMAP.get(language))
     return(Language.OTHER)
 
-
 def map_language_codes(language_codes: list[str]) -> dict[str, int]:
     """
     Maps ISO 639-3 language codes to full language names and counts occurrences.

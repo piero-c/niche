@@ -7,6 +7,17 @@ SpotifyGenreInterestCount = dict[str, int|float]
 
 SPOTIFY_MAX_LIMIT_PAGINATION = 50
 
+def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArtistID]:
+    """Get artist ids from list of artist objects.
+
+    Args:
+        artists (list[SpotifyArtist]): List of artist objects.
+
+    Returns:
+        set[SpotifyArtistID]: Set of artist ids.
+    """
+    return(set(artist['id'] for artist in artists))
+
 def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tuple[set[SpotifyArtistID], SpotifyGenreInterestCount]:
     """From a list of artist objects, get ids and genres.
 
@@ -16,11 +27,9 @@ def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tup
     Returns:
         tuple[set[SpotifyArtistID], SpotifyGenreInterestCount]: (set[artist ids], dict[genre: number of instances in artists]).
     """
-    artist_ids = set()
+    artist_ids = get_artist_ids_from_artists(artists)
     genres = {}
     for artist in artists:
-        # Get id
-        artist_ids.add(artist['id'])
         for genre in artist['genres']:
             # Add one to genre or create genre and add one
             genres[genre] = genres.get(genre, 0) + 1
@@ -40,17 +49,6 @@ def get_artist_ids_from_tracks(tracks: list[SpotifyTrack]) -> set[SpotifyArtistI
         for artist in track['artists']:
             artist_ids.add(artist['id'])
     return(artist_ids)
-
-def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArtistID]:
-    """Get artist ids from list of artist objects.
-
-    Args:
-        artists (list[SpotifyArtist]): List of artist objects.
-
-    Returns:
-        set[SpotifyArtistID]: Set of artist ids.
-    """
-    return(set(artist['id'] for artist in artists))
 
 def get_top_matching_track(track_name: str, artist_name: str, tracks: list[SpotifyTrack], threshold: int) -> str:
         # Initialize variables to track the best match

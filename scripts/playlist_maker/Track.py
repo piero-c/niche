@@ -1,5 +1,6 @@
 from scripts.utils.util import convert_ms_to_s
 from scripts.utils.spotify_util import SpotifyTrack
+from scripts.utils.lastfm_util import LastFMTrack
 from scripts.auth_objects.SpotifyUser import SpotifyUser
 
 class Track:
@@ -17,7 +18,7 @@ class Track:
         self.user   = user
 
     @classmethod
-    def from_lastfm(cls, lastfm_track: dict, user: SpotifyUser) -> 'Track':
+    def from_lastfm(cls, lastfm_track: LastFMTrack, user: SpotifyUser) -> 'Track':
         """_summary_
 
         Args:

@@ -41,19 +41,6 @@ class Artist:
         except Exception as e:
             raise Exception(f'Could not create artist from musicbrainz for {name}: {e}')
 
-    def _get_tags_from_lastfm_artist(self) -> list[str]:
-        """From an artist, get the lastfm tags.
-
-        Returns:
-            list[str]: list of tags.
-        """
-        assert(self.lastfm_artist)
-
-        tags: dict[str, str] = self.lastfm_artist.get("tags", {}).get("tag", [])
-        tag_names = [tag["name"] for tag in tags if "name" in tag]
-        self.lastfm_tags = tag_names
-        return(self.lastfm_tags)
-
     def _attach_lastfm_artist(self, artist: LastFmArtist) -> LastFmArtist:
         """_summary_
 
@@ -81,48 +68,6 @@ class Artist:
         self.lastfm_tracks = valid_tracks
 
         return(valid_tracks)
-
-    def attach_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
-        """
-        Fetches the top tracks of an artist from Last.fm.
-
-        Args:
-            limit (int, optional): Number of top tracks to retrieve. Defaults to 10.
-
-        Returns:
-            list[dict]: A list of the top tracks.
-        """
-        baseParams = {
-            'method': 'artist.gettoptracks',
-            'format': 'json',
-            'limit': limit
-        }
-
-        tracks = None
-        try:
-            print(f'Attaching top tracks from mbid for {self.name}')
-            data = self.lastfm.get_lastfm_data('mbid', self.mbid, baseParams)
-            tracks = self._attach_top_tracks_lastfm(data)
-            if(tracks):
-                return (tracks)
-            else:
-                print('No tracks found')
-        except Exception:
-            print(f'Couldn\'t attach top tracks from mbid for {self.name}')
-        
-        if (not tracks):
-            try:
-                print(f'Attaching top tracks from name for {self.name}')
-                data = self.lastfm.get_lastfm_data('name', self.name, baseParams)
-                tracks = self._attach_top_tracks_lastfm(data)
-                if(tracks):
-                    return (tracks)
-                else:
-                    print('No tracks found')
-            except Exception:
-                print(f'Couldn\'t attach top tracks from name for {self.name}')
-
-        raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
 
     def attach_artist_lastfm(self) -> LastFmArtist:
         """_summary_
@@ -166,15 +111,47 @@ class Artist:
 
         raise Exception(f'Couldn\'t get lastfm artist for {self.name}')
 
-    def artist_in_lastfm_genre(self, genre: str) -> bool:
-        """_summary_
+    def attach_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
+        """
+        Fetches the top tracks of an artist from Last.fm.
+
+        Args:
+            limit (int, optional): Number of top tracks to retrieve. Defaults to 10.
 
         Returns:
-            bool: _description_
+            list[dict]: A list of the top tracks.
         """
-        if (not hasattr(self, 'lastfm_artist')):
-            self.lastfm_artist = self.attach_artist_lastfm()
-        return(genre in self._get_tags_from_lastfm_artist())
+        baseParams = {
+            'method': 'artist.gettoptracks',
+            'format': 'json',
+            'limit': limit
+        }
+
+        tracks = None
+        try:
+            print(f'Attaching top tracks from mbid for {self.name}')
+            data = self.lastfm.get_lastfm_data('mbid', self.mbid, baseParams)
+            tracks = self._attach_top_tracks_lastfm(data)
+            if(tracks):
+                return (tracks)
+            else:
+                print('No tracks found')
+        except Exception:
+            print(f'Couldn\'t attach top tracks from mbid for {self.name}')
+        
+        if (not tracks):
+            try:
+                print(f'Attaching top tracks from name for {self.name}')
+                data = self.lastfm.get_lastfm_data('name', self.name, baseParams)
+                tracks = self._attach_top_tracks_lastfm(data)
+                if(tracks):
+                    return (tracks)
+                else:
+                    print('No tracks found')
+            except Exception:
+                print(f'Couldn\'t attach top tracks from name for {self.name}')
+
+        raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
 
     def attach_spotify_artist_from_track(self, track: Track) -> SpotifyArtist:
         """_summary_

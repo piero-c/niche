@@ -2,8 +2,8 @@ from dotenv import load_dotenv
 import os
 from enum import Enum
 import time
-import numpy as np
-from scripts.playlist_maker.PlaylistRequest import NicheLevel
+from scripts.playlist_maker.PlaylistRequest import Language
+import pycountry
 
 # Request type for API hits
 RequestType = Enum('RequestTypes', ['LASTFM', 'MUSICBRAINZ', 'SPOTIFY'])
@@ -56,7 +56,6 @@ def load_env() -> dict[str, str]:
         "APPLICATION_CONTACT": os.getenv("APPLICATION_CONTACT"),
     })
 
-# TODO - Make this some kinda publisher observer pattern?
 def sleep(type: RequestType) -> None:
     """Schleep based on request type.
 
@@ -72,80 +71,61 @@ def strcomp(*strings: str) -> bool:
     first = strings[0].lower()
     return all(s.lower() == first for s in strings)
 
-def shuffle_with_percentile_bias_numpy(
-    lst: list[int],
-    percentile: float = 50.0,
-    spread: float = 20.0,
-    random_seed: int = None
-) -> list[int]:
-    """
-    Shuffle a list with a bias towards elements around a specified percentile.
-    
-    Args:
-        lst (List[T]): The ordered list to shuffle.
-        percentile (float, optional): The percentile (0 to 100) around which to center the shuffle bias.
-                                      Defaults to 50.0 (median).
-        spread (float, optional): The standard deviation controlling the spread of the bias.
-                                  Higher values make the bias broader. Defaults to 10.0.
-        random_seed (int, optional): Seed for the random number generator for reproducibility.
-                                     Defaults to None.
-    
-    Raises:
-        ValueError: If `percentile` is not between 0 and 100.
-        ValueError: If `spread` is negative.
-    
-    Returns:
-        List[T]: The shuffled list with bias towards the specified percentile.
-    """
-    if not 0 <= percentile <= 100:
-        raise ValueError("percentile must be between 0 and 100.")
-    if spread < 0:
-        raise ValueError("spread must be non-negative.")
-    
-    n = len(lst)
-    if n == 0:
-        return []
-    if n == 1:
-        return lst.copy()
-    
-    if random_seed is not None:
-        np.random.seed(random_seed)
-    
-    # Calculate the target index based on percentile
-    target_idx = (percentile / 100) * (n - 1)
-    
-    # Compute distances from the target index
-    indices = np.arange(n)
-    distances = np.abs(indices - target_idx)
-    
-    # Assign weights using a Gaussian distribution
-    weights = np.exp(- (distances ** 2) / (2 * spread ** 2))
-    
-    # Normalize weights to sum to 1
-    weights /= weights.sum()
-    
-    # Perform weighted random shuffle using numpy's choice
-    shuffled_indices = np.random.choice(indices, size=n, replace=False, p=weights)
-    
-    # Map shuffled indices to elements
-    shuffled = [lst[i] for i in shuffled_indices]
-    return shuffled
+LANGMAP = {
+    'English': Language.ENGLISH
+}
 
-# TODO - Mess with standard deviation and percentiles - can remove this once we start caching artists that don't fit a certain request
-# TODO - Make sure this is actually working (for current req should be ordered centered around 6200)
-def get_shuffled_offsets(offsets: list[int], niche_level: NicheLevel) -> list[int]:
-    """_summary_
+def convert_language_to_language_enum(language: str) -> Language:
+    if (LANGMAP.get(language, None)):
+        return(LANGMAP.get(language))
+    return(Language.OTHER)
+
+
+def map_language_codes(language_codes: list[str]) -> dict[str, int]:
+    """
+    Maps ISO 639-3 language codes to full language names and counts occurrences.
 
     Args:
-        offsets (list[int]): _description_
-        niche_level (NicheLevel): _description_
+        language_codes: A list of language codes.
 
     Returns:
-        list[int]: _description_
+        A dictionary where keys are language names and values are counts.
     """
-    percentiles = {
-        NicheLevel.VERY: 25,
-        NicheLevel.MODERATELY: 17,
-        NicheLevel.ONLY_KINDA: 10
-    }
-    return shuffle_with_percentile_bias_numpy(offsets, percentiles[niche_level])
+    language_counts: dict[str, int] = {}
+    for code in language_codes:
+        try:
+            language = pycountry.languages.get(alpha_3=code)
+            if language and hasattr(language, 'name'):
+                language_name = language.name
+            else:
+                # Handle special cases or unknown codes
+                language_name = code
+        except KeyError:
+            language_name = code
+
+        as_language_enum = convert_language_to_language_enum(language_name)
+        # Count the occurrence
+        language_counts[as_language_enum] = language_counts.get(as_language_enum, 0) + 1
+    return language_counts
+
+def filter_low_count_entries(dict: dict[str, float], pct_min: float = 0, count_min: float = 0) -> dict[str, float]:
+    if (pct_min and count_min):
+        raise Exception('Enter pct or count not both dumbass')
+    
+    dictCopy = dict.copy()
+
+    filteredKeys = []
+    total = 0
+    if (pct_min):
+        for val in dictCopy.items():
+            total += val
+
+    for key, val in dictCopy.items():
+        if ((pct_min) and (val / total * 100 < pct_min)):
+            filteredKeys.append(key)
+        elif((count_min) and (val < count_min)):
+            filteredKeys.append(key)
+    for key in filteredKeys:
+        del dictCopy[key]
+    
+    return(dictCopy)

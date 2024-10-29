@@ -1,15 +1,15 @@
 # Module for finding the niche songs for a genre
 from scripts.auth_objects.SpotifyUser import SpotifyUser
+from scripts.auth_objects.MusicBrainzRequests import MusicBrainzRequests
 
-from scripts.playlist_maker.PlaylistRequest import PlaylistRequest
+from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language
 from scripts.playlist_maker.Playlist import Playlist, NicheTrack, PlaylistInfo
 from scripts.playlist_maker.Artist import Artist
 
-from scripts.utils.util import load_env, get_shuffled_offsets
+from scripts.utils.util import load_env
 
 from scripts.db.DB import DB
 from scripts.db.ArtistsDAO import ArtistsDAO
-from bson.objectid import ObjectId
 
 import random
 from numpy import mean as mean
@@ -96,9 +96,6 @@ class NicheTrackFinder:
         Returns:
             list[NicheTrack]: A list of niche tracks that align with the playlist request
         """
-        # TODO - Max attempts??
-        # TODO - Pick random num of tracks from artist (edit remaining artists needed and anything w tracks / artist) - get it to go closer to 1 bias ???
-        # TODO - If hit max songs per artist, save the rest of the songs just in case playlist not filled? Or have functionality to expand artist top song count?
         #   Hence looking at all artists for genre, and all of their songs
         niche_tracks           = []
         track_cache            = set()
@@ -113,10 +110,7 @@ class NicheTrackFinder:
         # Using list comprehension with padding
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
 
-        offsets_list = list(range(0, len(artists_sublists)))
-        # TODO - Bias to higher offsets or again start caching artists for not fittinf certain criteria
-        # TODO - Bias to different offsets based on niche level
-        offsets_list = get_shuffled_offsets(offsets_list, self.request.niche_level)
+        offsets_list = random.shuffle(list(range(0, len(artists_sublists))))
 
         for i in range(len(offsets_list)):
             print(f'artists checked: {i * artist_increment_count}')
@@ -164,9 +158,6 @@ class NicheTrackFinder:
                 random.shuffle(top_tracks)
 
                 attached = False
-                # TODO - Change this to try and attach from all top 10 tracks
-                # TODO - Fot this and attach spotify track information and get artist by name and anything else that uses string comp use fuzzy search
-                #  Esp for spotify can just to completely fuzzy search since artist can be wrong because we check followers anyways (or maybe not cuz of genre check, so just song name fuzzy)
                 for top_track in top_tracks:
                     try:
                         # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
@@ -207,6 +198,12 @@ class NicheTrackFinder:
                         print(f"Skipping track '{track.name}' by '{artist.name}' due to song length constraints.")
                         continue
 
+                    mb = MusicBrainzRequests()
+                    # CHECK ARTIST LANGUAGE
+                    if ((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+                        break
+
+                    # TODO
                     # # CHECK YEAR PUBLISHED
                     # if (year_published < self.request.songs_min_year_created):
                     #     print(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")

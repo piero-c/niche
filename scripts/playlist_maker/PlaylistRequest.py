@@ -1,14 +1,12 @@
 from enum import Enum
 
 # Enumerations for request
-Language       = Enum('Language', ['ANY', 'ENGLISH_ONLY'])
+Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])
 NicheLevel     = Enum('NicheLevel', ['VERY', 'MODERATELY', 'ONLY_KINDA'])
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
 # All values go up by multiples of 3, except spotify followers min
-# TODO - and edit request to change to somethind else (and length of playlist? idk maybe just set restrictions on the params based on certain stuff)
-# TODO - Then go to track fuzzy search
 niche_level_map = {
     NicheLevel.VERY: {
         "lastfm_listeners_min" : 1_000,

@@ -59,11 +59,11 @@ def get_top_matching_track(track_name: str, artist_name: str, tracks: list[Spoti
 
         # Iterate through the search results to find the best fuzzy match
         for track in tracks:
-            name = track.get('name', '').lower()
+            name   = track.get('name', '').lower()
             artist = track.get('artists', [{}])[0].get('name', '').lower()
 
             # Compute similarity scores for track name and artist
-            name_score = fuzz.ratio(track_name.lower(), name)
+            name_score   = fuzz.ratio(track_name.lower(), name)
             artist_score = fuzz.ratio(artist_name.lower(), artist)
 
             # Calculate an overall score
@@ -72,7 +72,7 @@ def get_top_matching_track(track_name: str, artist_name: str, tracks: list[Spoti
             # Update the best match if this track has a higher score
             if overall_score > highest_score:
                 highest_score = overall_score
-                best_match = track
+                best_match    = track
 
         if best_match and highest_score >= threshold:
             return(best_match)

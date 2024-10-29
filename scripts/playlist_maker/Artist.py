@@ -1,14 +1,9 @@
 from scripts.playlist_maker.Track import Track
-from scripts.playlist_maker.PlaylistRequest import Language
 from scripts.utils.util import strcomp
 from scripts.utils.spotify_util import SpotifyArtist
 from scripts.auth_objects.LastFMRequests import LastFmArtist, LastFMRequests
 from scripts.auth_objects.SpotifyUser import SpotifyUser
 from scripts.utils.musicbrainz_util import MusicBrainzArtist
-
-# TODO loop get artist by spotify track (have limit) 
-# TODO - Smart adjustment based on follower count being too high or low for offsets (or lastfm too high or low playcount and listeners)
-# TODO - Fix bug where idk but we had cradle by doe then when I pray by DOE (different artists - probably spotify fuzzy search) (see line 279)
 
 class Artist:
     """_summary_
@@ -42,7 +37,6 @@ class Artist:
             name = musicbrainz_artist_object.get('name', "")
             mbid = musicbrainz_artist_object.get('id', "")
             artist = cls(name, mbid, user)
-            ## TODO - check language
             return artist
         except Exception as e:
             raise Exception(f'Could not create artist from musicbrainz for {name}: {e}')
@@ -113,7 +107,7 @@ class Artist:
                 return (tracks)
             else:
                 print('No tracks found')
-        except Exception as e:
+        except Exception:
             print(f'Couldn\'t attach top tracks from mbid for {self.name}')
         
         if (not tracks):
@@ -125,7 +119,7 @@ class Artist:
                     return (tracks)
                 else:
                     print('No tracks found')
-            except Exception as e:
+            except Exception:
                 print(f'Couldn\'t attach top tracks from name for {self.name}')
 
         raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
@@ -154,7 +148,7 @@ class Artist:
                 return(lastfm_artist)
             else:
                 print('Artist not found')
-        except Exception as e:
+        except Exception:
             print(f'Couldn\'t get lastfm artist by mbid {self.mbid}')
 
         if (not lastfm_artist):
@@ -167,22 +161,10 @@ class Artist:
                     return(lastfm_artist)
                 else:
                     print('Artist not found')
-            except Exception as e:
+            except Exception:
                 print(f'Couldn\'t get lastfm artist by name {self.name}')
 
         raise Exception(f'Couldn\'t get lastfm artist for {self.name}')
-
-    def get_artist_language(musicbrainz_artist_object: MusicBrainzArtist) -> Language:
-        """Return the language of the artist.
-
-        Args:
-            musicbrainz_artist_object (MusicBrainzArtist): MusicBrainz artist object.
-
-        Returns:
-            Language: The artist's language.
-        """
-        # TODO
-        pass
 
     def artist_in_lastfm_genre(self, genre: str) -> bool:
         """_summary_

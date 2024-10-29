@@ -1,12 +1,9 @@
-from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from scripts.utils.util import merge_dicts_with_weight
 import spotipy
 from spotipy import SpotifyOAuth
-from scripts.utils.util import load_env, sleep, RequestType
+from scripts.utils.util import load_env, sleep, RequestType, filter_low_count_entries
 from typing import Optional, Type, ClassVar
-from scripts.utils.spotify_util import get_top_matching_track, SpotifyArtist, SpotifyTrack
-
-GENRE_INTEREST_COUNT_CUTOFF  = 2
 
 class SpotifyUser:
     _instance: ClassVar[Optional['SpotifyUser']] = None
@@ -153,14 +150,5 @@ class SpotifyUser:
         # Merge genres with appropriate weights
         genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])
 
-        barely_enjoyed_genres = []
-
-        # Remove genres with a weight < 2
-        for key, val in genre_dict.items():
-            if val < GENRE_INTEREST_COUNT_CUTOFF:
-                barely_enjoyed_genres.append(key)
-        for genre in barely_enjoyed_genres:
-            del genre_dict[genre]
-
         # Return the genre dictionary
-        return genre_dict
+        return(filter_low_count_entries(genre_dict, count=2))

@@ -128,6 +128,7 @@ def map_language_codes(language_codes: list[str]) -> dict[Language, int]:
         as_language_enum = convert_language_to_language_enum(language_name)
         # Count the occurrence
         language_counts[as_language_enum] = language_counts.get(as_language_enum, 0) + 1
+    
     return(language_counts)
 
 def filter_low_count_entries(dic: dict[any, float], pct_min: float = 0, count_min: float = 0) -> dict[any, float]:
@@ -151,7 +152,7 @@ def filter_low_count_entries(dic: dict[any, float], pct_min: float = 0, count_mi
     total = 0
     # Calc total
     if(pct_min):
-        for val in dictCopy.items():
+        for val in dictCopy.values():
             total += val
 
     for key, val in dictCopy.items():

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256" enable-background="new 0 0 256 256" xml:space="preserve">
+  <defs>
+  <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#00ccef" />
+    <stop offset="14%" stop-color="#00c1ff" />
+    <stop offset="28%" stop-color="#43b4ff" />
+    <stop offset="42%" stop-color="#78a2ff" />
+    <stop offset="56%" stop-color="#a78cff" />
+    <stop offset="70%" stop-color="#ce71eb" />
+    <stop offset="84%" stop-color="#ea51c5" />
+    <stop offset="100%" stop-color="#fa2b96" />
+  </linearGradient>
+  </defs>
+<metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+<g><g><g><path fill="url(#grad2)" d="M225.5,10.7c-1.6,0.3-24.2,5.2-50.1,10.8C99,38,89.8,40,87.9,41.1c-3.6,2-3.4-3.2-3.4,70.7c0,36.6-0.1,66.5-0.2,66.5c-0.1,0-1.8-0.5-3.8-1.2c-14.9-5-32.7-0.4-45.6,11.7c-17.3,16.2-18,40.2-1.6,51.4c21.5,14.5,56.3,0.4,65.5-26.5l1.3-4l0.2-68.3c0.1-37.5,0.3-68.4,0.5-68.5c0.6-0.5,116.5-24.7,117.3-24.4c0.7,0.3,0.8,4.5,0.8,49.2c0,26.9-0.1,48.9-0.2,48.9c-0.1,0-1.8-0.5-3.8-1.2c-14.9-5-32.7-0.4-45.6,11.7c-17.3,16.2-18,40.2-1.6,51.4c15.7,10.6,40,6.3,55.5-10c5.7-6,9.3-12.7,10.8-20c0.7-3.5,0.7-12.4,0.6-85.1l-0.1-81.2l-1.4-1.2C231.4,9.8,230,9.7,225.5,10.7z"/></g></g></g>
+</svg>

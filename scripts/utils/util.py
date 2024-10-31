@@ -28,11 +28,12 @@ def merge_dicts_with_weight(dicts: list[dict[any, int|float]], weights: list[int
     """
     assert(len(dicts) == len(weights))
     merged_dict = {}
+    # Do the thing
     for (d, weight) in zip(dicts, weights):
         for key, value in d.items():
             merged_dict[key] = merged_dict.get(key, 0) + value * weight
     
-    return merged_dict
+    return(merged_dict)
 
 def load_env() -> dict[str, str]:
     """Load environment.
@@ -57,7 +58,7 @@ def load_env() -> dict[str, str]:
     })
 
 def sleep(type: RequestType) -> None:
-    """Schleep based on request type.
+    """Schleep based on request type. So no get IP banned.
 
     Args:
         type (RequestType): The type of API request.
@@ -65,22 +66,44 @@ def sleep(type: RequestType) -> None:
     time.sleep(API_SLEEP_LENGTHS[type])
 
 def convert_ms_to_s(ms: int) -> int:
-    return ms // 1000
+    """Convert ms to s
+
+    Args:
+        ms (int): ms
+
+    Returns:
+        int: s
+    """
+    return(ms // 1000)
 
 def strcomp(*strings: str) -> bool:
-    first = strings[0].lower()
-    return all(s.lower() == first for s in strings)
+    """Return true if all strings are equal case-insensitive
 
+    Returns:
+        bool: Are they equal?
+    """
+    first = strings[0].lower()
+    return(all(s.lower() == first for s in strings))
+
+# English is the only language rahhhh
 LANGMAP = {
     'English': Language.ENGLISH
 }
 
 def convert_language_to_language_enum(language: str) -> Language:
-    if (LANGMAP.get(language, None)):
+    """Convert language str to Language enum class
+
+    Args:
+        language (str): language str
+
+    Returns:
+        Language: Language enum class
+    """
+    if(LANGMAP.get(language, None)):
         return(LANGMAP.get(language))
     return(Language.OTHER)
 
-def map_language_codes(language_codes: list[str]) -> dict[str, int]:
+def map_language_codes(language_codes: list[str]) -> dict[Language, int]:
     """
     Maps ISO 639-3 language codes to full language names and counts occurrences.
 
@@ -105,25 +128,38 @@ def map_language_codes(language_codes: list[str]) -> dict[str, int]:
         as_language_enum = convert_language_to_language_enum(language_name)
         # Count the occurrence
         language_counts[as_language_enum] = language_counts.get(as_language_enum, 0) + 1
-    return language_counts
+    return(language_counts)
 
-def filter_low_count_entries(dict: dict[str, float], pct_min: float = 0, count_min: float = 0) -> dict[str, float]:
-    if (pct_min and count_min):
-        raise Exception('Enter pct or count not both dumbass')
+def filter_low_count_entries(dic: dict[any, float], pct_min: float = 0, count_min: float = 0) -> dict[any, float]:
+    """Filter low values from a dict
+
+    Args:
+        dic (dict[str, float]): The dict to filter
+        pct_min (float, optional): The percent of the sum of all values each value must be over or equal to. Defaults to 0.
+        count_min (float, optional): The count that values each value must be over or equal to. Defaults to 0.
+
+    Returns:
+        dict[str, float]: The filtered dict
+    """
+    assert(not (pct_min and count_min))
+    # No count min minimum cuz it makes sense
+    assert(pct_min > 0)
     
-    dictCopy = dict.copy()
+    dictCopy = dic.copy()
 
     filteredKeys = []
     total = 0
-    if (pct_min):
+    # Calc total
+    if(pct_min):
         for val in dictCopy.items():
             total += val
 
     for key, val in dictCopy.items():
-        if ((pct_min) and (val / total * 100 < pct_min)):
+        if((pct_min) and (val / total * 100 < pct_min)):
             filteredKeys.append(key)
         elif((count_min) and (val < count_min)):
             filteredKeys.append(key)
+    # Delete the key if the value is of a low count
     for key in filteredKeys:
         del dictCopy[key]
     

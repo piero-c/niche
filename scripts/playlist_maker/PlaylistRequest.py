@@ -38,21 +38,34 @@ class PlaylistRequest:
     """Playlist Request
 
     Attributes:
-        TODO
+        songs_min_year_created
+        songs_length_min_secs 
+        songs_length_max_secs 
+        language              
+        genre  
+        lastfm_listeners_max 
+        lastfm_listeners_min 
+        lastfm_playcount_max 
+        lastfm_playcount_min 
+        spotify_followers_max
+        spotify_followers_min               
+        niche_level
+        lastfm_likeness_min 
+        playlist_length     
+        max_songs_per_artist
     """
     def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
         """_summary_
 
         Args:
-            songs_min_year_created (int): _description_
-            language (Language): _description_
-            playlist_length (PlaylistLength): _description_
-            niche_level (NicheLevel): _description_
-            songs_length_min_secs (int): _description_
-            songs_length_max_secs (int): _description_
-            max_songs_per_artist (int): _description_
-            genre (str): _description_
+            songs_min_year_created (int): Min year for the songs to be created in
+            language (Language)         : Language for the songs to be in
+            niche_level (NicheLevel)    : Level of nicheness
+            songs_length_min_secs (int) : Min length of given song
+            songs_length_max_secs (int) : Max length of given song
+            max_songs_per_artist (int)  : Max number of songs per artist
+            genre (str)                 : requested genre
         """
         self.songs_min_year_created = songs_min_year_created
         self.songs_length_min_secs  = songs_length_min_secs
@@ -61,6 +74,7 @@ class PlaylistRequest:
         self.genre                  = genre
         self.niche_level            = niche_level
 
+        # Based on the niche level set mins and maxes
         self.lastfm_listeners_max  = niche_level_map[niche_level]["lastfm_listeners_max"]
         self.lastfm_listeners_min  = niche_level_map[niche_level]["lastfm_listeners_min"]
         self.lastfm_playcount_max  = niche_level_map[niche_level]["lastfm_playcount_max"]

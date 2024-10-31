@@ -6,49 +6,69 @@ from scripts.auth_objects.SpotifyUser import SpotifyUser
 from scripts.utils.musicbrainz_util import MusicBrainzArtist
 
 class Artist:
-    """_summary_
+    """Representing an artist, at a high level
+
+    Attributes:
+        name
+        mbid
+        user: Spotify Authenticated User
+        lastfm: LastFM requests obj
+        lastfm_artist: Artist as returned by lastfm
+            Requires call: attach_artist_lastfm
+        lastfm_artist_playcount: Artist playcount from lastfm
+            Requires call: attach_artist_lastfm
+        lastfm_artist_listeners: Artist listeners from lastfm
+            Requires call: attach_artist_lastfm
+        lastfm_artist_likeness: Calculated likeness based on lastfm playcount and listeners
+            Requires call: attach_artist_lastfm
+        lastfm_tracks: list of Track objects based on the artists top lastfm tracks
+            Requires call: get_artist_top_tracks_lastfm
+        spotify_artist_id
+            Requires call: attach_spotify_artist_from_track
+        spotify_artist: artist object as returned by spotify
+            Requires call: attach_spotify_artist_from_track
+        spotify_followers
+            Requires call: attach_spotify_artist_from_track
+        lastfm_tags
+            Requires call: artist_in_lastfm_genre
     """
     def __init__(self, name: str, mbid: str, user: SpotifyUser) -> None:
-        """_summary_
+        """Initialize the artist
 
         Args:
-            name (str): _description_
-            mbid (str): _description_
+            name (str): Artist name
+            mbid (str): Artist MBID
+            user (SpotifyUser): Spotify Authenticated User
         """
-        self.name             = name
-        self.mbid             = mbid
-        self.user             = user
-        self.lastfm           = LastFMRequests()
+        self.name   = name
+        self.mbid   = mbid
+        self.user   = user
+        self.lastfm = LastFMRequests()
 
     @classmethod
     def from_musicbrainz(cls, musicbrainz_artist_object: MusicBrainzArtist, user: SpotifyUser) -> 'Artist':
-        """_summary_
+        """Create artist from musicbrainz artist object
 
         Args:
-            musicbrainz_artist_object (MusicBrainzArtist): _description_
+            musicbrainz_artist_object (MusicBrainzArtist): Artist object as returned by musicbrainz
+            user (SpotifyUser): Spotify Authenticated user
 
         Raises:
-            Exception: _description_
+            Exception: If the musicbrainz artist is missing name or mbid or user invalid
 
         Returns:
-            Artist: _description_
+            Artist: The artist
         """
         try:
             name = musicbrainz_artist_object.get('name', "")
             mbid = musicbrainz_artist_object.get('id', "")
             artist = cls(name, mbid, user)
-            return artist
+            return(artist)
         except Exception as e:
             raise Exception(f'Could not create artist from musicbrainz for {name}: {e}')
 
     def _attach_lastfm_artist(self, artist: LastFmArtist) -> LastFmArtist:
-        """_summary_
-
-        Args:
-            artist (LastFmArtist): _description_
-
-        Returns:
-            LastFmArtist: _description_
+        """Helper for attach lastfm artist
         """
         self.lastfm_artist           = artist.get('artist', None)
         self.lastfm_artist_playcount = int(self.lastfm_artist.get('stats', {}).get('playcount', 0))
@@ -57,6 +77,8 @@ class Artist:
         return(self.lastfm_artist)
 
     def _attach_top_tracks_lastfm(self, tracks: dict) -> list[Track]:
+        """Helper for attach lastfm top tracks
+        """
         tracks = tracks.get('toptracks', {}).get('track', [])
         valid_tracks = []
         for track in tracks:
@@ -69,14 +91,24 @@ class Artist:
 
         return(valid_tracks)
 
+    def _get_tags_from_lastfm_artist(self) -> list[str]:
+        """Helper for artist in genre
+        """
+        assert(self.lastfm_artist)
+
+        tags: dict[str, str] = self.lastfm_artist.get("tags", {}).get("tag", [])
+        tag_names = [tag["name"] for tag in tags if "name" in tag]
+        self.lastfm_tags = tag_names
+        return(self.lastfm_tags)
+
     def attach_artist_lastfm(self) -> LastFmArtist:
-        """_summary_
+        """Attach the lastfm artist to the object, along with additional attributes
 
         Raises:
-            Exception: _description_
+            Exception: If search by name or mbid doesn't work
 
         Returns:
-            LastFmArtist: _description_
+            LastFmArtist: The artist object as returned by lastfm
         """
         baseParams = {
             "method": "artist.getInfo",
@@ -87,22 +119,22 @@ class Artist:
         # Try with musicbrainz id
         try:
             print(f'Searching for lastfm artist by mbid {self.mbid}')
-            artist = self.lastfm.get_lastfm_data('mbid', self.mbid, baseParams)
+            artist = self.lastfm.get_lastfm_artist_data(baseParams, mbid=self.mbid)
             lastfm_artist = self._attach_lastfm_artist(artist)
-            if (lastfm_artist):
+            if(lastfm_artist):
                 return(lastfm_artist)
             else:
                 print('Artist not found')
         except Exception:
             print(f'Couldn\'t get lastfm artist by mbid {self.mbid}')
 
-        if (not lastfm_artist):
+        if(not lastfm_artist):
             # Fallback to artist name
             try:
                 print(f'Searching for lastfm artist by name {self.name}')
-                artist = self.lastfm.get_lastfm_data('name', self.name, baseParams)
+                artist = self.lastfm.get_lastfm_artist_data(baseParams, name = self.name)
                 lastfm_artist = self._attach_lastfm_artist(artist)
-                if (lastfm_artist):
+                if(lastfm_artist):
                     return(lastfm_artist)
                 else:
                     print('Artist not found')
@@ -111,7 +143,17 @@ class Artist:
 
         raise Exception(f'Couldn\'t get lastfm artist for {self.name}')
 
-    def attach_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
+    def artist_in_lastfm_genre(self, genre: str) -> bool:
+        """Check if the artist lastfm object is in the genre
+
+        Returns:
+            bool: Is it?
+        """
+        if (not hasattr(self, 'lastfm_artist')):
+            self.lastfm_artist = self.attach_artist_lastfm()
+        return(genre in self._get_tags_from_lastfm_artist())
+
+    def get_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
         """
         Fetches the top tracks of an artist from Last.fm.
 
@@ -119,7 +161,7 @@ class Artist:
             limit (int, optional): Number of top tracks to retrieve. Defaults to 10.
 
         Returns:
-            list[dict]: A list of the top tracks.
+            list[Track]: A list of the top tracks.
         """
         baseParams = {
             'method': 'artist.gettoptracks',
@@ -130,22 +172,22 @@ class Artist:
         tracks = None
         try:
             print(f'Attaching top tracks from mbid for {self.name}')
-            data = self.lastfm.get_lastfm_data('mbid', self.mbid, baseParams)
+            data = self.lastfm.get_lastfm_artist_data(baseParams, mbid = self.mbid)
             tracks = self._attach_top_tracks_lastfm(data)
             if(tracks):
-                return (tracks)
+                return(tracks)
             else:
                 print('No tracks found')
         except Exception:
             print(f'Couldn\'t attach top tracks from mbid for {self.name}')
         
-        if (not tracks):
+        if(not tracks):
             try:
                 print(f'Attaching top tracks from name for {self.name}')
-                data = self.lastfm.get_lastfm_data('name', self.name, baseParams)
+                data = self.lastfm.get_lastfm_artist_data(baseParams, name = self.name)
                 tracks = self._attach_top_tracks_lastfm(data)
                 if(tracks):
-                    return (tracks)
+                    return(tracks)
                 else:
                     print('No tracks found')
             except Exception:
@@ -154,18 +196,18 @@ class Artist:
         raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
 
     def attach_spotify_artist_from_track(self, track: Track) -> SpotifyArtist:
-        """_summary_
+        """Attach a spotify artist object from a Track object
 
         Args:
-            track (Track): _description_
+            track (Track): Track
 
         Raises:
-            Exception: _description_
-            Exception: _description_
-            Exception: _description_
+            Exception: Track not by artist (name)
+            Exception: Track not by artist (spotify ID)
+            Exception: Something else
 
         Returns:
-            SpotifyArtist: _description_
+            SpotifyArtist: The artist object, as returned by spotify
         """
         if(getattr(self, 'spotify_artist', None)):
             print(f'Artist {self.name} has associated spotify artist')
@@ -181,18 +223,17 @@ class Artist:
 
             # Extract the artist ID from the Spotify track
             for spotify_artist in spotify_track['artists']:
-                if (strcomp(spotify_artist['name'], track.artist)):
+                if(strcomp(spotify_artist['name'], track.artist)):
                     self.spotify_artist_id = spotify_artist['id']
                     break
             
-            if ((not hasattr(self, 'spotify_artist_id')) or (not track.artist_id_in_spotify_track(self.spotify_artist_id))):
+            if((not hasattr(self, 'spotify_artist_id')) or (not track.artist_id_in_spotify_track(self.spotify_artist_id))):
                 raise Exception(f'Could not find artist {self.name} ({self.spotify_artist_id}) in track {track.name}')
             
             print(f"Spotify Artist ID: {self.spotify_artist_id}")
 
-            spotify_artist = self.user.get_spotify_artist_by_id(self.spotify_artist_id)
-
-            self.spotify_artist = spotify_artist
+            spotify_artist         = self.user.get_spotify_artist_by_id(self.spotify_artist_id)
+            self.spotify_artist    = spotify_artist
             self.spotify_followers = int(spotify_artist.get('followers', {}).get('total', 0))
 
             print(f"Retrieved Spotify Artist: {spotify_artist['name']} (ID: {spotify_artist['id']})")

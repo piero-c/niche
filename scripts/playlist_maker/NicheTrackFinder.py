@@ -23,13 +23,16 @@ class NicheTrackFinder:
     """Niche Track Finder
         
     Attributes:
-        TODO
+        request
+        user
+        artistsDAO
     """
     def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
-        """_summary_
+        """Initialize the finder
 
         Args:
-            request (PlaylistRequest): _description_
+            request (PlaylistRequest): The playlist request
+            user (SpotifyUser): Spotify Authenticated User
         """
         self.request         = request
         self.user            = user
@@ -39,6 +42,8 @@ class NicheTrackFinder:
 
 
     def _fetch_artists_from_musicbrainz(self) -> list[Artist]:
+        """Get artists from musicbrainz in the requested genre
+        """
         try:
             artist_list = []
             artists = self.artistsDAO.get_artists_in_genre(self.request.genre)
@@ -54,18 +59,12 @@ class NicheTrackFinder:
             return([])
 
     def _artist_listeners_and_plays_valid(self, artist: Artist) -> bool:
-        """_summary_
-
-        Args:
-            artist (Artist): _description_
-
-        Returns:
-            bool: _description_
+        """Valid according to request for nicheness level
         """
         listeners = artist.lastfm_artist_listeners
         playcount = artist.lastfm_artist_playcount
 
-        if ((not (listeners and playcount)) or
+        if((not (listeners and playcount)) or
             ((listeners > self.request.lastfm_listeners_max) and (playcount > self.request.lastfm_playcount_max)) or
             ((listeners < self.request.lastfm_listeners_min) or (playcount < self.request.lastfm_playcount_min)) or
             (artist.lastfm_artist_likeness < self.request.lastfm_likeness_min)):
@@ -74,31 +73,17 @@ class NicheTrackFinder:
 
         return(True)
 
-    def _filter_artists(self, artists: list[Artist]) -> list[Artist]:
-        """Filter artists level 1 - Check listeners, plays, genre
-
-        Args:
-            artists (list[Artist]): _description_
-
-        Returns:
-            list[Artist]: _description_
-        """
-        return([
-            artist for artist in artists if (
-                (self._artist_listeners_and_plays_valid(artist))
-            )
-        ])
-
     def _find_niche_tracks(self) -> list[NicheTrack]:
-        """Get a list of niche tracks based on self's attributes
+        """Make the playlist
+
+        Raises:
+            Exception: Not enough songs could be added
 
         Returns:
-            list[NicheTrack]: A list of niche tracks that align with the playlist request
+            list[NicheTrack]: List of niche tracks
         """
-        #   Hence looking at all artists for genre, and all of their songs
-        niche_tracks           = []
-        track_cache            = set()
-        artist_song_count      = {}  # Dictionary to track number of songs per artist
+        niche_tracks      = []
+        artist_song_count = {}  # Dictionary to track number of songs per artist
 
         desired_song_count   = self.request.playlist_length
         max_songs_per_artist = self.request.max_songs_per_artist
@@ -106,18 +91,19 @@ class NicheTrackFinder:
         artist_increment_count = 25
 
         artists_list = self._fetch_artists_from_musicbrainz()
-        # Using list comprehension with padding
+        # Using list comprehension with padding to split into groups of 25
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
 
+        # Generate random offsets of artists to search
         offsets_list = random.shuffle(list(range(0, len(artists_sublists))))
 
         for i in range(len(offsets_list)):
-            print(f'artists checked: {i * artist_increment_count}')
-            if (len(niche_tracks) >= desired_song_count):
+            if(len(niche_tracks) >= desired_song_count):
                 break
+            print(f'artists checked: {i * artist_increment_count}')
 
             random_offset = offsets_list[i]
-            artists = artists_sublists[random_offset]
+            artists: list[Artist] = artists_sublists[random_offset]
 
             print(f'Checking offset {random_offset} of {len(offsets_list)}')
 
@@ -131,10 +117,13 @@ class NicheTrackFinder:
                 except Exception as e:
                     print(e)
 
-            # for artist in artists:
-            #     print(artist['tag_list'])
-            #     print(self._get_tags_from_lastfm_artist(artist = artist))
-            valid_artists = self._filter_artists(valid_artists)
+            valid_artists = [
+                artist for artist in artists if(
+                    (self._artist_listeners_and_plays_valid(artist)) and
+                    # This is mostly to ensure that if we attached artist by name, it is the artist we were looking for
+                    (artist.artist_in_lastfm_genre(self.request.genre))
+                )
+            ]
 
             # Shuffle artists
             random.shuffle(valid_artists)
@@ -143,9 +132,10 @@ class NicheTrackFinder:
                 if(len(niche_tracks) >= desired_song_count):
                     break
 
+                top_tracks = None
                 try:
                     # Get artist's top tracks from lastfm
-                    top_tracks = artist.attach_artist_top_tracks_lastfm()
+                    top_tracks = artist.get_artist_top_tracks_lastfm()
                 except Exception as e:
                     print(e)
                     continue
@@ -157,9 +147,9 @@ class NicheTrackFinder:
                 random.shuffle(top_tracks)
 
                 attached = False
+                # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
                 for top_track in top_tracks:
                     try:
-                        # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
                         artist.attach_spotify_artist_from_track(top_track)
                         print(f'Attached spotify artist {artist.name} from lastfm top track')
                         attached = True
@@ -168,7 +158,7 @@ class NicheTrackFinder:
                         print(e)
                         break
 
-                if (not attached):
+                if(not attached):
                     break
 
                 for track in top_tracks:
@@ -187,24 +177,20 @@ class NicheTrackFinder:
                         print(e)
                         continue
 
-                    track_key = f"{artist.name}-{track.name}"
-                    if(track_key in track_cache):
-                        continue
-                    track_cache.add(track_key)
-
                     # CHECK DURATION
-                    if ((track.track_length_seconds < self.request.songs_length_min_secs) or (track.track_length_seconds > self.request.songs_length_max_secs)):
+                    if((track.track_length_seconds < self.request.songs_length_min_secs) or (track.track_length_seconds > self.request.songs_length_max_secs)):
                         print(f"Skipping track '{track.name}' by '{artist.name}' due to song length constraints.")
                         continue
 
                     mb = MusicBrainzRequests()
                     # CHECK ARTIST LANGUAGE
-                    if ((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+                    if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+                        print(f"Artist does not sing in {self.request.language}")
                         break
 
                     # TODO
                     # # CHECK YEAR PUBLISHED
-                    # if (year_published < self.request.songs_min_year_created):
+                    # if(year_published < self.request.songs_min_year_created):
                     #     print(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
                     #     continue
 
@@ -224,16 +210,16 @@ class NicheTrackFinder:
                     print(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
 
 
-        if (len(niche_tracks) >= desired_song_count):
+        if(len(niche_tracks) >= desired_song_count):
             return(niche_tracks)
         else:
             raise Exception('Couldn\'t find enough songs')
 
     def _get_playlist_info(self) -> PlaylistInfo:
-        """Generate playlist info based on self.
+        """Get the info for the playlist
 
         Returns:
-            PlaylistInfo: Playlist info.
+            PlaylistInfo: the info
         """
         # TODO - Make the names unique based on the user? Like indie whatever 1
         return({
@@ -242,10 +228,10 @@ class NicheTrackFinder:
         })
 
     def create_playlist(self) -> Playlist:
-        """Create and return a playlist for the user based on self.
+        """Create the playlist of niche songs based on the request
 
         Returns:
-            Playlist: The playlist.
+            Playlist: The playlist
         """
         tracks = self._find_niche_tracks()
         playlist_info = self._get_playlist_info()

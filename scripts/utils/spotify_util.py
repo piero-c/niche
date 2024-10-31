@@ -50,29 +50,45 @@ def get_artist_ids_from_tracks(tracks: list[SpotifyTrack]) -> set[SpotifyArtistI
             artist_ids.add(artist['id'])
     return(artist_ids)
 
-def get_top_matching_track(track_name: str, artist_name: str, tracks: list[SpotifyTrack], threshold: int) -> str:
-        # Initialize variables to track the best match
-        best_match = None
-        highest_score = 0
+def get_top_matching_track(track_name: str, artist_name: str, tracks: list[SpotifyTrack], threshold: int) -> SpotifyTrack:
+    """Via fuzzy search get top matching track given a list of tracks
 
-        # Iterate through the search results to find the best fuzzy match
-        for track in tracks:
-            name   = track.get('name', '').lower()
-            artist = track.get('artists', [{}])[0].get('name', '').lower()
+    Args:
+        track_name (str): track name
+        artist_name (str): artist name
+        tracks (list[SpotifyTrack]): tracks to check
+        threshold (int): threshold for matching
 
-            # Compute similarity scores for track name and artist
-            name_score   = fuzz.ratio(track_name.lower(), name)
-            artist_score = fuzz.ratio(artist_name.lower(), artist)
+    Raises:
+        Exception: Highest score below threshold
 
-            # Calculate an overall score
-            overall_score = (name_score * 0.3) + (artist_score * 0.7)
+    Returns:
+        SpotifyTrack: The top matching track
+    """
+    assert(threshold > 0 and threshold <= 100)
+    assert(len(tracks) > 0)
+    # Initialize variables to track the best match
+    best_match = None
+    highest_score = 0
 
-            # Update the best match if this track has a higher score
-            if overall_score > highest_score:
-                highest_score = overall_score
-                best_match    = track
+    # Iterate through the search results to find the best fuzzy match
+    for track in tracks:
+        name   = track.get('name', '').lower()
+        artist = track.get('artists', [{}])[0].get('name', '').lower()
 
-        if best_match and highest_score >= threshold:
-            return(best_match)
-        else:
-            raise Exception(f"No suitable Spotify track found for '{track_name}' by '{artist_name}'.")
+        # Compute similarity scores for track name and artist
+        name_score   = fuzz.ratio(track_name.lower(), name)
+        artist_score = fuzz.ratio(artist_name.lower(), artist)
+
+        # Calculate an overall score
+        overall_score = (name_score * 0.3) + (artist_score * 0.7)
+
+        # Update the best match if this track has a higher score
+        if(overall_score > highest_score):
+            highest_score = overall_score
+            best_match    = track
+
+    if(best_match and highest_score >= threshold):
+        return(best_match)
+    else:
+        raise Exception(f"No suitable Spotify track found for '{track_name}' by '{artist_name}'.")

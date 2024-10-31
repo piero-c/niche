@@ -2,8 +2,22 @@ from dotenv import load_dotenv
 import os
 from enum import Enum
 import time
-from scripts.playlist_maker.PlaylistRequest import Language
 import pycountry
+
+# Enumerations for request
+Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])
+LANGMAP = {
+    'English': Language.ENGLISH,
+    'Any'    : Language.ANY,
+    'Other'  : Language.OTHER
+}
+
+NicheLevel     = Enum('NicheLevel', ['VERY', 'MODERATELY', 'ONLY_KINDA'])
+NICHEMAP = {
+    'Very'      : NicheLevel.VERY,
+    'Moderately': NicheLevel.MODERATELY,
+    'Only Kinda': NicheLevel.ONLY_KINDA
+}
 
 # Request type for API hits
 RequestType = Enum('RequestTypes', ['LASTFM', 'MUSICBRAINZ', 'SPOTIFY'])
@@ -84,11 +98,6 @@ def strcomp(*strings: str) -> bool:
     """
     first = strings[0].lower()
     return(all(s.lower() == first for s in strings))
-
-# English is the only language rahhhh
-LANGMAP = {
-    'English': Language.ENGLISH
-}
 
 def convert_language_to_language_enum(language: str) -> Language:
     """Convert language str to Language enum class

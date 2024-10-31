@@ -84,10 +84,8 @@ class NicheTrackFinder:
             list[NicheTrack]: List of niche tracks
         """
         niche_tracks      = []
-        artist_song_count = {}  # Dictionary to track number of songs per artist
 
         desired_song_count   = self.request.playlist_length
-        max_songs_per_artist = self.request.max_songs_per_artist
 
         artist_increment_count = 25
 
@@ -165,8 +163,7 @@ class NicheTrackFinder:
 
                 for track in top_tracks:
                     # Check if artist already has max allowed songs or more or less than allowed followers
-                    if((artist_song_count.get(artist.name, 0) >= max_songs_per_artist) or 
-                       (len(niche_tracks) >= desired_song_count) or
+                    if((len(niche_tracks) >= desired_song_count) or
                        (artist.spotify_followers > self.request.spotify_followers_max) or
                        (artist.spotify_followers < self.request.spotify_followers_min)):
                         logger.warning(f'Artist {artist.name} followers ({artist.spotify_followers}) invalid OR has too many songs OR song count has been reached')
@@ -206,7 +203,6 @@ class NicheTrackFinder:
                         'spotify_url': track.spotify_url,
                     }
                     niche_tracks.append(niche_track)
-                    artist_song_count[artist.name] = artist_song_count.get(artist.name, 0) + 1
                     logger.info(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                     logger.info(f"TRACKS ADDED: {len(niche_tracks)}")
                     logger.info(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")

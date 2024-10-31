@@ -1,8 +1,4 @@
-from enum import Enum
-
-# Enumerations for request
-Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])
-NicheLevel     = Enum('NicheLevel', ['VERY', 'MODERATELY', 'ONLY_KINDA'])
+from scripts.utils.util import Language, NicheLevel
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
@@ -52,7 +48,6 @@ class PlaylistRequest:
         niche_level
         lastfm_likeness_min 
         playlist_length     
-        max_songs_per_artist
     """
     def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
@@ -64,7 +59,6 @@ class PlaylistRequest:
             niche_level (NicheLevel)    : Level of nicheness
             songs_length_min_secs (int) : Min length of given song
             songs_length_max_secs (int) : Max length of given song
-            max_songs_per_artist (int)  : Max number of songs per artist
             genre (str)                 : requested genre
         """
         self.songs_min_year_created = songs_min_year_created
@@ -85,4 +79,3 @@ class PlaylistRequest:
         # Hardcoded vals
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
-        self.max_songs_per_artist = 1

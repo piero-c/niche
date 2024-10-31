@@ -16,7 +16,7 @@ class MusicBrainzRequests:
         """
         env                       = load_env()
         self._MUSICBRAINZ_API_URL = MUSICBRAINZ_API_URL
-        self._USER_AGENT          = f'{env.APPLICATION_NAME}/{env.APPLICATION_VERSION} ( {env.APPLICATION_CONTACT} )'
+        self._USER_AGENT          = f'{env['APPLICATION_NAME']}/{env['APPLICATION_VERSION']} ( {env['APPLICATION_CONTACT']} )'
 
     def _query(self, params: dict[str, any], method: str = "") -> Response:
         """Query MusicBrainz

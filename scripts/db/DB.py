@@ -5,9 +5,7 @@ from pymongo.collection import Collection
 from pymongo.database import Database
 from scripts.db.config_loader import load_config
 from typing import Optional, Type, ClassVar
-from scripts.utils.logger import setup_logging
-
-logger = setup_logging()
+from scripts.utils.logger import logger
 
 class DB:
     """The DB

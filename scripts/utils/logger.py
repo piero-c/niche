@@ -1,17 +1,28 @@
 import logging
+import colorlog
 
-def setup_logging():
-    """
-    Configures logging settings for the application.
-    """
-    logging.basicConfig(
-        level=logging.INFO,  # Set the minimum log level
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Log format
-        handlers=[
-            logging.StreamHandler()  # Also log to console
-        ]
-    )
-    
-    logger = logging.getLogger(__name__)
+# Create a handler
+handler = logging.StreamHandler()
+handler.setLevel(logging.INFO)
 
-    return(logger)
+# Create a formatter with colors
+formatter = colorlog.ColoredFormatter(
+    "%(log_color)s%(levelname)-8s%(reset)s - %(message)s",
+    datefmt=None,
+    reset=True,
+    log_colors={
+        'DEBUG':    'cyan',
+        'INFO':     'green',
+        'WARNING':  'yellow',
+        'ERROR':    'red',
+        'CRITICAL': 'red,bg_white',
+    }
+)
+
+# Set formatter to handler
+handler.setFormatter(formatter)
+
+# Get the root logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)

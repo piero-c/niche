@@ -4,9 +4,7 @@ from scripts.utils.spotify_util import SpotifyArtist
 from scripts.auth_objects.LastFMRequests import LastFmArtist, LastFMRequests
 from scripts.auth_objects.SpotifyUser import SpotifyUser
 from scripts.utils.musicbrainz_util import MusicBrainzArtist
-from scripts.utils.logger import setup_logging
-
-logger = setup_logging()
+from scripts.utils.logger import logger
 class Artist:
     """Representing an artist, at a high level
 
@@ -128,7 +126,7 @@ class Artist:
             else:
                 logger.warning('Artist not found')
         except Exception as e:
-            logger.error(f'Couldn\'t get lastfm artist by mbid {self.mbid}: {e}')
+            logger.warning(f'Couldn\'t get lastfm artist by mbid {self.mbid}: {e}')
 
         if(not lastfm_artist):
             # Fallback to artist name
@@ -141,7 +139,7 @@ class Artist:
                 else:
                     logger.warning('Artist not found')
             except Exception as e:
-                logger.error(f'Couldn\'t get lastfm artist by name {self.name}: {e}')
+                logger.warning(f'Couldn\'t get lastfm artist by name {self.name}: {e}')
 
         raise Exception(f'Couldn\'t get lastfm artist for {self.name}')
 
@@ -181,7 +179,7 @@ class Artist:
             else:
                 logger.warning('No tracks found')
         except Exception:
-            logger.error(f'Couldn\'t attach top tracks from mbid for {self.name}')
+            logger.warning(f'Couldn\'t attach top tracks from mbid for {self.name}')
         
         if(not tracks):
             try:
@@ -193,7 +191,7 @@ class Artist:
                 else:
                     logger.warning('No tracks found')
             except Exception:
-                logger.error(f'Couldn\'t attach top tracks from name for {self.name}')
+                logger.warning(f'Couldn\'t attach top tracks from name for {self.name}')
 
         raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
 

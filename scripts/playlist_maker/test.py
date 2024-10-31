@@ -6,7 +6,7 @@ import time
 def main():
     t0     = time.time()
     user   = SpotifyUser()
-    req    = PlaylistRequest(2000, Language.ANY, NicheLevel.MODERATELY, 120, 360, 'hip hop')
+    req    = PlaylistRequest(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'hip hop')
     finder = NicheTrackFinder(req, user)
     pl     = finder.create_playlist()
     t1     = time.time()

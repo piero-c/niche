@@ -14,9 +14,7 @@ from scripts.db.ArtistsDAO import ArtistsDAO
 import random
 from numpy import mean as mean
 
-from scripts.utils.logger import setup_logging
-
-logger = setup_logging()
+from scripts.utils.logger import logger
 env    = load_env()
 
 global NICHE_APP_URL

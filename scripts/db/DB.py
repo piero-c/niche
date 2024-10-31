@@ -5,6 +5,9 @@ from pymongo.collection import Collection
 from pymongo.database import Database
 from scripts.db.config_loader import load_config
 from typing import Optional, Type, ClassVar
+from scripts.utils.logger import setup_logging
+
+logger = setup_logging()
 
 class DB:
     """The DB
@@ -27,10 +30,10 @@ class DB:
             config: dict[str, any] = load_config()
             mongo_uri: str = config['MONGO_URI']
             cls._instance = super(DB, cls).__new__(cls)
-            print("Connecting to DB...")
+            logger.info("Connecting to DB...")
             cls._instance.client = MongoClient(mongo_uri)
             cls._instance.db = cls._instance.client.get_default_database()
-            print("Connected to DB!")
+            logger.info("Connected to DB!")
         return(cls._instance)
 
     def get_collection(self, name: str) -> Collection:

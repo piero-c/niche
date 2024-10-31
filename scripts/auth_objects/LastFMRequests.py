@@ -17,7 +17,7 @@ class LastFMRequests:
         self._LASTFM_API_KEY = env['LASTFM_API_KEY']
         self._LASTFM_API_URL = 'http://ws.audioscrobbler.com/2.0/'
 
-    def _query(self, params: dict[str, any], method: str) -> Response:
+    def _query(self, params: dict[str, any], method: str = "") -> Response:
         """Query LastFM API
 
         Args:

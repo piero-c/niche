@@ -14,7 +14,10 @@ from scripts.db.ArtistsDAO import ArtistsDAO
 import random
 from numpy import mean as mean
 
-env = load_env()
+from scripts.utils.logger import setup_logging
+
+logger = setup_logging()
+env    = load_env()
 
 global NICHE_APP_URL
 NICHE_APP_URL = 'http://niche-app.net'
@@ -51,11 +54,11 @@ class NicheTrackFinder:
                 try:
                     artist_list.append(Artist.from_musicbrainz(artist, self.user))
                 except Exception as e:
-                    print(f"Could not create artist: {e}")
+                    logger.error(f"Could not create artist: {e}")
             return(artist_list)
 
         except Exception as e:
-            print(f"Unexpected error: {e}")
+            logger.error(f"Unexpected error: {e}")
             return([])
 
     def _artist_listeners_and_plays_valid(self, artist: Artist) -> bool:
@@ -68,7 +71,7 @@ class NicheTrackFinder:
             ((listeners > self.request.lastfm_listeners_max) and (playcount > self.request.lastfm_playcount_max)) or
             ((listeners < self.request.lastfm_listeners_min) or (playcount < self.request.lastfm_playcount_min)) or
             (artist.lastfm_artist_likeness < self.request.lastfm_likeness_min)):
-            print(f'Artist {artist.name} listeners {listeners} or playcount {playcount} or likeness {artist.lastfm_artist_likeness} invalid')
+            logger.warning(f'Artist {artist.name} listeners {listeners} or playcount {playcount} or likeness {artist.lastfm_artist_likeness} invalid')
             return(False)
 
         return(True)
@@ -95,30 +98,31 @@ class NicheTrackFinder:
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
 
         # Generate random offsets of artists to search
-        offsets_list = random.shuffle(list(range(0, len(artists_sublists))))
+        offsets_list = list(range(0, len(artists_sublists)))
+        random.shuffle(offsets_list)
 
         for i in range(len(offsets_list)):
             if(len(niche_tracks) >= desired_song_count):
                 break
-            print(f'artists checked: {i * artist_increment_count}')
+            logger.info(f'artists checked: {i * artist_increment_count}')
 
             random_offset = offsets_list[i]
             artists: list[Artist] = artists_sublists[random_offset]
 
-            print(f'Checking offset {random_offset} of {len(offsets_list)}')
+            logger.info(f'Checking offset {random_offset} of {len(offsets_list)}')
 
-            valid_artists = []
+            valid_artists: list[Artist] = []
 
             for artist in artists:
                 try:
                     artist.attach_artist_lastfm()
-                    print(f'Attached lastfm artist {artist.name} from lastfm')
+                    logger.info(f'Attached lastfm artist {artist.name} from lastfm')
                     valid_artists.append(artist)
                 except Exception as e:
-                    print(e)
+                    logger.error(e)
 
             valid_artists = [
-                artist for artist in artists if(
+                artist for artist in valid_artists if(
                     (self._artist_listeners_and_plays_valid(artist)) and
                     # This is mostly to ensure that if we attached artist by name, it is the artist we were looking for
                     (artist.artist_in_lastfm_genre(self.request.genre))
@@ -137,10 +141,10 @@ class NicheTrackFinder:
                     # Get artist's top tracks from lastfm
                     top_tracks = artist.get_artist_top_tracks_lastfm()
                 except Exception as e:
-                    print(e)
+                    logger.error(e)
                     continue
                 if(not top_tracks):
-                    print(f"No top tracks found on lastfm for artist: {artist.name}")
+                    logger.warning(f"No top tracks found on lastfm for artist: {artist.name}")
                     continue
 
                 # Shuffle tracks to add randomness
@@ -151,11 +155,11 @@ class NicheTrackFinder:
                 for top_track in top_tracks:
                     try:
                         artist.attach_spotify_artist_from_track(top_track)
-                        print(f'Attached spotify artist {artist.name} from lastfm top track')
+                        logger.info(f'Attached spotify artist {artist.name} from lastfm top track')
                         attached = True
                         break
                     except Exception as e:
-                        print(e)
+                        logger.error(e)
                         break
 
                 if(not attached):
@@ -167,31 +171,31 @@ class NicheTrackFinder:
                        (len(niche_tracks) >= desired_song_count) or
                        (artist.spotify_followers > self.request.spotify_followers_max) or
                        (artist.spotify_followers < self.request.spotify_followers_min)):
-                        print(f'Artist {artist.name} followers ({artist.spotify_followers}) invalid OR has too many songs OR song count has been reached')
+                        logger.warning(f'Artist {artist.name} followers ({artist.spotify_followers}) invalid OR has too many songs OR song count has been reached')
                         break
                     
                     try:
                         track.attach_spotify_track_information()
-                        print(f'Attached spotify track info for {track.name}')
+                        logger.info(f'Attached spotify track info for {track.name}')
                     except Exception as e:
-                        print(e)
+                        logger.error(e)
                         continue
 
                     # CHECK DURATION
                     if((track.track_length_seconds < self.request.songs_length_min_secs) or (track.track_length_seconds > self.request.songs_length_max_secs)):
-                        print(f"Skipping track '{track.name}' by '{artist.name}' due to song length constraints.")
+                        logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to song length constraints.")
                         continue
 
                     mb = MusicBrainzRequests()
                     # CHECK ARTIST LANGUAGE
                     if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
-                        print(f"Artist does not sing in {self.request.language}")
+                        logger.warning(f"Artist does not sing in {self.request.language}")
                         break
 
                     # TODO
                     # # CHECK YEAR PUBLISHED
                     # if(year_published < self.request.songs_min_year_created):
-                    #     print(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
+                    #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
                     #     continue
 
                     # TODO want the API to basically return the playlist link and have the web playback sdk show it and then option to save which will b another endpoint
@@ -205,9 +209,9 @@ class NicheTrackFinder:
                     }
                     niche_tracks.append(niche_track)
                     artist_song_count[artist.name] = artist_song_count.get(artist.name, 0) + 1
-                    print(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
-                    print(f"TRACKS ADDED: {len(niche_tracks)}")
-                    print(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
+                    logger.info(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
+                    logger.info(f"TRACKS ADDED: {len(niche_tracks)}")
+                    logger.info(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
 
 
         if(len(niche_tracks) >= desired_song_count):

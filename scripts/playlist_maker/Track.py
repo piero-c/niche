@@ -2,6 +2,9 @@ from scripts.utils.util import convert_ms_to_s
 from scripts.utils.spotify_util import SpotifyTrack
 from scripts.utils.lastfm_util import LastFMTrack
 from scripts.auth_objects.SpotifyUser import SpotifyUser
+from scripts.utils.logger import setup_logging
+
+logger = setup_logging()
 
 class Track:
     """High level Track
@@ -72,13 +75,13 @@ class Track:
             spotify_tracks = self.user.get_spotify_tracks_direct(self.name, self.artist)
             spotify_track = spotify_tracks[0]
         except Exception as e:
-            print(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
+            logger.error(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
         
         if(not spotify_track):
             try:
                 spotify_track = self.user.get_spotify_track_fuzzy(self.name, self.artist)
             except Exception as e:
-                print(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with fuzzy search: {e}")
+                logger.error(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with fuzzy search: {e}")
 
         if(spotify_track):
             try:

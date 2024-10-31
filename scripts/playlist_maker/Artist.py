@@ -4,7 +4,9 @@ from scripts.utils.spotify_util import SpotifyArtist
 from scripts.auth_objects.LastFMRequests import LastFmArtist, LastFMRequests
 from scripts.auth_objects.SpotifyUser import SpotifyUser
 from scripts.utils.musicbrainz_util import MusicBrainzArtist
+from scripts.utils.logger import setup_logging
 
+logger = setup_logging()
 class Artist:
     """Representing an artist, at a high level
 
@@ -85,7 +87,7 @@ class Artist:
             try:
                 valid_tracks.append(Track.from_lastfm(track, self.user))
             except Exception as e:
-                print(e)
+                logger.error(e)
         
         self.lastfm_tracks = valid_tracks
 
@@ -118,28 +120,28 @@ class Artist:
         lastfm_artist = None
         # Try with musicbrainz id
         try:
-            print(f'Searching for lastfm artist by mbid {self.mbid}')
+            logger.info(f'Searching for lastfm artist by mbid {self.mbid}')
             artist = self.lastfm.get_lastfm_artist_data(baseParams, mbid=self.mbid)
             lastfm_artist = self._attach_lastfm_artist(artist)
             if(lastfm_artist):
                 return(lastfm_artist)
             else:
-                print('Artist not found')
-        except Exception:
-            print(f'Couldn\'t get lastfm artist by mbid {self.mbid}')
+                logger.warning('Artist not found')
+        except Exception as e:
+            logger.error(f'Couldn\'t get lastfm artist by mbid {self.mbid}: {e}')
 
         if(not lastfm_artist):
             # Fallback to artist name
             try:
-                print(f'Searching for lastfm artist by name {self.name}')
+                logger.info(f'Searching for lastfm artist by name {self.name}')
                 artist = self.lastfm.get_lastfm_artist_data(baseParams, name = self.name)
                 lastfm_artist = self._attach_lastfm_artist(artist)
                 if(lastfm_artist):
                     return(lastfm_artist)
                 else:
-                    print('Artist not found')
-            except Exception:
-                print(f'Couldn\'t get lastfm artist by name {self.name}')
+                    logger.warning('Artist not found')
+            except Exception as e:
+                logger.error(f'Couldn\'t get lastfm artist by name {self.name}: {e}')
 
         raise Exception(f'Couldn\'t get lastfm artist for {self.name}')
 
@@ -171,27 +173,27 @@ class Artist:
 
         tracks = None
         try:
-            print(f'Attaching top tracks from mbid for {self.name}')
+            logger.info(f'Attaching top tracks from mbid for {self.name}')
             data = self.lastfm.get_lastfm_artist_data(baseParams, mbid = self.mbid)
             tracks = self._attach_top_tracks_lastfm(data)
             if(tracks):
                 return(tracks)
             else:
-                print('No tracks found')
+                logger.warning('No tracks found')
         except Exception:
-            print(f'Couldn\'t attach top tracks from mbid for {self.name}')
+            logger.error(f'Couldn\'t attach top tracks from mbid for {self.name}')
         
         if(not tracks):
             try:
-                print(f'Attaching top tracks from name for {self.name}')
+                logger.info(f'Attaching top tracks from name for {self.name}')
                 data = self.lastfm.get_lastfm_artist_data(baseParams, name = self.name)
                 tracks = self._attach_top_tracks_lastfm(data)
                 if(tracks):
                     return(tracks)
                 else:
-                    print('No tracks found')
+                    logger.warning('No tracks found')
             except Exception:
-                print(f'Couldn\'t attach top tracks from name for {self.name}')
+                logger.error(f'Couldn\'t attach top tracks from name for {self.name}')
 
         raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
 
@@ -210,14 +212,14 @@ class Artist:
             SpotifyArtist: The artist object, as returned by spotify
         """
         if(getattr(self, 'spotify_artist', None)):
-            print(f'Artist {self.name} has associated spotify artist')
+            logger.info(f'Artist {self.name} has associated spotify artist')
             return(self.spotify_artist)
 
         try:
             if(not strcomp(self.name, track.artist)):
                 raise Exception(f'Song {track.name} is by {track.artist}, not {self.name}')
             
-            print(f"Searching Spotify for Track: '{track.name}' by Artist: '{track.artist}'")
+            logger.info(f"Searching Spotify for Track: '{track.name}' by Artist: '{track.artist}'")
 
             spotify_track = track.attach_spotify_track_information()
 
@@ -230,17 +232,17 @@ class Artist:
             if((not hasattr(self, 'spotify_artist_id')) or (not track.artist_id_in_spotify_track(self.spotify_artist_id))):
                 raise Exception(f'Could not find artist {self.name} ({self.spotify_artist_id}) in track {track.name}')
             
-            print(f"Spotify Artist ID: {self.spotify_artist_id}")
+            logger.info(f"Spotify Artist ID: {self.spotify_artist_id}")
 
             spotify_artist         = self.user.get_spotify_artist_by_id(self.spotify_artist_id)
             self.spotify_artist    = spotify_artist
             self.spotify_followers = int(spotify_artist.get('followers', {}).get('total', 0))
 
-            print(f"Retrieved Spotify Artist: {spotify_artist['name']} (ID: {spotify_artist['id']})")
+            logger.info(f"Retrieved Spotify Artist: {spotify_artist['name']} (ID: {spotify_artist['id']})")
 
             return(self.spotify_artist)
 
         except Exception as e:
-            print(e)
+            logger.error(e)
             raise Exception(f"Could not attach spotify artist {self.name} from track {track.name}")
 

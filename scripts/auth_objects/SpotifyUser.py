@@ -1,14 +1,16 @@
-from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from scripts.utils.util import merge_dicts_with_weight
 import spotipy
 from spotipy import SpotifyOAuth
-from scripts.utils.util import load_env, sleep, RequestType
+from scripts.utils.util import load_env, sleep, RequestType, filter_low_count_entries
 from typing import Optional, Type, ClassVar
-from scripts.utils.spotify_util import get_top_matching_track, SpotifyArtist, SpotifyTrack
-
-GENRE_INTEREST_COUNT_CUTOFF  = 2
 
 class SpotifyUser:
+    """Spotify-Authenticated User
+
+    Raises:
+        Exception: If more than one user is defined
+    """
     _instance: ClassVar[Optional['SpotifyUser']] = None
 
     client: spotipy.Spotify
@@ -17,7 +19,15 @@ class SpotifyUser:
     id    : str
 
     def __new__(cls: Type['SpotifyUser']) -> 'SpotifyUser':
-        if cls._instance is None:
+        """Create the user
+
+        Args:
+            cls (Type[&#39;SpotifyUser&#39;]): SpotifyUser
+
+        Returns:
+            SpotifyUser: The user, authenticated
+        """
+        if(cls._instance is None):
             env = load_env()
             cls._instance = super(SpotifyUser, cls).__new__(cls)
             cls._instance.client = spotipy.Spotify(auth_manager=SpotifyOAuth(
@@ -31,35 +41,62 @@ class SpotifyUser:
             cls._instance.name = cls._instance.user['display_name']
             cls._instance.id   = cls._instance.user['id']
 
-        return cls._instance
+        return(cls._instance)
     
     ## GENERAL SEARCH ##
     
     def get_spotify_tracks_direct(self, name: str, artist: str) -> list[SpotifyTrack]:
+        """Search for top 10 matching spotify tracks via direct search
+
+        Args:
+            name (str): Song name
+            artist (str): Artist Name
+
+        Raises:
+            Exception: If no tracks are found
+
+        Returns:
+            list[SpotifyTrack]: A list of the top 10 matching tracks
+        """
         # Construct the search query with specific field filters
         q = f"track:{name} artist:{artist}"
 
         ## BEGIN REQUEST ##
-        # Perform the search on Spotify for the track with a limit of 1
-        search_results = self.client.search(q=q, type='track', limit=1)
+        # Perform the search on Spotify for the track with a limit of 10
+        search_results = self.client.search(q=q, type='track', limit=10)
         sleep(RequestType.SPOTIFY)  # Respect API rate limits
         ## END REQUEST ##
 
         # Extract the list of track items from the search results
         spotify_tracks = search_results.get('tracks', {}).get('items', [])
         if(not spotify_tracks):
-            print(f"No Spotify tracks found for {name} by {artist}.")
-            raise Exception()
+            raise Exception(f"No Spotify tracks found for {name} by {artist}.")
 
-        # Select the first track from the search results
-        return (spotify_tracks)
+        return(spotify_tracks)
 
     def get_spotify_track_fuzzy(self, name: str, artist: str) -> SpotifyTrack:
+        """Get the top matching track from spotify via a fuzzy search
+
+        Args:
+            name (str): Song name
+            artist (str): Artist Name
+
+        Returns:
+            SpotifyTrack: The top matching track
+        """
         tracks = self.get_spotify_tracks_direct(name, artist)
-        threshold_track_match = 90
-        return (get_top_matching_track(name, artist, tracks, threshold_track_match))
+        threshold_track_match = 93
+        return(get_top_matching_track(name, artist, tracks, threshold_track_match))
 
     def get_spotify_artist_by_id(self, id: str) -> SpotifyArtist:
+        """Get a spotify artist object by their spotify id
+
+        Args:
+            id (str): Spotify id
+
+        Returns:
+            SpotifyArtist: The artist as returned by Spotify
+        """
         ## BEGIN REQUEST ##
         # Retrieve the full artist object from Spotify using the artist ID
         spotify_artist = self.client.artist(id)
@@ -89,33 +126,33 @@ class SpotifyUser:
         items = []
         offset = 0
         while True:
-            # Generate limit and set bool for all items
-            limit = (SPOTIFY_MAX_LIMIT_PAGINATION if (num_items >= SPOTIFY_MAX_LIMIT_PAGINATION) else num_items)
+            # Generate limit
+            limit = (SPOTIFY_MAX_LIMIT_PAGINATION if(num_items >= SPOTIFY_MAX_LIMIT_PAGINATION) else num_items)
 
             # Get initial items
-            if (type == "top_artists"):
+            if(type == "top_artists"):
                 results = self.client.current_user_top_artists(limit = limit, time_range = time_range, offset = offset)
-            elif (type == "top_tracks"):
+            elif(type == "top_tracks"):
                 results = self.client.current_user_top_tracks(limit = limit, time_range = time_range, offset = offset)
 
             items.extend(results['items'])
             num_items -= limit
             offset += limit
 
-            if (not ((results['next']) and (num_items > 0))):
+            if(not ((results['next']) and (num_items > 0))):
                 break
 
         return(items)
     
-    def search_get_genres_from_artist_ids(self, artist_ids: list[SpotifyArtistID], artist_cache: dict[str, dict] = {}) -> SpotifyGenreInterestCount:
-        """Collect a list of genre instances from a list of artist ids.
+    def get_genres_from_artist_ids(self, artist_ids: list[SpotifyArtistID], artist_cache: dict[str, dict] = {}) -> SpotifyGenreInterestCount:
+        """Get a genre count from a list of artist IDs. Each artist (usually) has multiple genres, all of which are counted equally
 
         Args:
-            artist_ids (list[str]): List of artist ids to check.
-            artist_cache (dict[str, dict], optional): Dict of artist ids to artist objects. Defaults to {}.
+            artist_ids (list[SpotifyArtistID]): The Spotify IDs
+            artist_cache (dict[str, dict], optional): I'm too scared to remove this. Defaults to {}.
 
         Returns:
-            dict[str, int]: key: genre, val: instance count from artists.
+            SpotifyGenreInterestCount: Genre: Count
         """
         genres = {}
         for artist_id in artist_ids:
@@ -126,13 +163,16 @@ class SpotifyUser:
                 artist_details = artist_cache[artist_id]
             for genre in artist_details['genres']:
                 genres[genre] = genres.get(genre, 0) + 1
-        return genres
+        return(genres)
     
     def get_top_genres(self) -> SpotifyGenreInterestCount:
-        """_summary_
+        """Get the User's top genres
 
         Returns:
-            SpotifyGenreInterestCount: _description_
+            SpotifyGenreInterestCount: Genre: Count
+
+        Post:
+            Returns genres which were derived from one or more items, only those with count above 2
         """
         # Get top artists
         top_artists = self._get_items(type = 'top_artists')
@@ -148,19 +188,10 @@ class SpotifyUser:
         artist_ids_top_tracks_only = artist_ids_top_tracks - artist_ids_top_artists
 
         # Get genres from track artists
-        genres_top_tracks = self.search_get_genres_from_artist_ids(artist_ids_top_tracks_only)
+        genres_top_tracks = self.get_genres_from_artist_ids(artist_ids_top_tracks_only)
 
         # Merge genres with appropriate weights
         genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])
 
-        barely_enjoyed_genres = []
-
-        # Remove genres with a weight < 2
-        for key, val in genre_dict.items():
-            if val < GENRE_INTEREST_COUNT_CUTOFF:
-                barely_enjoyed_genres.append(key)
-        for genre in barely_enjoyed_genres:
-            del genre_dict[genre]
-
         # Return the genre dictionary
-        return genre_dict
+        return(filter_low_count_entries(genre_dict, count=2))

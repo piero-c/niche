@@ -86,7 +86,7 @@ function parseArgs() {
     argObj.maxSizeMB = 15;
   }
 
-  return argObj;
+  return( argObj );
 }
 
 // Main function to filter large documents

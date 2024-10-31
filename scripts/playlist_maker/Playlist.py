@@ -3,12 +3,22 @@ from scripts.auth_objects.SpotifyUser import SpotifyUser
 from typing import TypedDict
 
 class NicheTrack(TypedDict):
+    """Niche track obj
+
+    Args:
+        TypedDict
+    """
     artist     : str
     track      : str
     spotify_uri: str
     spotify_url: str
 
 class PlaylistInfo(TypedDict):
+    """Playlist info obj
+
+    Args:
+        TypedDict
+    """
     name       : str
     description: str
 
@@ -23,12 +33,12 @@ class Playlist:
         description (str): Description of the playlist.
     """
     def __init__(self, tracks: list[NicheTrack], playlist_info: PlaylistInfo, spotify_user: SpotifyUser) -> None:
-        """_summary_
+        """Initialise the playlist
 
         Args:
-            tracks (list[NicheTrack]): _description_
-            playlist_info (PlaylistInfo): _description_
-            spotify_user (SpotifyUser): _description_
+            tracks (list[NicheTrack]): The tracks for the playlist
+            playlist_info (PlaylistInfo): The metadata for the playlist
+            spotify_user (SpotifyUser): Spotify Authenticated User to create the playlist for
         """
         # Extract Spotify URIs from the provided tracks
         track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
@@ -55,4 +65,4 @@ class Playlist:
         self.description = playlist['description']
 
     def __repr__(self):
-        return f"Playlist(name='{self.name}', url='{self.url}')"
+        return(f"Playlist(name='{self.name}', url='{self.url}')")

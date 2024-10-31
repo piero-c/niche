@@ -1,7 +1,7 @@
 /**
  * removeEmptyGenres.js
  *
- * Iterates over the 'niche.artists' collection and removes entries with 0 'genres'.
+ * Iterates over the 'niche.artists' collection and removes entries with 0 'genres' using Mongoose and db.js.
  *
  * Usage:
  *   node removeEmptyGenres.js
@@ -10,31 +10,30 @@
  *   node removeEmptyGenres.js
  */
 
-const { MongoClient } = require( 'mongodb' );
 const dotenv = require( 'dotenv' );
-const { exit } = require( 'process' );
+const mongoose = require( '../db' ); // Adjust the path as necessary
 
 // Load environment variables from .env file (optional)
 dotenv.config();
 
-// MongoDB connection URI
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+// Define the Artist model (assuming it hasn't been defined elsewhere)
+const ArtistSchema = new mongoose.Schema( {}, { strict: false } );
 
-// Database and Collection Names
-const dbName = 'niche';
-const collectionName = 'artists';
+// Create an index on 'genres.name' (if not already created)
+// Note: Index creation can be handled separately if needed
+ArtistSchema.index( { 'genres.name': 1 } );
+
+// Create the Artist model
+const Artist = mongoose.model( 'Artist', ArtistSchema, 'artists' );
 
 // Function to remove entries with 0 'genres'
 async function removeEmptyGenres() {
-  const client = new MongoClient( uri, { useNewUrlParser: true, useUnifiedTopology: true } );
-
   try {
-    // Connect to MongoDB
-    await client.connect();
-    console.log( 'Connected to MongoDB.' );
-
-    const db = client.db( dbName );
-    const collection = db.collection( collectionName );
+    // Ensure the connection is established
+    if( mongoose.connection.readyState !== 1 ) {
+      await mongoose.connection;
+      console.log( 'Connected to MongoDB.' );
+    }
 
     // Define the query to find documents with empty or missing 'genres'
     const query = {
@@ -45,22 +44,22 @@ async function removeEmptyGenres() {
     };
 
     // Count the number of documents matching the query
-    const count = await collection.countDocuments( query );
+    const count = await Artist.countDocuments( query );
     console.log( `Found ${count} documents with empty or missing 'genres'.` );
 
     if( count > 0 ) {
       // Remove the documents
-      const result = await collection.deleteMany( query );
+      const result = await Artist.deleteMany( query );
       console.log( `Removed ${result.deletedCount} documents with empty or missing 'genres'.` );
     } else {
       console.log( 'No documents to remove.' );
     }
   } catch( error ) {
     console.error( `Error removing documents: ${error.message}` );
-    exit( 1 );
+    process.exit( 1 );
   } finally {
     // Close the connection
-    await client.close();
+    await mongoose.connection.close();
     console.log( 'MongoDB connection closed.' );
   }
 }

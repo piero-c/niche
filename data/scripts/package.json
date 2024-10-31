@@ -9,6 +9,7 @@
     "import_artists"         : "mongoimport --db niche --collection artists --drop --file ../artists.jsonl --type json",
     "remove_new_artists_file": "rm ../artists.jsonl",
     "add_artists_genre_index": "node createArtistIndex.js",
+    "remove_empty_genres"    : "node removeEmptyGenres.js",
     "load_artists"           : "npm run optimize_artists && npm run remove_old_artists_file && npm run import_artists && add_artists_genre_index"
   },
   "keywords": [],

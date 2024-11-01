@@ -1,50 +1,50 @@
 # artist_dao.py
 
-from db import DB
-from pymongo.collection import Collection
-from bson.objectid import ObjectId
+from typing import List, Optional
+from bson import ObjectId
+from mongoengine import DoesNotExist
+from models.Artist import Artist
+from utils.logger import logger
+
 
 class ArtistsDAO:
-    """Artist Data Access Object
-    """
-    def __init__(self, db: DB) -> None:
-        """Initialize the DAO
+    """Artist Data Access Object using MongoEngine."""
 
-        Args:
-            db (DB): The DB
+    def get_artist(self, artist_id: ObjectId) -> Optional[Artist]:
         """
-        self.collection: Collection = db.get_collection('artists')
-
-    def get_artist(self, artist_id: ObjectId) -> dict[str, any]:
-        return(self.collection.find_one({'_id': artist_id}))
-
-    def create_artist(self, name: str, genre: str) -> ObjectId:
-        artist: dict[str, any] = {
-            'name': name,
-            'genre': genre
-        }
-        result = self.collection.insert_one(artist)
-        return(result.inserted_id)
-
-    def update_artist(self, artist_id: ObjectId, update_fields: dict[str, any]) -> int:
-        result = self.collection.update_one(
-            {'_id': artist_id},
-            {'$set': update_fields}
-        )
-        return(result.modified_count)
-
-    def delete_artist(self, artist_id: ObjectId) -> int:
-        result = self.collection.delete_one({'_id': artist_id})
-        return(result.deleted_count)
-    
-    def get_artists_in_genre(self, genre: str) -> list[dict[str, any]]:
-        """Get all artists which are in a certain genre
+        Retrieve an artist by their ObjectId.
 
         Args:
-            genre (str): The genre
+            artist_id (ObjectId): The unique identifier of the artist.
 
         Returns:
-            list[dict[str, any]]: The artists as returned by mongo
+            Optional[Artist]: The artist object if found, else None.
         """
-        return(self.collection.find({'genres.name': genre}))
+        try:
+            artist = Artist.objects(id=artist_id).get()
+            logger.info(f"Artist found: {artist}")
+            return artist
+        except DoesNotExist:
+            logger.warning(f"Artist with id {artist_id} does not exist.")
+            return None
+        except Exception as e:
+            logger.error(f"Error retrieving artist with id {artist_id}: {e}")
+            return None
 
+    def get_artists_in_genre(self, genre: str) -> List[Artist]:
+        """
+        Retrieve all artists within a specific genre.
+
+        Args:
+            genre (str): The genre to filter artists by.
+
+        Returns:
+            List[Artist]: A list of artists belonging to the specified genre.
+        """
+        try:
+            artists = Artist.objects(genres__name=genre)
+            logger.info(f"Found {artists.count()} artists in genre '{genre}'.")
+            return list(artists)
+        except Exception as e:
+            logger.error(f"Error retrieving artists in genre '{genre}': {e}")
+            return []

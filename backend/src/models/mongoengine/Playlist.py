@@ -1,7 +1,7 @@
 # Playlist.py
 
 from mongoengine import StringField, ReferenceField
-from models.BaseSchema import BaseSchema
+from models.mongoengine.BaseSchema import BaseSchema
 
 class Playlist(BaseSchema):
     user    = ReferenceField('users', required=True)

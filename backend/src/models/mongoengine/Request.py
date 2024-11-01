@@ -1,5 +1,5 @@
 from mongoengine import EmbeddedDocument, EmbeddedDocumentField, StringField, IntField, ReferenceField
-from models.BaseSchema import BaseSchema
+from models.mongoengine.BaseSchema import BaseSchema
 
 class Params(EmbeddedDocument):
     songs_min_year_created = IntField()

@@ -8,4 +8,4 @@ working_pocs/*
 db/artists.jsonl
 **/config.json
 documentation/process.txt
-db/create.mongoose.example
+backend/src/models/test.py

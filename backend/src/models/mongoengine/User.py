@@ -1,7 +1,7 @@
 # User.py
 
 from mongoengine import StringField
-from models.BaseSchema import BaseSchema
+from models.mongoengine.BaseSchema import BaseSchema
 
 class User(BaseSchema):
     display_name = StringField(required=True)

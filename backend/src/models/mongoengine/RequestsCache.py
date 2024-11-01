@@ -8,7 +8,7 @@ from mongoengine import (
     DateTimeField
 )
 from datetime import datetime, timezone
-from models.BaseSchema import BaseSchema
+from models.mongoengine.BaseSchema import BaseSchema
 
 class Excluded(EmbeddedDocument):
     mbid            = StringField(required=True)

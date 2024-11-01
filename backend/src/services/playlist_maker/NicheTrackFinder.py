@@ -38,8 +38,8 @@ class NicheTrackFinder:
         self.request         = request
         self.user            = user
 
-        db_instance          = DB()
-        self.artistsDAO      = ArtistsDAO(db_instance)
+        db              = DB()
+        self.artistsDAO = ArtistsDAO(db)
 
 
     def _fetch_artists_from_musicbrainz(self) -> list[Artist]:

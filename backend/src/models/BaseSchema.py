@@ -1,21 +1,14 @@
-import os
 import json
 from mongoengine import Document, StringField, DateTimeField, signals
 from datetime import datetime, timezone
+from pathlib import Path
+from db.config_loader import load_config
 
 # Load configuration from config.json
-with open('../../config/config.json', 'r') as config_file:
+with open(Path('../config/config.json'), 'r') as config_file:
     config = json.load(config_file)
 
-# Get the environment variable
-ENV = os.environ.get('ENV')
-if not ENV:
-    raise EnvironmentError("Please specify an environment")
-
-cfg = config.get(ENV)
-if not cfg:
-    raise KeyError(f"Configuration for environment '{ENV}' not found")
-
+cfg = load_config()
 # Define the BaseSchema
 class BaseSchema(Document):
     created_at = DateTimeField(default=datetime.now(timezone.utc), required=True)

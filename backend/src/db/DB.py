@@ -1,55 +1,46 @@
 # db.py
 
-from mongoengine import connect
-from mongoengine.connection import get_db
-from typing import ClassVar, Optional, Type
+from pymongo import MongoClient
+from pymongo.collection import Collection
+from pymongo.database import Database
 from db.config_loader import load_config
+from typing import Optional, Type, ClassVar
 from utils.logger import logger
 
 class DB:
-    """
-    Singleton class to manage MongoDB connection using MongoEngine.
+    """The DB
     """
     _instance: ClassVar[Optional['DB']] = None
 
+    client: MongoClient
+    db: Database
+
     def __new__(cls: Type['DB']) -> 'DB':
-        """
-        Create a new instance of DB if one doesn't exist.
-
-        Returns:
-            DB: The singleton instance of the DB class.
-        """
-        if cls._instance is None:
-            config: dict = load_config()
-            mongo_uri: str = config['MONGO_URI']
-            cls._instance = super(DB, cls).__new__(cls)
-            logger.info("Connecting to MongoDB...")
-            try:
-                connect(host=mongo_uri)
-                logger.info("Successfully connected to MongoDB!")
-            except Exception as e:
-                logger.error(f"Failed to connect to MongoDB: {e}")
-                raise e
-        return cls._instance
-
-    def get_database(self):
-        """
-        Get the default MongoDB database.
-
-        Returns:
-            Database: The default MongoDB database instance.
-        """
-        return get_db()
-
-    # Optional: If you still need to access raw collections
-    def get_collection(self, name: str):
-        """
-        Get a raw MongoDB collection.
+        """Make a new DB
 
         Args:
-            name (str): The name of the collection.
+            cls (Type[&#39;DB&#39;]): DB
 
         Returns:
-            Collection: The MongoDB collection instance.
+            DB: The DB, based on env
         """
-        return self.get_database()[name]
+        if(cls._instance is None):
+            config: dict[str, any] = load_config()
+            mongo_uri: str = config['MONGO_URI']
+            cls._instance = super(DB, cls).__new__(cls)
+            logger.info("Connecting to DB...")
+            cls._instance.client = MongoClient(mongo_uri)
+            cls._instance.db = cls._instance.client.get_default_database()
+            logger.info("Connected to DB!")
+        return(cls._instance)
+
+    def get_collection(self, name: str) -> Collection:
+        """Get a collection from the DB
+
+        Args:
+            name (str): Collection Name
+
+        Returns:
+            Collection: The Collection
+        """
+        return(self.db[name])

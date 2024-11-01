@@ -1,0 +1,10 @@
+{
+    "dev": {
+      "MONGO_URI": "mongodb://localhost:27017/xxx",
+      "user": "dev"
+    },
+    "prod": {
+      "MONGO_URI": "mongodb://prod_db_user:prod_db_pass@prod_db_host:27017/prod_db"
+    }
+  }
+  

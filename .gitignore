@@ -5,6 +5,7 @@ working_pocs/*
 **/.cache
 **/node_modules
 **/package-lock.json
-data/artists.jsonl
+db/artists.jsonl
 **/config.json
-data/documentation/process.txt
+documentation/process.txt
+backend/src/models/test.py

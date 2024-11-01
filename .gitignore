@@ -5,7 +5,7 @@ working_pocs/*
 **/.cache
 **/node_modules
 **/package-lock.json
-data/artists.jsonl
+db/artists.jsonl
 **/config.json
 documentation/process.txt
-data/create.mongoose.example
+db/create.mongoose.example

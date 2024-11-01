@@ -1,9 +1,8 @@
-from scripts.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
-from scripts.utils.util import merge_dicts_with_weight
+from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
+from typing import Optional, Type, ClassVar
 import spotipy
 from spotipy import SpotifyOAuth
-from scripts.utils.util import load_env, sleep, RequestType, filter_low_count_entries
-from typing import Optional, Type, ClassVar
 
 class SpotifyUser:
     """Spotify-Authenticated User

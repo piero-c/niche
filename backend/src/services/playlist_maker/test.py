@@ -1,6 +1,6 @@
-from scripts.playlist_maker.NicheTrackFinder import NicheTrackFinder
-from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language, NicheLevel
-from scripts.auth_objects.SpotifyUser import SpotifyUser
+from services.playlist_maker.NicheTrackFinder import NicheTrackFinder
+from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language, NicheLevel
+from auth.SpotifyUser import SpotifyUser
 import time
 
 def main():

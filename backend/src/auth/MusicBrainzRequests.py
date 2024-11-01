@@ -1,6 +1,6 @@
-from scripts.utils.util import load_env, sleep, RequestType, map_language_codes, filter_low_count_entries
-from scripts.utils.musicbrainz_util import MUSICBRAINZ_API_URL
-from scripts.playlist_maker.PlaylistRequest import Language
+from utils.util import load_env, sleep, RequestType, map_language_codes, filter_low_count_entries
+from utils.musicbrainz_util import MUSICBRAINZ_API_URL
+from services.playlist_maker.PlaylistRequest import Language
 import requests
 from requests import Response
 

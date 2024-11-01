@@ -1,6 +1,6 @@
 # artist_dao.py
 
-from scripts.db import DB
+from db import DB
 from pymongo.collection import Collection
 from bson.objectid import ObjectId
 

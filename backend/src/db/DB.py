@@ -3,9 +3,9 @@
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from pymongo.database import Database
-from scripts.db.config_loader import load_config
+from db.config_loader import load_config
 from typing import Optional, Type, ClassVar
-from scripts.utils.logger import logger
+from utils.logger import logger
 
 class DB:
     """The DB

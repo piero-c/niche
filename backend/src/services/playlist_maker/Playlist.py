@@ -1,5 +1,5 @@
 # Module for the final playlist
-from scripts.auth_objects.SpotifyUser import SpotifyUser
+from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 
 class NicheTrack(TypedDict):

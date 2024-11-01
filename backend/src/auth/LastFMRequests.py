@@ -1,5 +1,5 @@
-from scripts.utils.util import load_env, sleep, RequestType
-from scripts.utils.lastfm_util import LastFmArtist
+from utils.util import load_env, sleep, RequestType
+from utils.lastfm_util import LastFmArtist
 import requests
 from requests import Response
 

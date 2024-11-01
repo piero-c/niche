@@ -1,8 +1,8 @@
-from scripts.utils.util import convert_ms_to_s
-from scripts.utils.spotify_util import SpotifyTrack
-from scripts.utils.lastfm_util import LastFMTrack
-from scripts.auth_objects.SpotifyUser import SpotifyUser
-from scripts.utils.logger import logger
+from utils.util import convert_ms_to_s
+from utils.spotify_util import SpotifyTrack
+from utils.lastfm_util import LastFMTrack
+from auth.SpotifyUser import SpotifyUser
+from utils.logger import logger
 
 class Track:
     """High level Track

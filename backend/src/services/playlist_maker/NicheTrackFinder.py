@@ -1,20 +1,20 @@
 # Module for finding the niche songs for a genre
-from scripts.auth_objects.SpotifyUser import SpotifyUser
-from scripts.auth_objects.MusicBrainzRequests import MusicBrainzRequests
+from auth.SpotifyUser import SpotifyUser
+from auth.MusicBrainzRequests import MusicBrainzRequests
 
-from scripts.playlist_maker.PlaylistRequest import PlaylistRequest, Language
-from scripts.playlist_maker.Playlist import Playlist, NicheTrack, PlaylistInfo
-from scripts.playlist_maker.Artist import Artist
+from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language
+from services.playlist_maker.Playlist import Playlist, NicheTrack, PlaylistInfo
+from services.playlist_maker.Artist import Artist
 
-from scripts.utils.util import load_env
+from utils.util import load_env
 
-from scripts.db.DB import DB
-from scripts.db.ArtistsDAO import ArtistsDAO
+from db.DB import DB
+from db.ArtistsDAO import ArtistsDAO
 
 import random
 from numpy import mean as mean
 
-from scripts.utils.logger import logger
+from utils.logger import logger
 env    = load_env()
 
 global NICHE_APP_URL

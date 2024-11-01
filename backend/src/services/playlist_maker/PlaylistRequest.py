@@ -1,4 +1,4 @@
-from scripts.utils.util import Language, NicheLevel
+from utils.util import Language, NicheLevel
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply

@@ -1,10 +1,10 @@
-from scripts.playlist_maker.Track import Track
-from scripts.utils.util import strcomp
-from scripts.utils.spotify_util import SpotifyArtist
-from scripts.auth_objects.LastFMRequests import LastFmArtist, LastFMRequests
-from scripts.auth_objects.SpotifyUser import SpotifyUser
-from scripts.utils.musicbrainz_util import MusicBrainzArtist
-from scripts.utils.logger import logger
+from services.playlist_maker.Track import Track
+from utils.util import strcomp
+from utils.spotify_util import SpotifyArtist
+from auth.LastFMRequests import LastFmArtist, LastFMRequests
+from auth.SpotifyUser import SpotifyUser
+from utils.musicbrainz_util import MusicBrainzArtist
+from utils.logger import logger
 class Artist:
     """Representing an artist, at a high level
 

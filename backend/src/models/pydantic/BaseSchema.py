@@ -22,7 +22,7 @@ class PyObjectId(ObjectId):
         raise ValueError("Invalid ObjectId")
 
     @classmethod
-    def __get_pydantic_json_schema_(cls, field_schema):
+    def __get_pydantic_json_schema__(cls, field_schema):
         field_schema.update(type="string")
 
 class BaseSchema(BaseModel):

@@ -1,10 +1,14 @@
 // db.js
 const mongoose = require( 'mongoose' );
-const dotenv = require( 'dotenv' );
+const config = require( './config.json' );
 
-dotenv.config();
+const ENV = process.env.NODE_ENV;
+if( !ENV ) {
+  throw new Error( "Please specify an environment" );
+}
+const cfg = config[ ENV ];
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/niche';
+const uri = cfg.MONGODB_URI || 'mongodb://localhost:27017/niche';
 
 mongoose.connect( uri );
 

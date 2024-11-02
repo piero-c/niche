@@ -1,7 +1,7 @@
 # models/RequestsCache.py
 
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 from datetime import datetime, timezone
 from models.pydantic.BaseSchema import BaseSchema
 from enum import Enum
@@ -16,6 +16,7 @@ REASONMAP: bidict = bidict({
 })
 
 class Excluded(BaseModel):
+    name: Optional[str] = None
     mbid: str
     reason_excluded: str
     date_excluded: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

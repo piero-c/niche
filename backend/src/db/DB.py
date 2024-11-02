@@ -44,3 +44,9 @@ class DB:
             Collection: The Collection
         """
         return(self.db[name])
+    
+    def close_connection(self):
+        """Close the MongoDB connection."""
+        if self.client:
+            logger.info("Closing MongoDB connection.")
+            self.client.close()

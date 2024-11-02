@@ -5,6 +5,8 @@ import time
 import pycountry
 from bidict import bidict
 
+NICHE_APP_URL = 'http://niche-app.net'
+
 # Enumerations for request
 Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])
 LANGMAP: bidict = bidict({

@@ -55,9 +55,6 @@ class SpotifyUser:
             )
 
             cls._instance.oid  = db_entry.id
-            
-            # Adhere to singleton pattern
-            db.client.close()
 
         return(cls._instance)
     

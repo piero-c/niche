@@ -3,6 +3,17 @@ from db.DB import DB
 from db.RequestsDAO import RequestDAO
 from models.pydantic.Request import Request, Params
 from auth.SpotifyUser import SpotifyUser
+from typing import TypedDict
+from utils.util import NICHE_APP_URL
+
+class PlaylistInfo(TypedDict):
+    """Playlist info obj
+
+    Args:
+        TypedDict
+    """
+    name       : str
+    description: str
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
@@ -87,7 +98,6 @@ class PlaylistRequest:
         db = DB()
         dao = RequestDAO(db)
 
-        print(user.oid)
         # Make the request
         db_entry = dao.create(
             Request(
@@ -105,5 +115,14 @@ class PlaylistRequest:
 
         self.request_oid = db_entry.inserted_id
 
-        # Ensure adherance to the singleton pattern
-        db.client.close()
+    def get_playlist_info(self) -> PlaylistInfo:
+        """Get the info for the playlist
+
+        Returns:
+            PlaylistInfo: the info
+        """
+        # TODO - Make the names unique based on the user? Like indie whatever 1
+        return({
+            'name': f'Niche {self.genre} Songs',
+            'description': f'Courtesy of the niche app :) ({NICHE_APP_URL})'
+        })

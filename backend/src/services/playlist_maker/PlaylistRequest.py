@@ -96,8 +96,6 @@ class PlaylistRequest:
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
 
-        self.playlist_length = 5
-
         db = DB()
         dao = RequestDAO(db)
 

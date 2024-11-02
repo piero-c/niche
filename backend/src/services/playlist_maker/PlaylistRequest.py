@@ -45,6 +45,7 @@ niche_level_map = {
     }
 }
 
+# TODO - based on number of entries in db limit to under 20
 class PlaylistRequest:
     """Playlist Request
 
@@ -94,6 +95,8 @@ class PlaylistRequest:
         # Hardcoded vals
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
+
+        self.playlist_length = 5
 
         db = DB()
         dao = RequestDAO(db)

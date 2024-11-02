@@ -272,7 +272,6 @@ class NicheTrackFinder:
                         break
                     except Exception as e:
                         logger.error(e)
-                        break
 
                 if(not attached):
                     break

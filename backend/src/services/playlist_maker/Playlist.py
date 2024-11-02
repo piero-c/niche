@@ -1,6 +1,10 @@
 # Module for the final playlist
 from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
+from db.DB import DB
+from db.PlaylistsDAO import PlaylistDAO
+from models.pydantic.BaseSchema import PyObjectId
+from models.pydantic.Playlist import Playlist as PlaylistModel
 
 class NicheTrack(TypedDict):
     """Niche track obj
@@ -32,13 +36,14 @@ class Playlist:
         name (str): Name of the playlist.
         description (str): Description of the playlist.
     """
-    def __init__(self, tracks: list[NicheTrack], playlist_info: PlaylistInfo, spotify_user: SpotifyUser) -> None:
+    def __init__(self, tracks: list[NicheTrack], playlist_info: PlaylistInfo, spotify_user: SpotifyUser, request_oid: PyObjectId) -> None:
         """Initialise the playlist
 
         Args:
             tracks (list[NicheTrack]): The tracks for the playlist
             playlist_info (PlaylistInfo): The metadata for the playlist
             spotify_user (SpotifyUser): Spotify Authenticated User to create the playlist for
+            request_oid (PyObjectId): Oid of the user that created the playlist
         """
         # Extract Spotify URIs from the provided tracks
         track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
@@ -63,6 +68,20 @@ class Playlist:
         self.url         = playlist['external_urls']['spotify']
         self.name        = playlist['name']
         self.description = playlist['description']
+
+        user_oid = spotify_user.oid
+
+        db = DB()
+        dao = PlaylistDAO(db)
+        dao.create(
+            PlaylistModel(
+                user=user_oid,
+                name=self.name,
+                request=request_oid,
+                link=self.url
+            )
+        )
+        db.client.close()
 
     def __repr__(self):
         return(f"Playlist(name='{self.name}', url='{self.url}')")

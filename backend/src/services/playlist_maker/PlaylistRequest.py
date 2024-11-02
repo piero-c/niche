@@ -1,4 +1,8 @@
-from utils.util import Language, NicheLevel
+from utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
+from db.DB import DB
+from db.RequestsDAO import RequestDAO
+from models.pydantic.Request import Request, Params
+from auth.SpotifyUser import SpotifyUser
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
@@ -49,7 +53,7 @@ class PlaylistRequest:
         lastfm_likeness_min 
         playlist_length     
     """
-    def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
+    def __init__(self, user: SpotifyUser, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
         """_summary_
 
@@ -79,3 +83,27 @@ class PlaylistRequest:
         # Hardcoded vals
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
+
+        db = DB()
+        dao = RequestDAO(db)
+
+        print(user.oid)
+        # Make the request
+        db_entry = dao.create(
+            Request(
+                user = user.oid,
+                params = Params(
+                    songs_min_year_created=self.songs_min_year_created,
+                    songs_length_min_secs=self.songs_length_min_secs,
+                    songs_length_max_secs=self.songs_length_max_secs,
+                    language=LANGMAP.inv.get(self.language, {}),
+                    genre=self.genre,
+                    niche_level=NICHEMAP.inv.get(self.niche_level, {})
+                )
+            )
+        )
+
+        self.request_oid = db_entry.inserted_id
+
+        # Ensure adherance to the singleton pattern
+        db.client.close()

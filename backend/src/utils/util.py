@@ -3,21 +3,22 @@ import os
 from enum import Enum
 import time
 import pycountry
+from bidict import bidict
 
 # Enumerations for request
 Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])
-LANGMAP = {
+LANGMAP: bidict = bidict({
     'English': Language.ENGLISH,
     'Any'    : Language.ANY,
     'Other'  : Language.OTHER
-}
+})
 
 NicheLevel     = Enum('NicheLevel', ['VERY', 'MODERATELY', 'ONLY_KINDA'])
-NICHEMAP = {
+NICHEMAP: bidict = bidict({
     'Very'      : NicheLevel.VERY,
     'Moderately': NicheLevel.MODERATELY,
     'Only Kinda': NicheLevel.ONLY_KINDA
-}
+})
 
 # Request type for API hits
 RequestType = Enum('RequestTypes', ['LASTFM', 'MUSICBRAINZ', 'SPOTIFY'])
@@ -174,3 +175,21 @@ def filter_low_count_entries(dic: dict[any, float], pct_min: float = 0, count_mi
         del dictCopy[key]
     
     return(dictCopy)
+
+def obj_array_to_obj(obj_array: list[dict[str, any]], key: str) -> dict[str, dict[str, any]]:
+    """Convert an object array to an (embedded) object
+
+    Args:
+        obj_array (list[dict[str, any]]): The object array
+        key (str): A unique key which is in every object in the array
+
+    Returns:
+        dict[str, dict[str, any]]: key: entry for entry in obj_array
+    """
+    oa      = obj_array.copy()
+    new_obj = {}
+
+    for elem in oa:
+        new_obj[elem[key]] = elem
+    
+    return(new_obj)

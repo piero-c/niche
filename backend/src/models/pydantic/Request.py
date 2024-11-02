@@ -11,7 +11,7 @@ class Params(BaseModel):
     niche_level: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "songs_min_year_created": 2000,
                 "songs_length_min_secs": 180,

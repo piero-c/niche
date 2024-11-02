@@ -4,6 +4,8 @@ from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
 from bson import ObjectId
 from models.pydantic.User import User
 from db.DB import DB
+from models.pydantic.BaseSchema import clean_update_data
+from db.util import OperationResult
 
 class UserDAO:
     """
@@ -32,6 +34,33 @@ class UserDAO:
             InsertOneResult: The result of the insertion operation.
         """
         return (self.collection.insert_one(user.model_dump(by_alias=True)))
+
+    def create_or_update_by_spotify_id(self, user: User) -> OperationResult:
+        """
+        Creates a new user or updates an existing user based on Spotify ID.
+
+        Args:
+            user (User): The user data to insert or update.
+
+        Returns:
+            OperationResult: A result object that contains the operation result and the document's ObjectId.
+        """
+        existing_user = self.collection.find_one({"spotify_id": user.spotify_id})
+        user_clean = clean_update_data(user.model_dump(by_alias=True))
+
+        if (existing_user):
+            # Update existing user and retrieve ObjectId from the existing document
+            update_result = self.collection.update_one(
+                {"spotify_id": user.spotify_id},
+                {"$set": user_clean}
+            )
+            object_id = existing_user["_id"]  # Get _id from the existing document
+            return (OperationResult(update_result, object_id))
+        else:
+            # Insert as a new user
+            insert_result = self.collection.insert_one(user_clean)
+            return (OperationResult(insert_result, insert_result.inserted_id))
+
 
     def read_by_id(self, user_id: str) -> Optional[User]:
         """
@@ -83,6 +112,7 @@ class UserDAO:
         Returns:
             UpdateResult: The result of the update operation.
         """
+        update_data = clean_update_data(update_data)
         return (self.collection.update_one({"_id": ObjectId(user_id)}, {"$set": update_data}))
 
     def update_display_name(self, user_id: str, display_name: str) -> UpdateResult:

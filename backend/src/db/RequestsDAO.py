@@ -4,6 +4,7 @@ from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
 from bson import ObjectId
 from models.pydantic.Request import Request
 from db.DB import DB
+from models.pydantic.BaseSchema import clean_update_data
 
 class RequestDAO:
     """
@@ -84,6 +85,7 @@ class RequestDAO:
         Returns:
             UpdateResult: The result of the update operation.
         """
+        update_data = clean_update_data(update_data)
         return (self.collection.update_one({"_id": ObjectId(request_id)}, {"$set": update_data}))
 
     def delete(self, request_id: str) -> DeleteResult:

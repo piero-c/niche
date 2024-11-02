@@ -4,6 +4,7 @@ from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
 from bson import ObjectId
 from models.pydantic.Playlist import Playlist
 from db.DB import DB
+from models.pydantic.BaseSchema import clean_update_data
 
 class PlaylistDAO:
     """
@@ -83,6 +84,7 @@ class PlaylistDAO:
         Returns:
             UpdateResult: The result of the update operation.
         """
+        update_data = clean_update_data(update_data)
         return (self.collection.update_one({"_id": ObjectId(playlist_id)}, {"$set": update_data}))
 
     def delete(self, playlist_id: str) -> DeleteResult:

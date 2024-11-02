@@ -3,6 +3,10 @@ from utils.util import load_env, sleep, RequestType, filter_low_count_entries, m
 from typing import Optional, Type, ClassVar
 import spotipy
 from spotipy import SpotifyOAuth
+from models.pydantic.BaseSchema import PyObjectId
+from models.pydantic.User import User
+from db.DB import DB
+from db.UsersDAO import UserDAO
 
 class SpotifyUser:
     """Spotify-Authenticated User
@@ -16,6 +20,7 @@ class SpotifyUser:
     user  : dict
     name  : str
     id    : str
+    oid   : PyObjectId
 
     def __new__(cls: Type['SpotifyUser']) -> 'SpotifyUser':
         """Create the user
@@ -39,6 +44,20 @@ class SpotifyUser:
             cls._instance.user = cls._instance.client.current_user()
             cls._instance.name = cls._instance.user['display_name']
             cls._instance.id   = cls._instance.user['id']
+            
+            db = DB()
+            dao = UserDAO(db)
+            db_entry = dao.create_or_update_by_spotify_id(
+                User(
+                    display_name=cls._instance.name,
+                    spotify_id=cls._instance.id
+                )
+            )
+
+            cls._instance.oid  = db_entry.id
+            
+            # Adhere to singleton pattern
+            db.client.close()
 
         return(cls._instance)
     

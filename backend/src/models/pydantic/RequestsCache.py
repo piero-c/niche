@@ -4,6 +4,16 @@ from pydantic import BaseModel, Field
 from typing import List
 from datetime import datetime, timezone
 from models.pydantic.BaseSchema import BaseSchema
+from enum import Enum
+from bidict import bidict
+
+ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING'] )
+REASONMAP: bidict = bidict({
+    ReasonExcluded.TOO_MANY_SOMETHING: "Too Many Followers / Listeners / Plays",
+    ReasonExcluded.NOT_LIKED_ENOUGH  : "Ratio of Listeners to Plays Too Small",
+    ReasonExcluded.WRONG_LANGUAGE    : "Artist Does Not Sing in the Requested Language",
+    ReasonExcluded.TOO_FEW_SOMETHING : "Too Few Followers / Listeners / Plays"
+})
 
 class Excluded(BaseModel):
     mbid: str
@@ -14,7 +24,7 @@ class Excluded(BaseModel):
         json_schema_extra = {
             "example": {
                 "mbid": "12345",
-                "reason_excluded": "Genre mismatch",
+                "reason_excluded": "Too Few Followers / Listeners / Plays",
                 "date_excluded": "2024-04-27T12:34:56Z"
             }
         }
@@ -25,7 +35,7 @@ class ParamsCache(BaseModel):
     niche_level: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "language": "English",
                 "genre": "Pop",
@@ -38,7 +48,7 @@ class RequestsCache(BaseSchema):
     excluded: List[Excluded]
 
     class Config(BaseSchema.Config):
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "params": {
                     "language": "English",

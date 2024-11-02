@@ -19,4 +19,4 @@ def create(year_min: int, language: Language, niche_level: NicheLevel, sec_min: 
     return (pl.url)
 
 if __name__ == '__main__':
-    create(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'classic rock')
+    create(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'indie rock')

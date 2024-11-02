@@ -1,39 +1,19 @@
 from typing import Optional, List
-from pymongo.collection import Collection
-from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
+from pymongo.results import UpdateResult, DeleteResult
 from bson import ObjectId
 from models.pydantic.User import User
 from db.DB import DB
+from db.DAOs.baseDAO import BaseDAO
 from models.pydantic.BaseSchema import clean_update_data
 from db.util import OperationResult
 
-class UserDAO:
+class UserDAO(BaseDAO[User]):
     """
     Data Access Object for User collection.
-
-    Provides methods to create, read, update, and delete User data in MongoDB.
     """
 
     def __init__(self, db: DB) -> None:
-        """
-        Initializes the UserDAO with a database instance.
-
-        Args:
-            db (DB): The database instance.
-        """
-        self.collection: Collection = db.get_collection("users")
-
-    def create(self, user: User) -> InsertOneResult:
-        """
-        Inserts a new user document into the collection.
-
-        Args:
-            user (User): The user data to insert.
-
-        Returns:
-            InsertOneResult: The result of the insertion operation.
-        """
-        return (self.collection.insert_one(user.model_dump(by_alias=True)))
+        super().__init__(db.get_collection("users"), User)
 
     def create_or_update_by_spotify_id(self, user: User) -> OperationResult:
         """
@@ -61,20 +41,6 @@ class UserDAO:
             insert_result = self.collection.insert_one(user_clean)
             return (OperationResult(insert_result, insert_result.inserted_id))
 
-
-    def read_by_id(self, user_id: str) -> Optional[User]:
-        """
-        Reads a user by its ObjectId.
-
-        Args:
-            user_id (str): The ObjectId of the user to find.
-
-        Returns:
-            Optional[User]: The found user, or None if not found.
-        """
-        raw_data = self.collection.find_one({"_id": ObjectId(user_id)})
-        return (User.model_validate(raw_data) if (raw_data) else None)
-
     def read_all(self, filter: dict = {}) -> List[User]:
         """
         Reads all users matching a filter.
@@ -101,20 +67,6 @@ class UserDAO:
         raw_data = self.collection.find_one({"spotify_id": spotify_id})
         return (User.model_validate(raw_data) if (raw_data) else None)
 
-    def update(self, user_id: str, update_data: dict) -> UpdateResult:
-        """
-        Updates a user document by its ObjectId.
-
-        Args:
-            user_id (str): The ObjectId of the user to update.
-            update_data (dict): The data to update in the user document.
-
-        Returns:
-            UpdateResult: The result of the update operation.
-        """
-        update_data = clean_update_data(update_data)
-        return (self.collection.update_one({"_id": ObjectId(user_id)}, {"$set": update_data}))
-
     def update_display_name(self, user_id: str, display_name: str) -> UpdateResult:
         """
         Updates the display name of a user by their ObjectId.
@@ -127,18 +79,6 @@ class UserDAO:
             UpdateResult: The result of the update operation.
         """
         return (self.collection.update_one({"_id": ObjectId(user_id)}, {"$set": {"display_name": display_name}}))
-
-    def delete(self, user_id: str) -> DeleteResult:
-        """
-        Deletes a user document by its ObjectId.
-
-        Args:
-            user_id (str): The ObjectId of the user to delete.
-
-        Returns:
-            DeleteResult: The result of the delete operation.
-        """
-        return (self.collection.delete_one({"_id": ObjectId(user_id)}))
 
     def delete_by_spotify_id(self, spotify_id: str) -> DeleteResult:
         """

@@ -6,7 +6,7 @@ from spotipy import SpotifyOAuth
 from models.pydantic.BaseSchema import PyObjectId
 from models.pydantic.User import User
 from db.DB import DB
-from db.UsersDAO import UserDAO
+from db.DAOs.UsersDAO import UserDAO
 
 class SpotifyUser:
     """Spotify-Authenticated User

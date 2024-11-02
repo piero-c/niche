@@ -2,10 +2,10 @@
 from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 from db.DB import DB
-from db.PlaylistsDAO import PlaylistDAO
+from db.DAOs.PlaylistsDAO import PlaylistDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services.playlist_maker.PlaylistRequest import PlaylistRequest
-
+# TODO - still return the playlist if not enough songs
 class NicheTrack(TypedDict):
     """Niche track obj
 
@@ -28,12 +28,12 @@ class Playlist:
         description (str): Description of the playlist.
     """
     def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser) -> None:
-        """_summary_
+        """Initialize the playlist
 
         Args:
-            tracks (list[NicheTrack]): _description_
-            req (PlaylistRequest): _description_
-            user (SpotifyUser): _description_
+            tracks (list[NicheTrack]): The tracks to add
+            req (PlaylistRequest): The request that was used to generate the playlist
+            user (SpotifyUser): The Spotify Authenticated User
         """
         # Extract Spotify URIs from the provided tracks
         track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]

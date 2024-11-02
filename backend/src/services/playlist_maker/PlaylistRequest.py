@@ -1,11 +1,11 @@
 from utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
 from db.DB import DB
-from db.RequestsDAO import RequestDAO
+from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Request import Request, Params
 from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 from utils.util import NICHE_APP_URL
-
+# TODO - still return the playlist if not enough songs
 class PlaylistInfo(TypedDict):
     """Playlist info obj
 
@@ -67,9 +67,10 @@ class PlaylistRequest:
     """
     def __init__(self, user: SpotifyUser, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
-        """_summary_
+        """Initialize the request
 
         Args:
+            user(SpotifyUser)           : Spotify Authenticated user
             songs_min_year_created (int): Min year for the songs to be created in
             language (Language)         : Language for the songs to be in
             niche_level (NicheLevel)    : Level of nicheness
@@ -95,6 +96,8 @@ class PlaylistRequest:
         # Hardcoded vals
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
+
+        #self.playlist_length = 1
 
         db = DB()
         dao = RequestDAO(db)

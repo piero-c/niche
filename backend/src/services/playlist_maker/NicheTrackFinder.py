@@ -9,8 +9,8 @@ from services.playlist_maker.Artist import Artist
 from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 
 from db.DB import DB
-from db.ArtistsDAO import ArtistsDAO
-from db.RequestsCacheDAO import RequestsCacheDAO
+from db.DAOs.ArtistsDAO import ArtistsDAO
+from db.DAOs.RequestsCacheDAO import RequestsCacheDAO
 from models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
 
 import random

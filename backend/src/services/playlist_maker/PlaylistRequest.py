@@ -44,7 +44,6 @@ niche_level_map = {
     }
 }
 
-# TODO - based on number of entries in db limit to under 20
 class PlaylistRequest:
     """Playlist Request
 

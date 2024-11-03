@@ -5,7 +5,7 @@ from db.DB import DB
 from db.DAOs.PlaylistsDAO import PlaylistDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services.playlist_maker.PlaylistRequest import PlaylistRequest
-# TODO - still return the playlist if not enough songs
+# TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
 class NicheTrack(TypedDict):
     """Niche track obj
 

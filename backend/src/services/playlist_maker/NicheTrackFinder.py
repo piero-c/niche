@@ -303,8 +303,6 @@ class NicheTrackFinder:
                     # Artist is valid. If it was previously excluded  delete that entry
                     self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
 
-                    # TODO want the API to basically return the playlist link and have the web playback sdk show it and then option to save which will b another endpoint
-                    #  TODO -  make the playlist public then if they wanna keep it post a thing to api to change it to private (public so can see on sdk web play) and if dont wanna keep it delete it
                     # Add track to niche_tracks
                     niche_track = {
                         'artist'     : artist.name,

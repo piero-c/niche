@@ -4,7 +4,7 @@ from services.playlist_maker.Playlist import Playlist
 from auth.SpotifyUser import SpotifyUser
 import time
 
-def get(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> str:
+def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> str:
     t0     = time.time()
     user   = SpotifyUser()
     req    = PlaylistRequest(user, year_min, language, niche_level, sec_min, sec_max, genre)
@@ -19,4 +19,4 @@ def get(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int
     return (pl.url)
 
 if __name__ == '__main__':
-    get(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'indie rock')
+    do(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'indie rock')

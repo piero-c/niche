@@ -6,6 +6,13 @@ from db.DAOs.PlaylistsDAO import PlaylistDAO
 from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services.playlist_maker.PlaylistRequest import PlaylistRequest
+from PIL import Image  # You may need to install Pillow if not already installed
+import io
+import base64
+from pathlib import Path
+
+COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
+
 # TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
 class NicheTrack(TypedDict):
     """Niche track obj
@@ -45,7 +52,7 @@ class Playlist:
         playlist = spotify_user.client.user_playlist_create(
             user          = spotify_user.id,
             name          = playlist_info['name'],
-            public        = False,
+            public        = True,
             description   = playlist_info['description'],
             collaborative = False
         )
@@ -61,6 +68,8 @@ class Playlist:
         self.url         = playlist['external_urls']['spotify']
         self.name        = playlist['name']
         self.description = playlist['description']
+
+        self._upload_cover_image(spotify_user)
 
         user_oid = spotify_user.oid
         request_oid = req.request_oid
@@ -84,5 +93,13 @@ class Playlist:
             }
         )
 
-    def __repr__(self):
-        return(f"Playlist(name='{self.name}', url='{self.url}')")
+    def _upload_cover_image(self, spotify_user: SpotifyUser) -> None:
+        # Open the image and convert it to a base64-encoded JPEG
+        with Image.open(COVER_IMAGE_PATH) as img:
+            img = img.convert("RGB")  # Ensure the image is in RGB format
+            buffer = io.BytesIO()
+            img.save(buffer, format="JPEG")
+            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+
+        # Upload the image to Spotify as the playlist cover
+        spotify_user.client.playlist_upload_cover_image(self.id, image_base64)

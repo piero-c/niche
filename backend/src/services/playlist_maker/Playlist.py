@@ -3,6 +3,7 @@ from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 from db.DB import DB
 from db.DAOs.PlaylistsDAO import PlaylistDAO
+from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services.playlist_maker.PlaylistRequest import PlaylistRequest
 # TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
@@ -44,7 +45,7 @@ class Playlist:
         playlist = spotify_user.client.user_playlist_create(
             user          = spotify_user.id,
             name          = playlist_info['name'],
-            public        = True,
+            public        = False,
             description   = playlist_info['description'],
             collaborative = False
         )
@@ -73,6 +74,14 @@ class Playlist:
                 request=request_oid,
                 link=self.url
             )
+        )
+
+        rdao = RequestDAO(db)
+        rdao.update(
+            document_id=req.request_oid,
+            update_data={
+                'playlist_generated': self.url
+            }
         )
 
     def __repr__(self):

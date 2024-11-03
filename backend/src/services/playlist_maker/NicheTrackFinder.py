@@ -21,10 +21,6 @@ from utils.logger import logger
 env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups
-# TODO - go thru check pydocs and simplify all code
-# TODO - for some infos (successes, see if can do diff log) and better logging in general
-# Change rest of warnings that are err to err
-# TODO - Remove subfn side effects and refactor
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -90,35 +86,18 @@ class NicheTrackFinder:
     def _artist_likeness_invalid(self, artist: Artist) -> bool:
         """Valid according to request
         """
-        if (artist.lastfm_artist_likeness < self.request.lastfm_likeness_min):
-            logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
-            return(True)
-        
-        return(False)
+        return(artist.lastfm_artist_likeness < self.request.lastfm_likeness_min)
 
     def _artist_listeners_and_plays_too_low(self, artist: Artist) -> bool:
         """Too low according to request for nicheness level
         """
-        listeners = artist.lastfm_artist_listeners
-        playcount = artist.lastfm_artist_playcount
-
-        if((listeners < self.request.lastfm_listeners_min) and (playcount < self.request.lastfm_playcount_min)):
-            logger.error(f'Artist {artist.name} listeners {listeners} and playcount {playcount} too low')
-            return(True)
-
-        return(False)
+        return((artist.lastfm_artist_listeners < self.request.lastfm_listeners_min) and (artist.lastfm_artist_playcount < self.request.lastfm_playcount_min))
 
     def _artist_listeners_and_plays_too_high(self, artist: Artist) -> bool:
         """Too high according to request for nicheness level
         """
-        listeners = artist.lastfm_artist_listeners
-        playcount = artist.lastfm_artist_playcount
 
-        if((listeners > self.request.lastfm_listeners_max) and (playcount > self.request.lastfm_playcount_max)):
-            logger.error(f'Artist {artist.name} listeners {listeners} and playcount {playcount} too high')
-            return(True)
-
-        return(False)
+        return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     def _artist_cached_invalid(self, artist: Artist) -> bool:
         """Check the previously excluded artists to check if the artist has been previously excluded within the correct timeframe or for the right reason
@@ -163,6 +142,18 @@ class NicheTrackFinder:
             mbid=artist.mbid,
             reason_excluded=REASONMAP.get(reason)
         ))
+    
+    def _add_excluded_entry(self, artist: Artist, reason: ReasonExcluded) -> None:
+        """_summary_
+
+        Args:
+            artist (Artist): _description_
+            reason (ReasonExcluded): _description_
+        """
+        self.requestsCacheDAO.check_and_update_or_add_excluded(
+            cache_id=self.requestsCacheOID,
+            excluded=self._create_excluded_object(artist, reason)
+        )
 
     def find_niche_tracks(self) -> list[NicheTrack]:
         """Make the playlist
@@ -212,33 +203,31 @@ class NicheTrackFinder:
                     # Attach artist from lastfm
                     artist.attach_artist_lastfm()
                     logger.info(f'Attached lastfm artist {artist.name} from lastfm')
- 
+
                     # Check artist listener and play and likeness thresholds
                     if (self._artist_listeners_and_plays_too_high(artist)):
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-                        )
+                        logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
+                        self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
+
                     elif (self._artist_listeners_and_plays_too_low(artist)):
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_FEW_SOMETHING)
-                        )
+                        logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
+                        self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING)
+
                     elif (self._artist_likeness_invalid(artist)):
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
-                        )
+                        logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
+                        self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
+
                     elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+                        logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                         # Sanity check for artist match, no exclusion required here
-                        pass
+
                     else:
                         logger.info(f'Artist {artist.name} is valid')
                         # Artist passes all checks
                         valid_artists.append(artist)
+
                 except Exception as e:
                     logger.error(e)
-
 
             # Shuffle artists
             random.shuffle(valid_artists)
@@ -278,17 +267,11 @@ class NicheTrackFinder:
                         break
                     if(artist.spotify_followers > self.request.spotify_followers_max):
                         logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-                        )
+                        self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
                         break
                     if(artist.spotify_followers < self.request.spotify_followers_min):
                         logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_FEW_SOMETHING)
-                        )
+                        self._add_excluded_entry(artist,ReasonExcluded.TOO_FEW_SOMETHING) 
                         break
 
                     
@@ -308,10 +291,7 @@ class NicheTrackFinder:
                     # CHECK ARTIST LANGUAGE
                     if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
                         logger.error(f"Artist does not sing in {self.request.language}")
-                        self.requestsCacheDAO.check_and_update_or_add_excluded(
-                            cache_id=self.requestsCacheOID,
-                            excluded=self._create_excluded_object(artist, ReasonExcluded.WRONG_LANGUAGE)
-                        )
+                        self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
                         break
 
                     # TODO
@@ -334,13 +314,10 @@ class NicheTrackFinder:
                     }
                     niche_tracks.append(niche_track)
                     artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
-                    logger.info(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
-                    logger.info(f"TRACKS ADDED: {len(niche_tracks)}")
-                    logger.info(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
+                    logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
+                    logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
+                    logger.success(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
 
-
-        if(len(niche_tracks) >= desired_song_count):
-            return(niche_tracks)
-        else:
-            raise Exception('Couldn\'t find enough songs')
+        return(niche_tracks)
+            
 

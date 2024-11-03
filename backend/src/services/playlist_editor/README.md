@@ -6,6 +6,8 @@
 ### Entry:
     
 ### Features to Implement:
+   - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it
+
     - When the playlist is generated, have a list of the artists and their songs
 
     - Have the option to play the song (with a button beside the artist) if the user is premium (see https://www.youtube.com/watch?v=EqisCZG9MAc&ab_channel=InteractiveUtopia)

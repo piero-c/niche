@@ -26,6 +26,7 @@ class Request(BaseSchema):
     user: PyObjectId
     params: Params
     playlist_generated: Optional[PyObjectId] = None
+    percent_artists_valid: Optional[float] = None
 
     class Config(BaseSchema.Config):
         json_schema_extra = {

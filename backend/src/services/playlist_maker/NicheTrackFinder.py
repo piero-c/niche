@@ -11,6 +11,7 @@ from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 from db.DB import DB
 from db.DAOs.ArtistsDAO import ArtistsDAO
 from db.DAOs.RequestsCacheDAO import RequestsCacheDAO
+from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
 
 import random
@@ -22,8 +23,7 @@ env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups
 
-# TODO - HERE - these below then to profile and see readmes for other
-# TODO - Handle logic related to not having enough songs (api), and limiting or warning if not enough artists in the db (estimated num of songs) TODO - percentage for a request that generated a playlist (or for playlist) add will help w this
+# TODO - Handle logic related to not having enough songs (api)
 # TODO - playlist picture
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
@@ -187,6 +187,8 @@ class NicheTrackFinder:
         random.shuffle(offsets_list)
 
         for i in range(len(offsets_list)):
+            percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
+
             if(len(niche_tracks) >= desired_song_count):
                 break
             logger.info(f'artists checked: {i * artist_increment_count}')
@@ -318,7 +320,10 @@ class NicheTrackFinder:
                     artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
                     logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                     logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
-                    logger.success(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
+                    logger.success(f"RATIO: {percent_artists_valid}%")
+
+        rdao = RequestDAO(self.db)
+        rdao.update(self.request.request_oid, {'percent_artists_valid': percent_artists_valid})
 
         return(niche_tracks)
             

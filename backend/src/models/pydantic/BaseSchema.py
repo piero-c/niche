@@ -8,8 +8,6 @@ from db.config_loader import load_config
 # Load configuration (ensure this is done outside the model to avoid side effects)
 config = load_config()
 
-# TODO HEre - commit, then deal with current bug and simplify the DAOs and anything else chat gpt did and make sure pydocs r good
-
 class PyObjectId(ObjectId):
     @classmethod
     def __get_validators__(cls):

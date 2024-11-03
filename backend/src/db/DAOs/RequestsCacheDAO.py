@@ -5,8 +5,6 @@ from models.pydantic.RequestsCache import RequestsCache, Excluded, ParamsCache
 from db.DB import DB
 from db.DAOs.baseDAO import BaseDAO
 
-# TODO - better way to clean update data then what currently doing (like to not update immutable fields)
-
 class RequestsCacheDAO(BaseDAO[RequestsCache]):
     """
     Data Access Object for RequestsCache collection.

@@ -24,6 +24,7 @@ env    = load_env()
 # TODO - go thru check pydocs and simplify all code
 # TODO - for some infos (successes, see if can do diff log) and better logging in general
 # Change rest of warnings that are err to err
+# TODO - Remove subfn side effects and refactor
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -38,7 +39,6 @@ class NicheTrackFinder:
         requestsCacheOID
         requests_cache
         excluded_artists
-        artist_excluded_earliest_date
     """
     def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
         """Initialize the finder
@@ -212,9 +212,8 @@ class NicheTrackFinder:
                     # Attach artist from lastfm
                     artist.attach_artist_lastfm()
                     logger.info(f'Attached lastfm artist {artist.name} from lastfm')
-
-                    # TODO - here - put the debug log in the functions 
-                    # Check artist listener and play thresholds
+ 
+                    # Check artist listener and play and likeness thresholds
                     if (self._artist_listeners_and_plays_too_high(artist)):
                         self.requestsCacheDAO.check_and_update_or_add_excluded(
                             cache_id=self.requestsCacheOID,
@@ -254,9 +253,6 @@ class NicheTrackFinder:
                     top_tracks = artist.get_artist_top_tracks_lastfm()
                 except Exception as e:
                     logger.error(e)
-                    continue
-                if(not top_tracks):
-                    logger.warning(f"No top tracks found on lastfm for artist: {artist.name}")
                     continue
 
                 # Shuffle tracks to add randomness

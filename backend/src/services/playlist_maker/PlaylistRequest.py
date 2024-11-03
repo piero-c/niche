@@ -5,7 +5,6 @@ from models.pydantic.Request import Request, Params
 from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 from utils.util import NICHE_APP_URL
-# TODO - still return the playlist if not enough songs
 class PlaylistInfo(TypedDict):
     """Playlist info obj
 

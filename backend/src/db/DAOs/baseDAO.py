@@ -37,7 +37,7 @@ class BaseDAO(Generic[T]):
 
     def update(self, document_id: str, update_data: Dict[str, Any]) -> UpdateResult:
         """
-        Updates a document by its ObjectId, validating `update_data` and allowing model defaults to set `updated_*` fields.
+        Updates a document by its ObjectId, validating `update_data` without enforcing required fields.
 
         Args:
             document_id (str): The ObjectId of the document to update.
@@ -46,17 +46,16 @@ class BaseDAO(Generic[T]):
         Returns:
             UpdateResult: The result of the update operation.
         """
-
         # Filter to include only mutable, valid model fields
         clean_data = {k: v for k, v in update_data.items() if k in self.model.model_fields}
 
-        # Instantiate the model, letting default factories populate missing fields like `updated_at` and `updated_by`
+        # Use `construct` to create a model instance without enforcing required fields
         try:
-            validated_instance = self.model(**clean_data)
+            validated_instance = self.model.model_construct(**clean_data)
             # Create a set of fields to include: fields provided in `update_data` + default-set fields
             fields_to_include = set(clean_data.keys()).union({"updated_at", "updated_by"})
             
-            # Convert to dict, ensuring only desired fields are included
+            # Convert to dict, ensuring only the specified fields are included
             validated_data = validated_instance.model_dump(exclude_unset=True, include=fields_to_include)
         except ValidationError as e:
             raise ValueError(f"Update data validation error: {e}")

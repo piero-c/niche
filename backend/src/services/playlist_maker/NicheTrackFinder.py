@@ -22,6 +22,10 @@ env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups
 
+# TODO - HERE - these below then to profile and see readmes for other
+# TODO - Handle logic related to not having enough songs (api), and limiting or warning if not enough artists in the db (estimated num of songs) TODO - percentage for a request that generated a playlist (or for playlist) add will help w this
+# TODO - playlist picture
+
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
 class NicheTrackFinder:

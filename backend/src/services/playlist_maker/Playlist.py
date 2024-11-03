@@ -67,7 +67,7 @@ class Playlist:
 
         db = DB()
         dao = PlaylistDAO(db)
-        dao.create(
+        entry = dao.create(
             PlaylistModel(
                 user=user_oid,
                 name=self.name,
@@ -80,7 +80,7 @@ class Playlist:
         rdao.update(
             document_id=req.request_oid,
             update_data={
-                'playlist_generated': self.url
+                'playlist_generated': entry.inserted_id
             }
         )
 

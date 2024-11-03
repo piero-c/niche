@@ -1,4 +1,18 @@
-from utils.util import Language, NicheLevel
+from utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
+from db.DB import DB
+from db.DAOs.RequestsDAO import RequestDAO
+from models.pydantic.Request import Request, Params
+from auth.SpotifyUser import SpotifyUser
+from typing import TypedDict
+from utils.util import NICHE_APP_URL
+class PlaylistInfo(TypedDict):
+    """Playlist info obj
+
+    Args:
+        TypedDict
+    """
+    name       : str
+    description: str
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
@@ -30,6 +44,7 @@ niche_level_map = {
     }
 }
 
+# TODO - based on number of entries in db limit to under 20
 class PlaylistRequest:
     """Playlist Request
 
@@ -49,11 +64,12 @@ class PlaylistRequest:
         lastfm_likeness_min 
         playlist_length     
     """
-    def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
+    def __init__(self, user: SpotifyUser, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
-        """_summary_
+        """Initialize the request
 
         Args:
+            user(SpotifyUser)           : Spotify Authenticated user
             songs_min_year_created (int): Min year for the songs to be created in
             language (Language)         : Language for the songs to be in
             niche_level (NicheLevel)    : Level of nicheness
@@ -79,3 +95,37 @@ class PlaylistRequest:
         # Hardcoded vals
         self.lastfm_likeness_min  = 4
         self.playlist_length      = 20
+
+        #self.playlist_length = 1
+
+        db = DB()
+        dao = RequestDAO(db)
+
+        # Make the request
+        db_entry = dao.create(
+            Request(
+                user = user.oid,
+                params = Params(
+                    songs_min_year_created=self.songs_min_year_created,
+                    songs_length_min_secs=self.songs_length_min_secs,
+                    songs_length_max_secs=self.songs_length_max_secs,
+                    language=LANGMAP.inv.get(self.language, {}),
+                    genre=self.genre,
+                    niche_level=NICHEMAP.inv.get(self.niche_level, {})
+                )
+            )
+        )
+
+        self.request_oid = db_entry.inserted_id
+
+    def get_playlist_info(self) -> PlaylistInfo:
+        """Get the info for the playlist
+
+        Returns:
+            PlaylistInfo: the info
+        """
+        # TODO - Make the names unique based on the user? Like indie whatever 1
+        return({
+            'name': f'Niche {self.genre} Songs',
+            'description': f'Courtesy of the niche app :) ({NICHE_APP_URL})'
+        })

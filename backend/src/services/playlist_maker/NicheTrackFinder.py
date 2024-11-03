@@ -3,22 +3,30 @@ from auth.SpotifyUser import SpotifyUser
 from auth.MusicBrainzRequests import MusicBrainzRequests
 
 from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language
-from services.playlist_maker.Playlist import Playlist, NicheTrack, PlaylistInfo
+from services.playlist_maker.Playlist import NicheTrack
 from services.playlist_maker.Artist import Artist
 
-from utils.util import load_env
+from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 
 from db.DB import DB
-from db.ArtistsDAO import ArtistsDAO
+from db.DAOs.ArtistsDAO import ArtistsDAO
+from db.DAOs.RequestsCacheDAO import RequestsCacheDAO
+from models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
 
 import random
 from numpy import mean as mean
+from datetime import datetime, timedelta
 
 from utils.logger import logger
 env    = load_env()
 
-global NICHE_APP_URL
-NICHE_APP_URL = 'http://niche-app.net'
+# TODO-  remove the bidicts? Mongo takes enums as lookups
+# TODO - go thru check pydocs and simplify all code
+# TODO - for some infos (successes, see if can do diff log) and better logging in general
+# Change rest of warnings that are err to err
+# TODO - Remove subfn side effects and refactor
+
+ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
 class NicheTrackFinder:
     """Niche Track Finder
@@ -27,6 +35,10 @@ class NicheTrackFinder:
         request
         user
         artistsDAO
+        requestsCacheDAO
+        requestsCacheOID
+        requests_cache
+        excluded_artists
     """
     def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
         """Initialize the finder
@@ -38,9 +50,25 @@ class NicheTrackFinder:
         self.request         = request
         self.user            = user
 
-        db              = DB()
-        self.artistsDAO = ArtistsDAO(db)
+        self.db               = DB()
+        self.artistsDAO       = ArtistsDAO(self.db)
+        self.requestsCacheDAO = RequestsCacheDAO(self.db)
 
+        self.requests_cache = self.requestsCacheDAO.create_if_not_exists(
+            ParamsCache(
+                language=LANGMAP.inv.get(self.request.language),
+                genre=self.request.genre,
+                niche_level=NICHEMAP.inv.get(self.request.niche_level)
+            )
+        )
+        try:
+            self.requestsCacheOID = self.requests_cache.inserted_id
+            self.requests_cache = self.requestsCacheDAO.read_by_id(self.requestsCacheOID)
+        except Exception:
+            self.requestsCacheOID = self.requests_cache.id
+        
+        # Create a lookup for excluded artists so we don't have to query the db
+        self.excluded_artists = obj_array_to_obj([excl.model_dump(by_alias=True) for excl in self.requests_cache.excluded], 'mbid')
 
     def _fetch_artists_from_musicbrainz(self) -> list[Artist]:
         """Get artists from musicbrainz in the requested genre
@@ -58,23 +86,85 @@ class NicheTrackFinder:
         except Exception as e:
             logger.error(f"Unexpected error: {e}")
             return([])
+        
+    def _artist_likeness_invalid(self, artist: Artist) -> bool:
+        """Valid according to request
+        """
+        if (artist.lastfm_artist_likeness < self.request.lastfm_likeness_min):
+            logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
+            return(True)
+        
+        return(False)
 
-    def _artist_listeners_and_plays_valid(self, artist: Artist) -> bool:
-        """Valid according to request for nicheness level
+    def _artist_listeners_and_plays_too_low(self, artist: Artist) -> bool:
+        """Too low according to request for nicheness level
         """
         listeners = artist.lastfm_artist_listeners
         playcount = artist.lastfm_artist_playcount
 
-        if((not (listeners and playcount)) or
-            ((listeners > self.request.lastfm_listeners_max) and (playcount > self.request.lastfm_playcount_max)) or
-            ((listeners < self.request.lastfm_listeners_min) or (playcount < self.request.lastfm_playcount_min)) or
-            (artist.lastfm_artist_likeness < self.request.lastfm_likeness_min)):
-            logger.warning(f'Artist {artist.name} listeners {listeners} or playcount {playcount} or likeness {artist.lastfm_artist_likeness} invalid')
-            return(False)
+        if((listeners < self.request.lastfm_listeners_min) and (playcount < self.request.lastfm_playcount_min)):
+            logger.error(f'Artist {artist.name} listeners {listeners} and playcount {playcount} too low')
+            return(True)
 
-        return(True)
+        return(False)
 
-    def _find_niche_tracks(self) -> list[NicheTrack]:
+    def _artist_listeners_and_plays_too_high(self, artist: Artist) -> bool:
+        """Too high according to request for nicheness level
+        """
+        listeners = artist.lastfm_artist_listeners
+        playcount = artist.lastfm_artist_playcount
+
+        if((listeners > self.request.lastfm_listeners_max) and (playcount > self.request.lastfm_playcount_max)):
+            logger.error(f'Artist {artist.name} listeners {listeners} and playcount {playcount} too high')
+            return(True)
+
+        return(False)
+
+    def _artist_cached_invalid(self, artist: Artist) -> bool:
+        """Check the previously excluded artists to check if the artist has been previously excluded within the correct timeframe or for the right reason
+
+        Args:
+            artist (Artist): The artist to check
+
+        Returns:
+            bool: Were they excluded?
+        """
+        artist_cached_entry = self.excluded_artists.get(artist.mbid, None)
+
+        # If the artist has been cached for this request as invalid 
+        #   AND (either they were excluded within the heuristic timeframe (where they would Probably still be excluded if checked again) OR
+        #        they were excluded for being too popular OR for not singing in the requested language)
+        #   then they are still invalid
+        if (
+            (artist_cached_entry) and (
+                (artist_cached_entry.get('date_excluded') > ARTIST_EXCLUDED_EARLIEST_DATE) or
+                (
+                    (artist_cached_entry.get('reason_excluded') == REASONMAP.get(ReasonExcluded.TOO_MANY_SOMETHING)) or
+                    (artist_cached_entry.get('reason_excluded') == REASONMAP.get(ReasonExcluded.WRONG_LANGUAGE))
+                )
+            )
+        ):
+            return(True)
+        
+        return(False)
+
+    def _create_excluded_object(self, artist: Artist, reason: ReasonExcluded) -> Excluded:
+        """Create an Excluded object
+
+        Args:
+            artist (Artist): The artist to exclude
+            reason (ReasonExcluded): The reason to exclude them
+
+        Returns:
+            Excluded: The Excluded object
+        """
+        return (Excluded(
+            name=artist.name,
+            mbid=artist.mbid,
+            reason_excluded=REASONMAP.get(reason)
+        ))
+
+    def find_niche_tracks(self) -> list[NicheTrack]:
         """Make the playlist
 
         Raises:
@@ -84,6 +174,10 @@ class NicheTrackFinder:
             list[NicheTrack]: List of niche tracks
         """
         niche_tracks      = []
+        artist_song_count = {}
+
+        # TODO - make dynamic / selected by user?
+        artist_max_songs = 1
 
         desired_song_count   = self.request.playlist_length
 
@@ -108,22 +202,43 @@ class NicheTrackFinder:
             logger.info(f'Checking offset {random_offset} of {len(offsets_list)}')
 
             valid_artists: list[Artist] = []
-
             for artist in artists:
+                # Check if artist is invalid in cache
+                if self._artist_cached_invalid(artist):
+                    logger.error(f'Artist {artist.name} has been previously cached as invalid for this request')
+                    continue
+
                 try:
+                    # Attach artist from lastfm
                     artist.attach_artist_lastfm()
                     logger.info(f'Attached lastfm artist {artist.name} from lastfm')
-                    valid_artists.append(artist)
+ 
+                    # Check artist listener and play and likeness thresholds
+                    if (self._artist_listeners_and_plays_too_high(artist)):
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_MANY_SOMETHING)
+                        )
+                    elif (self._artist_listeners_and_plays_too_low(artist)):
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_FEW_SOMETHING)
+                        )
+                    elif (self._artist_likeness_invalid(artist)):
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
+                        )
+                    elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+                        # Sanity check for artist match, no exclusion required here
+                        pass
+                    else:
+                        logger.info(f'Artist {artist.name} is valid')
+                        # Artist passes all checks
+                        valid_artists.append(artist)
                 except Exception as e:
                     logger.error(e)
 
-            valid_artists = [
-                artist for artist in valid_artists if(
-                    (self._artist_listeners_and_plays_valid(artist)) and
-                    # This is mostly to ensure that if we attached artist by name, it is the artist we were looking for
-                    (artist.artist_in_lastfm_genre(self.request.genre))
-                )
-            ]
 
             # Shuffle artists
             random.shuffle(valid_artists)
@@ -139,9 +254,6 @@ class NicheTrackFinder:
                 except Exception as e:
                     logger.error(e)
                     continue
-                if(not top_tracks):
-                    logger.warning(f"No top tracks found on lastfm for artist: {artist.name}")
-                    continue
 
                 # Shuffle tracks to add randomness
                 random.shuffle(top_tracks)
@@ -156,18 +268,29 @@ class NicheTrackFinder:
                         break
                     except Exception as e:
                         logger.error(e)
-                        break
 
                 if(not attached):
                     break
 
                 for track in top_tracks:
-                    # Check if artist already has max allowed songs or more or less than allowed followers
-                    if((len(niche_tracks) >= desired_song_count) or
-                       (artist.spotify_followers > self.request.spotify_followers_max) or
-                       (artist.spotify_followers < self.request.spotify_followers_min)):
-                        logger.warning(f'Artist {artist.name} followers ({artist.spotify_followers}) invalid OR has too many songs OR song count has been reached')
+                    if((len(niche_tracks) >= desired_song_count) or (artist_song_count.get(artist.mbid, 0) >= artist_max_songs)):
+                        logger.warning('song count has been reached OR Artist has hit song count')
                         break
+                    if(artist.spotify_followers > self.request.spotify_followers_max):
+                        logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_MANY_SOMETHING)
+                        )
+                        break
+                    if(artist.spotify_followers < self.request.spotify_followers_min):
+                        logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.TOO_FEW_SOMETHING)
+                        )
+                        break
+
                     
                     try:
                         track.attach_spotify_track_information()
@@ -184,7 +307,11 @@ class NicheTrackFinder:
                     mb = MusicBrainzRequests()
                     # CHECK ARTIST LANGUAGE
                     if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
-                        logger.warning(f"Artist does not sing in {self.request.language}")
+                        logger.error(f"Artist does not sing in {self.request.language}")
+                        self.requestsCacheDAO.check_and_update_or_add_excluded(
+                            cache_id=self.requestsCacheOID,
+                            excluded=self._create_excluded_object(artist, ReasonExcluded.WRONG_LANGUAGE)
+                        )
                         break
 
                     # TODO
@@ -192,6 +319,9 @@ class NicheTrackFinder:
                     # if(year_published < self.request.songs_min_year_created):
                     #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
                     #     continue
+
+                    # Artist is valid. If it was previously excluded  delete that entry
+                    self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
 
                     # TODO want the API to basically return the playlist link and have the web playback sdk show it and then option to save which will b another endpoint
                     #  TODO -  make the playlist public then if they wanna keep it post a thing to api to change it to private (public so can see on sdk web play) and if dont wanna keep it delete it
@@ -203,6 +333,7 @@ class NicheTrackFinder:
                         'spotify_url': track.spotify_url,
                     }
                     niche_tracks.append(niche_track)
+                    artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
                     logger.info(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                     logger.info(f"TRACKS ADDED: {len(niche_tracks)}")
                     logger.info(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
@@ -213,24 +344,3 @@ class NicheTrackFinder:
         else:
             raise Exception('Couldn\'t find enough songs')
 
-    def _get_playlist_info(self) -> PlaylistInfo:
-        """Get the info for the playlist
-
-        Returns:
-            PlaylistInfo: the info
-        """
-        # TODO - Make the names unique based on the user? Like indie whatever 1
-        return({
-            'name': f'Niche {self.request.genre} Songs',
-            'description': f'Courtesy of the niche app :) ({NICHE_APP_URL})'
-        })
-
-    def create_playlist(self) -> Playlist:
-        """Create the playlist of niche songs based on the request
-
-        Returns:
-            Playlist: The playlist
-        """
-        tracks = self._find_niche_tracks()
-        playlist_info = self._get_playlist_info()
-        return(Playlist(tracks, playlist_info, self.user))

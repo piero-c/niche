@@ -1,50 +1,39 @@
-from typing import Optional, List, Dict, Any
-from pymongo.collection import Collection
-from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
+from typing import List, Union
+from pymongo.results import InsertOneResult, UpdateResult
 from bson import ObjectId
-from models.pydantic.RequestsCache import RequestsCache, Excluded
+from models.pydantic.RequestsCache import RequestsCache, Excluded, ParamsCache
 from db.DB import DB
+from db.DAOs.baseDAO import BaseDAO
 
-class RequestsCacheDAO:
+class RequestsCacheDAO(BaseDAO[RequestsCache]):
     """
     Data Access Object for RequestsCache collection.
-
-    Provides methods to create, read, update, and delete RequestsCache data in MongoDB.
     """
 
     def __init__(self, db: DB) -> None:
+        super().__init__(db.get_collection("requests_cache"), RequestsCache)
+
+    def create_if_not_exists(self, params: ParamsCache) -> Union[RequestsCache, InsertOneResult]:
         """
-        Initializes the RequestsCacheDAO with a database instance.
+        Creates a new RequestsCache entry if one does not exist with the given ParamsCache parameters.
 
         Args:
-            db (DB): The database instance.
-        """
-        self.collection: Collection = db.get_collection("requests_cache")
-
-    def create(self, requests_cache: RequestsCache) -> InsertOneResult:
-        """
-        Inserts a new requests_cache document into the collection.
-
-        Args:
-            requests_cache (RequestsCache): The RequestsCache data to insert.
+            params (ParamsCache): The parameters to check or create in the `params` field.
 
         Returns:
-            InsertOneResult: The result of the insertion operation.
+            Union[RequestsCache, InsertOneResult]: The existing or newly created RequestsCache entry.
         """
-        return (self.collection.insert_one(requests_cache.model_dump(by_alias=True)))
-
-    def read_by_id(self, cache_id: str) -> Optional[RequestsCache]:
-        """
-        Reads a RequestsCache entry by its ObjectId.
-
-        Args:
-            cache_id (str): The ObjectId of the RequestsCache entry to find.
-
-        Returns:
-            Optional[RequestsCache]: The found RequestsCache entry, or None if not found.
-        """
-        raw_data = self.collection.find_one({"_id": ObjectId(cache_id)})
-        return (RequestsCache.model_validate(raw_data) if (raw_data) else None)
+        params_dict = params.model_dump(by_alias=True)
+        query = {f"params.{key}": value for key, value in params_dict.items()}
+        
+        existing_entry = self.collection.find_one(query)
+        
+        if (existing_entry):
+            return (RequestsCache.model_validate(existing_entry))
+        else:
+            new_cache = RequestsCache(params=params, excluded=[])
+            result = self.collection.insert_one(new_cache.model_dump(by_alias=True))
+            return (result)
 
     def read_all(self, filter: dict = {}) -> List[RequestsCache]:
         """
@@ -59,42 +48,18 @@ class RequestsCacheDAO:
         documents = self.collection.find(filter)
         return ([RequestsCache.model_validate(doc) for doc in documents])
 
-    def update(self, cache_id: str, update_data: dict) -> UpdateResult:
-        """
-        Updates a RequestsCache document by its ObjectId.
-
-        Args:
-            cache_id (str): The ObjectId of the RequestsCache entry to update.
-            update_data (dict): The data to update in the RequestsCache document.
-
-        Returns:
-            UpdateResult: The result of the update operation.
-        """
-        return (self.collection.update_one({"_id": ObjectId(cache_id)}, {"$set": update_data}))
-
-    def delete(self, cache_id: str) -> DeleteResult:
-        """
-        Deletes a RequestsCache document by its ObjectId.
-
-        Args:
-            cache_id (str): The ObjectId of the RequestsCache entry to delete.
-
-        Returns:
-            DeleteResult: The result of the delete operation.
-        """
-        return (self.collection.delete_one({"_id": ObjectId(cache_id)}))
-
-    def read_by_params(self, params: Dict[str, Any]) -> List[RequestsCache]:
+    def read_by_params(self, params: ParamsCache) -> List[RequestsCache]:
         """
         Reads RequestsCache entries based on specific parameters within the `params` field.
 
         Args:
-            params (Dict[str, Any]): The parameters to match in the `params` field of the RequestsCache entries.
+            params (ParamsCache): The parameters to match in the `params` field of the RequestsCache entries.
 
         Returns:
-            List[RequestsCache]: A list of RequestsCache entries that match the given parameters.
+            List[RequestsCache]: A list of matching RequestsCache entries.
         """
-        query = {f"params.{key}": value for key, value in params.items()}
+        params_dict = params.model_dump(by_alias=True)
+        query = {f"params.{key}": value for key, value in params_dict.items()}
         documents = self.collection.find(query)
         return ([RequestsCache.model_validate(doc) for doc in documents])
 
@@ -141,12 +106,37 @@ class RequestsCacheDAO:
         Returns:
             List[Excluded]: A list of `Excluded` entries matching the specified reason in the specified RequestsCache entry.
         """
-        # Find the specific RequestsCache entry
         raw_data = self.collection.find_one(
             {"_id": ObjectId(cache_id)},
             {"excluded": {"$elemMatch": {"reason_excluded": reason}}}
         )
-
-        # If entry exists and has excluded items, validate and return them; otherwise, return an empty list
         excluded_entries = raw_data.get("excluded", []) if raw_data else []
         return ([Excluded.model_validate(entry) for entry in excluded_entries])
+
+    def check_and_update_or_add_excluded(self, cache_id: str, excluded: Excluded) -> UpdateResult:
+        """
+        Checks if an `Excluded` entry with a given mbid exists in the `excluded` list of a RequestsCache document.
+        If it exists, updates it; otherwise, adds it as a new entry.
+
+        Args:
+            cache_id (str): The ObjectId of the RequestsCache entry to update.
+            excluded (Excluded): The Excluded entry to add or update.
+
+        Returns:
+            UpdateResult: The result of the update operation.
+        """
+        # Check if an entry with the same mbid already exists in the `excluded` list
+        existing_excluded = self.collection.find_one(
+            {"_id": ObjectId(cache_id), "excluded.mbid": excluded.mbid},
+            {"excluded.$": 1}
+        )
+
+        if existing_excluded:
+            # If an entry with this mbid exists, update it
+            return self.collection.update_one(
+                {"_id": ObjectId(cache_id), "excluded.mbid": excluded.mbid},
+                {"$set": {"excluded.$": excluded.model_dump(by_alias=True)}}
+            )
+        else:
+            # If no such entry exists, add it as a new entry
+            return self.add_excluded_entry(cache_id, excluded)

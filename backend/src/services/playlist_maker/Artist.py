@@ -151,7 +151,12 @@ class Artist:
         """
         if (not hasattr(self, 'lastfm_artist')):
             self.lastfm_artist = self.attach_artist_lastfm()
-        return(genre in self._get_tags_from_lastfm_artist())
+        
+        if (genre not in self._get_tags_from_lastfm_artist()):
+            logger.error(f'Artist {self.name} not in genre {genre}')
+            return (False)
+
+        return(True)
 
     def get_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
         """

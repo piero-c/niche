@@ -1,7 +1,11 @@
 # Module for the final playlist
 from auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
-
+from db.DB import DB
+from db.DAOs.PlaylistsDAO import PlaylistDAO
+from models.pydantic.Playlist import Playlist as PlaylistModel
+from services.playlist_maker.PlaylistRequest import PlaylistRequest
+# TODO - still return the playlist if not enough songs
 class NicheTrack(TypedDict):
     """Niche track obj
 
@@ -13,15 +17,6 @@ class NicheTrack(TypedDict):
     spotify_uri: str
     spotify_url: str
 
-class PlaylistInfo(TypedDict):
-    """Playlist info obj
-
-    Args:
-        TypedDict
-    """
-    name       : str
-    description: str
-
 # Playlist Class
 class Playlist:
     """Playlist Object
@@ -32,16 +27,18 @@ class Playlist:
         name (str): Name of the playlist.
         description (str): Description of the playlist.
     """
-    def __init__(self, tracks: list[NicheTrack], playlist_info: PlaylistInfo, spotify_user: SpotifyUser) -> None:
-        """Initialise the playlist
+    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser) -> None:
+        """Initialize the playlist
 
         Args:
-            tracks (list[NicheTrack]): The tracks for the playlist
-            playlist_info (PlaylistInfo): The metadata for the playlist
-            spotify_user (SpotifyUser): Spotify Authenticated User to create the playlist for
+            tracks (list[NicheTrack]): The tracks to add
+            req (PlaylistRequest): The request that was used to generate the playlist
+            user (SpotifyUser): The Spotify Authenticated User
         """
         # Extract Spotify URIs from the provided tracks
         track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
+
+        playlist_info = req.get_playlist_info()
 
         # Create a new playlist with placeholder name and description
         playlist = spotify_user.client.user_playlist_create(
@@ -63,6 +60,20 @@ class Playlist:
         self.url         = playlist['external_urls']['spotify']
         self.name        = playlist['name']
         self.description = playlist['description']
+
+        user_oid = spotify_user.oid
+        request_oid = req.request_oid
+
+        db = DB()
+        dao = PlaylistDAO(db)
+        dao.create(
+            PlaylistModel(
+                user=user_oid,
+                name=self.name,
+                request=request_oid,
+                link=self.url
+            )
+        )
 
     def __repr__(self):
         return(f"Playlist(name='{self.name}', url='{self.url}')")

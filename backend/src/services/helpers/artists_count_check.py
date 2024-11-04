@@ -22,7 +22,9 @@ def likely_under_count_playlist(request: PlaylistRequest) -> bool:
     rdao = RequestDAO(db)
     adao = ArtistsDAO(db)
 
+    # Get artists in the genre
     artists_count = adao.count_artists_in_genre(request.genre)
+    # Get all previous requests that match this one
     old_requests = rdao.read_by_params(
         Params(
             language=LANGMAP.inv.get(request.language),
@@ -34,17 +36,22 @@ def likely_under_count_playlist(request: PlaylistRequest) -> bool:
         )
     )
 
-    pcts = [r.percent_artists_valid / 100 for r in old_requests if r.percent_artists_valid]
+    # Get all requests that have a percent_artists_valid field
+    pcts = [r.stats.percent_artists_valid / 100 for r in old_requests if r.stats.percent_artists_valid]
 
     if (not pcts):
         return(False)
 
     avg = mean(pcts)
 
+    if (avg <= 0):
+        return(True)
+
+    # Get the expected number of artists needed
     artists_needed = request.playlist_length / avg
 
-    # Give 10% optimism error (if its likely to generate like 18 we'll be fine)
-    artists_needed -= (artists_needed / 10)
+    # Give 11% optimism error (if its likely to generate like 18 we'll be fine)
+    artists_needed -= (artists_needed / 11)
 
     return(artists_count < artists_needed)
 

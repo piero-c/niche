@@ -11,6 +11,9 @@ import io
 import base64
 from pathlib import Path
 
+from utils.logger import logger
+import requests
+
 COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
 
 # TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
@@ -68,6 +71,7 @@ class Playlist:
         self.url         = playlist['external_urls']['spotify']
         self.name        = playlist['name']
         self.description = playlist['description']
+        self.length      = len(tracks)
 
         self._upload_cover_image(spotify_user)
 
@@ -81,7 +85,8 @@ class Playlist:
                 user=user_oid,
                 name=self.name,
                 request=request_oid,
-                link=self.url
+                link=self.url,
+                length=self.length
             )
         )
 
@@ -101,5 +106,8 @@ class Playlist:
             img.save(buffer, format="JPEG")
             image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
-        # Upload the image to Spotify as the playlist cover
-        spotify_user.client.playlist_upload_cover_image(self.id, image_base64)
+        try:
+            spotify_user.client.playlist_upload_cover_image(self.id, image_base64)
+        except requests.exceptions.ReadTimeout:
+            # Handle the timeout exception as needed
+            logger.error("Timeout occurred while uploading the cover image. Please try again later.")

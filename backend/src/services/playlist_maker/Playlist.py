@@ -6,6 +6,16 @@ from db.DAOs.PlaylistsDAO import PlaylistDAO
 from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services.playlist_maker.PlaylistRequest import PlaylistRequest
+from PIL import Image  # You may need to install Pillow if not already installed
+import io
+import base64
+from pathlib import Path
+
+from utils.logger import logger
+import requests
+
+COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
+
 # TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
 class NicheTrack(TypedDict):
     """Niche track obj
@@ -45,7 +55,7 @@ class Playlist:
         playlist = spotify_user.client.user_playlist_create(
             user          = spotify_user.id,
             name          = playlist_info['name'],
-            public        = False,
+            public        = True,
             description   = playlist_info['description'],
             collaborative = False
         )
@@ -61,18 +71,22 @@ class Playlist:
         self.url         = playlist['external_urls']['spotify']
         self.name        = playlist['name']
         self.description = playlist['description']
+        self.length      = len(tracks)
+
+        self._upload_cover_image(spotify_user)
 
         user_oid = spotify_user.oid
         request_oid = req.request_oid
 
         db = DB()
         dao = PlaylistDAO(db)
-        dao.create(
+        entry = dao.create(
             PlaylistModel(
                 user=user_oid,
                 name=self.name,
                 request=request_oid,
-                link=self.url
+                link=self.url,
+                length=self.length
             )
         )
 
@@ -80,9 +94,20 @@ class Playlist:
         rdao.update(
             document_id=req.request_oid,
             update_data={
-                'playlist_generated': self.url
+                'playlist_generated': entry.inserted_id
             }
         )
 
-    def __repr__(self):
-        return(f"Playlist(name='{self.name}', url='{self.url}')")
+    def _upload_cover_image(self, spotify_user: SpotifyUser) -> None:
+        # Open the image and convert it to a base64-encoded JPEG
+        with Image.open(COVER_IMAGE_PATH) as img:
+            img = img.convert("RGB")  # Ensure the image is in RGB format
+            buffer = io.BytesIO()
+            img.save(buffer, format="JPEG")
+            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+
+        try:
+            spotify_user.client.playlist_upload_cover_image(self.id, image_base64)
+        except requests.exceptions.ReadTimeout:
+            # Handle the timeout exception as needed
+            logger.error("Timeout occurred while uploading the cover image. Please try again later.")

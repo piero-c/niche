@@ -11,7 +11,9 @@ from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 from db.DB import DB
 from db.DAOs.ArtistsDAO import ArtistsDAO
 from db.DAOs.RequestsCacheDAO import RequestsCacheDAO
+from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
+from models.pydantic.Request import Stats
 
 import random
 from numpy import mean as mean
@@ -21,6 +23,19 @@ from utils.logger import logger
 env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups
+
+# TODO - Handle logic related to not having enough songs (api)
+# TODO - Remove last fm logic? Altogether? Followers / listeners? top tracks??? lots of errors bruh
+
+# TODO - english name of artist or song like 力那 (li na)
+# TODO - artists with the same name disregard
+
+# RN - work on removing last fm - get stuff from music brainz if i have to
+# Lastfm removal:
+    # Top tracks - can do w spotify
+    # Genre validation - cannot (not needed)
+    # Popularity - followers 
+    # Likeness - cannot (figure out a way)
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -74,7 +89,9 @@ class NicheTrackFinder:
             artists = self.artistsDAO.get_artists_in_genre(self.request.genre)
             for artist in artists:
                 try:
-                    artist_list.append(Artist.from_musicbrainz(artist, self.user))
+                    a = Artist.from_musicbrainz(artist, self.user)
+                    if a:
+                        artist_list.append(a)
                 except Exception as e:
                     logger.error(f"Could not create artist: {e}")
             return(artist_list)
@@ -164,6 +181,8 @@ class NicheTrackFinder:
         Returns:
             list[NicheTrack]: List of niche tracks
         """
+        artists_total_followers = 0
+
         niche_tracks      = []
         artist_song_count = {}
 
@@ -194,6 +213,9 @@ class NicheTrackFinder:
 
             valid_artists: list[Artist] = []
             for artist in artists:
+                # Weird bug
+                if (not artist):
+                    continue
                 # Check if artist is invalid in cache
                 if self._artist_cached_invalid(artist):
                     logger.error(f'Artist {artist.name} has been previously cached as invalid for this request')
@@ -217,6 +239,9 @@ class NicheTrackFinder:
                         logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                         self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
 
+                    # TODO - Deal with this - was excluding alot of artists (make sure we dont run into the issue of getting an artist not in the genre (remember the one the i pray girl fuzzy search thing)) 
+                    # TODO - maybe remove this but make sure we dont run into the wrong artist thing
+                    # TODO - for classic rock was not including alot that were actually in the genre (like 'hard rock' but for k-pop not soooo)
                     elif (not artist.artist_in_lastfm_genre(self.request.genre)):
                         logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                         # Sanity check for artist match, no exclusion required here
@@ -262,6 +287,10 @@ class NicheTrackFinder:
                     break
 
                 for track in top_tracks:
+                    # TODO - Remove songs with keywords like 'instrumental' or 'cover' or check lastfm for track information implement a Track function to not include (or inst. or cov. or like all that)
+                    if (not track.is_original_with_lyrics()):
+                        logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
+                        continue
                     if((len(niche_tracks) >= desired_song_count) or (artist_song_count.get(artist.mbid, 0) >= artist_max_songs)):
                         logger.warning('song count has been reached OR Artist has hit song count')
                         break
@@ -276,7 +305,7 @@ class NicheTrackFinder:
 
                     
                     try:
-                        track.attach_spotify_track_information()
+                        track.attach_spotify_track_information(artist.spotify_artist_id)
                         logger.info(f'Attached spotify track info for {track.name}')
                     except Exception as e:
                         logger.error(e)
@@ -289,7 +318,7 @@ class NicheTrackFinder:
 
                     mb = MusicBrainzRequests()
                     # CHECK ARTIST LANGUAGE
-                    if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+                    if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
                         logger.error(f"Artist does not sing in {self.request.language}")
                         self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
                         break
@@ -311,10 +340,24 @@ class NicheTrackFinder:
                         'spotify_url': track.spotify_url,
                     }
                     niche_tracks.append(niche_track)
+
                     artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
+                    artists_total_followers += artist.spotify_followers
+                    percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
+
                     logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                     logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
-                    logger.success(f"RATIO: {(len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100}%")
+                    logger.success(f"RATIO: {percent_artists_valid}%")
+
+        # Update the stats of the request
+        rdao = RequestDAO(self.db)
+        rdao.update(self.request.request_oid, {
+            'stats': Stats(
+                percent_artists_valid= percent_artists_valid,
+                average_artist_followers= (artists_total_followers / len(niche_tracks))
+            )
+        })
+
 
         return(niche_tracks)
             

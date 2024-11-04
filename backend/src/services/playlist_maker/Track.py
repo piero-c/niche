@@ -4,6 +4,7 @@ from utils.lastfm_util import LastFMTrack
 from auth.SpotifyUser import SpotifyUser
 from utils.logger import logger
 
+# TODO - implement lastfm get correction? What does it do
 class Track:
     """High level Track
 
@@ -54,8 +55,11 @@ class Track:
         except Exception as e:
             raise Exception(f"Couldn't create track {name} by {artist_name} from lastfm: {e}")
 
-    def attach_spotify_track_information(self) -> SpotifyTrack:
+    def attach_spotify_track_information(self, artist_spotify_id: str = "") -> SpotifyTrack:
         """Attach information about the track from spotify
+
+        Args:
+            artist_spotify_id (str, Optional): The spotify id of the artist that made the track (for validation purposes). Default ""
 
         Raises:
             Exception: Unexpected error
@@ -81,7 +85,7 @@ class Track:
             except Exception as e:
                 logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with fuzzy search: {e}")
 
-        if(spotify_track):
+        if(spotify_track and ((not artist_spotify_id) or self.artist_id_in_spotify_track(artist_spotify_id))):
             try:
                 # Attach the Spotify track information to the current object
                 self.spotify_track        = spotify_track
@@ -105,8 +109,23 @@ class Track:
         """
         if (not hasattr(self, 'spotify_track')):
             self.attach_spotify_track_information()
+
         for artist in self.spotify_track.get('artists', [{}]):
             if(artist.get('id') == artist_id):
                 return(True)
         
         return(False)
+    
+    def is_original_with_lyrics(self) -> bool:
+        """
+        Determines if the track is original with lyrics by checking if its name
+        does not contain any keywords indicating it's an instrumental, cover, or version.
+
+        Returns:
+            bool: True if original with lyrics, False otherwise.
+        """
+        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version']
+        name_lower = self.name.lower()  # Convert to lowercase for case-insensitive comparison
+        return not any(keyword in name_lower for keyword in keywords)
+
+

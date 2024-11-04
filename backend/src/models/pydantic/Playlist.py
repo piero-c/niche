@@ -5,6 +5,7 @@ class Playlist(BaseSchema):
     name: str
     request: PyObjectId
     link: str
+    length: int
 
     class Config(BaseSchema.Config):
         json_schema_extra = {

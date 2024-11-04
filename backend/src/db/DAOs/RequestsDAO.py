@@ -38,7 +38,7 @@ class RequestDAO(BaseDAO[Request]):
         documents = self.collection.find(query)
         return ([Request.model_validate(doc) for doc in documents])
 
-    def count_requests_by_param(self, user_id: str, param: str) -> dict[str, int]:
+    def count_playlists_by_param(self, user_id: str, param: str) -> dict[str, int]:
         """
         Counts all requests for a user where `playlist_generated` exists, grouped by a param field.
 

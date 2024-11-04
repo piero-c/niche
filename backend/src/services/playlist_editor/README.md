@@ -4,6 +4,9 @@
     Allow the user to further customize their playlist
 
 ### Entry:
+
+
+TODO - update length if artists added
     
 ### Features to Implement:
    - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it

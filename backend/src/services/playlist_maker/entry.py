@@ -19,4 +19,4 @@ def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int,
     return (pl.url)
 
 if __name__ == '__main__':
-    do(2000, Language.ENGLISH, NicheLevel.MODERATELY, 120, 360, 'classic rock')
+    do(2000, Language.ANY, NicheLevel.MODERATELY, 120, 360, 'k-pop')

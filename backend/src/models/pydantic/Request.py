@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 from models.pydantic.BaseSchema import BaseSchema, PyObjectId
 
@@ -22,11 +22,23 @@ class Params(BaseModel):
             }
         }
 
+class Stats(BaseModel):
+    percent_artists_valid: Optional[float] = None
+    average_artist_followers: Optional[int] = None
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                'percent_artists_valid': 2,
+                'average_artist_followers': 2000
+            }
+        }
+
 class Request(BaseSchema):
     user: PyObjectId
     params: Params
     playlist_generated: Optional[PyObjectId] = None
-    percent_artists_valid: Optional[float] = None
+    stats: Stats = Field(default_factory=Stats)
 
     class Config(BaseSchema.Config):
         json_schema_extra = {

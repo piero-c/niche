@@ -62,8 +62,11 @@ class Artist:
         try:
             name = musicbrainz_artist_object.get('name', "")
             mbid = musicbrainz_artist_object.get('id', "")
-            artist = cls(name, mbid, user)
-            return(artist)
+            if (name and mbid):
+                artist = cls(name, mbid, user)
+                return(artist)
+            else:
+                raise Exception('Name or ID doesn\'t exist')
         except Exception as e:
             raise Exception(f'Could not create artist from musicbrainz for {name}: {e}')
 
@@ -154,12 +157,12 @@ class Artist:
         
         return (genre in self._get_tags_from_lastfm_artist())
 
-    def get_artist_top_tracks_lastfm(self, limit: int = 10) -> list[Track]:
+    def get_artist_top_tracks_lastfm(self, limit: int = 5) -> list[Track]:
         """
         Fetches the top tracks of an artist from Last.fm.
 
         Args:
-            limit (int, optional): Number of top tracks to retrieve. Defaults to 10.
+            limit (int, optional): Number of top tracks to retrieve. Defaults to 5.
 
         Returns:
             list[Track]: A list of the top tracks.

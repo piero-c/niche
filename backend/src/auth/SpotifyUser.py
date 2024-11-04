@@ -1,4 +1,4 @@
-from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
 from typing import Optional, Type, ClassVar
 import spotipy
@@ -88,20 +88,6 @@ class SpotifyUser:
             raise Exception(f"No Spotify tracks found for {name} by {artist}.")
 
         return(spotify_tracks)
-
-    def get_spotify_track_fuzzy(self, name: str, artist: str) -> SpotifyTrack:
-        """Get the top matching track from spotify via a fuzzy search
-
-        Args:
-            name (str): Song name
-            artist (str): Artist Name
-
-        Returns:
-            SpotifyTrack: The top matching track
-        """
-        tracks = self.get_spotify_tracks_direct(name, artist)
-        threshold_track_match = 93
-        return(get_top_matching_track(name, artist, tracks, threshold_track_match))
 
     def get_spotify_artist_by_id(self, id: str) -> SpotifyArtist:
         """Get a spotify artist object by their spotify id

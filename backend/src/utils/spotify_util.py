@@ -1,4 +1,4 @@
-from rapidfuzz import fuzz
+from utils.util import strcomp
 
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]
@@ -50,45 +50,32 @@ def get_artist_ids_from_tracks(tracks: list[SpotifyTrack]) -> set[SpotifyArtistI
             artist_ids.add(artist['id'])
     return(artist_ids)
 
-def get_top_matching_track(track_name: str, artist_name: str, tracks: list[SpotifyTrack], threshold: int) -> SpotifyTrack:
-    """Via fuzzy search get top matching track given a list of tracks
+def find_exact_match(tracks: list[SpotifyTrack], name: str, artist: str) -> SpotifyTrack:
+    """
+    Finds an exact match for a track name and artist within a list of SpotifyTrack dictionaries.
 
     Args:
-        track_name (str): track name
-        artist_name (str): artist name
-        tracks (list[SpotifyTrack]): tracks to check
-        threshold (int): threshold for matching
-
-    Raises:
-        Exception: Highest score below threshold
+        tracks (List[SpotifyTrack]): A list of SpotifyTrack dictionaries returned by Spotify search.
+        name (str): The exact name of the song to match.
+        artist (str): The name of an artist to be present in the track's artists list.
 
     Returns:
-        SpotifyTrack: The top matching track
+        SpotifyTrack: The SpotifyTrack dictionary if an exact match is found; otherwise, None.
     """
-    assert(threshold > 0 and threshold <= 100)
-    assert(len(tracks) > 0)
-    # Initialize variables to track the best match
-    best_match = None
-    highest_score = 0
-
-    # Iterate through the search results to find the best fuzzy match
     for track in tracks:
-        name   = track.get('name', '').lower()
-        artist = track.get('artists', [{}])[0].get('name', '').lower()
+        # Validate that 'name' and 'artists' exist in the track
+        track_name = track.get('name')
+        track_artists = track.get('artists')
 
-        # Compute similarity scores for track name and artist
-        name_score   = fuzz.ratio(track_name.lower(), name)
-        artist_score = fuzz.ratio(artist_name.lower(), artist)
+        if ((not track_name) or (not track_artists)):
+            continue  # Skip tracks with missing information
 
-        # Calculate an overall score
-        overall_score = (name_score * 0.3) + (artist_score * 0.7)
-
-        # Update the best match if this track has a higher score
-        if(overall_score > highest_score):
-            highest_score = overall_score
-            best_match    = track
-
-    if(best_match and highest_score >= threshold):
-        return(best_match)
-    else:
-        raise Exception(f"No suitable Spotify track found for '{track_name}' by '{artist_name}'.")
+        # Check if track name matches exactly using strcomp
+        if (strcomp(track_name, name)):
+            # Extract and normalize artist names
+            artist_names = [a.get('name', '') for a in track_artists]
+            # Check if the specified artist is among the track's artists using strcomp
+            for a_name in artist_names:
+                if (strcomp(a_name, artist)):
+                    return (track)  # Exact match found
+    return (None)  # No exact match found

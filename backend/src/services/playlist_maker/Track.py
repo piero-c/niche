@@ -1,10 +1,10 @@
 from utils.util import convert_ms_to_s
-from utils.spotify_util import SpotifyTrack
+from utils.spotify_util import SpotifyTrack, find_exact_match
 from utils.lastfm_util import LastFMTrack
 from auth.SpotifyUser import SpotifyUser
 from utils.logger import logger
 
-# TODO - implement lastfm get correction? What does it do
+# TODO - implement lastfm get correction? What does it do ?? for track or get similar w same name check idk
 class Track:
     """High level Track
 
@@ -75,15 +75,10 @@ class Track:
         spotify_track = None
         try:
             spotify_tracks = self.user.get_spotify_tracks_direct(self.name, self.artist)
-            spotify_track = spotify_tracks[0]
         except Exception as e:
             logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
-        
-        if(not spotify_track):
-            try:
-                spotify_track = self.user.get_spotify_track_fuzzy(self.name, self.artist)
-            except Exception as e:
-                logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with fuzzy search: {e}")
+
+        spotify_track = find_exact_match(spotify_tracks, self.name, self.artist)
 
         if(spotify_track and ((not artist_spotify_id) or self.artist_id_in_spotify_track(artist_spotify_id))):
             try:
@@ -95,6 +90,8 @@ class Track:
                 return(self.spotify_track)
             except Exception as e:
                 raise Exception(f"Unexpected error when attaching track {self.name} by {self.artist}: {e}")
+        else:
+            logger.error(f"Could not find exact match for track {self.name} by {self.artist}")
             
         raise Exception(f"Couldn\'t find track {self.name} by {self.artist} on Spotify.")
         
@@ -124,7 +121,8 @@ class Track:
         Returns:
             bool: True if original with lyrics, False otherwise.
         """
-        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version']
+        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version', 'dub', "background music", "no vocals",
+        "alternative version", "soundtrack"]
         name_lower = self.name.lower()  # Convert to lowercase for case-insensitive comparison
         return not any(keyword in name_lower for keyword in keywords)
 

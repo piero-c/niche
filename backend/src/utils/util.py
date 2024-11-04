@@ -99,8 +99,8 @@ def strcomp(*strings: str) -> bool:
     Returns:
         bool: Are they equal?
     """
-    first = strings[0].lower()
-    return(all(s.lower() == first for s in strings))
+    first = strings[0].strip().lower()
+    return(all(s.strip().lower() == first for s in strings))
 
 def convert_language_to_language_enum(language: str) -> Language:
     """Convert language str to Language enum class

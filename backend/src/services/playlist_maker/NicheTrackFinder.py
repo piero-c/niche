@@ -27,6 +27,16 @@ env    = load_env()
 # TODO - Handle logic related to not having enough songs (api)
 # TODO - Remove last fm logic? Altogether? Followers / listeners? top tracks??? lots of errors bruh
 
+# TODO - english name of artist or song like 力那 (li na)
+# TODO - artists with the same name disregard
+
+# RN - work on removing last fm - get stuff from music brainz if i have to
+# Lastfm removal:
+    # Top tracks - can do w spotify
+    # Genre validation - cannot (not needed)
+    # Popularity - followers 
+    # Likeness - cannot (figure out a way)
+
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
 class NicheTrackFinder:
@@ -278,6 +288,9 @@ class NicheTrackFinder:
 
                 for track in top_tracks:
                     # TODO - Remove songs with keywords like 'instrumental' or 'cover' or check lastfm for track information implement a Track function to not include (or inst. or cov. or like all that)
+                    if (not track.is_original_with_lyrics()):
+                        logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
+                        continue
                     if((len(niche_tracks) >= desired_song_count) or (artist_song_count.get(artist.mbid, 0) >= artist_max_songs)):
                         logger.warning('song count has been reached OR Artist has hit song count')
                         break
@@ -292,7 +305,7 @@ class NicheTrackFinder:
 
                     
                     try:
-                        track.attach_spotify_track_information()
+                        track.attach_spotify_track_information(artist.spotify_artist_id)
                         logger.info(f'Attached spotify track info for {track.name}')
                     except Exception as e:
                         logger.error(e)
@@ -305,7 +318,7 @@ class NicheTrackFinder:
 
                     mb = MusicBrainzRequests()
                     # CHECK ARTIST LANGUAGE
-                    if((not self.request.language == Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+                    if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
                         logger.error(f"Artist does not sing in {self.request.language}")
                         self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
                         break

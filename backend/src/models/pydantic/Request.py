@@ -24,7 +24,7 @@ class Params(BaseModel):
 
 class Stats(BaseModel):
     percent_artists_valid: Optional[float] = None
-    average_artist_followers: Optional[int] = None
+    average_artist_followers: Optional[float] = None
 
     class Config:
         json_schema_extra = {

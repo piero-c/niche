@@ -187,8 +187,6 @@ class NicheTrackFinder:
         random.shuffle(offsets_list)
 
         for i in range(len(offsets_list)):
-            percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
-
             if(len(niche_tracks) >= desired_song_count):
                 break
             logger.info(f'artists checked: {i * artist_increment_count}')
@@ -223,8 +221,9 @@ class NicheTrackFinder:
                         logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                         self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
 
-                    elif (not artist.artist_in_lastfm_genre(self.request.genre)):
-                        logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
+                    # TODO - Deal with this - was excluding alot of artists
+                    # elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+                        # logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                         # Sanity check for artist match, no exclusion required here
 
                     else:
@@ -318,6 +317,7 @@ class NicheTrackFinder:
                     }
                     niche_tracks.append(niche_track)
                     artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
+                    percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
                     logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                     logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
                     logger.success(f"RATIO: {percent_artists_valid}%")

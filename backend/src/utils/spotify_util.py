@@ -18,6 +18,27 @@ def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArti
     """
     return(set(artist['id'] for artist in artists))
 
+def get_artists_ids_and_genres_as_dict(
+    artists: list[SpotifyArtist]
+) -> dict[SpotifyArtistID: list[str]]:
+    """
+    From a list of artist objects, get a dict containing artist IDs and their genres.
+
+    Args:
+        artists (List[SpotifyArtist]): List of Spotify Artist objects.
+
+    Returns:
+        dict[SpotifyArtistID: list[str]]: 
+            A dict of artist id to list of genres
+    """
+    artist_genres_dict = {}
+    for artist in artists:
+        artist_id = artist.get('id')
+        artist_genres = artist.get('genres', [])
+        if artist_id:
+            artist_genres_dict[artist_id] = artist_genres
+    return(artist_genres_dict)
+
 def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tuple[set[SpotifyArtistID], SpotifyGenreInterestCount]:
     """From a list of artist objects, get ids and genres.
 
@@ -27,13 +48,17 @@ def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tup
     Returns:
         tuple[set[SpotifyArtistID], SpotifyGenreInterestCount]: (set[artist ids], dict[genre: number of instances in artists]).
     """
-    artist_ids = get_artist_ids_from_artists(artists)
-    genres = {}
-    for artist in artists:
-        for genre in artist['genres']:
-            # Add one to genre or create genre and add one
-            genres[genre] = genres.get(genre, 0) + 1
-    return(artist_ids, genres)
+    artist_genres = get_artists_ids_and_genres_as_dict(artists)
+    
+    artist_ids: set[SpotifyArtistID] = set()
+    genres_count: SpotifyGenreInterestCount = {}
+    
+    for artist_id, artist_genres in artist_genres.values():
+        artist_ids.add(artist_id)
+        for genre in artist_genres:
+            genres_count[genre] = genres_count.get(genre, 0) + 1
+    
+    return (artist_ids, genres_count)
 
 def get_artist_ids_from_tracks(tracks: list[SpotifyTrack]) -> set[SpotifyArtistID]:
     """From a list of track objects, get the artist ids.
@@ -46,8 +71,8 @@ def get_artist_ids_from_tracks(tracks: list[SpotifyTrack]) -> set[SpotifyArtistI
     """
     artist_ids = set()
     for track in tracks:
-        for artist in track['artists']:
-            artist_ids.add(artist['id'])
+        for artist in track.get('track', {}).get('artists', {}):
+            artist_ids.add(artist.get('id'))
     return(artist_ids)
 
 def find_exact_match(tracks: list[SpotifyTrack], name: str, artist: str) -> SpotifyTrack:

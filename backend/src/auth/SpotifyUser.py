@@ -196,3 +196,39 @@ class SpotifyUser:
 
         # Return the genre dictionary
         return(filter_low_count_entries(genre_dict, count=2))
+    
+    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[SpotifyTrack]:
+        """
+        Fetches all tracks from a Spotify playlist, handling pagination.
+
+        Args:
+            playlist_id (str): The unique identifier for the Spotify playlist.
+
+        Returns:
+            List[SpotifyTrack]: A list of SpotifyTrack objects in the playlist.
+        """
+        tracks = []
+        limit = SPOTIFY_MAX_LIMIT_PAGINATION  # Typically 100
+        offset = 0
+
+        while True:
+            # BEGIN REQUEST
+            response = self.client.playlist_items(
+                playlist_id,
+                offset=offset,
+                limit=limit,
+                fields='items(track(id,name,duration_ms,artists(name,id),album(name),external_urls)),next'
+            )
+            sleep(RequestType.SPOTIFY)
+            # END REQUEST
+
+            items = response.get('items', [])
+            tracks.extend(items)
+
+            if ((not response.get('next')) or (len(items) < limit)):
+                break
+
+            offset += limit
+
+        return (tracks)
+

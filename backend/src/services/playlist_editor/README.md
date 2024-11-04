@@ -6,18 +6,13 @@
 ### Entry:
 
 
-TODO - update length if artists added
+TODO - update length db if artists added
     
 ### Features to Implement:
-   - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it
-
-    - When the playlist is generated, have a list of the artists and their songs
-
-    - Have the option to play the song (with a button beside the artist) if the user is premium (see https://www.youtube.com/watch?v=EqisCZG9MAc&ab_channel=InteractiveUtopia)
+   - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it (frontend)
 
     - Option to add more songs by an artist
-
-    - Option to add more songs from spotify recommendations --
+    - Option to add more songs from spotify recommendations -- 
 ```
 1. **Retrieve Tracks from a Playlist**:
    - Use the endpoint `GET /v1/playlists/{playlist_id}/tracks` to get a list of tracks from a playlist.

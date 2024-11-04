@@ -1,11 +1,12 @@
 # Profile
 
 ### Description:
-    Login service
-    View and edit playlists
+    Login service (todo later once frontend is set up)
+    View and edit playlists (get playlists)
     View stats:
         - # of Playlists generated
         - Request analytics
+    TODO - here
 
 
 ### Entry:

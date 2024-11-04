@@ -23,19 +23,8 @@ from utils.logger import logger
 env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups
-
 # TODO - Handle logic related to not having enough songs (api)
-# TODO - Remove last fm logic? Altogether? Followers / listeners? top tracks??? lots of errors bruh
-
 # TODO - english name of artist or song like 力那 (li na)
-# TODO - artists with the same name disregard
-
-# RN - work on removing last fm - get stuff from music brainz if i have to
-# Lastfm removal:
-    # Top tracks - can do w spotify
-    # Genre validation - cannot (not needed)
-    # Popularity - followers 
-    # Likeness - cannot (figure out a way)
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -287,7 +276,6 @@ class NicheTrackFinder:
                     break
 
                 for track in top_tracks:
-                    # TODO - Remove songs with keywords like 'instrumental' or 'cover' or check lastfm for track information implement a Track function to not include (or inst. or cov. or like all that)
                     if (not track.is_original_with_lyrics()):
                         logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
                         continue

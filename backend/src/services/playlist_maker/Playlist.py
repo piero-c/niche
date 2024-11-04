@@ -16,7 +16,6 @@ import requests
 
 COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
 
-# TODO - still return the playlist if not enough songs - Deal with the error throwing at middleware level?
 class NicheTrack(TypedDict):
     """Niche track obj
 

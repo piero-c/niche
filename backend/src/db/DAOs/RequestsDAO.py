@@ -37,3 +37,33 @@ class RequestDAO(BaseDAO[Request]):
         query = {f"params.{key}": value for key, value in params_dict.items()}
         documents = self.collection.find(query)
         return ([Request.model_validate(doc) for doc in documents])
+
+    def count_requests_by_param(self, user_id: str, param: str) -> dict[str, int]:
+        """
+        Counts all requests for a user where `playlist_generated` exists, grouped by a param field.
+
+        Args:
+            user_id (str): The ID of the user.
+
+        Returns:
+            Dict[str, int]: A dictionary with genres as keys and counts as values.
+        """
+        # Validate that 'param' is a valid field in Params
+        if(param not in Params.model_fields):
+            raise ValueError(f"'{param}' is not a valid parameter.")
+        pipeline = [
+            {
+                '$match': {
+                    'user': user_id,
+                    'playlist_generated': {'$exists': True, '$ne': None}
+                }
+            },
+            {
+                '$group': {
+                    '_id': f'$params.{param}',
+                    'count': {'$sum': 1}
+                }
+            }
+        ]
+        results = self.collection.aggregate(pipeline)
+        return({doc['_id']: doc['count'] for doc in results})

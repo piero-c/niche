@@ -1,4 +1,4 @@
-from services.playlist_maker.Track import Track
+from services._shared_classes.Track import Track
 from utils.util import strcomp
 from utils.spotify_util import SpotifyArtist
 from auth.LastFMRequests import LastFmArtist, LastFMRequests

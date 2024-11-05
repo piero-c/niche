@@ -2,9 +2,9 @@
 from auth.SpotifyUser import SpotifyUser
 from auth.MusicBrainzRequests import MusicBrainzRequests
 
-from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language
-from services.playlist_maker.Artist import Artist
-from services.playlist_maker.Track import Track
+from services._shared_classes.PlaylistRequest import PlaylistRequest, Language
+from services._shared_classes.Artist import Artist
+from services._shared_classes.Track import Track
 
 
 from models.pydantic.RequestsCache import ReasonExcluded
@@ -45,7 +45,6 @@ class Validator:
     def artist_listeners_and_plays_too_high(self, artist: Artist) -> bool:
         """Too high according to request for nicheness level
         """
-
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     # TODO - pydocs 4 these

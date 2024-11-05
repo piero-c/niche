@@ -5,7 +5,7 @@ from db.DB import DB
 from db.DAOs.PlaylistsDAO import PlaylistDAO
 from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
-from services.playlist_maker.PlaylistRequest import PlaylistRequest
+from services._shared_classes.PlaylistRequest import PlaylistRequest
 from PIL import Image  # You may need to install Pillow if not already installed
 import io
 import base64
@@ -85,7 +85,7 @@ class Playlist:
                 name=self.name,
                 request=request_oid,
                 link=self.url,
-                length=self.length
+                generated_length=self.length
             )
         )
 

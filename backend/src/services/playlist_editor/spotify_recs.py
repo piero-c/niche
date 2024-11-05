@@ -43,7 +43,8 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     # Get 100, shuffle, get one, validate artist and track, ensure no otehr validations are needed by add track (no throw), return track
 
     ## BEGIN REQUEST ##
-    recs = user.client.recommendations(
+    recs = user.execute(
+        'recommendations',
         seed_artists=seed_artists,
         seed_genres=seed_genres,
         limit=SPOTIFY_MAX_LIMIT_RECS,
@@ -59,7 +60,7 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     for track in rec_tracks:
         track_artist_id = track.get('artists', [{}])[0].get('id', '')
         ## BEGIN REQUEST ##
-        track_artist: SpotifyArtist = user.client.artist(track_artist_id)
+        track_artist: SpotifyArtist = user.execute('artist', track_artist_id)
         sleep(RequestType.SPOTIFY)
         ## END REQUEST ##
         if (artist_valid_for_insert(track_artist, playlist_url, user) and track_valid_for_insert(track, playlist_url, user)):

@@ -6,13 +6,8 @@ from db.DAOs.PlaylistsDAO import PlaylistDAO
 from db.DAOs.RequestsDAO import RequestDAO
 from models.pydantic.Playlist import Playlist as PlaylistModel
 from services._shared_classes.PlaylistRequest import PlaylistRequest
-from PIL import Image  # You may need to install Pillow if not already installed
-import io
-import base64
 from pathlib import Path
 
-from utils.logger import logger
-import requests
 
 COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
 
@@ -51,7 +46,8 @@ class Playlist:
         playlist_info = req.get_playlist_info()
 
         # Create a new playlist with placeholder name and description
-        playlist = spotify_user.client.user_playlist_create(
+        playlist = spotify_user.execute(
+            'user_playlist_create',
             user          = spotify_user.id,
             name          = playlist_info['name'],
             public        = True,
@@ -63,7 +59,7 @@ class Playlist:
         # Spotify API allows adding up to 100 tracks per request
         for i in range(0, len(track_uris), 100):
             batch = track_uris[i:i+100]
-            spotify_user.client.playlist_add_items(playlist_id=playlist['id'], items=batch)
+            spotify_user.execute('playlist_add_items', playlist_id=playlist['id'], items=batch)
 
         # Store playlist information as attributes
         self.id          = playlist['id']
@@ -72,7 +68,7 @@ class Playlist:
         self.description = playlist['description']
         self.length      = len(tracks)
 
-        self._upload_cover_image(spotify_user)
+        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH)
 
         user_oid = spotify_user.oid
         request_oid = req.request_oid
@@ -96,17 +92,3 @@ class Playlist:
                 'playlist_generated': entry.inserted_id
             }
         )
-
-    def _upload_cover_image(self, spotify_user: SpotifyUser) -> None:
-        # Open the image and convert it to a base64-encoded JPEG
-        with Image.open(COVER_IMAGE_PATH) as img:
-            img = img.convert("RGB")  # Ensure the image is in RGB format
-            buffer = io.BytesIO()
-            img.save(buffer, format="JPEG")
-            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
-
-        try:
-            spotify_user.client.playlist_upload_cover_image(self.id, image_base64)
-        except requests.exceptions.ReadTimeout:
-            # Handle the timeout exception as needed
-            logger.error("Timeout occurred while uploading the cover image. Please try again later.")

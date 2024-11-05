@@ -82,7 +82,7 @@ def validate_and_add_track(track: SpotifyTrack, playlist_url: str, user: Spotify
     if (track_uri):
         ## BEGIN REQUEST ##
         # Get the spotify artist
-        user.client.playlist_add_items(playlist_id=playlist_id, items=[track_uri])
+        user.execute('playlist_add_items', playlist_id=playlist_id, items=[track_uri])
         sleep(RequestType.SPOTIFY)
         ## END REQUEST ##
         return(track_uri)
@@ -92,7 +92,7 @@ def add_valid_track(track_uri: str, playlist_url: str, user: SpotifyUser) -> str
     playlist_id = extract_id(playlist_url, 'playlist')
     ## BEGIN REQUEST ##
     # Get the spotify artist
-    user.client.playlist_add_items(playlist_id=playlist_id, items=[track_uri])
+    user.execute('playlist_add_items', playlist_id=playlist_id, items=[track_uri])
     sleep(RequestType.SPOTIFY)
     ## END REQUEST ##
     return(track_uri)
@@ -100,7 +100,7 @@ def add_valid_track(track_uri: str, playlist_url: str, user: SpotifyUser) -> str
 def add_more_songs_for_artist(playlist_url: str, artist_id: str, user: SpotifyUser, num_songs: int) -> list[str]:
     ## BEGIN REQUEST ##
     # Get the spotify artist
-    top_tracks = user.client.artist_top_tracks(artist_id).get('tracks', [])
+    top_tracks = user.execute('artist_top_tracks', artist_id).get('tracks', [])
     sleep(RequestType.SPOTIFY)
     ## END REQUEST ##
 

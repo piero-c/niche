@@ -7,7 +7,12 @@ from models.pydantic.BaseSchema import PyObjectId
 from models.pydantic.User import User
 from db.DB import DB
 from db.DAOs.UsersDAO import UserDAO
+from PIL import Image
+import io
+import base64
 
+from utils.logger import logger
+import requests
 class SpotifyUser:
     """Spotify-Authenticated User
 
@@ -231,4 +236,59 @@ class SpotifyUser:
             offset += limit
 
         return (tracks)
+
+    def execute(
+        self,
+        method_name: str,
+        *args,
+        **kwargs
+    ) -> Optional[any]:
+        """_summary_
+
+        Args:
+            method_name (str): _description_
+
+        Returns:
+            Optional[any]: _description_
+        """
+        try:
+            # Dynamically get the method from the Spotipy client
+            method = getattr(self.client, method_name)
+
+            # Execute the method with provided arguments
+            result = method(*args, **kwargs)
+
+            sleep(RequestType.SPOTIFY)
+
+            return(result)
+        except AttributeError:
+            logger.error(f"The Spotipy client does not have a method named '{method_name}'.")
+        except spotipy.exceptions.SpotifyException as e:
+            logger.error(f"SpotifyException occurred while executing '{method_name}': {e}")
+        except Exception as e:
+            logger.error(f"An unexpected error occurred while executing '{method_name}': {e}")
+        
+        return None
+
+
+    def upload_playlist_cover_image(self, cover_image_path: str) -> None:
+        """_summary_
+
+        Args:
+            cover_image_path (str): _description_
+        """
+        # Open the image and convert it to a base64-encoded JPEG
+        with Image.open(cover_image_path) as img:
+            img = img.convert("RGB")  # Ensure the image is in RGB format
+            buffer = io.BytesIO()
+            img.save(buffer, format="JPEG")
+            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+
+        try:
+            self.client.playlist_upload_cover_image(self.id, image_base64)
+        except requests.exceptions.ReadTimeout:
+            # Handle the timeout exception as needed
+            logger.error("Timeout occurred while uploading the cover image. Please try again later.")
+
+
 

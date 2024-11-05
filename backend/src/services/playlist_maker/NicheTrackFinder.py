@@ -167,22 +167,19 @@ class NicheTrackFinder:
 
 
     # TODO - pydocs 4 these
-    def validate_track_artist(self, track: Track, artist: Artist) -> bool:
+    def track_artist_excluded_reason(self, track: Track, artist: Artist) -> ReasonExcluded | None:
         mb = MusicBrainzRequests()
         if(artist.spotify_followers > self.request.spotify_followers_max):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
-            self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-            return(False)
+            return(ReasonExcluded.TOO_MANY_SOMETHING)
         if(artist.spotify_followers < self.request.spotify_followers_min):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
-            self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING) 
-            return(False)
+            return(ReasonExcluded.TOO_FEW_SOMETHING)
         # CHECK ARTIST LANGUAGE
         if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
             logger.error(f"Artist does not sing in {self.request.language}")
-            self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
-            return(False)
-        return(True)
+            return(ReasonExcluded.WRONG_LANGUAGE)
+        return(None)
 
     def validate_track(self, track: Track) -> bool:
         if (not track.is_original_with_lyrics()):
@@ -201,7 +198,8 @@ class NicheTrackFinder:
             #     continue
         return(True)
 
-    def validate_artist(self, artist: Artist) -> bool:
+    # TODO - change name of this and track artist excl
+    def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:
         try:
             # Attach artist from lastfm
             artist.attach_artist_lastfm()
@@ -210,37 +208,34 @@ class NicheTrackFinder:
             # Check artist listener and play and likeness thresholds
             if (self._artist_listeners_and_plays_too_high(artist)):
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
-                self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-                return(False)
+                return(ReasonExcluded.TOO_MANY_SOMETHING)
 
             elif (self._artist_listeners_and_plays_too_low(artist)):
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
-                self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING)
-                return(False)
+                return(ReasonExcluded.TOO_FEW_SOMETHING)
 
             elif (self._artist_likeness_invalid(artist)):
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
-                self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
-                return(False)
+                return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
             # TODO - Deal with this - was excluding alot of artists (make sure we dont run into the issue of getting an artist not in the genre (remember the one the i pray girl fuzzy search thing)) 
             # TODO - maybe remove this but make sure we dont run into the wrong artist thing
             # TODO - for classic rock was not including alot that were actually in the genre (like 'hard rock' but for k-pop not soooo)
             elif (not artist.artist_in_lastfm_genre(self.request.genre)):
                 logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
-                return(False)
+                return(ReasonExcluded.OTHER)
                 # Sanity check for artist match, no exclusion required here
 
             else:
                 logger.info(f'Artist {artist.name} is valid')
                 # Artist passes all checks
-                return(True)
+                return(None)
 
         except Exception as e:
             logger.error(e)
-            return(False)
+            return(ReasonExcluded.OTHER)
 
-    def get_valid_tracks(self, artist: Artist, niche_tracks: list) -> list[Track]:
+    def get_valid_tracks(self, artist: Artist, niche_tracks: list) -> list[Track] | ReasonExcluded:
         artist_song_count = 0
         # TODO - make dynamic / selected by user?
         artist_max_songs  = 1
@@ -264,7 +259,8 @@ class NicheTrackFinder:
                     logger.error(e)
                     continue
 
-                if (self.validate_track_artist(top_track, artist)):
+                artist_excluded_reason = self.track_artist_excluded_reason(top_track, artist)
+                if (not artist_excluded_reason):
                     try:
                         top_track.attach_spotify_track_information(artist.spotify_artist_id)
                         logger.info(f'Attached spotify track info for {top_track.name}')
@@ -276,20 +272,30 @@ class NicheTrackFinder:
                         tracks.append(top_track)
                         artist_song_count += 1
                 else:
-                    break
+                    return(artist_excluded_reason)
             return(tracks)
         except Exception as e:
             logger.error(f"Error processing tracks for artist {artist.name}: {e}")
+            return(ReasonExcluded.OTHER)
 
     def fetch_valid_artists(self, artists: list[Artist]) -> list[Artist]:
         valid_artists: list[Artist] = []
         for artist in artists:
             # Check if artist is invalid in cache
-            if (not artist) or (self._artist_cached_invalid(artist)) or (not self.validate_artist(artist)):
+            if (not artist) or (self._artist_cached_invalid(artist)):
                 logger.error(f'Artist {artist.name} has been previously cached as invalid for this request')
                 continue
             else:
-                valid_artists.append(artist)
+                # Check if artist is excluded
+                excluded_reason = self.artist_excluded_reason_lastfm(artist)
+                if ((excluded_reason) and (excluded_reason != ReasonExcluded.OTHER)):
+                    self._add_excluded_entry(artist, excluded_reason)
+                    continue
+                # For other, it may be an error or something we dont want to put a excluded entry for
+                elif (excluded_reason):
+                    continue
+                else:
+                    valid_artists.append(artist)
         random.shuffle(valid_artists)
         return(valid_artists)
 
@@ -331,25 +337,30 @@ class NicheTrackFinder:
                     break
                 tracks = self.get_valid_tracks(artist, niche_tracks)
 
-                # Artist is valid. If it was previously excluded  delete that entry
-                self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
+                # This is so jank im 2 lazy to change it ive been coding for like 10 hours
+                # TODO - decouple reason excluded from get valid tracks
+                if(isinstance(tracks, ReasonExcluded) and (tracks != ReasonExcluded.OTHER)):
+                    self._add_excluded_entry(artist, tracks)
+                else:
+                    # Artist is valid. If it was previously excluded  delete that entry
+                    self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
+                if (not isinstance(tracks, ReasonExcluded)):
+                    for track in tracks:
+                        # Add track to niche_tracks
+                        niche_track = {
+                            'artist'     : artist.name,
+                            'track'      : track.name,
+                            'spotify_uri': track.spotify_uri,
+                            'spotify_url': track.spotify_url,
+                        }
+                        niche_tracks.append(niche_track)
 
-                for track in tracks:
-                    # Add track to niche_tracks
-                    niche_track = {
-                        'artist'     : artist.name,
-                        'track'      : track.name,
-                        'spotify_uri': track.spotify_uri,
-                        'spotify_url': track.spotify_url,
-                    }
-                    niche_tracks.append(niche_track)
+                        artists_total_followers += artist.spotify_followers
+                        percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
 
-                    artists_total_followers += artist.spotify_followers
-                    percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
-
-                    logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
-                    logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
-                    logger.success(f"RATIO: {percent_artists_valid}%")
+                        logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
+                        logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
+                        logger.success(f"RATIO: {percent_artists_valid}%")
 
         # Update the stats of the request
         rdao = RequestDAO(self.db)

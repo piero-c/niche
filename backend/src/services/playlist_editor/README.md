@@ -11,7 +11,7 @@ TODO - update length db if artists added
 ### Features to Implement:
    - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it (frontend)
 
-    - Option to add more songs by an artist
+    - Option to add more songs by an artist - get valid songs fn then add song fn
     - Option to add more songs from spotify recommendations -- 
 ```
 1. **Retrieve Tracks from a Playlist**:

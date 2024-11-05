@@ -92,7 +92,7 @@ class PlaylistRequest:
         self.spotify_followers_min = niche_level_map[niche_level]["spotify_followers_min"]
 
         # Hardcoded vals
-        self.lastfm_likeness_min  = 4
+        self.lastfm_likeness_min  = 3.5
         self.playlist_length      = 20
 
         #self.playlist_length = 1

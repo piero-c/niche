@@ -48,7 +48,7 @@ class Validator:
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     # TODO - pydocs 4 these
-    def track_artist_excluded_reason(self, artist: Artist) -> ReasonExcluded | None:
+    def artist_excluded_reason_spotify(self, artist: Artist) -> ReasonExcluded | None:
         """_summary_
 
         Args:
@@ -150,7 +150,7 @@ class Validator:
             ReasonExcluded | None: _description_
         """
         # Requires call to attached_artist_spotify first
-        artist_excluded_reason = self.track_artist_excluded_reason(artist)
+        artist_excluded_reason = self.artist_excluded_reason_spotify(artist)
         if (artist_excluded_reason):
             return (artist_excluded_reason)
         return (None)

@@ -93,6 +93,17 @@ def convert_ms_to_s(ms: int) -> int:
     """
     return(ms // 1000)
 
+def convert_s_to_ms(s: int) -> int:
+    """Convert s to ms
+
+    Args:
+        s (int): s
+
+    Returns:
+        int: ms
+    """
+    return(s * 1000)
+
 def strcomp(*strings: str) -> bool:
     """Return true if all strings are equal case-insensitive
 

@@ -4,12 +4,15 @@ from typing import Optional
 from urllib.parse import urlparse, parse_qs
 import re
 
+
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]
 SpotifyArtistID           = str
 SpotifyGenreInterestCount = dict[str, int|float]
 
 SPOTIFY_MAX_LIMIT_PAGINATION = 50
+SPOTIFY_MAX_SEEDS_RECS = 5
+SPOTIFY_MAX_LIMIT_RECS = 100
 
 def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArtistID]:
     """Get artist ids from list of artist objects.

@@ -1,6 +1,7 @@
 from services.playlist_maker.NicheTrackFinder import NicheTrackFinder
-from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language, NicheLevel
-from services.playlist_maker.Playlist import Playlist
+from services._shared_classes.PlaylistRequest import PlaylistRequest, Language, NicheLevel
+from services._shared_classes.Playlist import Playlist
+from services.playlist_maker.utils.artists_count_check import likely_under_count_playlist
 from auth.SpotifyUser import SpotifyUser
 import time
 
@@ -18,5 +19,9 @@ def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int,
     print(pl.url)
     return (pl.url)
 
+def playlist_likely_undersized(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> bool:
+    user = SpotifyUser()
+    return(likely_under_count_playlist(PlaylistRequest(user, year_min, language, niche_level, sec_min, sec_max, genre)))
+
 if __name__ == '__main__':
-    do(2000, Language.ANY, NicheLevel.MODERATELY, 120, 360, 'k-pop')
+    do(2000, Language.ANY, NicheLevel.ONLY_KINDA, 120, 360, 'latin')

@@ -1,0 +1,1828 @@
+TOTAL MINUTES RUN: 2.8038152853647866
+https://open.spotify.com/playlist/4xTDu4YMwSw5wSBfnWZdIn
+   [0m - artists checked: 0[0m
+[32mINFO    [0m - Checking offset 6 of 33[0m
+[31mERROR   [0m - Artist ChoColat has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist B.A.P has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist EXID has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Girls' Generation-TTS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BBGIRLS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dfa88d06-1e44-4916-b070-840c70bdbc4a[0m
+[32mINFO    [0m - Attached lastfm artist HELLOVENUS from lastfm[0m
+[32mINFO    [0m - Artist HELLOVENUS is valid[0m
+[31mERROR   [0m - Artist EXO has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e8cfbf58-95cc-42f3-92e8-c616b66b02c0[0m
+[32mINFO    [0m - Attached lastfm artist Sandara Park from lastfm[0m
+[32mINFO    [0m - Artist Sandara Park is valid[0m
+[31mERROR   [0m - Artist GLAM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Sunny Days has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Women Power has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 소야 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4e848ea9-d9d3-4608-b5ee-baa29acf4cca[0m
+[32mINFO    [0m - Attached lastfm artist KEY from lastfm[0m
+[32mINFO    [0m - Artist KEY is valid[0m
+[31mERROR   [0m - Artist Crayon Pop has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2dbc4ab5-45b5-450c-a85f-4e3a83204b1c[0m
+[32mINFO    [0m - Attached lastfm artist YURI from lastfm[0m
+[32mINFO    [0m - Artist YURI is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4c76ba5a-281b-4785-b99f-0c0146f1bac3[0m
+[32mINFO    [0m - Attached lastfm artist 서현 from lastfm[0m
+[32mINFO    [0m - Artist 서현 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7b37e7cb-9344-44c0-9690-127be58dad57[0m
+[32mINFO    [0m - Attached lastfm artist MINHO from lastfm[0m
+[32mINFO    [0m - Artist MINHO is valid[0m
+[31mERROR   [0m - Artist BeBe Mignon has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 51f30a96-9fa2-4078-99bb-db2a1cdd9aeb[0m
+[32mINFO    [0m - Attached lastfm artist BLACKSWAN from lastfm[0m
+[32mINFO    [0m - Artist BLACKSWAN is valid[0m
+[31mERROR   [0m - Artist F.Cuz has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 156fc168-f3c2-4072-b40b-838258e23d78[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 156fc168-f3c2-4072-b40b-838258e23d78: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 지민[0m
+[32mINFO    [0m - Attached lastfm artist 지민 from lastfm[0m
+[32mINFO    [0m - Artist 지민 is valid[0m
+[31mERROR   [0m - Artist AOA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a9fe0a37-97c8-4914-aafb-fd8514059076[0m
+[32mINFO    [0m - Attached lastfm artist SUPER JUNIOR-K.R.Y. from lastfm[0m
+[32mINFO    [0m - Artist SUPER JUNIOR-K.R.Y. is valid[0m
+[31mERROR   [0m - Artist JUNIEL has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist VIXX has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 서현[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Magic' by Artist: '서현'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 서현 from track Magic[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Love & Affection' by Artist: '서현'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 서현 from track Love & Affection[0m
+[32mINFO    [0m - Searching Spotify for Track: '아파도 괜찮아요' by Artist: '서현'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '아파도 괜찮아요' by '서현' with direct search: No Spotify tracks found for 아파도 괜찮아요 by 서현.[0m
+[31mERROR   [0m - Couldn't find track 아파도 괜찮아요 by 서현 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 서현 from track 아파도 괜찮아요[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Don't Say No' by Artist: '서현'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 서현 from track Don't Say No[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Bad Love' by Artist: '서현'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 서현 from track Bad Love[0m
+[32mINFO    [0m - artists checked: 25[0m
+[32mINFO    [0m - Checking offset 10 of 33[0m
+[31mERROR   [0m - Artist BP POP has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3c15c80b-3e9c-4add-93d5-be13239c66dd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3c15c80b-3e9c-4add-93d5-be13239c66dd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 소나무[0m
+[32mINFO    [0m - Attached lastfm artist 소나무 from lastfm[0m
+[32mINFO    [0m - Artist 소나무 is valid[0m
+[31mERROR   [0m - Artist Lovelyz has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BerryGood has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Alice White has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Kim Nam Joo has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Apink BnN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist V has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b629da42-c668-49d2-be67-498605ee2a13[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b629da42-c668-49d2-be67-498605ee2a13: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name SUGA[0m
+[32mINFO    [0m - Attached lastfm artist SUGA from lastfm[0m
+[31mERROR   [0m - Artist SUGA not in genre k-pop[0m
+[31mERROR   [0m - Artist Jung Kook has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MONSTA X has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a7a8a434-7ed6-43d1-be4d-378768e1c660[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a7a8a434-7ed6-43d1-be4d-378768e1c660: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 백아연[0m
+[32mINFO    [0m - Attached lastfm artist 백아연 from lastfm[0m
+[32mINFO    [0m - Artist 백아연 is valid[0m
+[31mERROR   [0m - Artist BASTARZ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist CLC has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist OH MY GIRL has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LEO has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7040a448-9dec-412e-b56a-8378a4e83da4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7040a448-9dec-412e-b56a-8378a4e83da4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name CHEETAH[0m
+[32mINFO    [0m - Attached lastfm artist CHEETAH from lastfm[0m
+[31mERROR   [0m - Artist CHEETAH not in genre k-pop[0m
+[31mERROR   [0m - Artist SORN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0247fe23-a092-4131-9d58-ba4b0181a2ff[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0247fe23-a092-4131-9d58-ba4b0181a2ff: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Secret[0m
+[32mINFO    [0m - Attached lastfm artist Secret from lastfm[0m
+[32mINFO    [0m - Artist Secret is valid[0m
+[31mERROR   [0m - Artist N.Flying has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d16ff77c-b09f-4c73-83df-263ed68a3af3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d16ff77c-b09f-4c73-83df-263ed68a3af3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Kei[0m
+[32mINFO    [0m - Attached lastfm artist Kei from lastfm[0m
+[31mERROR   [0m - Artist Kei not in genre k-pop[0m
+[31mERROR   [0m - Artist Suzy has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 854b0bd7-14ad-4a1c-b1c5-6480d39d5b40[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 854b0bd7-14ad-4a1c-b1c5-6480d39d5b40: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 王霏霏[0m
+[32mINFO    [0m - Attached lastfm artist 王霏霏 from lastfm[0m
+[31mERROR   [0m - Artist 王霏霏 not in genre k-pop[0m
+[31mERROR   [0m - Artist SUPER JUNIOR-D&E has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 테이크 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Secret[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Secret[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Shy Boy' by Artist: 'Secret'[0m
+[32mINFO    [0m - Spotify Artist ID: 503DjcVO5Ku1NgLPhVuNg7[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Secret (ID: 503DjcVO5Ku1NgLPhVuNg7)[0m
+[32mINFO    [0m - Attached spotify artist Secret from lastfm top track[0m
+[31mERROR   [0m - Artist Secret followers (202731) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 백아연[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 백아연[0m
+[32mINFO    [0m - Searching Spotify for Track: '머물러요' by Artist: '백아연'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '머물러요' by '백아연' with direct search: No Spotify tracks found for 머물러요 by 백아연.[0m
+[31mERROR   [0m - Couldn't find track 머물러요 by 백아연 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 백아연 from track 머물러요[0m
+[32mINFO    [0m - Searching Spotify for Track: 'A Good Boy' by Artist: '백아연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 백아연 from track A Good Boy[0m
+[32mINFO    [0m - Searching Spotify for Track: '느린노래' by Artist: '백아연'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '느린노래' by '백아연' with direct search: No Spotify tracks found for 느린노래 by 백아연.[0m
+[31mERROR   [0m - Couldn't find track 느린노래 by 백아연 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 백아연 from track 느린노래[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Love, Love, Love.' by Artist: '백아연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 백아연 from track Love, Love, Love.[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Always (feat. Jun. K)' by Artist: '백아연'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Always (feat. Jun. K)' by '백아연' with direct search: No Spotify tracks found for Always (feat. Jun. K) by 백아연.[0m
+[31mERROR   [0m - Couldn't find track Always (feat. Jun. K) by 백아연 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 백아연 from track Always (feat. Jun. K)[0m
+[32mINFO    [0m - artists checked: 50[0m
+[32mINFO    [0m - Checking offset 9 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1ce2f8fb-8a38-491f-ac6a-658828cb4dec[0m
+[32mINFO    [0m - Attached lastfm artist HA:TFELT from lastfm[0m
+[32mINFO    [0m - Artist HA:TFELT is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4618910b-4eed-459d-9ab1-69cedc76b634[0m
+[32mINFO    [0m - Attached lastfm artist BESTie from lastfm[0m
+[32mINFO    [0m - Artist BESTie is valid[0m
+[31mERROR   [0m - Artist Red Velvet has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 5urprise has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist JOY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist TAEYONG has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist A.I.N has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Smile.G has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GFRIEND has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist B.I has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 14f996b8-d90c-4742-aba9-d0252c4371dc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 14f996b8-d90c-4742-aba9-d0252c4371dc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name D.Holic[0m
+[32mINFO    [0m - Attached lastfm artist D.Holic from lastfm[0m
+[32mINFO    [0m - Artist D.Holic is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bf63a034-619d-4f6c-9693-87d5a569af11[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid bf63a034-619d-4f6c-9693-87d5a569af11: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name MELODYDAY[0m
+[32mINFO    [0m - Attached lastfm artist MELODYDAY from lastfm[0m
+[32mINFO    [0m - Artist MELODYDAY is valid[0m
+[31mERROR   [0m - Artist 은정 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e2ec45b4-b6d0-48bf-ae37-09f030f33574[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e2ec45b4-b6d0-48bf-ae37-09f030f33574: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name L[0m
+[32mINFO    [0m - Attached lastfm artist L from lastfm[0m
+[31mERROR   [0m - Artist L not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 02bc0955-3e8a-4d86-8714-2dece042482a[0m
+[32mINFO    [0m - Attached lastfm artist MR.MR from lastfm[0m
+[32mINFO    [0m - Artist MR.MR is valid[0m
+[31mERROR   [0m - Artist 퍼펄즈 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d271ec97-748d-4da1-b2fc-1ed72985a984[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d271ec97-748d-4da1-b2fc-1ed72985a984: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 산들[0m
+[32mINFO    [0m - Attached lastfm artist 산들 from lastfm[0m
+[32mINFO    [0m - Artist 산들 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e3b4a50e-726c-46d4-9949-4647aaabdb3d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e3b4a50e-726c-46d4-9949-4647aaabdb3d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nine Muses[0m
+[32mINFO    [0m - Attached lastfm artist Nine Muses from lastfm[0m
+[32mINFO    [0m - Artist Nine Muses is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid beab4cfa-f406-487e-81c3-eee93fe293d1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid beab4cfa-f406-487e-81c3-eee93fe293d1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Two X[0m
+[32mINFO    [0m - Attached lastfm artist Two X from lastfm[0m
+[32mINFO    [0m - Artist Two X is valid[0m
+[31mERROR   [0m - Artist D‐Unit has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist FLASHE has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d312461a-9cd6-42a3-9c10-509756bb9d91[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d312461a-9cd6-42a3-9c10-509756bb9d91: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 아이언[0m
+[32mINFO    [0m - Attached lastfm artist 아이언 from lastfm[0m
+[31mERROR   [0m - Artist 아이언 not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8d093c55-3604-4078-8b4c-d944edf6a117[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8d093c55-3604-4078-8b4c-d944edf6a117: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 안다[0m
+[32mINFO    [0m - Attached lastfm artist 안다 from lastfm[0m
+[32mINFO    [0m - Artist 안다 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fa0a0a07-8425-46b8-9e40-93c4b2e853e6[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fa0a0a07-8425-46b8-9e40-93c4b2e853e6: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nep[0m
+[32mINFO    [0m - Attached lastfm artist Nep from lastfm[0m
+[31mERROR   [0m - Artist Nep not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c98b6e1f-9409-43c8-88dd-fe604ee467ab[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c98b6e1f-9409-43c8-88dd-fe604ee467ab: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Blady[0m
+[32mINFO    [0m - Attached lastfm artist Blady from lastfm[0m
+[32mINFO    [0m - Artist Blady is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for D.Holic[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for D.Holic[0m
+[32mINFO    [0m - Searching Spotify for Track: 'So Tight' by Artist: 'D.Holic'[0m
+[32mINFO    [0m - Spotify Artist ID: 1V7MmQ36ihG1f3qe46L50n[0m
+[32mINFO    [0m - Retrieved Spotify Artist: D.Holic (ID: 1V7MmQ36ihG1f3qe46L50n)[0m
+[32mINFO    [0m - Attached spotify artist D.Holic from lastfm top track[0m
+[31mERROR   [0m - Artist D.Holic followers (54888) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 산들[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 산들[0m
+[32mINFO    [0m - Searching Spotify for Track: '취기를 빌려 (취향저격 그녀 X 산들)' by Artist: '산들'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 산들 from track 취기를 빌려 (취향저격 그녀 X 산들)[0m
+[32mINFO    [0m - Searching Spotify for Track: '나의 어릴 적 이야기' by Artist: '산들'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 산들 from track 나의 어릴 적 이야기[0m
+[32mINFO    [0m - Searching Spotify for Track: '집' by Artist: '산들'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 산들 from track 집[0m
+[32mINFO    [0m - Searching Spotify for Track: '그렇게 있어 줘' by Artist: '산들'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 산들 from track 그렇게 있어 줘[0m
+[32mINFO    [0m - Searching Spotify for Track: '야! (Feat. 휘인)' by Artist: '산들'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 산들 from track 야! (Feat. 휘인)[0m
+[32mINFO    [0m - artists checked: 75[0m
+[32mINFO    [0m - Checking offset 8 of 33[0m
+[31mERROR   [0m - Artist Trouble Maker has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ae602e2b-56f1-4a11-b998-9cab355f13a8[0m
+[32mINFO    [0m - Attached lastfm artist EvoL from lastfm[0m
+[31mERROR   [0m - Artist EvoL not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8e3426c4-7f1f-43f5-9234-96a32d3b60a1[0m
+[32mINFO    [0m - Attached lastfm artist Eric Nam from lastfm[0m
+[32mINFO    [0m - Artist Eric Nam is valid[0m
+[31mERROR   [0m - Artist Piggy Dolls has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2d720603-f838-491f-b581-9808d4001d35[0m
+[32mINFO    [0m - Attached lastfm artist Stellar from lastfm[0m
+[32mINFO    [0m - Artist Stellar is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 03b8a21f-00da-42fe-a040-d25d846c2701[0m
+[32mINFO    [0m - Attached lastfm artist Royal Pirates from lastfm[0m
+[31mERROR   [0m - Artist Royal Pirates not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1b0b4cfa-69eb-4033-8070-e03b41c5dd16[0m
+[32mINFO    [0m - Attached lastfm artist MYNAME from lastfm[0m
+[32mINFO    [0m - Artist MYNAME is valid[0m
+[31mERROR   [0m - Artist SEVENTEEN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid df40dfde-7470-412d-83bb-c6897206f415[0m
+[32mINFO    [0m - Attached lastfm artist A-JAX from lastfm[0m
+[32mINFO    [0m - Artist A-JAX is valid[0m
+[31mERROR   [0m - Artist GOT7 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1fb23fce-1345-489a-8992-806991776034[0m
+[32mINFO    [0m - Attached lastfm artist Rainbow Blaxx from lastfm[0m
+[32mINFO    [0m - Artist Rainbow Blaxx is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 34ae1dbe-3d91-4b5d-8cf8-9f054402849e[0m
+[32mINFO    [0m - Attached lastfm artist 지연 from lastfm[0m
+[32mINFO    [0m - Artist 지연 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 680062de-d54c-427b-a090-98949efd47ce[0m
+[32mINFO    [0m - Attached lastfm artist 전효성 from lastfm[0m
+[32mINFO    [0m - Artist 전효성 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2cb1105c-5f6d-426f-91a5-7b80f2fc68ff[0m
+[32mINFO    [0m - Attached lastfm artist JONGHYUN from lastfm[0m
+[32mINFO    [0m - Artist JONGHYUN is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 48652da5-f54c-4f65-9c11-0fc05df18075[0m
+[32mINFO    [0m - Attached lastfm artist TAEMIN from lastfm[0m
+[32mINFO    [0m - Artist TAEMIN is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f374a3a3-43e0-4056-8eff-598a3f60535a[0m
+[32mINFO    [0m - Attached lastfm artist 박보람 from lastfm[0m
+[32mINFO    [0m - Artist 박보람 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3ea2e320-a587-4237-a005-81e988f11e47[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3ea2e320-a587-4237-a005-81e988f11e47: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ELLY[0m
+[32mINFO    [0m - Attached lastfm artist ELLY from lastfm[0m
+[32mINFO    [0m - Artist ELLY is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2b786fb3-a116-4163-9b65-cf56f03c8a7f[0m
+[32mINFO    [0m - Attached lastfm artist TAEYEON from lastfm[0m
+[32mINFO    [0m - Artist TAEYEON is valid[0m
+[31mERROR   [0m - Artist MAMAMOO has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 4TEN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fc6e235b-12ad-4369-839d-735ec1d941e1[0m
+[32mINFO    [0m - Attached lastfm artist 니콜 from lastfm[0m
+[32mINFO    [0m - Artist 니콜 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 526ce891-0659-46d8-b1cb-b2c72ab3dba4[0m
+[32mINFO    [0m - Attached lastfm artist 구하라 from lastfm[0m
+[32mINFO    [0m - Artist 구하라 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 23657231-11d7-4e51-87a7-771c39e3d261[0m
+[32mINFO    [0m - Attached lastfm artist MINX from lastfm[0m
+[32mINFO    [0m - Artist MINX is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9761dd8b-eda9-4b3e-ac09-b59787d3ebfd[0m
+[32mINFO    [0m - Attached lastfm artist Kisum from lastfm[0m
+[32mINFO    [0m - Artist Kisum is valid[0m
+[31mERROR   [0m - Artist LABOUM has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 지연[0m
+[32mINFO    [0m - Searching Spotify for Track: '1분1초' by Artist: '지연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 지연 from track 1분1초[0m
+[32mINFO    [0m - Searching Spotify for Track: '또르르' by Artist: '지연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 지연 from track 또르르[0m
+[32mINFO    [0m - Searching Spotify for Track: '1분 1초' by Artist: '지연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 지연 from track 1분 1초[0m
+[32mINFO    [0m - Searching Spotify for Track: '여의도 벚꽃길' by Artist: '지연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 지연 from track 여의도 벚꽃길[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Take A Hike' by Artist: '지연'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 지연 from track Take A Hike[0m
+[32mINFO    [0m - artists checked: 100[0m
+[32mINFO    [0m - Checking offset 16 of 33[0m
+[31mERROR   [0m - Artist 지구 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist klav has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2e8592ee-9346-4e59-a721-086d6bd72fa3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2e8592ee-9346-4e59-a721-086d6bd72fa3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 부석순[0m
+[32mINFO    [0m - Attached lastfm artist 부석순 from lastfm[0m
+[31mERROR   [0m - Artist 부석순 not in genre k-pop[0m
+[31mERROR   [0m - Artist (G)I‐DLE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BerryGood Heart Heart has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Eyedi has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d3afbbb5-8f73-48dc-863f-a042b949f42d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d3afbbb5-8f73-48dc-863f-a042b949f42d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 이달의 소녀 yyxy[0m
+[32mINFO    [0m - Attached lastfm artist 이달의 소녀 yyxy from lastfm[0m
+[32mINFO    [0m - Artist 이달의 소녀 yyxy is valid[0m
+[31mERROR   [0m - Artist 혜주 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YUQI has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 우주미키 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SEMINA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GWSN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Girls’ Generation‐Oh!GG has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LEE CHAE YEON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist KWON EUNBI has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7fd11556-6b36-4266-ac3a-f209fb9fcf91[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7fd11556-6b36-4266-ac3a-f209fb9fcf91: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name BUSTERS[0m
+[32mINFO    [0m - Attached lastfm artist BUSTERS from lastfm[0m
+[32mINFO    [0m - Artist BUSTERS is valid[0m
+[31mERROR   [0m - Artist We Girls has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SATURDAY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist IZ*ONE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist NATURE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 체리온탑 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PinkFantasy has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Cherry Bullet has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Maywish has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist K/DA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 이달의 소녀 yyxy[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 이달의 소녀 yyxy[0m
+[32mINFO    [0m - Searching Spotify for Track: 'dal segno' by Artist: '이달의 소녀 yyxy'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 yyxy from track dal segno[0m
+[32mINFO    [0m - Searching Spotify for Track: 'love4eva (feat. Grimes)' by Artist: '이달의 소녀 yyxy'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 yyxy from track love4eva (feat. Grimes)[0m
+[32mINFO    [0m - Searching Spotify for Track: 'one way' by Artist: '이달의 소녀 yyxy'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 yyxy from track one way[0m
+[32mINFO    [0m - Searching Spotify for Track: 'frozen' by Artist: '이달의 소녀 yyxy'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 yyxy from track frozen[0m
+[32mINFO    [0m - Searching Spotify for Track: 'rendezvous 18.6y' by Artist: '이달의 소녀 yyxy'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 yyxy from track rendezvous 18.6y[0m
+[32mINFO    [0m - artists checked: 125[0m
+[32mINFO    [0m - Checking offset 3 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7bbd0cd1-97a1-460b-b0c6-953172428bfa[0m
+[32mINFO    [0m - Attached lastfm artist Cats from lastfm[0m
+[31mERROR   [0m - Artist Cats not in genre k-pop[0m
+[31mERROR   [0m - Artist 윤하 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Girls’ Generation has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 20429244-e9fa-4689-b621-60792cac63b4[0m
+[32mINFO    [0m - Attached lastfm artist SUPER JUNIOR-T from lastfm[0m
+[32mINFO    [0m - Artist SUPER JUNIOR-T is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a5524b66-e7d2-47cd-98ad-31ba53d9d9fd[0m
+[32mINFO    [0m - Attached lastfm artist 서인영 from lastfm[0m
+[32mINFO    [0m - Artist 서인영 is valid[0m
+[31mERROR   [0m - Artist PSY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist KARA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8339d6d4-1679-40fd-9d53-fd1eebf0b742[0m
+[32mINFO    [0m - Attached lastfm artist 지아 from lastfm[0m
+[31mERROR   [0m - Artist 지아 not in genre k-pop[0m
+[31mERROR   [0m - Artist IU has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 태사자 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5cf1237a-06c2-421b-b48f-1455dfc59c9f[0m
+[32mINFO    [0m - Attached lastfm artist W&Whale from lastfm[0m
+[32mINFO    [0m - Artist W&Whale is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d2faa4dd-f3fc-4aa9-aa9e-001826d6fdd2[0m
+[32mINFO    [0m - Attached lastfm artist 윤미래 from lastfm[0m
+[31mERROR   [0m - Artist 윤미래 not in genre k-pop[0m
+[31mERROR   [0m - Artist 2NE1 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Brown Eyed Girls has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist After School has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 113e73f7-db43-488f-b620-b240e1457af4[0m
+[32mINFO    [0m - Attached lastfm artist Roo'Ra from lastfm[0m
+[31mERROR   [0m - Artist Roo'Ra not in genre k-pop[0m
+[31mERROR   [0m - Artist f(x) has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d84e5667-3cbe-4556-b551-9d7e4be95d71[0m
+[32mINFO    [0m - Attached lastfm artist TAEYANG from lastfm[0m
+[32mINFO    [0m - Artist TAEYANG is valid[0m
+[31mERROR   [0m - Artist G‐Dragon has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MBLAQ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 4minute has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 2PM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BEAST has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3abcc734-ab91-4385-9849-99a12c3fc3ea[0m
+[32mINFO    [0m - Attached lastfm artist 가인 from lastfm[0m
+[32mINFO    [0m - Artist 가인 is valid[0m
+[31mERROR   [0m - Artist T‐ARA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 가인[0m
+[31mERROR   [0m - Song Bloom is by Gain, not 가인[0m
+[31mERROR   [0m - Could not attach spotify artist 가인 from track Bloom[0m
+[31mERROR   [0m - Song Fxxk U (feat.Bumkey) is by Gain, not 가인[0m
+[31mERROR   [0m - Could not attach spotify artist 가인 from track Fxxk U (feat.Bumkey)[0m
+[31mERROR   [0m - Song Apple (feat.Jay Park) is by Gain, not 가인[0m
+[31mERROR   [0m - Could not attach spotify artist 가인 from track Apple (feat.Jay Park)[0m
+[31mERROR   [0m - Song Carnival (The Last Day) is by Gain, not 가인[0m
+[31mERROR   [0m - Could not attach spotify artist 가인 from track Carnival (The Last Day)[0m
+[31mERROR   [0m - Song Paradise Lost is by Gain, not 가인[0m
+[31mERROR   [0m - Could not attach spotify artist 가인 from track Paradise Lost[0m
+[32mINFO    [0m - artists checked: 150[0m
+[32mINFO    [0m - Checking offset 1 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4918d94b-944b-4fc1-8c0c-25d09c6e374f[0m
+[32mINFO    [0m - Attached lastfm artist TURBO from lastfm[0m
+[32mINFO    [0m - Artist TURBO is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 05cbaf37-6dc2-4f71-a0ce-d633447d90c3[0m
+[32mINFO    [0m - Attached lastfm artist 東方神起 from lastfm[0m
+[32mINFO    [0m - Artist 東方神起 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 721a6d4e-6c5b-4250-8e87-b5dc386fd965[0m
+[32mINFO    [0m - Attached lastfm artist SHINHWA from lastfm[0m
+[32mINFO    [0m - Artist SHINHWA is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a922eba6-5e85-40f6-b8f3-43ba3134b363[0m
+[32mINFO    [0m - Attached lastfm artist 김건모 from lastfm[0m
+[32mINFO    [0m - Artist 김건모 is valid[0m
+[31mERROR   [0m - Artist 언타이틀 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f2d482e1-ec1a-426d-8c80-0eb79aa656c7[0m
+[32mINFO    [0m - Attached lastfm artist Turtles from lastfm[0m
+[31mERROR   [0m - Artist Turtles not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6cc389d3-2f25-4289-bb33-3971e8f90394[0m
+[32mINFO    [0m - Attached lastfm artist Clon from lastfm[0m
+[31mERROR   [0m - Artist Clon not in genre k-pop[0m
+[31mERROR   [0m - Artist Gummy has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bce2ec89-f0c6-45b7-bd83-5defc66e6bc2[0m
+[32mINFO    [0m - Attached lastfm artist 서태지 from lastfm[0m
+[31mERROR   [0m - Artist 서태지 not in genre k-pop[0m
+[31mERROR   [0m - Artist Space A has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist KISS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Mina has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e96bed25-e9c7-4fa3-9db6-1ee9e3e0b265[0m
+[32mINFO    [0m - Attached lastfm artist 강타 from lastfm[0m
+[32mINFO    [0m - Artist 강타 is valid[0m
+[31mERROR   [0m - Artist 이지훈 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 김원준 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2a7e5329-4e0f-4624-a722-696707734a77[0m
+[32mINFO    [0m - Attached lastfm artist 김동완 from lastfm[0m
+[32mINFO    [0m - Artist 김동완 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ca91f559-a1e8-4ea5-b1e4-0e3d0d9c7bb4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ca91f559-a1e8-4ea5-b1e4-0e3d0d9c7bb4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 전진[0m
+[32mINFO    [0m - Attached lastfm artist 전진 from lastfm[0m
+[32mINFO    [0m - Artist 전진 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64a6d8d7-ffff-42c2-8afb-1f672481b15d[0m
+[32mINFO    [0m - Attached lastfm artist As One from lastfm[0m
+[32mINFO    [0m - Artist As One is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 40bf55ac-700a-42b1-9a22-37d1092cee5d[0m
+[32mINFO    [0m - Attached lastfm artist Andy from lastfm[0m
+[32mINFO    [0m - Artist Andy is valid[0m
+[31mERROR   [0m - Artist SUPER JUNIOR has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist T.T.MA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 박미경 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b5b2cc12-9235-42ec-8ae4-569fb2c1f1b5[0m
+[32mINFO    [0m - Attached lastfm artist 백지영 from lastfm[0m
+[32mINFO    [0m - Artist 백지영 is valid[0m
+[31mERROR   [0m - Artist 유승준 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SS501 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for As One[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Rumours' by Artist: 'As One'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Rumours' by 'As One' with direct search: No Spotify tracks found for Rumours by As One.[0m
+[31mERROR   [0m - Couldn't find track Rumours by As One on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist As One from track Rumours[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Amalia' by Artist: 'As One'[0m
+[32mINFO    [0m - Spotify Artist ID: 2xSGfjPjDPr8c9UvPhASAt[0m
+[32mINFO    [0m - Retrieved Spotify Artist: As One (ID: 2xSGfjPjDPr8c9UvPhASAt)[0m
+[32mINFO    [0m - Attached spotify artist As One from lastfm top track[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Rumours' by 'As One' with direct search: No Spotify tracks found for Rumours by As One.[0m
+[31mERROR   [0m - Couldn't find track Rumours by As One on Spotify.[0m
+[32mINFO    [0m - Attached spotify track info for Amalia[0m
+[33mWARNING [0m - Skipping track 'Amalia' by 'As One' due to song length constraints.[0m
+[31mERROR   [0m - Couldn't find track Soul Soul Soul by As One on Spotify.[0m
+[32mINFO    [0m - Attached spotify track info for Music Is An Open Sky[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: As One - Music Is An Open Sky[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 1[0m
+[1;32mSUCCESS [0m - RATIO: 0.5714285714285714%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 강타[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Winter Wonderland' by Artist: '강타'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Winter Wonderland' by '강타' with direct search: No Spotify tracks found for Winter Wonderland by 강타.[0m
+[31mERROR   [0m - Couldn't find track Winter Wonderland by 강타 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 강타 from track Winter Wonderland[0m
+[32mINFO    [0m - Searching Spotify for Track: 'For the First Time' by Artist: '강타'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 강타 from track For the First Time[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Persona' by Artist: '강타'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 강타 from track Persona[0m
+[32mINFO    [0m - Searching Spotify for Track: '인형 Doll' by Artist: '강타'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 강타 from track 인형 Doll[0m
+[32mINFO    [0m - Searching Spotify for Track: '가면 (Persona)' by Artist: '강타'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 강타 from track 가면 (Persona)[0m
+[32mINFO    [0m - artists checked: 175[0m
+[32mINFO    [0m - Checking offset 19 of 33[0m
+[31mERROR   [0m - Artist WEi has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e8ffae1c-26f6-4e19-8eca-43cb8e512b3a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e8ffae1c-26f6-4e19-8eca-43cb8e512b3a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name DENISE[0m
+[32mINFO    [0m - Attached lastfm artist DENISE from lastfm[0m
+[31mERROR   [0m - Artist DENISE not in genre k-pop[0m
+[31mERROR   [0m - Artist Rainbow note has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DPR IAN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SECRET NUMBER has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist WOOAH has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 1TEAM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ENHYPEN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Triss has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MCND has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ARIAZ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 현진영 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DRIPPIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 킴보 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PURPLE KISS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9f80821e-fb90-44ca-b07d-0ec7866110b3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9f80821e-fb90-44ca-b07d-0ec7866110b3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name serin oh[0m
+[32mINFO    [0m - Attached lastfm artist serin oh from lastfm[0m
+[32mINFO    [0m - Artist serin oh is valid[0m
+[31mERROR   [0m - Artist 우주소녀 쪼꼬미 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 윈터 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist aespa has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 환불원정대 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LUNARSOLAR has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 카리나 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist STAYC has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 지젤 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 35364a5c-ba54-4b78-a255-9659a039a056[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 35364a5c-ba54-4b78-a255-9659a039a056: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name XUM[0m
+[32mINFO    [0m - Attached lastfm artist XUM from lastfm[0m
+[32mINFO    [0m - Artist XUM is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for XUM[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for XUM[0m
+[32mINFO    [0m - Searching Spotify for Track: 'DDALALA' by Artist: 'Xum'[0m
+[32mINFO    [0m - Spotify Artist ID: 3y5YHxqYkm6tOFVMrG0NcA[0m
+[32mINFO    [0m - Retrieved Spotify Artist: XUM (ID: 3y5YHxqYkm6tOFVMrG0NcA)[0m
+[32mINFO    [0m - Attached spotify artist XUM from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for DDALALA[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: XUM - DDALALA[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 2[0m
+[1;32mSUCCESS [0m - RATIO: 1.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for serin oh[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for serin oh[0m
+[32mINFO    [0m - Searching Spotify for Track: 'icarus?' by Artist: 'serin oh'[0m
+[32mINFO    [0m - Spotify Artist ID: 0hlgr8TCzypz0IfoKCdio5[0m
+[32mINFO    [0m - Retrieved Spotify Artist: serin oh (ID: 0hlgr8TCzypz0IfoKCdio5)[0m
+[32mINFO    [0m - Attached spotify artist serin oh from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for icarus?[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: serin oh - icarus?[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 3[0m
+[1;32mSUCCESS [0m - RATIO: 1.5%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 200[0m
+[32mINFO    [0m - Checking offset 26 of 33[0m
+[31mERROR   [0m - Artist ACID EYES has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist NTX has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6e1d130a-17af-48fc-b779-7d0c681d4b53[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6e1d130a-17af-48fc-b779-7d0c681d4b53: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name MUSTB[0m
+[32mINFO    [0m - Attached lastfm artist MUSTB from lastfm[0m
+[32mINFO    [0m - Artist MUSTB is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c2e65ba8-f54b-4d26-a03e-210b6578358e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c2e65ba8-f54b-4d26-a03e-210b6578358e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 유쏘보이[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 유쏘보이: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 유쏘보이[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2ff8b8db-5105-4de1-961b-b28b670733cf[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2ff8b8db-5105-4de1-961b-b28b670733cf: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name PICK on the top[0m
+[32mINFO    [0m - Attached lastfm artist PICK on the top from lastfm[0m
+[32mINFO    [0m - Artist PICK on the top is valid[0m
+[31mERROR   [0m - Artist PICK‐CAT has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist FANTASY BOYS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Sugar Tint has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PRISM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MDD has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 75d0096a-0faa-491c-bca6-296aa250ad8b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 75d0096a-0faa-491c-bca6-296aa250ad8b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Blue Fox[0m
+[32mINFO    [0m - Attached lastfm artist Blue Fox from lastfm[0m
+[32mINFO    [0m - Artist Blue Fox is valid[0m
+[31mERROR   [0m - Artist VIVIDIVA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist TINT has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist E:LFIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 하늘 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Julie has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist KISS OF LIFE has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 71cbf366-ec8c-42b2-b870-9e09b45ebecf[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 71cbf366-ec8c-42b2-b870-9e09b45ebecf: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ID:Earth[0m
+[32mINFO    [0m - Attached lastfm artist ID:Earth from lastfm[0m
+[31mERROR   [0m - Artist ID:Earth not in genre k-pop[0m
+[31mERROR   [0m - Artist GreatGuys has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Bunny.T has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist A.H.H.A has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist AiRiSU has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 제나 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Amber has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Aila has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Blue Fox[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Blue Fox[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Golden Deer' by Artist: 'Blue Fox'[0m
+[32mINFO    [0m - Spotify Artist ID: 4VfNwO9Vm7qytrCtUlwwGY[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Blue Fox (ID: 4VfNwO9Vm7qytrCtUlwwGY)[0m
+[32mINFO    [0m - Attached spotify artist Blue Fox from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Golden Deer[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Blue Fox - Golden Deer[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 4[0m
+[1;32mSUCCESS [0m - RATIO: 1.7777777777777777%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for PICK on the top[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for PICK on the top[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Charismatic' by Artist: 'PICK on the top'[0m
+[32mINFO    [0m - Spotify Artist ID: 6ZHqVJswFP63DfUZ2sbM2p[0m
+[32mINFO    [0m - Retrieved Spotify Artist: PICK on the top (ID: 6ZHqVJswFP63DfUZ2sbM2p)[0m
+[32mINFO    [0m - Attached spotify artist PICK on the top from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Charismatic[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: PICK on the top - Charismatic[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 5[0m
+[1;32mSUCCESS [0m - RATIO: 2.2222222222222223%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for MUSTB[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for MUSTB[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Realize' by Artist: 'Mustb'[0m
+[32mINFO    [0m - Spotify Artist ID: 5P41NAbnZtQIyXBucTyDGg[0m
+[32mINFO    [0m - Retrieved Spotify Artist: MustB (ID: 5P41NAbnZtQIyXBucTyDGg)[0m
+[32mINFO    [0m - Attached spotify artist MUSTB from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Realize[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: MUSTB - Realize[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 6[0m
+[1;32mSUCCESS [0m - RATIO: 2.666666666666667%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 225[0m
+[32mINFO    [0m - Checking offset 4 of 33[0m
+[31mERROR   [0m - Artist 진주 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d663d70b-97a7-4a16-b262-d765ca5f6b61[0m
+[32mINFO    [0m - Attached lastfm artist AnyBand from lastfm[0m
+[32mINFO    [0m - Artist AnyBand is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 02631a80-5a17-40af-b3fc-eb1aeeffc55d[0m
+[32mINFO    [0m - Attached lastfm artist Verbal Jint from lastfm[0m
+[31mERROR   [0m - Artist Verbal Jint not in genre k-pop[0m
+[31mERROR   [0m - Artist 이현도 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b88630be-2d98-445e-aaf9-d08c2932d715[0m
+[32mINFO    [0m - Attached lastfm artist 초신성 from lastfm[0m
+[31mERROR   [0m - Artist 초신성 not in genre k-pop[0m
+[31mERROR   [0m - Artist HyunA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0df2cd54-3bb3-4f29-9255-31266dad91f9[0m
+[32mINFO    [0m - Attached lastfm artist Diva from lastfm[0m
+[31mERROR   [0m - Artist Diva not in genre k-pop[0m
+[31mERROR   [0m - Artist Amber Liu has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LUNA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist INFINITE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist G.NA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 441159a8-b78f-48c8-8ac7-4435e236c23c[0m
+[32mINFO    [0m - Attached lastfm artist 용준형 from lastfm[0m
+[32mINFO    [0m - Artist 용준형 is valid[0m
+[31mERROR   [0m - Artist Orange Caramel has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist miss A has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Girl's Day has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SISTAR has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fea9cacd-5d82-45d9-9c77-a264aec78c6c[0m
+[32mINFO    [0m - Attached lastfm artist GP Basic from lastfm[0m
+[32mINFO    [0m - Artist GP Basic is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d463950b-fb36-434e-a75c-667400ba1bb8[0m
+[32mINFO    [0m - Attached lastfm artist Miz from lastfm[0m
+[31mERROR   [0m - Artist Miz not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 156632ba-7d6e-4b38-b879-808d0c754cb4[0m
+[32mINFO    [0m - Attached lastfm artist ZE:A from lastfm[0m
+[32mINFO    [0m - Artist ZE:A is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c129bae9-994b-4fa5-9402-811d4941c1c0[0m
+[32mINFO    [0m - Attached lastfm artist SECHSKIES from lastfm[0m
+[32mINFO    [0m - Artist SECHSKIES is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 93efbf6f-0757-41d0-9f94-5609b5983a81[0m
+[32mINFO    [0m - Attached lastfm artist UN from lastfm[0m
+[32mINFO    [0m - Artist UN is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f2911ba4-9eaf-4ae2-b7a2-0f27b7a955be[0m
+[32mINFO    [0m - Attached lastfm artist HYO from lastfm[0m
+[32mINFO    [0m - Artist HYO is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1ee63f58-d5cd-48b8-bfce-fc6a74149d11[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1ee63f58-d5cd-48b8-bfce-fc6a74149d11: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Freestyle[0m
+[32mINFO    [0m - Attached lastfm artist Freestyle from lastfm[0m
+[31mERROR   [0m - Artist Freestyle not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3c59eca2-15d4-425f-8b5d-043470c83635[0m
+[32mINFO    [0m - Attached lastfm artist SUNNY from lastfm[0m
+[32mINFO    [0m - Artist SUNNY is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 948a3efe-8928-485d-ad08-45e3df65247f[0m
+[32mINFO    [0m - Attached lastfm artist Jessica from lastfm[0m
+[32mINFO    [0m - Artist Jessica is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for GP Basic[0m
+[32mINFO    [0m - Searching Spotify for Track: 'GAME' by Artist: 'GP Basic'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'GAME' by 'GP Basic' with direct search: No Spotify tracks found for GAME by GP Basic.[0m
+[31mERROR   [0m - Couldn't find track GAME by GP Basic on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist GP Basic from track GAME[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Jelly Pop' by Artist: 'GP Basic'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Jelly Pop' by 'GP Basic' with direct search: No Spotify tracks found for Jelly Pop by GP Basic.[0m
+[31mERROR   [0m - Couldn't find track Jelly Pop by GP Basic on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist GP Basic from track Jelly Pop[0m
+[32mINFO    [0m - Searching Spotify for Track: 'LALALA (Remix Ver.)' by Artist: 'GP Basic'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'LALALA (Remix Ver.)' by 'GP Basic' with direct search: No Spotify tracks found for LALALA (Remix Ver.) by GP Basic.[0m
+[31mERROR   [0m - Couldn't find track LALALA (Remix Ver.) by GP Basic on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist GP Basic from track LALALA (Remix Ver.)[0m
+[32mINFO    [0m - Searching Spotify for Track: 'LALALA' by Artist: 'GP Basic'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'LALALA' by 'GP Basic' with direct search: No Spotify tracks found for LALALA by GP Basic.[0m
+[31mERROR   [0m - Couldn't find track LALALA by GP Basic on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist GP Basic from track LALALA[0m
+[32mINFO    [0m - Searching Spotify for Track: 'GAME (Remix Ver.)' by Artist: 'GP Basic'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'GAME (Remix Ver.)' by 'GP Basic' with direct search: No Spotify tracks found for GAME (Remix Ver.) by GP Basic.[0m
+[31mERROR   [0m - Couldn't find track GAME (Remix Ver.) by GP Basic on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist GP Basic from track GAME (Remix Ver.)[0m
+[32mINFO    [0m - artists checked: 250[0m
+[32mINFO    [0m - Checking offset 18 of 33[0m
+[31mERROR   [0m - Artist OnlyOneOf has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 3YE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 리미트리스 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PinkFantasy SHY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Hashtag has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SuperM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Rocket Punch has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 87ae4665-09a7-44f9-9681-6ec7192ed24f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 87ae4665-09a7-44f9-9681-6ec7192ed24f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TEEN TEEN[0m
+[32mINFO    [0m - Attached lastfm artist TEEN TEEN from lastfm[0m
+[32mINFO    [0m - Artist TEEN TEEN is valid[0m
+[31mERROR   [0m - Artist Balming Tiger has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 네온펀치 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DKZ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PLT has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YUKIKA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist cignature has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Hedy has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 양준일 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist myB has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist CRAVITY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist OurR has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist FANATICS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 18f3cf8a-68f2-4dbc-8512-b59d1f01094b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 18f3cf8a-68f2-4dbc-8512-b59d1f01094b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Arran[0m
+[32mINFO    [0m - Attached lastfm artist Arran from lastfm[0m
+[32mINFO    [0m - Artist Arran is valid[0m
+[31mERROR   [0m - Artist AleXa has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 라임소다 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Red Velvet - IRENE & SEULGI has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Weeekly has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Arran[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Arran[0m
+[32mINFO    [0m - Searching Spotify for Track: 'I Still Like It' by Artist: 'Arran'[0m
+[32mINFO    [0m - Spotify Artist ID: 7EOaL8ieM6xoRz3vJQ8oNJ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: ARRAN (ID: 7EOaL8ieM6xoRz3vJQ8oNJ)[0m
+[32mINFO    [0m - Attached spotify artist Arran from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for I Still Like It[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Arran - I Still Like It[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 7[0m
+[1;32mSUCCESS [0m - RATIO: 2.5454545454545454%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for TEEN TEEN[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for TEEN TEEN[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Be My Girl' by Artist: 'Teen Teen'[0m
+[32mINFO    [0m - Spotify Artist ID: 6gCdraD7vqQVBAtIT1g7qq[0m
+[32mINFO    [0m - Retrieved Spotify Artist: TEEN TEEN (ID: 6gCdraD7vqQVBAtIT1g7qq)[0m
+[32mINFO    [0m - Attached spotify artist TEEN TEEN from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Be My Girl[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: TEEN TEEN - Be My Girl[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 8[0m
+[1;32mSUCCESS [0m - RATIO: 2.909090909090909%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 275[0m
+[32mINFO    [0m - Checking offset 31 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8523dac3-6492-4e58-b4af-6c84aadaec45[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8523dac3-6492-4e58-b4af-6c84aadaec45: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ニジ[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name ニジ: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for ニジ[0m
+[31mERROR   [0m - Artist ユリ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 김수진 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 554d10a3-2d95-407e-8a42-69ca865b2249[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 554d10a3-2d95-407e-8a42-69ca865b2249: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 이은채[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 이은채: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 이은채[0m
+[31mERROR   [0m - Artist 이수빈 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 56a8d41c-0717-4aea-94e4-036ed9a1a076[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 56a8d41c-0717-4aea-94e4-036ed9a1a076: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 구교련[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 구교련: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 구교련[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5bee82ee-7173-4ac4-904e-051eb86ff1ad[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5bee82ee-7173-4ac4-904e-051eb86ff1ad: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 권은형[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 권은형: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 권은형[0m
+[31mERROR   [0m - Artist 선우 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 김수민 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 53daa4c0-cde9-4d4a-9275-4dbafee7c119[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 53daa4c0-cde9-4d4a-9275-4dbafee7c119: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 전진영[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 전진영: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 전진영[0m
+[31mERROR   [0m - Artist なるみ has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b758cb0e-1e69-4488-9d49-e0070ecf2d74[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b758cb0e-1e69-4488-9d49-e0070ecf2d74: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Gabi[0m
+[32mINFO    [0m - Attached lastfm artist Gabi from lastfm[0m
+[31mERROR   [0m - Artist Gabi not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2fb0205b-ef00-4544-ba6f-ef0089aafe2a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2fb0205b-ef00-4544-ba6f-ef0089aafe2a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ジェイラ[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name ジェイラ: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for ジェイラ[0m
+[31mERROR   [0m - Artist RAMISU has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9dd08aa8-f7ef-40e9-97d6-c30d1cd78b01[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9dd08aa8-f7ef-40e9-97d6-c30d1cd78b01: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 클로버[0m
+[32mINFO    [0m - Attached lastfm artist 클로버 from lastfm[0m
+[32mINFO    [0m - Artist 클로버 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3a385d1a-f277-48fa-a463-00bbed560397[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3a385d1a-f277-48fa-a463-00bbed560397: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name UNICODE[0m
+[32mINFO    [0m - Attached lastfm artist UNICODE from lastfm[0m
+[32mINFO    [0m - Artist UNICODE is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c8e2f76e-fb35-4820-9867-c84f31661b67[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c8e2f76e-fb35-4820-9867-c84f31661b67: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Glow[0m
+[32mINFO    [0m - Attached lastfm artist Glow from lastfm[0m
+[31mERROR   [0m - Artist Glow not in genre k-pop[0m
+[31mERROR   [0m - Artist VVUP has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist N-DAY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Big Ocean has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Triple iz has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SPIA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BADVILLAIN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7e233e85-bc6d-4d64-b330-7935953ba74d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7e233e85-bc6d-4d64-b330-7935953ba74d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name I‐LAND2 : N/a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name I‐LAND2 : N/a: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for I‐LAND2 : N/a[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 62b7a559-9f3a-4e73-927b-3fd69ef8eb40[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 62b7a559-9f3a-4e73-927b-3fd69ef8eb40: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name BEWAVE[0m
+[32mINFO    [0m - Attached lastfm artist BEWAVE from lastfm[0m
+[32mINFO    [0m - Artist BEWAVE is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for BEWAVE[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for BEWAVE[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Never lose you again' by Artist: 'BEWAVE'[0m
+[32mINFO    [0m - Spotify Artist ID: 6zbrLeJOnL0pEOgaRwZnaT[0m
+[32mINFO    [0m - Retrieved Spotify Artist: BEWAVE (ID: 6zbrLeJOnL0pEOgaRwZnaT)[0m
+[32mINFO    [0m - Attached spotify artist BEWAVE from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Never lose you again[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: BEWAVE - Never lose you again[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 9[0m
+[1;32mSUCCESS [0m - RATIO: 3.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 클로버[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 클로버[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Clover Style' by Artist: '클로버'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 클로버 from track Clover Style[0m
+[32mINFO    [0m - Searching Spotify for Track: 'ICE트림' by Artist: '클로버'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 클로버 from track ICE트림[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Better Day' by Artist: '클로버'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 클로버 from track Better Day[0m
+[32mINFO    [0m - Searching Spotify for Track: 'La Vida Loca' by Artist: '클로버'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 클로버 from track La Vida Loca[0m
+[32mINFO    [0m - Searching Spotify for Track: '아는 오빠' by Artist: '클로버'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 클로버 from track 아는 오빠[0m
+[32mINFO    [0m - artists checked: 300[0m
+[32mINFO    [0m - Checking offset 14 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 53885b2a-c460-4718-9bef-06acb9cbae2d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 53885b2a-c460-4718-9bef-06acb9cbae2d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 케이시[0m
+[32mINFO    [0m - Attached lastfm artist 케이시 from lastfm[0m
+[31mERROR   [0m - Artist 케이시 not in genre k-pop[0m
+[31mERROR   [0m - Artist 김민지 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 강영현 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 아는동생 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YooA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 宁宁 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 승관 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 文俊辉 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3529da27-3a5d-45bb-9308-4d131132a21e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3529da27-3a5d-45bb-9308-4d131132a21e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 볼빨간사춘기[0m
+[32mINFO    [0m - Attached lastfm artist 볼빨간사춘기 from lastfm[0m
+[31mERROR   [0m - Artist 볼빨간사춘기 not in genre k-pop[0m
+[31mERROR   [0m - Artist KARD has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ef5f9c47-821f-43ae-a4eb-089cbb1def0b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ef5f9c47-821f-43ae-a4eb-089cbb1def0b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name BONUSbaby[0m
+[32mINFO    [0m - Attached lastfm artist BONUSbaby from lastfm[0m
+[32mINFO    [0m - Artist BONUSbaby is valid[0m
+[31mERROR   [0m - Artist SIYEON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DREAMCATCHER has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid de4feabc-cd21-4568-a09c-2086bfebe2f4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid de4feabc-cd21-4568-a09c-2086bfebe2f4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 이달의 소녀[0m
+[32mINFO    [0m - Attached lastfm artist 이달의 소녀 from lastfm[0m
+[32mINFO    [0m - Artist 이달의 소녀 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 931c934c-ddd6-43ff-a525-d8f8f2c9bbe6[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 931c934c-ddd6-43ff-a525-d8f8f2c9bbe6: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name MIXX[0m
+[32mINFO    [0m - Attached lastfm artist MIXX from lastfm[0m
+[32mINFO    [0m - Artist MIXX is valid[0m
+[31mERROR   [0m - Artist 의진 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PRISTIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 일급비밀 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 96ec7174-5836-4ff8-8d6a-11d90c7a5e62[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 96ec7174-5836-4ff8-8d6a-11d90c7a5e62: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ちゃんみな[0m
+[32mINFO    [0m - Attached lastfm artist ちゃんみな from lastfm[0m
+[31mERROR   [0m - Artist ちゃんみな not in genre k-pop[0m
+[31mERROR   [0m - Artist Highlight has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Colde has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ab8cdcb5-12ee-40e9-9c2f-75a96b99e70e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ab8cdcb5-12ee-40e9-9c2f-75a96b99e70e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 이달의 소녀 1/3[0m
+[32mINFO    [0m - Attached lastfm artist 이달의 소녀 1/3 from lastfm[0m
+[32mINFO    [0m - Artist 이달의 소녀 1/3 is valid[0m
+[31mERROR   [0m - Artist A.C.E has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6f86abe5-9211-44ba-b9bd-adbf078a4cc2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6f86abe5-9211-44ba-b9bd-adbf078a4cc2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ALICE[0m
+[32mINFO    [0m - Attached lastfm artist ALICE from lastfm[0m
+[31mERROR   [0m - Artist ALICE not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0235bd56-b5a9-4f18-845e-518b1657bb07[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0235bd56-b5a9-4f18-845e-518b1657bb07: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Kriesha Chu[0m
+[32mINFO    [0m - Attached lastfm artist Kriesha Chu from lastfm[0m
+[32mINFO    [0m - Artist Kriesha Chu is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for BONUSbaby[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for BONUSbaby[0m
+[32mINFO    [0m - Searching Spotify for Track: 'If I Become An Adult 어른이 된다면' by Artist: 'Bonusbaby'[0m
+[32mINFO    [0m - Spotify Artist ID: 4ba2GLtsgJ8ix2089MG0j0[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Bonusbaby (ID: 4ba2GLtsgJ8ix2089MG0j0)[0m
+[32mINFO    [0m - Attached spotify artist BONUSbaby from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for If I Become An Adult 어른이 된다면[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: BONUSbaby - If I Become An Adult 어른이 된다면[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 10[0m
+[1;32mSUCCESS [0m - RATIO: 3.076923076923077%[0m
+[33mWARNING [0m - Track If I Become An Adult 어른이 된다면 - Instrumental is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - Track 우리끼리 - Instrumental is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Kriesha Chu[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Kriesha Chu[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Like Paradise (with Flow Blow)' by Artist: 'Kriesha Chu'[0m
+[32mINFO    [0m - Spotify Artist ID: 3zlxVfcuV4nPjcvTvlPWmZ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Kriesha Chu (ID: 3zlxVfcuV4nPjcvTvlPWmZ)[0m
+[32mINFO    [0m - Attached spotify artist Kriesha Chu from lastfm top track[0m
+[31mERROR   [0m - Artist Kriesha Chu followers (84764) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 이달의 소녀 1/3[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 이달의 소녀 1/3[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Fairy Tale' by Artist: '이달의 소녀 1/3'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 1/3 from track Fairy Tale[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Love & Evil' by Artist: '이달의 소녀 1/3'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 1/3 from track Love & Evil[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Love & Live' by Artist: '이달의 소녀 1/3'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 1/3 from track Love & Live[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sonatine' by Artist: '이달의 소녀 1/3'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 1/3 from track Sonatine[0m
+[32mINFO    [0m - Searching Spotify for Track: 'You and Me Together' by Artist: '이달의 소녀 1/3'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 이달의 소녀 1/3 from track You and Me Together[0m
+[32mINFO    [0m - artists checked: 325[0m
+[32mINFO    [0m - Checking offset 21 of 33[0m
+[31mERROR   [0m - Artist EPISODE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist EPEX has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PURPLEBECK has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist HI-L has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist VIVIZ has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 138f6b3a-d044-417b-b973-f95dc39bf9dd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 138f6b3a-d044-417b-b973-f95dc39bf9dd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name SKYLE[0m
+[32mINFO    [0m - Attached lastfm artist SKYLE from lastfm[0m
+[31mERROR   [0m - Artist SKYLE not in genre k-pop[0m
+[31mERROR   [0m - Artist IVE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PRITTI-G has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ICHILLIN’ has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0cf1099c-5454-4bb8-b144-aa7d3a9bba75[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0cf1099c-5454-4bb8-b144-aa7d3a9bba75: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Precious[0m
+[32mINFO    [0m - Attached lastfm artist Precious from lastfm[0m
+[31mERROR   [0m - Artist Precious not in genre k-pop[0m
+[31mERROR   [0m - Artist Billlie has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Kep1er has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist bugAboo has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MIRAE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YENA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GOT the beat has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist REDA ZN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 39663cd0-0fef-4e7b-b3c9-1f0f09d2a6fa[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 39663cd0-0fef-4e7b-b3c9-1f0f09d2a6fa: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Girls on Top[0m
+[32mINFO    [0m - Attached lastfm artist Girls on Top from lastfm[0m
+[31mERROR   [0m - Artist Girls on Top not in genre k-pop[0m
+[31mERROR   [0m - Artist NMIXX has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Lewis Utley has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MAMADOL has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Rumble-G has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist lusty has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LE SSERAFIM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist H1-KEY has been previously cached as invalid for this request[0m
+[32mINFO    [0m - artists checked: 350[0m
+[32mINFO    [0m - Checking offset 2 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 41cb44ba-1e4d-4b1a-a9d2-99847c58ef06[0m
+[32mINFO    [0m - Attached lastfm artist U;nee from lastfm[0m
+[32mINFO    [0m - Artist U;nee is valid[0m
+[31mERROR   [0m - Artist Harisu has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 55366610-de18-4459-bce8-07caafba09cb[0m
+[32mINFO    [0m - Attached lastfm artist 天上智喜 The Grace from lastfm[0m
+[32mINFO    [0m - Artist 天上智喜 The Grace is valid[0m
+[31mERROR   [0m - Artist RAIN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ea805f19-e875-4b08-a252-e5bdc99f35be[0m
+[32mINFO    [0m - Attached lastfm artist J from lastfm[0m
+[31mERROR   [0m - Artist J not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9498a6d3-3c56-4303-b951-472d07cf92b5[0m
+[32mINFO    [0m - Attached lastfm artist Jewelry from lastfm[0m
+[32mINFO    [0m - Artist Jewelry is valid[0m
+[31mERROR   [0m - Artist NRG has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e127b37a-d2b0-40c4-8ab2-0af3608e3853[0m
+[32mINFO    [0m - Attached lastfm artist 김현정 from lastfm[0m
+[32mINFO    [0m - Artist 김현정 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6941e261-bbb4-4a98-8c18-073a6f176546[0m
+[32mINFO    [0m - Attached lastfm artist SG Wannabe from lastfm[0m
+[32mINFO    [0m - Artist SG Wannabe is valid[0m
+[31mERROR   [0m - Artist 유노윤호 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 46d72c85-ba81-4d50-bb6e-5d628dc08d55[0m
+[32mINFO    [0m - Attached lastfm artist 김재중 from lastfm[0m
+[32mINFO    [0m - Artist 김재중 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 186fd4df-1624-494d-9362-d1c3b79e5b49[0m
+[32mINFO    [0m - Attached lastfm artist 임정희 from lastfm[0m
+[32mINFO    [0m - Artist 임정희 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6e0920b3-6508-4ad4-b067-ee7d274c90ce[0m
+[32mINFO    [0m - Attached lastfm artist G.O.D from lastfm[0m
+[31mERROR   [0m - Artist G.O.D not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 605a645c-f6c2-43b8-994b-7dedc2eec469[0m
+[32mINFO    [0m - Attached lastfm artist 엄정화 from lastfm[0m
+[32mINFO    [0m - Artist 엄정화 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 039f523f-689a-49be-83c4-bd6fdda61c1f[0m
+[32mINFO    [0m - Attached lastfm artist 박진영 from lastfm[0m
+[32mINFO    [0m - Artist 박진영 is valid[0m
+[31mERROR   [0m - Artist 방시혁 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Kristel Fulgar has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Wonder Girls has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8ae11726-431d-426c-836d-b4afe9da5cb9[0m
+[32mINFO    [0m - Attached lastfm artist Lady from lastfm[0m
+[31mERROR   [0m - Artist Lady not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 502e4ed1-eb37-44ac-bf95-84fbc5315ae5[0m
+[32mINFO    [0m - Attached lastfm artist DJ DOC from lastfm[0m
+[32mINFO    [0m - Artist DJ DOC is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0a3231df-13d6-48cf-86f1-5b4a5f948ff1[0m
+[32mINFO    [0m - Attached lastfm artist 이준기 from lastfm[0m
+[32mINFO    [0m - Artist 이준기 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid da04f088-9882-45e0-b1cb-5d185bb6fa24[0m
+[32mINFO    [0m - Attached lastfm artist Sunny Hill from lastfm[0m
+[32mINFO    [0m - Artist Sunny Hill is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 97f85c31-8c0c-4144-8b06-7d22425417e6[0m
+[32mINFO    [0m - Attached lastfm artist 양파 from lastfm[0m
+[32mINFO    [0m - Artist 양파 is valid[0m
+[31mERROR   [0m - Artist BIGBANG has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SHINee has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 양파[0m
+[31mERROR   [0m - Song 애송이의 사랑 is by Yangpa, not 양파[0m
+[31mERROR   [0m - Could not attach spotify artist 양파 from track 애송이의 사랑[0m
+[31mERROR   [0m - Song A Dazzling Season is by Yangpa, not 양파[0m
+[31mERROR   [0m - Could not attach spotify artist 양파 from track A Dazzling Season[0m
+[31mERROR   [0m - Song Aurora is by Yangpa, not 양파[0m
+[31mERROR   [0m - Could not attach spotify artist 양파 from track Aurora[0m
+[31mERROR   [0m - Song 마음의 기록 is by Yangpa, not 양파[0m
+[31mERROR   [0m - Could not attach spotify artist 양파 from track 마음의 기록[0m
+[31mERROR   [0m - Song A Memory In My Heart is by Yangpa, not 양파[0m
+[31mERROR   [0m - Could not attach spotify artist 양파 from track A Memory In My Heart[0m
+[32mINFO    [0m - artists checked: 375[0m
+[32mINFO    [0m - Checking offset 32 of 33[0m
+[31mERROR   [0m - Artist ViV has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a86ad3e2-a238-4e32-b7d9-7f7906a74d9b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a86ad3e2-a238-4e32-b7d9-7f7906a74d9b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ASMRZ[0m
+[32mINFO    [0m - Attached lastfm artist ASMRZ from lastfm[0m
+[31mERROR   [0m - Artist ASMRZ not in genre k-pop[0m
+[31mERROR   [0m - Artist 휴이 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist B-OURS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist X Times Together has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist WATERFIRE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 베리어스 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist JEONGHAN X WONWOO has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist I:mond has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SEJIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 은기 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist CHAELIN has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c3d9b981-0420-45ae-93ca-21d78f0fb14f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c3d9b981-0420-45ae-93ca-21d78f0fb14f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name izna[0m
+[32mINFO    [0m - Attached lastfm artist izna from lastfm[0m
+[31mERROR   [0m - Artist izna not in genre k-pop[0m
+[31mERROR   [0m - Artist eero has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 45ef5304-9534-4d3d-9978-a510d0f2f8f0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 45ef5304-9534-4d3d-9978-a510d0f2f8f0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mauve[0m
+[32mINFO    [0m - Attached lastfm artist Mauve from lastfm[0m
+[31mERROR   [0m - Artist Mauve not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 33b46629-4a20-4237-88d2-ebb0b0148687[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 33b46629-4a20-4237-88d2-ebb0b0148687: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Linffine[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name Linffine: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for Linffine[0m
+[31mERROR   [0m - Artist Z.peline has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GK has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Club Gemini has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 51cff875-4de6-4c89-8c26-d2f519a1dcee[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 51cff875-4de6-4c89-8c26-d2f519a1dcee: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name I-Rohm[0m
+[32mINFO    [0m - Attached lastfm artist I-Rohm from lastfm[0m
+[31mERROR   [0m - Artist I-Rohm not in genre k-pop[0m
+[31mERROR   [0m - Artist AWEEK has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 3piece has been previously cached as invalid for this request[0m
+[32mINFO    [0m - artists checked: 400[0m
+[32mINFO    [0m - Checking offset 29 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c1304bf7-1002-493c-af8f-47a950813f6a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c1304bf7-1002-493c-af8f-47a950813f6a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nerd Connection[0m
+[32mINFO    [0m - Attached lastfm artist Nerd Connection from lastfm[0m
+[31mERROR   [0m - Artist Nerd Connection not in genre k-pop[0m
+[31mERROR   [0m - Artist UNIVERSE TICKET has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 엔젤릭버스터 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Naneun has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BTswing has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist C.I.V.A has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 에이피아이 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bd117cf4-35ad-4e54-be4a-d637bf1cc4d9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid bd117cf4-35ad-4e54-be4a-d637bf1cc4d9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name HARU[0m
+[32mINFO    [0m - Attached lastfm artist HARU from lastfm[0m
+[31mERROR   [0m - Artist HARU not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9f748d82-f14c-40c8-b4a2-b7ea56c37309[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9f748d82-f14c-40c8-b4a2-b7ea56c37309: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Bella[0m
+[32mINFO    [0m - Attached lastfm artist Bella from lastfm[0m
+[31mERROR   [0m - Artist Bella not in genre k-pop[0m
+[31mERROR   [0m - Artist EASTSHINE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist My Darling has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 클로리스 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DDgirls has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bb58dd40-2fc3-4ba8-9f8a-30130e6926d2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid bb58dd40-2fc3-4ba8-9f8a-30130e6926d2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 다트[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 다트: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 다트[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6328a816-7739-4f93-982a-dedc4f9f5645[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6328a816-7739-4f93-982a-dedc4f9f5645: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Aria[0m
+[32mINFO    [0m - Attached lastfm artist Aria from lastfm[0m
+[31mERROR   [0m - Artist Aria not in genre k-pop[0m
+[31mERROR   [0m - Artist NXT has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 데이스타 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist TWS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cc53fae6-12de-4935-9036-cdd3dece0506[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid cc53fae6-12de-4935-9036-cdd3dece0506: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Forever[0m
+[32mINFO    [0m - Attached lastfm artist Forever from lastfm[0m
+[31mERROR   [0m - Artist Forever not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2a6b5ad7-0924-4696-8d50-8d59f7827092[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2a6b5ad7-0924-4696-8d50-8d59f7827092: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Highway[0m
+[32mINFO    [0m - Attached lastfm artist Highway from lastfm[0m
+[31mERROR   [0m - Artist Highway not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 08e8ec17-717d-44cb-98ab-fc402cb3f55e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 08e8ec17-717d-44cb-98ab-fc402cb3f55e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Venus[0m
+[32mINFO    [0m - Attached lastfm artist Venus from lastfm[0m
+[31mERROR   [0m - Artist Venus not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d9b95f9a-b137-4fff-b849-aeede0fa3522[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d9b95f9a-b137-4fff-b849-aeede0fa3522: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Geenius[0m
+[32mINFO    [0m - Attached lastfm artist Geenius from lastfm[0m
+[32mINFO    [0m - Artist Geenius is valid[0m
+[31mERROR   [0m - Artist MINIMANI M has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a1c61978-0328-41bf-ac37-756f44e9f230[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a1c61978-0328-41bf-ac37-756f44e9f230: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name YONA[0m
+[32mINFO    [0m - Attached lastfm artist YONA from lastfm[0m
+[31mERROR   [0m - Artist YONA not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 70e2939c-2c38-48fa-8ec6-f54ba86b130d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 70e2939c-2c38-48fa-8ec6-f54ba86b130d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Yuri Park[0m
+[32mINFO    [0m - Attached lastfm artist Yuri Park from lastfm[0m
+[31mERROR   [0m - Artist Yuri Park not in genre k-pop[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Geenius[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Geenius[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Yellowtail' by Artist: 'Geenius'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Yellowtail' by 'Geenius' with direct search: No Spotify tracks found for Yellowtail by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Yellowtail by Geenius on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Geenius from track Yellowtail[0m
+[32mINFO    [0m - Searching Spotify for Track: '“Voyage” Band LIVE Concert  K-POP live music show' by Artist: 'Geenius'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '“Voyage” Band LIVE Concert  K-POP live music show' by 'Geenius' with direct search: No Spotify tracks found for “Voyage” Band LIVE Concert  K-POP live music show by Geenius.[0m
+[31mERROR   [0m - Couldn't find track “Voyage” Band LIVE Concert  K-POP live music show by Geenius on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Geenius from track “Voyage” Band LIVE Concert  K-POP live music show[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Geenius(지니어스) ‘Voyage’ Official MV' by Artist: 'Geenius'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Geenius(지니어스) ‘Voyage’ Official MV' by 'Geenius' with direct search: No Spotify tracks found for Geenius(지니어스) ‘Voyage’ Official MV by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Geenius(지니어스) ‘Voyage’ Official MV by Geenius on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Geenius from track Geenius(지니어스) ‘Voyage’ Official MV[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Geenius(지니어스) ‘Voyage’ Official' by Artist: 'Geenius'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Geenius(지니어스) ‘Voyage’ Official' by 'Geenius' with direct search: No Spotify tracks found for Geenius(지니어스) ‘Voyage’ Official by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Geenius(지니어스) ‘Voyage’ Official by Geenius on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Geenius from track Geenius(지니어스) ‘Voyage’ Official[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Voyage' by Artist: 'Geenius'[0m
+[32mINFO    [0m - Spotify Artist ID: 1E9Grth4BtkGuX16ppAVyb[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Geenius (ID: 1E9Grth4BtkGuX16ppAVyb)[0m
+[32mINFO    [0m - Attached spotify artist Geenius from lastfm top track[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Yellowtail' by 'Geenius' with direct search: No Spotify tracks found for Yellowtail by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Yellowtail by Geenius on Spotify.[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '“Voyage” Band LIVE Concert  K-POP live music show' by 'Geenius' with direct search: No Spotify tracks found for “Voyage” Band LIVE Concert  K-POP live music show by Geenius.[0m
+[31mERROR   [0m - Couldn't find track “Voyage” Band LIVE Concert  K-POP live music show by Geenius on Spotify.[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Geenius(지니어스) ‘Voyage’ Official MV' by 'Geenius' with direct search: No Spotify tracks found for Geenius(지니어스) ‘Voyage’ Official MV by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Geenius(지니어스) ‘Voyage’ Official MV by Geenius on Spotify.[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Geenius(지니어스) ‘Voyage’ Official' by 'Geenius' with direct search: No Spotify tracks found for Geenius(지니어스) ‘Voyage’ Official by Geenius.[0m
+[31mERROR   [0m - Couldn't find track Geenius(지니어스) ‘Voyage’ Official by Geenius on Spotify.[0m
+[32mINFO    [0m - Attached spotify track info for Voyage[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Geenius - Voyage[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 11[0m
+[1;32mSUCCESS [0m - RATIO: 2.588235294117647%[0m
+[32mINFO    [0m - artists checked: 425[0m
+[32mINFO    [0m - Checking offset 25 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0dc92ab6-f425-49b1-bedc-52e309aa2f7d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0dc92ab6-f425-49b1-bedc-52e309aa2f7d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Feverse[0m
+[32mINFO    [0m - Attached lastfm artist Feverse from lastfm[0m
+[32mINFO    [0m - Artist Feverse is valid[0m
+[31mERROR   [0m - Artist ShaFLA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PCDM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BLACKBUNNY has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 532996ca-2cf6-4c70-8b4e-7f8a99a2ac62[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 532996ca-2cf6-4c70-8b4e-7f8a99a2ac62: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name We;Na[0m
+[32mINFO    [0m - Attached lastfm artist We;Na from lastfm[0m
+[32mINFO    [0m - Artist We;Na is valid[0m
+[31mERROR   [0m - Artist SHA SHA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b77a4c74-2aad-458b-954c-3c2a9adb1a34[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b77a4c74-2aad-458b-954c-3c2a9adb1a34: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name JuJu Secret[0m
+[32mINFO    [0m - Attached lastfm artist JuJu Secret from lastfm[0m
+[32mINFO    [0m - Artist JuJu Secret is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 96583a38-b231-47ee-bb0e-d2461d422d16[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 96583a38-b231-47ee-bb0e-d2461d422d16: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Thalia[0m
+[32mINFO    [0m - Attached lastfm artist Thalia from lastfm[0m
+[31mERROR   [0m - Artist Thalia not in genre k-pop[0m
+[31mERROR   [0m - Artist X:IN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist XODIAC has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64b94f98-9b42-4006-a723-347d51bfff94[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 64b94f98-9b42-4006-a723-347d51bfff94: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ahri[0m
+[32mINFO    [0m - Attached lastfm artist Ahri from lastfm[0m
+[31mERROR   [0m - Artist Ahri not in genre k-pop[0m
+[31mERROR   [0m - Artist 츠키 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 소녀 리버스 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Acid Angel from Asia has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist +(KR)ystal Eyes has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4baa3292-34c6-4ca1-927a-3663d5e30d9b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4baa3292-34c6-4ca1-927a-3663d5e30d9b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name HAM[0m
+[32mINFO    [0m - Attached lastfm artist HAM from lastfm[0m
+[32mINFO    [0m - Artist HAM is valid[0m
+[31mERROR   [0m - Artist Belle has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist EVOLution has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LOVElution has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 章昊 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ZEROBASEONE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ADYA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ARTMS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a2451cf5-516e-41d6-a873-4ed7e076e127[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a2451cf5-516e-41d6-a873-4ed7e076e127: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name HINT[0m
+[32mINFO    [0m - Attached lastfm artist HINT from lastfm[0m
+[31mERROR   [0m - Artist HINT not in genre k-pop[0m
+[31mERROR   [0m - Artist DIAWINGS has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for HAM[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for HAM[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Goût De L'aventure' by Artist: 'Ham'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Goût De L'aventure' by 'Ham' with direct search: No Spotify tracks found for Goût De L'aventure by Ham.[0m
+[31mERROR   [0m - Couldn't find track Goût De L'aventure by Ham on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist HAM from track Goût De L'aventure[0m
+[32mINFO    [0m - Searching Spotify for Track: 'So Sexy' by Artist: 'Ham'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist HAM from track So Sexy[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Haf trú' by Artist: 'Ham'[0m
+[32mINFO    [0m - Spotify Artist ID: 0oxFfQiaEinJbDSrTVB6c4[0m
+[32mINFO    [0m - Retrieved Spotify Artist: HAM (ID: 0oxFfQiaEinJbDSrTVB6c4)[0m
+[32mINFO    [0m - Attached spotify artist HAM from lastfm top track[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Goût De L'aventure' by 'Ham' with direct search: No Spotify tracks found for Goût De L'aventure by Ham.[0m
+[31mERROR   [0m - Couldn't find track Goût De L'aventure by Ham on Spotify.[0m
+[32mINFO    [0m - Attached spotify track info for So Sexy[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: HAM - So Sexy[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 12[0m
+[1;32mSUCCESS [0m - RATIO: 2.666666666666667%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Feverse[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Feverse[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Time takes me to love (Feverse ver.)' by Artist: 'Feverse'[0m
+[32mINFO    [0m - Spotify Artist ID: 2HEGA0QyWlpVzyNF6WaMVQ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Feverse (ID: 2HEGA0QyWlpVzyNF6WaMVQ)[0m
+[32mINFO    [0m - Attached spotify artist Feverse from lastfm top track[0m
+[33mWARNING [0m - Track Time takes me to love (Feverse ver.) is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - Track Like a star (Feverse ver.) is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - Track I Promise (Feverse ver.) is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - Track CHO (Inst.) is a cover, instrumental, or special version of a song[0m
+[32mINFO    [0m - Attached spotify track info for CHO[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Feverse - CHO[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 13[0m
+[1;32mSUCCESS [0m - RATIO: 2.888888888888889%[0m
+[32mINFO    [0m - Attaching top tracks from mbid for JuJu Secret[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for JuJu Secret[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Alone' by Artist: 'JuJu Secret'[0m
+[32mINFO    [0m - Spotify Artist ID: 2g72luaOTzifxlC2r3flf9[0m
+[32mINFO    [0m - Retrieved Spotify Artist: JuJu Secret (ID: 2g72luaOTzifxlC2r3flf9)[0m
+[32mINFO    [0m - Attached spotify artist JuJu Secret from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Alone[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: JuJu Secret - Alone[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 14[0m
+[1;32mSUCCESS [0m - RATIO: 3.111111111111111%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for We;Na[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for We;Na[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Valhalla' by Artist: 'We;Na'[0m
+[32mINFO    [0m - Spotify Artist ID: 1nlvVchkTmecxdFNflxucN[0m
+[32mINFO    [0m - Retrieved Spotify Artist: We;Na (ID: 1nlvVchkTmecxdFNflxucN)[0m
+[32mINFO    [0m - Attached spotify artist We;Na from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Valhalla[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: We;Na - Valhalla[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 15[0m
+[1;32mSUCCESS [0m - RATIO: 3.3333333333333335%[0m
+[33mWARNING [0m - Track Baby, Like it - 도아은아 Duo Version is a cover, instrumental, or special version of a song[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 450[0m
+[32mINFO    [0m - Checking offset 15 of 33[0m
+[31mERROR   [0m - Artist MAP6 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 174fe0a5-2861-44d0-8bb8-0f6d639b91ef[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 174fe0a5-2861-44d0-8bb8-0f6d639b91ef: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 김재환[0m
+[32mINFO    [0m - Attached lastfm artist 김재환 from lastfm[0m
+[32mINFO    [0m - Artist 김재환 is valid[0m
+[31mERROR   [0m - Artist Gowoon has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 태하 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 김나연 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e2c90e0c-274f-45c3-ad09-00eee99adcaa[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e2c90e0c-274f-45c3-ad09-00eee99adcaa: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name FAVORITE[0m
+[32mINFO    [0m - Attached lastfm artist FAVORITE from lastfm[0m
+[31mERROR   [0m - Artist FAVORITE not in genre k-pop[0m
+[31mERROR   [0m - Artist VAV has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 00199cff-cac2-4e0a-bef1-648747ac7f95[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 00199cff-cac2-4e0a-bef1-648747ac7f95: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name GOOD DAY[0m
+[32mINFO    [0m - Attached lastfm artist GOOD DAY from lastfm[0m
+[32mINFO    [0m - Artist GOOD DAY is valid[0m
+[31mERROR   [0m - Artist Weki Meki has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dec0f331-cb08-4c8e-9c9f-aeb1f0f6d88c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid dec0f331-cb08-4c8e-9c9f-aeb1f0f6d88c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ODD EYE CIRCLE[0m
+[32mINFO    [0m - Attached lastfm artist ODD EYE CIRCLE from lastfm[0m
+[32mINFO    [0m - Artist ODD EYE CIRCLE is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 33a57c98-4fbe-4cc4-a514-4e66e21c060a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 33a57c98-4fbe-4cc4-a514-4e66e21c060a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name P.O.P[0m
+[32mINFO    [0m - Attached lastfm artist P.O.P from lastfm[0m
+[32mINFO    [0m - Artist P.O.P is valid[0m
+[31mERROR   [0m - Artist ONF has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 하슬 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9fbbbcc3-f2af-4f03-a0b1-844ee5aec94f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9fbbbcc3-f2af-4f03-a0b1-844ee5aec94f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name HeeJin[0m
+[32mINFO    [0m - Attached lastfm artist HeeJin from lastfm[0m
+[32mINFO    [0m - Artist HeeJin is valid[0m
+[31mERROR   [0m - Artist 진솔 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist S.I.S has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 오구오구 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist fromis_9 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 로시 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Stray Kids has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist THE BOYZ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Yves has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist CHUU has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GIRLKIND has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist UNI.T has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 김재환[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 김재환[0m
+[32mINFO    [0m - Searching Spotify for Track: '안녕하세요' by Artist: '김재환'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 김재환 from track 안녕하세요[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Someday' by Artist: '김재환'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 김재환 from track Someday[0m
+[32mINFO    [0m - Searching Spotify for Track: '어떤 날엔' by Artist: '김재환'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 김재환 from track 어떤 날엔[0m
+[32mINFO    [0m - Searching Spotify for Track: 'My Star' by Artist: '김재환'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 김재환 from track My Star[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Blow Me' by Artist: '김재환'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 김재환 from track Blow Me[0m
+[32mINFO    [0m - artists checked: 475[0m
+[32mINFO    [0m - Checking offset 20 of 33[0m
+[31mERROR   [0m - Artist Liu Lee has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Bling Bling has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e86bef59-5576-45bf-bf8f-3e80a3f2a71c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e86bef59-5576-45bf-bf8f-3e80a3f2a71c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 윙스[0m
+[32mINFO    [0m - Attached lastfm artist 윙스 from lastfm[0m
+[32mINFO    [0m - Artist 윙스 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f897e468-6726-44fe-a214-010f28e0ad18[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f897e468-6726-44fe-a214-010f28e0ad18: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Chakra[0m
+[32mINFO    [0m - Attached lastfm artist Chakra from lastfm[0m
+[31mERROR   [0m - Artist Chakra not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3ee9d430-5c76-4947-83bf-ebb5a9e3419c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3ee9d430-5c76-4947-83bf-ebb5a9e3419c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TRI.BE[0m
+[32mINFO    [0m - Attached lastfm artist TRI.BE from lastfm[0m
+[32mINFO    [0m - Artist TRI.BE is valid[0m
+[31mERROR   [0m - Artist Areal has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist APOKI has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 75fe0b17-cf21-4761-b662-f4ad24eca756[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 75fe0b17-cf21-4761-b662-f4ad24eca756: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name YOUHA[0m
+[32mINFO    [0m - Attached lastfm artist YOUHA from lastfm[0m
+[32mINFO    [0m - Artist YOUHA is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c41fab9f-c9ac-4d6f-9ccc-53f28656e987[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c41fab9f-c9ac-4d6f-9ccc-53f28656e987: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 김세정[0m
+[32mINFO    [0m - Attached lastfm artist 김세정 from lastfm[0m
+[32mINFO    [0m - Artist 김세정 is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7ece3433-cb65-4054-b919-fc312f6825cb[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7ece3433-cb65-4054-b919-fc312f6825cb: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ciipher[0m
+[32mINFO    [0m - Attached lastfm artist Ciipher from lastfm[0m
+[32mINFO    [0m - Artist Ciipher is valid[0m
+[31mERROR   [0m - Artist Faith Louise has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PIXY has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist G-reyish has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist FLORIA has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 95ae2fc3-bd8a-419e-9e7c-0e3a24a55fc0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 95ae2fc3-bd8a-419e-9e7c-0e3a24a55fc0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Azer[0m
+[32mINFO    [0m - Attached lastfm artist Azer from lastfm[0m
+[32mINFO    [0m - Artist Azer is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 71822336-bc56-47d7-bda1-cb090af87c0c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 71822336-bc56-47d7-bda1-cb090af87c0c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name REDSQUARE[0m
+[32mINFO    [0m - Attached lastfm artist REDSQUARE from lastfm[0m
+[32mINFO    [0m - Artist REDSQUARE is valid[0m
+[31mERROR   [0m - Artist SEZ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist CRAXY has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ab03289e-b687-498a-9a68-cc04be62efcd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ab03289e-b687-498a-9a68-cc04be62efcd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name ANS[0m
+[32mINFO    [0m - Attached lastfm artist ANS from lastfm[0m
+[32mINFO    [0m - Artist ANS is valid[0m
+[31mERROR   [0m - Artist HOT ISSUE has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bc381706-7547-4ebc-a0c8-ca4c68df1ef2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid bc381706-7547-4ebc-a0c8-ca4c68df1ef2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TFN[0m
+[32mINFO    [0m - Attached lastfm artist TFN from lastfm[0m
+[32mINFO    [0m - Artist TFN is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6bfa076d-881b-442f-adc9-c8c17c6c87d3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6bfa076d-881b-442f-adc9-c8c17c6c87d3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name LIGHTSUM[0m
+[32mINFO    [0m - Attached lastfm artist LIGHTSUM from lastfm[0m
+[32mINFO    [0m - Artist LIGHTSUM is valid[0m
+[31mERROR   [0m - Artist WJSN : THE BLACK has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BOTOPASS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BLASTAR has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 윙스[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 윙스[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Hair Short (헤어숏)' by Artist: '윙스'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Hair Short (헤어숏)' by '윙스' with direct search: No Spotify tracks found for Hair Short (헤어숏) by 윙스.[0m
+[31mERROR   [0m - Couldn't find track Hair Short (헤어숏) by 윙스 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 윙스 from track Hair Short (헤어숏)[0m
+[32mINFO    [0m - Searching Spotify for Track: '꽃이 폈어요 (Feat. 배치기)' by Artist: '윙스'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 윙스 from track 꽃이 폈어요 (Feat. 배치기)[0m
+[32mINFO    [0m - Searching Spotify for Track: '꽃이 폈어요 (Inst.)' by Artist: '윙스'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '꽃이 폈어요 (Inst.)' by '윙스' with direct search: No Spotify tracks found for 꽃이 폈어요 (Inst.) by 윙스.[0m
+[31mERROR   [0m - Couldn't find track 꽃이 폈어요 (Inst.) by 윙스 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 윙스 from track 꽃이 폈어요 (Inst.)[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Hair Short' by Artist: '윙스'[0m
+[31mERROR   [0m - 'Artist' object has no attribute 'spotify_artist_id'[0m
+[31mERROR   [0m - Could not attach spotify artist 윙스 from track Hair Short[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Hair Short (헤어숏) (Inst.)' by Artist: '윙스'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Hair Short (헤어숏) (Inst.)' by '윙스' with direct search: No Spotify tracks found for Hair Short (헤어숏) (Inst.) by 윙스.[0m
+[31mERROR   [0m - Couldn't find track Hair Short (헤어숏) (Inst.) by 윙스 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 윙스 from track Hair Short (헤어숏) (Inst.)[0m
+[32mINFO    [0m - artists checked: 500[0m
+[32mINFO    [0m - Checking offset 11 of 33[0m
+[31mERROR   [0m - Artist DAY6 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YMGA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Whee In has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 구준회 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist iKON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YERIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 엄지 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 은하 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Jessi has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist UP10TION has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64d01379-6a17-4ab4-a146-93d32720997f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 64d01379-6a17-4ab4-a146-93d32720997f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Smash[0m
+[32mINFO    [0m - Attached lastfm artist Smash from lastfm[0m
+[31mERROR   [0m - Artist Smash not in genre k-pop[0m
+[31mERROR   [0m - Artist TWICE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MINA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 채영 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0330b8ee-e1de-458e-8ca6-f2383cb29cde[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0330b8ee-e1de-458e-8ca6-f2383cb29cde: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name SANA[0m
+[32mINFO    [0m - Attached lastfm artist SANA from lastfm[0m
+[31mERROR   [0m - Artist SANA not in genre k-pop[0m
+[31mERROR   [0m - Artist NAYEON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist JEONGYEON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist もも has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 다현 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist JIHYO has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist APRIL has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist DIA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist YEZI has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LoveUs has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist KittiB has been previously cached as invalid for this request[0m
+[32mINFO    [0m - artists checked: 525[0m
+[32mINFO    [0m - Checking offset 13 of 33[0m
+[31mERROR   [0m - Artist JISOO has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist LISA has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist NCT DREAM has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 박경리 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Sera Ryu has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 유겸 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Aseul has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 여자여자 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MiSO has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5b0728a5-8802-496f-a2eb-0050a1b6fa70[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5b0728a5-8802-496f-a2eb-0050a1b6fa70: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name NADA[0m
+[32mINFO    [0m - Attached lastfm artist NADA from lastfm[0m
+[31mERROR   [0m - Artist NADA not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a8a5e8f2-dcfa-428f-ab28-bb242ae84bda[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a8a5e8f2-dcfa-428f-ab28-bb242ae84bda: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 소리[0m
+[32mINFO    [0m - Attached lastfm artist 소리 from lastfm[0m
+[32mINFO    [0m - Artist 소리 is valid[0m
+[31mERROR   [0m - Artist 가영 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Stella Jang has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 백호 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist SF9 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MOMOLAND has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BULLDOK has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist EXO-CBX has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 류수정 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MIJOO has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 문빈 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 퀸비즈 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8377ca74-38f7-4ed1-981f-3485547fa375[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8377ca74-38f7-4ed1-981f-3485547fa375: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name DAWN[0m
+[32mINFO    [0m - Attached lastfm artist DAWN from lastfm[0m
+[31mERROR   [0m - Artist DAWN not in genre k-pop[0m
+[31mERROR   [0m - Artist PENTAGON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BLOOMY has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 소리[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for 소리[0m
+[32mINFO    [0m - Searching Spotify for Track: '입술이 정말' by Artist: '소리'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '입술이 정말' by '소리' with direct search: No Spotify tracks found for 입술이 정말 by 소리.[0m
+[31mERROR   [0m - Couldn't find track 입술이 정말 by 소리 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 소리 from track 입술이 정말[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Toxic' by Artist: '소리'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Toxic' by '소리' with direct search: No Spotify tracks found for Toxic by 소리.[0m
+[31mERROR   [0m - Couldn't find track Toxic by 소리 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 소리 from track Toxic[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Supersonic' by Artist: '소리'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Supersonic' by '소리' with direct search: No Spotify tracks found for Supersonic by 소리.[0m
+[31mERROR   [0m - Couldn't find track Supersonic by 소리 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 소리 from track Supersonic[0m
+[32mINFO    [0m - Searching Spotify for Track: '1Chance' by Artist: '소리'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for '1Chance' by '소리' with direct search: No Spotify tracks found for 1Chance by 소리.[0m
+[31mERROR   [0m - Couldn't find track 1Chance by 소리 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 소리 from track 1Chance[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Hero' by Artist: '소리'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Hero' by '소리' with direct search: No Spotify tracks found for Hero by 소리.[0m
+[31mERROR   [0m - Couldn't find track Hero by 소리 on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist 소리 from track Hero[0m
+[32mINFO    [0m - artists checked: 550[0m
+[32mINFO    [0m - Checking offset 30 of 33[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 27781ae4-8437-4d43-a889-a425374f32d3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 27781ae4-8437-4d43-a889-a425374f32d3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Candy Shop[0m
+[32mINFO    [0m - Attached lastfm artist Candy Shop from lastfm[0m
+[32mINFO    [0m - Artist Candy Shop is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c870eef2-a1f9-407c-95f2-1448ad56474a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c870eef2-a1f9-407c-95f2-1448ad56474a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name NEXZ[0m
+[32mINFO    [0m - Attached lastfm artist NEXZ from lastfm[0m
+[31mERROR   [0m - Artist NEXZ not in genre k-pop[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 839222e6-d2e9-496f-adff-f67f68873edc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 839222e6-d2e9-496f-adff-f67f68873edc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ori[0m
+[32mINFO    [0m - Attached lastfm artist Ori from lastfm[0m
+[31mERROR   [0m - Artist Ori not in genre k-pop[0m
+[31mERROR   [0m - Artist DXMON has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Elisia has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist コトコ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 방윤하 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Gehlee Dangca has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 오윤아 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist UNIS has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 임서원 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ナナ has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 리더스 T has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Leader'S has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist VB gang has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist A SIX has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist GYUBIN has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist RESCENE has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 66bb40ce-c8e0-481f-8ca2-a45141379139[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 66bb40ce-c8e0-481f-8ca2-a45141379139: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 0WAVE[0m
+[32mINFO    [0m - Attached lastfm artist 0WAVE from lastfm[0m
+[31mERROR   [0m - Artist 0WAVE not in genre k-pop[0m
+[31mERROR   [0m - Artist 황시은 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 김수빈 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f08ce4ad-4bf7-4043-80dd-e1fed255f3ef[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f08ce4ad-4bf7-4043-80dd-e1fed255f3ef: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 이후란[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 이후란: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 이후란[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 75d22767-210e-4c79-92f3-27a39bf9ff73[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 75d22767-210e-4c79-92f3-27a39bf9ff73: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 배예람[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 배예람: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 배예람[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3cac232d-d769-439e-a2dc-7dfee9580c8b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3cac232d-d769-439e-a2dc-7dfee9580c8b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 오다은[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name 오다은: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for 오다은[0m
+[31mERROR   [0m - Artist 배하람 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Candy Shop[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Candy Shop[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Hashtag#' by Artist: 'Candy Shop'[0m
+[32mINFO    [0m - Spotify Artist ID: 47bUCJh3LXBeQtrTnWEwXn[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Candy Shop (ID: 47bUCJh3LXBeQtrTnWEwXn)[0m
+[32mINFO    [0m - Attached spotify artist Candy Shop from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Hashtag#[0m
+[33mWARNING [0m - Skipping track 'Hashtag#' by 'Candy Shop' due to song length constraints.[0m
+[32mINFO    [0m - Attached spotify track info for No Fake[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Candy Shop - No Fake[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 16[0m
+[1;32mSUCCESS [0m - RATIO: 2.782608695652174%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 575[0m
+[32mINFO    [0m - Checking offset 24 of 33[0m
+[31mERROR   [0m - Artist LIONESSES has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bd7b6a55-9b8a-4484-a31a-1e7cfd1560ca[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid bd7b6a55-9b8a-4484-a31a-1e7cfd1560ca: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name SCARLET[0m
+[32mINFO    [0m - Attached lastfm artist SCARLET from lastfm[0m
+[31mERROR   [0m - Artist SCARLET not in genre k-pop[0m
+[31mERROR   [0m - Artist 옐로비 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BEAUTY BOX has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 마니또 has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist PRIMROSE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist BABYMONSTER has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist A.iRiD has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 14211be4-f18a-4e36-86ad-c49c4ad23a68[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 14211be4-f18a-4e36-86ad-c49c4ad23a68: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name LIVE HIGH[0m
+[32mINFO    [0m - Attached lastfm artist LIVE HIGH from lastfm[0m
+[32mINFO    [0m - Artist LIVE HIGH is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0f83a003-8335-49ca-96ed-570c2c359797[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0f83a003-8335-49ca-96ed-570c2c359797: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ferry Blue[0m
+[32mINFO    [0m - Attached lastfm artist Ferry Blue from lastfm[0m
+[32mINFO    [0m - Artist Ferry Blue is valid[0m
+[31mERROR   [0m - Artist BaBa has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist 치스비치 has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5baf11cd-4838-4f06-b003-712316a7aa11[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5baf11cd-4838-4f06-b003-712316a7aa11: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name prettylittleiris[0m
+[32mINFO    [0m - Attached lastfm artist prettylittleiris from lastfm[0m
+[32mINFO    [0m - Artist prettylittleiris is valid[0m
+[31mERROR   [0m - Artist PoshGirls has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MAVE: has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist ONEST has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist TeenageGirls has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist HI CUTIE has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist xikers has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 44a06dbd-d44a-42b7-8e60-e3870415d396[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 44a06dbd-d44a-42b7-8e60-e3870415d396: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name HANA[0m
+[32mINFO    [0m - Attached lastfm artist HANA from lastfm[0m
+[31mERROR   [0m - Artist HANA not in genre k-pop[0m
+[31mERROR   [0m - Artist GIRLKIND XJR has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist Hanbit has been previously cached as invalid for this request[0m
+[31mERROR   [0m - Artist MUSKY has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6585c1a7-99e8-41f7-a00d-709cb1432168[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6585c1a7-99e8-41f7-a00d-709cb1432168: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name UHSN[0m
+[32mINFO    [0m - Attached lastfm artist UHSN from lastfm[0m
+[32mINFO    [0m - Artist UHSN is valid[0m
+[31mERROR   [0m - Artist Jiae has been previously cached as invalid for this request[0m
+[32mINFO    [0m - Attaching top tracks from mbid for prettylittleiris[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for prettylittleiris[0m
+[32mINFO    [0m - Searching Spotify for Track: 'i'm your scary movie' by Artist: 'prettylittleiris'[0m
+[32mINFO    [0m - Spotify Artist ID: 3dtUhljNkjH12eU3SQCh2o[0m
+[32mINFO    [0m - Retrieved Spotify Artist: prettylittleiris (ID: 3dtUhljNkjH12eU3SQCh2o)[0m
+[32mINFO    [0m - Attached spotify artist prettylittleiris from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for i'm your scary movie[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: prettylittleiris - i'm your scary movie[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 17[0m
+[1;32mSUCCESS [0m - RATIO: 2.833333333333333%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for LIVE HIGH[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for LIVE HIGH[0m
+[32mINFO    [0m - Searching Spotify for Track: '꿍따리 샤바라' by Artist: 'Live High'[0m
+[32mINFO    [0m - Spotify Artist ID: 4Xbz8MwFw2jAQzYKZpHZ8L[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Live High (ID: 4Xbz8MwFw2jAQzYKZpHZ8L)[0m
+[32mINFO    [0m - Attached spotify artist LIVE HIGH from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for 꿍따리 샤바라[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: LIVE HIGH - 꿍따리 샤바라[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 18[0m
+[1;32mSUCCESS [0m - RATIO: 3.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for UHSN[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for UHSN[0m
+[32mINFO    [0m - Searching Spotify for Track: 'POPSICLE - Instrumental' by Artist: 'UHSN'[0m
+[32mINFO    [0m - Spotify Artist ID: 5TDD0GMGcBGGqhbunsbeRI[0m
+[32mINFO    [0m - Retrieved Spotify Artist: UHSN (ID: 5TDD0GMGcBGGqhbunsbeRI)[0m
+[32mINFO    [0m - Attached spotify artist UHSN from lastfm top track[0m
+[33mWARNING [0m - Track POPSICLE - Instrumental is a cover, instrumental, or special version of a song[0m
+[32mINFO    [0m - Attached spotify track info for 팝시클 (POPSICLE)[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: UHSN - 팝시클 (POPSICLE)[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 19[0m
+[1;32mSUCCESS [0m - RATIO: 3.166666666666667%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Ferry Blue[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Ferry Blue[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Free' by Artist: 'Ferry Blue'[0m
+[32mINFO    [0m - Spotify Artist ID: 5hoabnM5gbywbrTEKiHilf[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Ferry Blue (ID: 5hoabnM5gbywbrTEKiHilf)[0m
+[32mINFO    [0m - Attached spotify artist Ferry Blue from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Free[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Ferry Blue - Free[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 20[0m
+[1;32mSUCCESS [0m - RATIO: 3.3333333333333335%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[31mERROR   [0m - Timeout occurred while uploading the cover image. Please try again later.[0m

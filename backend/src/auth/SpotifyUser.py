@@ -1,4 +1,4 @@
-from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, get_top_matching_track, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
 from typing import Optional, Type, ClassVar
 import spotipy
@@ -88,20 +88,6 @@ class SpotifyUser:
             raise Exception(f"No Spotify tracks found for {name} by {artist}.")
 
         return(spotify_tracks)
-
-    def get_spotify_track_fuzzy(self, name: str, artist: str) -> SpotifyTrack:
-        """Get the top matching track from spotify via a fuzzy search
-
-        Args:
-            name (str): Song name
-            artist (str): Artist Name
-
-        Returns:
-            SpotifyTrack: The top matching track
-        """
-        tracks = self.get_spotify_tracks_direct(name, artist)
-        threshold_track_match = 93
-        return(get_top_matching_track(name, artist, tracks, threshold_track_match))
 
     def get_spotify_artist_by_id(self, id: str) -> SpotifyArtist:
         """Get a spotify artist object by their spotify id
@@ -210,3 +196,39 @@ class SpotifyUser:
 
         # Return the genre dictionary
         return(filter_low_count_entries(genre_dict, count=2))
+    
+    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[SpotifyTrack]:
+        """
+        Fetches all tracks from a Spotify playlist, handling pagination.
+
+        Args:
+            playlist_id (str): The unique identifier for the Spotify playlist.
+
+        Returns:
+            List[SpotifyTrack]: A list of SpotifyTrack objects in the playlist.
+        """
+        tracks = []
+        limit = SPOTIFY_MAX_LIMIT_PAGINATION  # Typically 100
+        offset = 0
+
+        while True:
+            # BEGIN REQUEST
+            response = self.client.playlist_items(
+                playlist_id,
+                offset=offset,
+                limit=limit,
+                fields='items(track(id,name,duration_ms,artists(name,id),album(name),external_urls)),next'
+            )
+            sleep(RequestType.SPOTIFY)
+            # END REQUEST
+
+            items = response.get('items', [])
+            tracks.extend(items)
+
+            if ((not response.get('next')) or (len(items) < limit)):
+                break
+
+            offset += limit
+
+        return (tracks)
+

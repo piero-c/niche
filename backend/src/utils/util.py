@@ -93,14 +93,25 @@ def convert_ms_to_s(ms: int) -> int:
     """
     return(ms // 1000)
 
+def convert_s_to_ms(s: int) -> int:
+    """Convert s to ms
+
+    Args:
+        s (int): s
+
+    Returns:
+        int: ms
+    """
+    return(s * 1000)
+
 def strcomp(*strings: str) -> bool:
     """Return true if all strings are equal case-insensitive
 
     Returns:
         bool: Are they equal?
     """
-    first = strings[0].lower()
-    return(all(s.lower() == first for s in strings))
+    first = strings[0].strip().lower()
+    return(all(s.strip().lower() == first for s in strings))
 
 def convert_language_to_language_enum(language: str) -> Language:
     """Convert language str to Language enum class

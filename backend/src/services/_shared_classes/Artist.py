@@ -1,4 +1,4 @@
-from services.playlist_maker.Track import Track
+from services._shared_classes.Track import Track
 from utils.util import strcomp
 from utils.spotify_util import SpotifyArtist
 from auth.LastFMRequests import LastFmArtist, LastFMRequests
@@ -198,6 +198,45 @@ class Artist:
                 logger.warning(f'Couldn\'t attach top tracks from name for {self.name}')
 
         raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
+
+    def attach_spotify_artist(self, artist: SpotifyArtist) -> SpotifyArtist:
+        """_summary_
+
+        Args:
+            artist (SpotifyArtist): _description_
+
+        Raises:
+            Exception: _description_
+            Exception: _description_
+            Exception: _description_
+
+        Returns:
+            SpotifyArtist: _description_
+        """
+        if(getattr(self, 'spotify_artist', None)):
+            logger.info(f'Artist {self.name} has associated spotify artist')
+            return(self.spotify_artist)
+
+        try:
+            name = artist.get('name', '')
+            if(not strcomp(self.name, name)):
+                raise Exception(f'Artist {name} is not {self.name}')
+            
+            self.spotify_artist_id = artist.get('id', '')
+
+            logger.info(f"Spotify Artist ID: {self.spotify_artist_id}")
+
+            self.spotify_artist    = artist
+            self.spotify_followers = int(artist.get('followers', {}).get('total', 0))
+
+            logger.info(f"Retrieved Spotify Artist: {name} (ID: {artist['id']})")
+
+            return(self.spotify_artist)
+
+        except Exception as e:
+            logger.error(e)
+            raise Exception(f"Could not attach spotify artist {self.name} from spotify artist id {artist.get('id', '')}")
+
 
     def attach_spotify_artist_from_track(self, track: Track) -> SpotifyArtist:
         """Attach a spotify artist object from a Track object

@@ -92,7 +92,7 @@ class PlaylistRequest:
         self.spotify_followers_min = niche_level_map[niche_level]["spotify_followers_min"]
 
         # Hardcoded vals
-        self.lastfm_likeness_min  = 4
+        self.lastfm_likeness_min  = 3.5
         self.playlist_length      = 20
 
         #self.playlist_length = 1
@@ -123,7 +123,6 @@ class PlaylistRequest:
         Returns:
             PlaylistInfo: the info
         """
-        # TODO - Make the names unique based on the user? Like indie whatever 1
         return({
             'name': f'Niche {self.genre} Songs',
             'description': f'Courtesy of the niche app :) ({NICHE_APP_URL})'

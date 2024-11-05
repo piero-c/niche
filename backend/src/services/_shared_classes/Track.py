@@ -1,10 +1,10 @@
 from utils.util import convert_ms_to_s
-from utils.spotify_util import SpotifyTrack
+from utils.spotify_util import SpotifyTrack, find_exact_match
 from utils.lastfm_util import LastFMTrack
 from auth.SpotifyUser import SpotifyUser
 from utils.logger import logger
 
-# TODO - implement lastfm get correction? What does it do
+# TODO - implement lastfm get correction? What does it do ?? for track or get similar w same name check idk
 class Track:
     """High level Track
 
@@ -55,6 +55,39 @@ class Track:
         except Exception as e:
             raise Exception(f"Couldn't create track {name} by {artist_name} from lastfm: {e}")
 
+    def _attach_valid_track(self, spotify_track: SpotifyTrack) -> SpotifyTrack:
+        try:
+            # Attach the Spotify track information to the current object
+            self.spotify_track        = spotify_track
+            self.spotify_uri          = spotify_track.get('uri', '')
+            self.spotify_url          = spotify_track.get('external_urls', {}).get('spotify', '')
+            self.track_length_seconds = convert_ms_to_s(spotify_track.get('duration_ms', 0))
+            return(self.spotify_track)
+        except Exception as e:
+            raise Exception(f"Unexpected error when attaching track {self.name} by {self.artist}: {e}")
+
+    def attach_spotify_track_information_from_spotify_track(self, spotify_track: SpotifyTrack, artist_spotify_id: str = "") -> SpotifyTrack:
+        """_summary_
+
+        Args:
+            spotify_track (SpotifyTrack): _description_
+            artist_spotify_id (str, optional): _description_. Defaults to "".
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            SpotifyTrack: _description_
+        """
+        # Return existing Spotify track information if already attached
+        if(getattr(self, 'spotify_track', None)):
+            return(self.spotify_track)
+
+        if ((not artist_spotify_id) or self.artist_id_in_spotify_track(artist_spotify_id)):
+            return (self._attach_valid_track(spotify_track))
+        else:
+            logger.error(f"Track {self.name} not by {self.artist} {artist_spotify_id}")
+
     def attach_spotify_track_information(self, artist_spotify_id: str = "") -> SpotifyTrack:
         """Attach information about the track from spotify
 
@@ -75,26 +108,15 @@ class Track:
         spotify_track = None
         try:
             spotify_tracks = self.user.get_spotify_tracks_direct(self.name, self.artist)
-            spotify_track = spotify_tracks[0]
         except Exception as e:
             logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
-        
-        if(not spotify_track):
-            try:
-                spotify_track = self.user.get_spotify_track_fuzzy(self.name, self.artist)
-            except Exception as e:
-                logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with fuzzy search: {e}")
+
+        spotify_track = find_exact_match(spotify_tracks, self.name, self.artist)
 
         if(spotify_track and ((not artist_spotify_id) or self.artist_id_in_spotify_track(artist_spotify_id))):
-            try:
-                # Attach the Spotify track information to the current object
-                self.spotify_track        = spotify_track
-                self.spotify_uri          = spotify_track.get('uri', '')
-                self.spotify_url          = spotify_track.get('external_urls', {}).get('spotify', '')
-                self.track_length_seconds = convert_ms_to_s(spotify_track.get('duration_ms', 0))
-                return(self.spotify_track)
-            except Exception as e:
-                raise Exception(f"Unexpected error when attaching track {self.name} by {self.artist}: {e}")
+            return(self._attach_valid_track(spotify_track))
+        else:
+            logger.error(f"Track {self.name} not by {self.artist} {artist_spotify_id}")
             
         raise Exception(f"Couldn\'t find track {self.name} by {self.artist} on Spotify.")
         
@@ -124,7 +146,8 @@ class Track:
         Returns:
             bool: True if original with lyrics, False otherwise.
         """
-        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version']
+        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version', 'dub', "background music", "no vocals",
+        "alternative version", "soundtrack"]
         name_lower = self.name.lower()  # Convert to lowercase for case-insensitive comparison
         return not any(keyword in name_lower for keyword in keywords)
 

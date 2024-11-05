@@ -7,7 +7,7 @@ from models.pydantic.BaseSchema import BaseSchema
 from enum import Enum
 from bidict import bidict
 
-ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING'] )
+ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING', 'OTHER'] )
 REASONMAP: bidict = bidict({
     ReasonExcluded.TOO_MANY_SOMETHING: "Too Many Followers / Listeners / Plays",
     ReasonExcluded.NOT_LIKED_ENOUGH  : "Ratio of Listeners to Plays Too Small",

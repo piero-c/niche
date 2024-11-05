@@ -5,6 +5,7 @@ from auth.MusicBrainzRequests import MusicBrainzRequests
 from services.playlist_maker.PlaylistRequest import PlaylistRequest, Language
 from services.playlist_maker.Playlist import NicheTrack
 from services.playlist_maker.Artist import Artist
+from services.playlist_maker.Track import Track
 
 from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 
@@ -25,6 +26,7 @@ env    = load_env()
 # TODO-  remove the bidicts? Mongo takes enums as lookups
 # TODO - Handle logic related to not having enough songs (api)
 # TODO - english name of artist or song like 力那 (li na)
+# TODO - Split into validator object
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -47,8 +49,8 @@ class NicheTrackFinder:
             request (PlaylistRequest): The playlist request
             user (SpotifyUser): Spotify Authenticated User
         """
-        self.request         = request
-        self.user            = user
+        self.request = request
+        self.user    = user
 
         self.db               = DB()
         self.artistsDAO       = ArtistsDAO(self.db)
@@ -161,11 +163,136 @@ class NicheTrackFinder:
             excluded=self._create_excluded_object(artist, reason)
         )
 
+
+    # TODO - pydocs 4 these
+    def validate_track_artist(self, track: Track, artist: Artist) -> bool:
+        mb = MusicBrainzRequests()
+        if(artist.spotify_followers > self.request.spotify_followers_max):
+            logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
+            self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
+            return(False)
+        if(artist.spotify_followers < self.request.spotify_followers_min):
+            logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
+            self._add_excluded_entry(artist,ReasonExcluded.TOO_FEW_SOMETHING) 
+            return(False)
+        # CHECK ARTIST LANGUAGE
+        if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
+            logger.error(f"Artist does not sing in {self.request.language}")
+            self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
+            return(False)
+        return(True)
+
+    def validate_track(self, track: Track) -> bool:
+        if (not track.is_original_with_lyrics()):
+            logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
+            return(False)
+
+        # CHECK DURATION
+        if((track.track_length_seconds < self.request.songs_length_min_secs) or (track.track_length_seconds > self.request.songs_length_max_secs)):
+            logger.warning(f"Skipping track '{track.name}' due to song length constraints.")
+            return(False)
+        
+                            # TODO
+            # # CHECK YEAR PUBLISHED
+            # if(year_published < self.request.songs_min_year_created):
+            #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
+            #     continue
+        return(True)
+
+    def validate_artist(self, artist: Artist) -> bool:
+        try:
+            # Attach artist from lastfm
+            artist.attach_artist_lastfm()
+            logger.info(f'Attached lastfm artist {artist.name} from lastfm')
+
+            # Check artist listener and play and likeness thresholds
+            if (self._artist_listeners_and_plays_too_high(artist)):
+                logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
+                self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
+                return(False)
+
+            elif (self._artist_listeners_and_plays_too_low(artist)):
+                logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
+                self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING)
+                return(False)
+
+            elif (self._artist_likeness_invalid(artist)):
+                logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
+                self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
+                return(False)
+
+            # TODO - Deal with this - was excluding alot of artists (make sure we dont run into the issue of getting an artist not in the genre (remember the one the i pray girl fuzzy search thing)) 
+            # TODO - maybe remove this but make sure we dont run into the wrong artist thing
+            # TODO - for classic rock was not including alot that were actually in the genre (like 'hard rock' but for k-pop not soooo)
+            elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+                logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
+                return(False)
+                # Sanity check for artist match, no exclusion required here
+
+            else:
+                logger.info(f'Artist {artist.name} is valid')
+                # Artist passes all checks
+                return(True)
+
+        except Exception as e:
+            logger.error(e)
+            return(False)
+
+    def get_valid_tracks(self, artist: Artist, niche_tracks: list) -> list[Track]:
+        artist_song_count = 0
+        # TODO - make dynamic / selected by user?
+        artist_max_songs  = 1
+        tracks = []
+        try:
+            # Get artist's top tracks from lastfm
+            top_tracks = artist.get_artist_top_tracks_lastfm()
+
+            # Shuffle tracks to add randomness
+            random.shuffle(top_tracks)
+
+            # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
+            for top_track in top_tracks:
+                if (len(niche_tracks) + artist_song_count >= self.request.playlist_length) or (artist_song_count >= artist_max_songs):
+                    break
+                
+                try:
+                    artist.attach_spotify_artist_from_track(top_track)
+                    logger.info(f'Attached spotify artist {artist.name} from lastfm top track')
+                except Exception as e:
+                    logger.error(e)
+                    continue
+
+                if (self.validate_track_artist(top_track, artist)):
+                    try:
+                        top_track.attach_spotify_track_information(artist.spotify_artist_id)
+                        logger.info(f'Attached spotify track info for {top_track.name}')
+                    except Exception as e:
+                        logger.error(e)
+                        continue
+                    
+                    if (self.validate_track(top_track)):
+                        tracks.append(top_track)
+                        artist_song_count += 1
+                else:
+                    break
+            return(tracks)
+        except Exception as e:
+            logger.error(f"Error processing tracks for artist {artist.name}: {e}")
+
+    def fetch_valid_artists(self, artists: list[Artist]) -> list[Artist]:
+        valid_artists: list[Artist] = []
+        for artist in artists:
+            # Check if artist is invalid in cache
+            if (not artist) or (self._artist_cached_invalid(artist)) or (not self.validate_artist(artist)):
+                logger.error(f'Artist {artist.name} has been previously cached as invalid for this request')
+                continue
+            else:
+                valid_artists.append(artist)
+        random.shuffle(valid_artists)
+        return(valid_artists
+)
     def find_niche_tracks(self) -> list[NicheTrack]:
         """Make the playlist
-
-        Raises:
-            Exception: Not enough songs could be added
 
         Returns:
             list[NicheTrack]: List of niche tracks
@@ -173,19 +300,13 @@ class NicheTrackFinder:
         artists_total_followers = 0
 
         niche_tracks      = []
-        artist_song_count = {}
 
-        # TODO - make dynamic / selected by user?
-        artist_max_songs = 1
-
-        desired_song_count   = self.request.playlist_length
-
+        desired_song_count     = self.request.playlist_length
         artist_increment_count = 25
 
         artists_list = self._fetch_artists_from_musicbrainz()
         # Using list comprehension with padding to split into groups of 25
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
-
         # Generate random offsets of artists to search
         offsets_list = list(range(0, len(artists_sublists)))
         random.shuffle(offsets_list)
@@ -193,6 +314,7 @@ class NicheTrackFinder:
         for i in range(len(offsets_list)):
             if(len(niche_tracks) >= desired_song_count):
                 break
+
             logger.info(f'artists checked: {i * artist_increment_count}')
 
             random_offset = offsets_list[i]
@@ -200,126 +322,17 @@ class NicheTrackFinder:
 
             logger.info(f'Checking offset {random_offset} of {len(offsets_list)}')
 
-            valid_artists: list[Artist] = []
-            for artist in artists:
-                # Weird bug
-                if (not artist):
-                    continue
-                # Check if artist is invalid in cache
-                if self._artist_cached_invalid(artist):
-                    logger.error(f'Artist {artist.name} has been previously cached as invalid for this request')
-                    continue
-
-                try:
-                    # Attach artist from lastfm
-                    artist.attach_artist_lastfm()
-                    logger.info(f'Attached lastfm artist {artist.name} from lastfm')
-
-                    # Check artist listener and play and likeness thresholds
-                    if (self._artist_listeners_and_plays_too_high(artist)):
-                        logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
-                        self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-
-                    elif (self._artist_listeners_and_plays_too_low(artist)):
-                        logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
-                        self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING)
-
-                    elif (self._artist_likeness_invalid(artist)):
-                        logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
-                        self._add_excluded_entry(artist, ReasonExcluded.NOT_LIKED_ENOUGH)
-
-                    # TODO - Deal with this - was excluding alot of artists (make sure we dont run into the issue of getting an artist not in the genre (remember the one the i pray girl fuzzy search thing)) 
-                    # TODO - maybe remove this but make sure we dont run into the wrong artist thing
-                    # TODO - for classic rock was not including alot that were actually in the genre (like 'hard rock' but for k-pop not soooo)
-                    elif (not artist.artist_in_lastfm_genre(self.request.genre)):
-                        logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
-                        # Sanity check for artist match, no exclusion required here
-
-                    else:
-                        logger.info(f'Artist {artist.name} is valid')
-                        # Artist passes all checks
-                        valid_artists.append(artist)
-
-                except Exception as e:
-                    logger.error(e)
-
-            # Shuffle artists
-            random.shuffle(valid_artists)
+            valid_artists = self.fetch_valid_artists(artists)
 
             for artist in valid_artists:
                 if(len(niche_tracks) >= desired_song_count):
                     break
+                tracks = self.get_valid_tracks(artist, niche_tracks)
 
-                top_tracks = None
-                try:
-                    # Get artist's top tracks from lastfm
-                    top_tracks = artist.get_artist_top_tracks_lastfm()
-                except Exception as e:
-                    logger.error(e)
-                    continue
+                # Artist is valid. If it was previously excluded  delete that entry
+                self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
 
-                # Shuffle tracks to add randomness
-                random.shuffle(top_tracks)
-
-                attached = False
-                # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
-                for top_track in top_tracks:
-                    try:
-                        artist.attach_spotify_artist_from_track(top_track)
-                        logger.info(f'Attached spotify artist {artist.name} from lastfm top track')
-                        attached = True
-                        break
-                    except Exception as e:
-                        logger.error(e)
-
-                if(not attached):
-                    break
-
-                for track in top_tracks:
-                    if (not track.is_original_with_lyrics()):
-                        logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
-                        continue
-                    if((len(niche_tracks) >= desired_song_count) or (artist_song_count.get(artist.mbid, 0) >= artist_max_songs)):
-                        logger.warning('song count has been reached OR Artist has hit song count')
-                        break
-                    if(artist.spotify_followers > self.request.spotify_followers_max):
-                        logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
-                        self._add_excluded_entry(artist, ReasonExcluded.TOO_MANY_SOMETHING)
-                        break
-                    if(artist.spotify_followers < self.request.spotify_followers_min):
-                        logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
-                        self._add_excluded_entry(artist,ReasonExcluded.TOO_FEW_SOMETHING) 
-                        break
-
-                    
-                    try:
-                        track.attach_spotify_track_information(artist.spotify_artist_id)
-                        logger.info(f'Attached spotify track info for {track.name}')
-                    except Exception as e:
-                        logger.error(e)
-                        continue
-
-                    # CHECK DURATION
-                    if((track.track_length_seconds < self.request.songs_length_min_secs) or (track.track_length_seconds > self.request.songs_length_max_secs)):
-                        logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to song length constraints.")
-                        continue
-
-                    mb = MusicBrainzRequests()
-                    # CHECK ARTIST LANGUAGE
-                    if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
-                        logger.error(f"Artist does not sing in {self.request.language}")
-                        self._add_excluded_entry(artist, ReasonExcluded.WRONG_LANGUAGE)
-                        break
-
-                    # TODO
-                    # # CHECK YEAR PUBLISHED
-                    # if(year_published < self.request.songs_min_year_created):
-                    #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
-                    #     continue
-
-                    # Artist is valid. If it was previously excluded  delete that entry
-                    self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)
-
+                for track in tracks:
                     # Add track to niche_tracks
                     niche_track = {
                         'artist'     : artist.name,
@@ -329,7 +342,6 @@ class NicheTrackFinder:
                     }
                     niche_tracks.append(niche_track)
 
-                    artist_song_count[artist.mbid] = artist_song_count.get(artist.mbid, 0) + 1
                     artists_total_followers += artist.spotify_followers
                     percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
 

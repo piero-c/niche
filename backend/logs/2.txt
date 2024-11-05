@@ -1,0 +1,2311 @@
+TOTAL MINUTES RUN: 4.879662609100341
+https://open.spotify.com/playlist/6dAYflBoEP69IXzgr2OMDt
+    [0m - artists checked: 0[0m
+[32mINFO    [0m - Checking offset 76 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0d20c42d-133c-429d-8f76-3c2458aee3e8[0m
+[32mINFO    [0m - Attached lastfm artist Balance and Composure from lastfm[0m
+[32mINFO    [0m - Artist Balance and Composure is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4ecdfa5d-5516-46ef-8e9b-b15792ed88c3[0m
+[32mINFO    [0m - Attached lastfm artist Kakkmaddafakka from lastfm[0m
+[32mINFO    [0m - Artist Kakkmaddafakka is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 16691be7-3ace-471d-b181-7b34f1b42b64[0m
+[32mINFO    [0m - Attached lastfm artist Robert Lopata from lastfm[0m
+[31mERROR   [0m - Artist Robert Lopata listeners 620 and playcount 828 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1c9f21b2-1841-4d2f-9fc1-1e17eda19e0a[0m
+[32mINFO    [0m - Attached lastfm artist Elephant Revival from lastfm[0m
+[31mERROR   [0m - Artist Elephant Revival not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d3afff73-119e-406e-8551-9403e80c531b[0m
+[32mINFO    [0m - Attached lastfm artist Craft Spells from lastfm[0m
+[31mERROR   [0m - Artist Craft Spells not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 58167101-5a90-456f-8d98-e7b131693b45[0m
+[32mINFO    [0m - Attached lastfm artist Ivory Library from lastfm[0m
+[31mERROR   [0m - Artist Ivory Library listeners 407 and playcount 1920 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 23aa72e4-5865-4f69-a8af-8064229b401a[0m
+[32mINFO    [0m - Attached lastfm artist VACATIONS from lastfm[0m
+[31mERROR   [0m - Artist VACATIONS listeners 1344125 and playcount 43821811 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3fcd6b33-0080-4265-867b-0172a6fc72a1[0m
+[32mINFO    [0m - Attached lastfm artist Everyone Everywhere from lastfm[0m
+[32mINFO    [0m - Artist Everyone Everywhere is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 260bff77-1d4f-49b6-9e8c-1e2797ce0528[0m
+[32mINFO    [0m - Attached lastfm artist A Banda Mais Bonita da Cidade from lastfm[0m
+[31mERROR   [0m - Artist A Banda Mais Bonita da Cidade not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 762e2e7d-b040-40c2-9e1c-8a35d88f13be[0m
+[32mINFO    [0m - Attached lastfm artist Invariant from lastfm[0m
+[31mERROR   [0m - Artist Invariant listeners 150 and playcount 3056 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5f0ff2c7-b56b-4663-b113-4626bcf48ed8[0m
+[32mINFO    [0m - Attached lastfm artist BOBBY from lastfm[0m
+[31mERROR   [0m - Artist BOBBY not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 00da0af4-9deb-4266-87ba-20c0e64768d6[0m
+[32mINFO    [0m - Attached lastfm artist Treetop Flyers from lastfm[0m
+[31mERROR   [0m - Artist Treetop Flyers not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 320efa40-7c98-4ee6-9d0c-a672faba0b0d[0m
+[32mINFO    [0m - Attached lastfm artist Washington Irving from lastfm[0m
+[31mERROR   [0m - Artist Washington Irving listeners 5173 and playcount 52612 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f3e016ad-53d5-4f29-a07b-adf25a0b8b30[0m
+[32mINFO    [0m - Attached lastfm artist Coeus the Boxing Titan from lastfm[0m
+[31mERROR   [0m - Artist Coeus the Boxing Titan listeners 34 and playcount 130 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 185527bf-c293-4c24-8213-ed98fb8976be[0m
+[32mINFO    [0m - Attached lastfm artist Angel Olsen from lastfm[0m
+[31mERROR   [0m - Artist Angel Olsen listeners 807417 and playcount 32100592 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 119a2c67-e6d6-41cf-a58c-c51b75c80daa[0m
+[32mINFO    [0m - Attached lastfm artist Capital Cities from lastfm[0m
+[31mERROR   [0m - Artist Capital Cities listeners 1497110 and playcount 20576159 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0ac0dd92-bef7-49c6-baab-e64d52fadeb4[0m
+[32mINFO    [0m - Attached lastfm artist Too Much Texas from lastfm[0m
+[31mERROR   [0m - Artist Too Much Texas listeners 288 and playcount 2740 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dc9f0d50-d92c-4e8e-b0b2-fd749e7573c7[0m
+[32mINFO    [0m - Attached lastfm artist Patrick Davy from lastfm[0m
+[31mERROR   [0m - Artist Patrick Davy listeners 26 and playcount 112 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 73050c92-8695-45ed-b25a-a50853eae358[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 73050c92-8695-45ed-b25a-a50853eae358: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Domino[0m
+[32mINFO    [0m - Attached lastfm artist Domino from lastfm[0m
+[31mERROR   [0m - Artist Domino not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 00e3485b-4673-4603-843a-e61f78c2b00b[0m
+[32mINFO    [0m - Attached lastfm artist Black Space Riders from lastfm[0m
+[31mERROR   [0m - Artist Black Space Riders not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cf6504b4-377a-49ac-bab4-f50afbed6e77[0m
+[32mINFO    [0m - Attached lastfm artist Etc from lastfm[0m
+[31mERROR   [0m - Artist Etc listeners 6266 and playcount 75124 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0bfa663e-b722-4fe1-b908-e98dcea12014[0m
+[32mINFO    [0m - Attached lastfm artist ХАХАХА from lastfm[0m
+[31mERROR   [0m - Artist ХАХАХА listeners 2095 and playcount 71340 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 994c6d08-08f2-47f1-81bd-b26bfb597cbc[0m
+[32mINFO    [0m - Attached lastfm artist Augustines from lastfm[0m
+[32mINFO    [0m - Artist Augustines is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 57d16320-39ad-4d0e-8ec9-86fd3ec94455[0m
+[32mINFO    [0m - Attached lastfm artist Gardens & Villa from lastfm[0m
+[31mERROR   [0m - Artist Gardens & Villa not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 46ad0792-d662-48b6-b238-1e869a9d8a18[0m
+[32mINFO    [0m - Attached lastfm artist Tiger & the Helix from lastfm[0m
+[31mERROR   [0m - Artist Tiger & the Helix listeners 288 and playcount 359 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Augustines[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Headlong Into The Abyss' by Artist: 'AUGUSTINES'[0m
+[32mINFO    [0m - Spotify Artist ID: 0p1LdP1XicX0UA5GNA2DWc[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Augustines (ID: 0p1LdP1XicX0UA5GNA2DWc)[0m
+[32mINFO    [0m - Attached spotify artist Augustines from lastfm top track[0m
+[31mERROR   [0m - Artist Augustines followers (46481) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Kakkmaddafakka[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Restless' by Artist: 'Kakkmaddafakka'[0m
+[32mINFO    [0m - Spotify Artist ID: 4HV7yKF3SRpY6I0gxu7hm9[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Kakkmaddafakka (ID: 4HV7yKF3SRpY6I0gxu7hm9)[0m
+[32mINFO    [0m - Attached spotify artist Kakkmaddafakka from lastfm top track[0m
+[31mERROR   [0m - Artist Kakkmaddafakka followers (195667) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Everyone Everywhere[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Tiny Planet' by Artist: 'Everyone Everywhere'[0m
+[32mINFO    [0m - Spotify Artist ID: 540R9ampm8wv8ddRgCuzmu[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Everyone Everywhere (ID: 540R9ampm8wv8ddRgCuzmu)[0m
+[32mINFO    [0m - Attached spotify artist Everyone Everywhere from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Tiny Planet[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Everyone Everywhere - Tiny Planet[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 1[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Balance and Composure[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Tiny Raindrop' by Artist: 'Balance and Composure'[0m
+[32mINFO    [0m - Spotify Artist ID: 2fgl3me4n9diODTrVfruF3[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Balance And Composure (ID: 2fgl3me4n9diODTrVfruF3)[0m
+[32mINFO    [0m - Attached spotify artist Balance and Composure from lastfm top track[0m
+[31mERROR   [0m - Artist Balance and Composure followers (148029) too high[0m
+[32mINFO    [0m - artists checked: 25[0m
+[32mINFO    [0m - Checking offset 139 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ee476dfa-21e4-4567-a0d0-cfe378b94932[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ee476dfa-21e4-4567-a0d0-cfe378b94932: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name K1N[0m
+[32mINFO    [0m - Attached lastfm artist K1N from lastfm[0m
+[31mERROR   [0m - Artist K1N listeners 492 and playcount 2075 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dc6d190d-1b3c-4fac-8caa-62e7ff029ce9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid dc6d190d-1b3c-4fac-8caa-62e7ff029ce9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Palette Knife[0m
+[32mINFO    [0m - Attached lastfm artist Palette Knife from lastfm[0m
+[32mINFO    [0m - Artist Palette Knife is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 608b589f-580a-44cc-83dc-27049e930917[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 608b589f-580a-44cc-83dc-27049e930917: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mad Honey[0m
+[32mINFO    [0m - Attached lastfm artist Mad Honey from lastfm[0m
+[31mERROR   [0m - Artist Mad Honey not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 141f92b0-8cbf-40ec-b7d9-11ce6aa76c11[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 141f92b0-8cbf-40ec-b7d9-11ce6aa76c11: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name De Incendios[0m
+[32mINFO    [0m - Attached lastfm artist De Incendios from lastfm[0m
+[31mERROR   [0m - Artist De Incendios listeners 86 and playcount 852 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d03092e2-a663-4528-9254-fa0344ad848f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d03092e2-a663-4528-9254-fa0344ad848f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ætherleib[0m
+[32mINFO    [0m - Attached lastfm artist Ætherleib from lastfm[0m
+[31mERROR   [0m - Artist Ætherleib listeners 37 and playcount 320 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 81ea4231-10a3-4a54-bca3-96acebb5790b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 81ea4231-10a3-4a54-bca3-96acebb5790b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Septi3mbre[0m
+[32mINFO    [0m - Attached lastfm artist Septi3mbre from lastfm[0m
+[31mERROR   [0m - Artist Septi3mbre listeners 136 and playcount 2759 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4d802853-4a6e-47d6-b574-11f8e5b0c53e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4d802853-4a6e-47d6-b574-11f8e5b0c53e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Brimheim[0m
+[32mINFO    [0m - Attached lastfm artist Brimheim from lastfm[0m
+[32mINFO    [0m - Artist Brimheim is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 67e2fcc9-121b-4361-9411-a153edba5d2d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 67e2fcc9-121b-4361-9411-a153edba5d2d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Steph Green[0m
+[32mINFO    [0m - Attached lastfm artist Steph Green from lastfm[0m
+[31mERROR   [0m - Artist Steph Green not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8c0a9c0b-509d-4129-8b7b-3cf3565563be[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8c0a9c0b-509d-4129-8b7b-3cf3565563be: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Bohemians[0m
+[32mINFO    [0m - Attached lastfm artist Bohemians from lastfm[0m
+[31mERROR   [0m - Artist Bohemians listeners 2033 and playcount 16070 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0ba0165b-7a61-4066-9aa3-98d0ea680766[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0ba0165b-7a61-4066-9aa3-98d0ea680766: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Rills[0m
+[32mINFO    [0m - Attached lastfm artist The Rills from lastfm[0m
+[32mINFO    [0m - Artist The Rills is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b3010c30-0e14-4305-b724-b4d5df109306[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b3010c30-0e14-4305-b724-b4d5df109306: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Year of October[0m
+[32mINFO    [0m - Attached lastfm artist Year of October from lastfm[0m
+[31mERROR   [0m - Artist Year of October listeners 539 and playcount 18052 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c953480c-a714-4c2a-8906-e21493a4ccb4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c953480c-a714-4c2a-8906-e21493a4ccb4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Grubs[0m
+[32mINFO    [0m - Attached lastfm artist Grubs from lastfm[0m
+[31mERROR   [0m - Artist Grubs listeners 994 and playcount 13062 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 09c7180a-5aa0-4153-aaf6-41856fd34131[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 09c7180a-5aa0-4153-aaf6-41856fd34131: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name JER[0m
+[32mINFO    [0m - Attached lastfm artist JER from lastfm[0m
+[32mINFO    [0m - Artist JER is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4ebddb4e-9876-457a-942c-ed7b0e3be2e9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4ebddb4e-9876-457a-942c-ed7b0e3be2e9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name квіткіс[0m
+[32mINFO    [0m - Attached lastfm artist квіткіс from lastfm[0m
+[31mERROR   [0m - Artist квіткіс listeners 2413 and playcount 25757 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8e13efce-f1d6-4453-a8a1-610f51e52b26[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8e13efce-f1d6-4453-a8a1-610f51e52b26: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Izakman[0m
+[32mINFO    [0m - Attached lastfm artist Izakman from lastfm[0m
+[31mERROR   [0m - Artist Izakman listeners 876 and playcount 1569 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 30446f5c-6fc5-444e-84a5-633ef380173c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 30446f5c-6fc5-444e-84a5-633ef380173c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mauvais Amis[0m
+[32mINFO    [0m - Attached lastfm artist Mauvais Amis from lastfm[0m
+[31mERROR   [0m - Artist Mauvais Amis listeners 335 and playcount 630 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 361afd04-1287-4082-8ec5-1cd87ebdb198[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 361afd04-1287-4082-8ec5-1cd87ebdb198: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Sandspits[0m
+[32mINFO    [0m - Attached lastfm artist The Sandspits from lastfm[0m
+[31mERROR   [0m - Artist The Sandspits listeners 495 and playcount 4640 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1455bdba-0106-421e-ab27-aae3c5d8722f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1455bdba-0106-421e-ab27-aae3c5d8722f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Dystopia[0m
+[32mINFO    [0m - Attached lastfm artist Dystopia from lastfm[0m
+[31mERROR   [0m - Artist Dystopia not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 529d94a6-a9ca-4f3a-968a-57846fda614a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 529d94a6-a9ca-4f3a-968a-57846fda614a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ambassador Hazy[0m
+[32mINFO    [0m - Attached lastfm artist Ambassador Hazy from lastfm[0m
+[31mERROR   [0m - Artist Ambassador Hazy listeners 168 and playcount 2112 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8617fe9a-4405-4832-bd8a-7afa757f9c42[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8617fe9a-4405-4832-bd8a-7afa757f9c42: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Routine Fuss[0m
+[32mINFO    [0m - Attached lastfm artist Routine Fuss from lastfm[0m
+[31mERROR   [0m - Artist Routine Fuss listeners 466 and playcount 3861 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b7231ffd-303e-4969-a3fe-5fb83a52d91d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b7231ffd-303e-4969-a3fe-5fb83a52d91d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The New Hires[0m
+[32mINFO    [0m - Attached lastfm artist The New Hires from lastfm[0m
+[31mERROR   [0m - Artist The New Hires listeners 237 and playcount 1821 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 050d4c4e-cade-4667-bdf7-8194cabe3c28[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 050d4c4e-cade-4667-bdf7-8194cabe3c28: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TN Montana[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name TN Montana: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for TN Montana[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cea32f2b-5ac9-44c7-bead-1dd3f98427d7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid cea32f2b-5ac9-44c7-bead-1dd3f98427d7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Maison Hall.[0m
+[32mINFO    [0m - Attached lastfm artist Maison Hall. from lastfm[0m
+[31mERROR   [0m - Artist Maison Hall. listeners 262 and playcount 1067 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 123e81c2-e7b3-46ef-8be1-2efcf66e61e5[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 123e81c2-e7b3-46ef-8be1-2efcf66e61e5: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Steve McCabe[0m
+[32mINFO    [0m - Attached lastfm artist Steve McCabe from lastfm[0m
+[31mERROR   [0m - Artist Steve McCabe listeners 10 and playcount 22 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 26a1129c-1f2a-4e39-ab96-991991b03298[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 26a1129c-1f2a-4e39-ab96-991991b03298: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Fuss[0m
+[32mINFO    [0m - Attached lastfm artist Fuss from lastfm[0m
+[31mERROR   [0m - Artist Fuss listeners 2943 and playcount 29411 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for JER[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for JER[0m
+[32mINFO    [0m - Searching Spotify for Track: 'BOTHERED' by Artist: 'jer'[0m
+[32mINFO    [0m - Spotify Artist ID: 7xJaPX4LwOT3i6XB7WFskK[0m
+[32mINFO    [0m - Retrieved Spotify Artist: JER (ID: 7xJaPX4LwOT3i6XB7WFskK)[0m
+[32mINFO    [0m - Attached spotify artist JER from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for BOTHERED[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: JER - BOTHERED[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 2[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Palette Knife[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Palette Knife[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Studio Ghibli Reference' by Artist: 'Palette Knife'[0m
+[32mINFO    [0m - Spotify Artist ID: 2NjNeRA9xtah9fJGCQOxNf[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Palette Knife (ID: 2NjNeRA9xtah9fJGCQOxNf)[0m
+[32mINFO    [0m - Attached spotify artist Palette Knife from lastfm top track[0m
+[31mERROR   [0m - Artist Palette Knife followers (4975) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Rills[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for The Rills[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Pyro' by Artist: 'The Rills'[0m
+[32mINFO    [0m - Spotify Artist ID: 2xOzJ4KDhvZrBLCvorstRR[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Rills (ID: 2xOzJ4KDhvZrBLCvorstRR)[0m
+[32mINFO    [0m - Attached spotify artist The Rills from lastfm top track[0m
+[31mERROR   [0m - Artist The Rills followers (47658) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Brimheim[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Brimheim[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Literally Everything' by Artist: 'Brimheim'[0m
+[32mINFO    [0m - Spotify Artist ID: 2ROf9t2bzHTnVuf8btRd5J[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Brimheim (ID: 2ROf9t2bzHTnVuf8btRd5J)[0m
+[32mINFO    [0m - Attached spotify artist Brimheim from lastfm top track[0m
+[31mERROR   [0m - Artist Brimheim followers (8536) too low[0m
+[32mINFO    [0m - artists checked: 50[0m
+[32mINFO    [0m - Checking offset 129 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 80fcb27b-68b1-4c49-ab67-fc819e20e4d4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 80fcb27b-68b1-4c49-ab67-fc819e20e4d4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Escape The Box[0m
+[32mINFO    [0m - Attached lastfm artist Escape The Box from lastfm[0m
+[31mERROR   [0m - Artist Escape The Box listeners 1172 and playcount 2289 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 73d631e8-0081-4493-9eee-0bc428f797dc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 73d631e8-0081-4493-9eee-0bc428f797dc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Tade Blum[0m
+[32mINFO    [0m - Attached lastfm artist Tade Blum from lastfm[0m
+[31mERROR   [0m - Artist Tade Blum listeners 16 and playcount 101 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c640879c-9089-484d-99f7-b6539c28c175[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c640879c-9089-484d-99f7-b6539c28c175: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name XOAN[0m
+[32mINFO    [0m - Attached lastfm artist XOAN from lastfm[0m
+[31mERROR   [0m - Artist XOAN listeners 172 and playcount 1003 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6d760376-2a45-49c5-b65b-123ffa259442[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6d760376-2a45-49c5-b65b-123ffa259442: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Browning[0m
+[32mINFO    [0m - Attached lastfm artist Browning from lastfm[0m
+[31mERROR   [0m - Artist Browning listeners 1929 and playcount 7294 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 15d58fa3-d458-4f2b-ab7c-d22c1cd74899[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 15d58fa3-d458-4f2b-ab7c-d22c1cd74899: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Andy Keels[0m
+[32mINFO    [0m - Attached lastfm artist Andy Keels from lastfm[0m
+[31mERROR   [0m - Artist Andy Keels listeners 186 and playcount 323 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5120c05c-aafe-4e4f-a1d4-2066b089a985[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5120c05c-aafe-4e4f-a1d4-2066b089a985: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Captain Nemo[0m
+[32mINFO    [0m - Attached lastfm artist Captain Nemo from lastfm[0m
+[31mERROR   [0m - Artist Captain Nemo listeners 241 and playcount 1343 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6b62d170-537c-4371-8a73-542e01160ab8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6b62d170-537c-4371-8a73-542e01160ab8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Dispirited Spirits[0m
+[32mINFO    [0m - Attached lastfm artist Dispirited Spirits from lastfm[0m
+[32mINFO    [0m - Artist Dispirited Spirits is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d2c4d986-3e7e-474c-ade5-d987b212718a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d2c4d986-3e7e-474c-ade5-d987b212718a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Raykings[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name The Raykings: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for The Raykings[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2a3204ad-888e-474d-bf65-0cb62c51bb36[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2a3204ad-888e-474d-bf65-0cb62c51bb36: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Lunarette[0m
+[32mINFO    [0m - Attached lastfm artist Lunarette from lastfm[0m
+[31mERROR   [0m - Artist Lunarette listeners 2028 and playcount 16061 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e16dc103-0a11-4c66-8d5c-48066d2c9a81[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e16dc103-0a11-4c66-8d5c-48066d2c9a81: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ethan Senger[0m
+[32mINFO    [0m - Attached lastfm artist Ethan Senger from lastfm[0m
+[31mERROR   [0m - Artist Ethan Senger listeners 1057 and playcount 5228 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3f7e6b2a-720d-4781-b2cf-c0dd679693f0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3f7e6b2a-720d-4781-b2cf-c0dd679693f0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Tubs[0m
+[32mINFO    [0m - Attached lastfm artist The Tubs from lastfm[0m
+[32mINFO    [0m - Artist The Tubs is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a81ee559-6f4c-4069-8724-0d99af8b87cb[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a81ee559-6f4c-4069-8724-0d99af8b87cb: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Junkie Twins[0m
+[32mINFO    [0m - Attached lastfm artist The Junkie Twins from lastfm[0m
+[31mERROR   [0m - Artist The Junkie Twins listeners 209 and playcount 718 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 19282133-ce05-4e49-807d-75ffe5326a0a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 19282133-ce05-4e49-807d-75ffe5326a0a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Linkers[0m
+[32mINFO    [0m - Attached lastfm artist The Linkers from lastfm[0m
+[31mERROR   [0m - Artist The Linkers listeners 1747 and playcount 4827 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fa18a8d7-19e6-4ea3-a568-0bba65187698[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fa18a8d7-19e6-4ea3-a568-0bba65187698: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Quarters of Change[0m
+[32mINFO    [0m - Attached lastfm artist Quarters of Change from lastfm[0m
+[32mINFO    [0m - Artist Quarters of Change is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fc858a76-6f16-4933-adcf-4e5924825783[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fc858a76-6f16-4933-adcf-4e5924825783: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ekwal[0m
+[32mINFO    [0m - Attached lastfm artist Ekwal from lastfm[0m
+[31mERROR   [0m - Artist Ekwal listeners 7 and playcount 375 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 836b0c22-817d-41a5-94f3-e884adc1e28b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 836b0c22-817d-41a5-94f3-e884adc1e28b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Queen Frequency & the Twats[0m
+[32mINFO    [0m - Attached lastfm artist Queen Frequency & the Twats from lastfm[0m
+[31mERROR   [0m - Artist Queen Frequency & the Twats listeners 113 and playcount 603 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3a5c3f6c-e201-4a50-a90c-6ad31807f3ee[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3a5c3f6c-e201-4a50-a90c-6ad31807f3ee: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name BB Bean[0m
+[32mINFO    [0m - Attached lastfm artist BB Bean from lastfm[0m
+[31mERROR   [0m - Artist BB Bean not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6ffa8f0b-0d7d-4148-b14e-00b2785be1be[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6ffa8f0b-0d7d-4148-b14e-00b2785be1be: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Substitutes[0m
+[32mINFO    [0m - Attached lastfm artist The Substitutes from lastfm[0m
+[31mERROR   [0m - Artist The Substitutes listeners 564 and playcount 7140 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3a922e6a-ee38-4cd7-b06c-9adf564144d1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3a922e6a-ee38-4cd7-b06c-9adf564144d1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Shreds[0m
+[32mINFO    [0m - Attached lastfm artist The Shreds from lastfm[0m
+[31mERROR   [0m - Artist The Shreds listeners 138 and playcount 825 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3b20516d-6da4-4995-af9b-ef3d8017aef3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3b20516d-6da4-4995-af9b-ef3d8017aef3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Shreds[0m
+[32mINFO    [0m - Attached lastfm artist The Shreds from lastfm[0m
+[31mERROR   [0m - Artist The Shreds listeners 138 and playcount 825 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 00419c3b-51cc-4a38-bca1-75007134e3a5[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 00419c3b-51cc-4a38-bca1-75007134e3a5: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Gravity Circus[0m
+[32mINFO    [0m - Attached lastfm artist Gravity Circus from lastfm[0m
+[31mERROR   [0m - Artist Gravity Circus listeners 1641 and playcount 3736 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 389a2355-fdf6-4bcf-a193-16a64127d962[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 389a2355-fdf6-4bcf-a193-16a64127d962: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Pity Party (Girls Club)[0m
+[32mINFO    [0m - Attached lastfm artist Pity Party (Girls Club) from lastfm[0m
+[31mERROR   [0m - Artist Pity Party (Girls Club) listeners 624263 and playcount 7688457 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9f6a26f6-7e97-4dd0-a2ac-3e787934d41f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9f6a26f6-7e97-4dd0-a2ac-3e787934d41f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Destruction's Creation[0m
+[32mINFO    [0m - Attached lastfm artist Destruction's Creation from lastfm[0m
+[31mERROR   [0m - Artist Destruction's Creation listeners 3 and playcount 4 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 78fd6e36-57aa-40ed-ae63-232a84a57eaf[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 78fd6e36-57aa-40ed-ae63-232a84a57eaf: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name They Sang as They Slew[0m
+[32mINFO    [0m - Attached lastfm artist They Sang as They Slew from lastfm[0m
+[31mERROR   [0m - Artist They Sang as They Slew listeners 127 and playcount 4956 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7e8af627-8e05-471e-93bb-2103fb180e37[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7e8af627-8e05-471e-93bb-2103fb180e37: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Spectacle[0m
+[32mINFO    [0m - Attached lastfm artist Spectacle from lastfm[0m
+[31mERROR   [0m - Artist Spectacle listeners 4229 and playcount 17782 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Quarters of Change[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Quarters of Change[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Kiwi' by Artist: 'Quarters of Change'[0m
+[32mINFO    [0m - Spotify Artist ID: 0mnruuV4CcKu7Ux7kBZ5sa[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Quarters of Change (ID: 0mnruuV4CcKu7Ux7kBZ5sa)[0m
+[32mINFO    [0m - Attached spotify artist Quarters of Change from lastfm top track[0m
+[31mERROR   [0m - Artist Quarters of Change followers (72336) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Tubs[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for The Tubs[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Dead Meat' by Artist: 'The Tubs'[0m
+[32mINFO    [0m - Spotify Artist ID: 6kdAf6E0EouXKBpBZN1Sx9[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Tubs (ID: 6kdAf6E0EouXKBpBZN1Sx9)[0m
+[32mINFO    [0m - Attached spotify artist The Tubs from lastfm top track[0m
+[31mERROR   [0m - Artist The Tubs followers (4789) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Dispirited Spirits[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Dispirited Spirits[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Bring Down the Sky' by Artist: 'Dispirited Spirits'[0m
+[32mINFO    [0m - Spotify Artist ID: 3bDZXqmO3dWdtZyGSalZCL[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Dispirited Spirits (ID: 3bDZXqmO3dWdtZyGSalZCL)[0m
+[32mINFO    [0m - Attached spotify artist Dispirited Spirits from lastfm top track[0m
+[31mERROR   [0m - Artist Dispirited Spirits followers (1925) too low[0m
+[32mINFO    [0m - artists checked: 75[0m
+[32mINFO    [0m - Checking offset 25 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 91f31e60-5828-4344-9633-372264b5b6ec[0m
+[32mINFO    [0m - Attached lastfm artist Died Pretty from lastfm[0m
+[31mERROR   [0m - Artist Died Pretty not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1305bd7e-27ef-4236-ae87-0a7d435234ca[0m
+[32mINFO    [0m - Attached lastfm artist Songs: Ohia from lastfm[0m
+[31mERROR   [0m - Artist Songs: Ohia listeners 457766 and playcount 14255260 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a16371b9-7d36-497a-a9d4-42b0a0440c5e[0m
+[32mINFO    [0m - Attached lastfm artist Slowdive from lastfm[0m
+[31mERROR   [0m - Artist Slowdive listeners 1592005 and playcount 101590699 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 244afcb7-fa9a-49b1-9aa6-0149512d1c52[0m
+[32mINFO    [0m - Attached lastfm artist Thrice from lastfm[0m
+[31mERROR   [0m - Artist Thrice listeners 1014609 and playcount 48223526 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 492c18bc-ffbe-43b1-a22a-9bb801216b96[0m
+[32mINFO    [0m - Attached lastfm artist The Wrens from lastfm[0m
+[32mINFO    [0m - Artist The Wrens is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f43f343e-1629-4bdc-a921-6c5f971809f8[0m
+[32mINFO    [0m - Attached lastfm artist Common Rider from lastfm[0m
+[31mERROR   [0m - Artist Common Rider not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6c6f5412-f01d-4cce-b1bb-b2349cd7f8f2[0m
+[32mINFO    [0m - Attached lastfm artist Denali from lastfm[0m
+[32mINFO    [0m - Artist Denali is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 62cfba2f-d6da-4c93-a2e2-a7922fe47d1b[0m
+[32mINFO    [0m - Attached lastfm artist The Music from lastfm[0m
+[32mINFO    [0m - Artist The Music is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9c1ff574-2ae4-4fea-881f-83293d0d5881[0m
+[32mINFO    [0m - Attached lastfm artist …And You Will Know Us by the Trail of Dead from lastfm[0m
+[31mERROR   [0m - Artist …And You Will Know Us by the Trail of Dead listeners 613686 and playcount 17800690 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d7471393-bdf1-429d-b000-ef6adf7e72df[0m
+[32mINFO    [0m - Attached lastfm artist The Zambonis from lastfm[0m
+[31mERROR   [0m - Artist The Zambonis listeners 7461 and playcount 64866 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c1741e51-aa6b-43db-af02-e0901a49db49[0m
+[32mINFO    [0m - Attached lastfm artist Calla from lastfm[0m
+[32mINFO    [0m - Artist Calla is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 024bea6e-e250-4348-9e69-2dfcad38442e[0m
+[32mINFO    [0m - Attached lastfm artist The Bluetones from lastfm[0m
+[32mINFO    [0m - Artist The Bluetones is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ad92dd9c-56ef-4443-b2c0-ff2f7d9cca49[0m
+[32mINFO    [0m - Attached lastfm artist The Sounds from lastfm[0m
+[31mERROR   [0m - Artist The Sounds listeners 651724 and playcount 23117928 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 304cdd9d-a04e-4eb2-865c-980a553a0efd[0m
+[32mINFO    [0m - Attached lastfm artist Gomez from lastfm[0m
+[31mERROR   [0m - Artist Gomez listeners 572571 and playcount 9749011 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 63134699-ca51-464b-816d-3f32efd4a093[0m
+[32mINFO    [0m - Attached lastfm artist Space from lastfm[0m
+[31mERROR   [0m - Artist Space not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 14387b0f-765c-4852-852f-135335790466[0m
+[32mINFO    [0m - Attached lastfm artist EELS from lastfm[0m
+[31mERROR   [0m - Artist EELS listeners 1833152 and playcount 56871737 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5e372a49-5672-4fb8-ba14-18c90780c4f9[0m
+[32mINFO    [0m - Attached lastfm artist Calexico from lastfm[0m
+[31mERROR   [0m - Artist Calexico listeners 726329 and playcount 21589830 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bf103bd9-7a20-4a7e-95e0-369fe494fc88[0m
+[32mINFO    [0m - Attached lastfm artist Moxy Früvous from lastfm[0m
+[31mERROR   [0m - Artist Moxy Früvous not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a2accb58-6099-4cb5-a3c8-f6332f364db5[0m
+[32mINFO    [0m - Attached lastfm artist James from lastfm[0m
+[31mERROR   [0m - Artist James listeners 878763 and playcount 15689811 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9d4c4835-c71a-4647-a4fc-263e26832cd0[0m
+[32mINFO    [0m - Attached lastfm artist Grandaddy from lastfm[0m
+[31mERROR   [0m - Artist Grandaddy listeners 824573 and playcount 16676767 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5e7d5548-a03b-4bbf-8b5a-66541c4e3f4c[0m
+[32mINFO    [0m - Attached lastfm artist Deborah Conway from lastfm[0m
+[31mERROR   [0m - Artist Deborah Conway listeners 6861 and playcount 67564 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5739643e-3037-4349-8ceb-73e337158f2c[0m
+[32mINFO    [0m - Attached lastfm artist Har Mar Superstar from lastfm[0m
+[31mERROR   [0m - Artist Har Mar Superstar not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ce49b1f2-a903-46fc-8b84-b5699f019a06[0m
+[32mINFO    [0m - Attached lastfm artist Enon from lastfm[0m
+[32mINFO    [0m - Artist Enon is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0ad7bbcd-6e77-4dc0-bb61-e331c46f70ec[0m
+[32mINFO    [0m - Attached lastfm artist The Good Life from lastfm[0m
+[32mINFO    [0m - Artist The Good Life is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a57e5515-555a-42d6-a92a-465deac3fdd1[0m
+[32mINFO    [0m - Attached lastfm artist Polvo from lastfm[0m
+[32mINFO    [0m - Artist Polvo is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Bluetones[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sleazy Bed Track' by Artist: 'The Bluetones'[0m
+[32mINFO    [0m - Spotify Artist ID: 66nOkPJTFgK25NMmojG04V[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Bluetones (ID: 66nOkPJTFgK25NMmojG04V)[0m
+[32mINFO    [0m - Attached spotify artist The Bluetones from lastfm top track[0m
+[31mERROR   [0m - Artist The Bluetones followers (115661) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Polvo[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Lazy Comet' by Artist: 'Polvo'[0m
+[32mINFO    [0m - Spotify Artist ID: 0pbIqPTefLfuOcbM2ojXdl[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Polvo (ID: 0pbIqPTefLfuOcbM2ojXdl)[0m
+[32mINFO    [0m - Attached spotify artist Polvo from lastfm top track[0m
+[31mERROR   [0m - Artist Polvo followers (50360) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Enon[0m
+[32mINFO    [0m - Searching Spotify for Track: 'In This City' by Artist: 'Enon'[0m
+[32mINFO    [0m - Spotify Artist ID: 3jJxGc6wl7xvZHSg8tg61V[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Enon (ID: 3jJxGc6wl7xvZHSg8tg61V)[0m
+[32mINFO    [0m - Attached spotify artist Enon from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for In This City[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Enon - In This City[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 3[0m
+[1;32mSUCCESS [0m - RATIO: 3.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Good Life[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Lovers Need Lawyers' by Artist: 'The Good Life'[0m
+[32mINFO    [0m - Spotify Artist ID: 7MDjyeL85p0NwMIpu96o1l[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Good Life (ID: 7MDjyeL85p0NwMIpu96o1l)[0m
+[32mINFO    [0m - Attached spotify artist The Good Life from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Lovers Need Lawyers[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: The Good Life - Lovers Need Lawyers[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 4[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Denali[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Lose Me' by Artist: 'Denali'[0m
+[32mINFO    [0m - Spotify Artist ID: 5PdZFyLYVjl2qeoQoeuvia[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Denali (ID: 5PdZFyLYVjl2qeoQoeuvia)[0m
+[32mINFO    [0m - Attached spotify artist Denali from lastfm top track[0m
+[31mERROR   [0m - Artist Denali followers (6443) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Music[0m
+[32mINFO    [0m - Searching Spotify for Track: 'The People' by Artist: 'The Music'[0m
+[32mINFO    [0m - Spotify Artist ID: 4IT7CS5foj1DTNHT7fjFx2[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Music (ID: 4IT7CS5foj1DTNHT7fjFx2)[0m
+[32mINFO    [0m - Attached spotify artist The Music from lastfm top track[0m
+[31mERROR   [0m - Artist The Music followers (62441) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Wrens[0m
+[32mINFO    [0m - Searching Spotify for Track: 'This Boy is Exhausted' by Artist: 'The Wrens'[0m
+[32mINFO    [0m - Spotify Artist ID: 04cetTUz2JTzXBqFKO5YB5[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Wrens (ID: 04cetTUz2JTzXBqFKO5YB5)[0m
+[32mINFO    [0m - Attached spotify artist The Wrens from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for This Boy is Exhausted[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: The Wrens - This Boy is Exhausted[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 5[0m
+[1;32mSUCCESS [0m - RATIO: 5.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Calla[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Fear of Fireflies' by Artist: 'Calla'[0m
+[32mINFO    [0m - Spotify Artist ID: 4mcVAxcVVry8r6zmPBpL1w[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Calla (ID: 4mcVAxcVVry8r6zmPBpL1w)[0m
+[32mINFO    [0m - Attached spotify artist Calla from lastfm top track[0m
+[31mERROR   [0m - Artist Calla followers (4917) too low[0m
+[32mINFO    [0m - artists checked: 100[0m
+[32mINFO    [0m - Checking offset 146 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f2e6a39d-7b8b-4f01-8e1b-25946feec763[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f2e6a39d-7b8b-4f01-8e1b-25946feec763: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name After Geography[0m
+[32mINFO    [0m - Attached lastfm artist After Geography from lastfm[0m
+[31mERROR   [0m - Artist After Geography listeners 659 and playcount 1812 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 71cdb3ae-8f99-4639-8cc3-faaa1719c911[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 71cdb3ae-8f99-4639-8cc3-faaa1719c911: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Wellness[0m
+[32mINFO    [0m - Attached lastfm artist Wellness from lastfm[0m
+[31mERROR   [0m - Artist Wellness not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6cb90ca3-ffb6-404e-a0eb-779e27f48a52[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6cb90ca3-ffb6-404e-a0eb-779e27f48a52: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Liives[0m
+[32mINFO    [0m - Attached lastfm artist Liives from lastfm[0m
+[31mERROR   [0m - Artist Liives listeners 94 and playcount 200 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1ab1334d-83a8-4daa-9c42-8c9ffed4417e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1ab1334d-83a8-4daa-9c42-8c9ffed4417e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Fuckleberry Hinn[0m
+[32mINFO    [0m - Attached lastfm artist Fuckleberry Hinn from lastfm[0m
+[31mERROR   [0m - Artist Fuckleberry Hinn listeners 433 and playcount 3021 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d8b3b7f0-4887-4f28-aa19-54d4d6b3a2b0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d8b3b7f0-4887-4f28-aa19-54d4d6b3a2b0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name La dame Ovale[0m
+[32mINFO    [0m - Attached lastfm artist La dame Ovale from lastfm[0m
+[31mERROR   [0m - Artist La dame Ovale listeners 9 and playcount 199 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 96aa2465-eefa-43bf-9bf9-37c5209b4731[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 96aa2465-eefa-43bf-9bf9-37c5209b4731: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Short Causeway[0m
+[32mINFO    [0m - Attached lastfm artist The Short Causeway from lastfm[0m
+[31mERROR   [0m - Artist The Short Causeway listeners 319 and playcount 901 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 245e4c41-e896-4d4a-b30f-0c2de15e874e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 245e4c41-e896-4d4a-b30f-0c2de15e874e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name knitting[0m
+[32mINFO    [0m - Attached lastfm artist knitting from lastfm[0m
+[31mERROR   [0m - Artist knitting listeners 3889 and playcount 17499 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0ab9e983-c2dd-4e53-91cb-cdb69c575dde[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0ab9e983-c2dd-4e53-91cb-cdb69c575dde: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TIMOTHY JARROD SMITH AND HOT COFFINS[0m
+[32mINFO    [0m - Attached lastfm artist TIMOTHY JARROD SMITH AND HOT COFFINS from lastfm[0m
+[31mERROR   [0m - Artist TIMOTHY JARROD SMITH AND HOT COFFINS listeners 2 and playcount 3 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d1f496ec-6a39-4897-90aa-5815e886331d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d1f496ec-6a39-4897-90aa-5815e886331d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Suzi[0m
+[32mINFO    [0m - Attached lastfm artist Suzi from lastfm[0m
+[31mERROR   [0m - Artist Suzi not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3f7cf445-f739-4b96-abf0-18730de4210a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3f7cf445-f739-4b96-abf0-18730de4210a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name janna[0m
+[32mINFO    [0m - Attached lastfm artist janna from lastfm[0m
+[31mERROR   [0m - Artist janna not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3736dc3b-9e9a-43ab-91d5-fc400f2acf19[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3736dc3b-9e9a-43ab-91d5-fc400f2acf19: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Cascading[0m
+[32mINFO    [0m - Attached lastfm artist Cascading from lastfm[0m
+[31mERROR   [0m - Artist Cascading listeners 28 and playcount 86 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9c17cac2-9e68-42dd-9b7b-14d2cb211118[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9c17cac2-9e68-42dd-9b7b-14d2cb211118: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Dark Satellite[0m
+[32mINFO    [0m - Attached lastfm artist Dark Satellite from lastfm[0m
+[31mERROR   [0m - Artist Dark Satellite listeners 3827 and playcount 8453 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 97ba0670-138c-4f4a-8566-f953db2719d3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 97ba0670-138c-4f4a-8566-f953db2719d3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name EB[0m
+[32mINFO    [0m - Attached lastfm artist EB from lastfm[0m
+[31mERROR   [0m - Artist EB listeners 4670 and playcount 31063 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64462d16-6787-4447-8fb7-b6e6f7a1bcdc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 64462d16-6787-4447-8fb7-b6e6f7a1bcdc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ten Minute Detour[0m
+[32mINFO    [0m - Attached lastfm artist Ten Minute Detour from lastfm[0m
+[31mERROR   [0m - Artist Ten Minute Detour listeners 2941 and playcount 7622 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 362121d2-8cce-418a-9e3d-d9b61952e683[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 362121d2-8cce-418a-9e3d-d9b61952e683: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Vložte kočku[0m
+[32mINFO    [0m - Attached lastfm artist Vložte kočku from lastfm[0m
+[31mERROR   [0m - Artist Vložte kočku listeners 1639 and playcount 57408 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 15dec532-5312-4462-a4e3-acc91240c9c1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 15dec532-5312-4462-a4e3-acc91240c9c1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name MANIA[0m
+[32mINFO    [0m - Attached lastfm artist MANIA from lastfm[0m
+[31mERROR   [0m - Artist MANIA not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1ddd57fc-18c3-4c92-b6d9-c06a22bed9f2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1ddd57fc-18c3-4c92-b6d9-c06a22bed9f2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Taleen Kali[0m
+[32mINFO    [0m - Attached lastfm artist Taleen Kali from lastfm[0m
+[31mERROR   [0m - Artist Taleen Kali listeners 4083 and playcount 18480 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 51462e71-1410-4884-92bd-76a2ea7dfc9f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 51462e71-1410-4884-92bd-76a2ea7dfc9f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Pamola[0m
+[32mINFO    [0m - Attached lastfm artist Pamola from lastfm[0m
+[31mERROR   [0m - Artist Pamola listeners 216 and playcount 3388 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3bcaba80-6f8c-4bdf-aa3e-a4e40a6420f9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3bcaba80-6f8c-4bdf-aa3e-a4e40a6420f9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Monsoon[0m
+[32mINFO    [0m - Attached lastfm artist Monsoon from lastfm[0m
+[31mERROR   [0m - Artist Monsoon not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 95f693f3-a9cf-4680-a318-c4e3c54896ef[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 95f693f3-a9cf-4680-a318-c4e3c54896ef: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Northern Light[0m
+[32mINFO    [0m - Attached lastfm artist The Northern Light from lastfm[0m
+[31mERROR   [0m - Artist The Northern Light listeners 47 and playcount 130 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9bf9c444-9c8a-4a42-b3b8-a79cefae0ddc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9bf9c444-9c8a-4a42-b3b8-a79cefae0ddc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name For your Information[0m
+[32mINFO    [0m - Attached lastfm artist For your Information from lastfm[0m
+[31mERROR   [0m - Artist For your Information listeners 476 and playcount 2987 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b25ea799-309f-4b25-9fb5-581d9681e118[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b25ea799-309f-4b25-9fb5-581d9681e118: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name bloodsports[0m
+[32mINFO    [0m - Attached lastfm artist bloodsports from lastfm[0m
+[31mERROR   [0m - Artist bloodsports listeners 764 and playcount 5380 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 25d65376-bbda-441a-8130-503c5b48c681[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 25d65376-bbda-441a-8130-503c5b48c681: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name My Son The Doctor[0m
+[32mINFO    [0m - Attached lastfm artist My Son The Doctor from lastfm[0m
+[31mERROR   [0m - Artist My Son The Doctor listeners 2746 and playcount 12134 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f06ecba2-192c-4a5f-8214-fbd1e8315b12[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f06ecba2-192c-4a5f-8214-fbd1e8315b12: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name No Windows[0m
+[32mINFO    [0m - Attached lastfm artist No Windows from lastfm[0m
+[31mERROR   [0m - Artist No Windows listeners 7019 and playcount 28833 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 32fb5695-9d31-4eb4-b23e-17bf97b0855f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 32fb5695-9d31-4eb4-b23e-17bf97b0855f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Balcon sans princesse[0m
+[32mINFO    [0m - Attached lastfm artist Balcon sans princesse from lastfm[0m
+[31mERROR   [0m - Artist Balcon sans princesse listeners 68 and playcount 941 too low[0m
+[32mINFO    [0m - artists checked: 125[0m
+[32mINFO    [0m - Checking offset 90 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e8ccdadd-5099-42fa-a9ce-1c1b389396e6[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e8ccdadd-5099-42fa-a9ce-1c1b389396e6: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Sarah Bethe Nelson[0m
+[32mINFO    [0m - Attached lastfm artist Sarah Bethe Nelson from lastfm[0m
+[31mERROR   [0m - Artist Sarah Bethe Nelson listeners 5682 and playcount 37656 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 11e31608-3c11-4b2b-b257-14a86b7b15b4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 11e31608-3c11-4b2b-b257-14a86b7b15b4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Band de Jour[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name Band de Jour: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for Band de Jour[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 49a6ce9a-ab95-49b5-a01e-f779166fc234[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 49a6ce9a-ab95-49b5-a01e-f779166fc234: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Chris Gales[0m
+[32mINFO    [0m - Attached lastfm artist Chris Gales from lastfm[0m
+[31mERROR   [0m - Artist Chris Gales listeners 4 and playcount 4 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6d5c33ee-5357-4eee-8420-e50aec54982b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6d5c33ee-5357-4eee-8420-e50aec54982b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Bully[0m
+[32mINFO    [0m - Attached lastfm artist Bully from lastfm[0m
+[32mINFO    [0m - Artist Bully is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d9ae91a9-0fb6-4aa0-9251-7b013a735469[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d9ae91a9-0fb6-4aa0-9251-7b013a735469: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Sideshow[0m
+[32mINFO    [0m - Attached lastfm artist Sideshow from lastfm[0m
+[31mERROR   [0m - Artist Sideshow not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5fff40c9-4339-41d1-b513-a91b639db2a8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5fff40c9-4339-41d1-b513-a91b639db2a8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Adult Cinema[0m
+[32mINFO    [0m - Attached lastfm artist Adult Cinema from lastfm[0m
+[31mERROR   [0m - Artist Adult Cinema listeners 1335 and playcount 16936 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 18fcb1cd-125f-46ce-89a4-dbdf416d1a69[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 18fcb1cd-125f-46ce-89a4-dbdf416d1a69: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Teksti‐TV 666[0m
+[32mINFO    [0m - Attached lastfm artist Teksti‐TV 666 from lastfm[0m
+[31mERROR   [0m - Artist Teksti‐TV 666 listeners 80 and playcount 1498 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 41a29629-d548-49a9-bc35-29c75f2dbd0e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 41a29629-d548-49a9-bc35-29c75f2dbd0e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Horsebeach[0m
+[32mINFO    [0m - Attached lastfm artist Horsebeach from lastfm[0m
+[32mINFO    [0m - Artist Horsebeach is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0e827167-4d90-4597-8a56-9a65bf5459f5[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0e827167-4d90-4597-8a56-9a65bf5459f5: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Llueven Animales[0m
+[32mINFO    [0m - Attached lastfm artist Llueven Animales from lastfm[0m
+[31mERROR   [0m - Artist Llueven Animales listeners 267 and playcount 5380 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4173ee0d-e003-496a-98eb-a2eaa90cb3f7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4173ee0d-e003-496a-98eb-a2eaa90cb3f7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nilüfer Yanya[0m
+[32mINFO    [0m - Attached lastfm artist Nilüfer Yanya from lastfm[0m
+[32mINFO    [0m - Artist Nilüfer Yanya is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 71042bb3-ee84-45fc-b08a-e6c4e2d22752[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 71042bb3-ee84-45fc-b08a-e6c4e2d22752: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Shoefiti[0m
+[32mINFO    [0m - Attached lastfm artist Shoefiti from lastfm[0m
+[31mERROR   [0m - Artist Shoefiti listeners 667 and playcount 2935 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7b958373-9066-4284-b238-31b46bc4493d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7b958373-9066-4284-b238-31b46bc4493d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name CyberSDF[0m
+[32mINFO    [0m - Attached lastfm artist CyberSDF from lastfm[0m
+[31mERROR   [0m - Artist CyberSDF listeners 137 and playcount 3574 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 99c5de7a-d0b9-4454-98bc-b4f6679a9ce7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 99c5de7a-d0b9-4454-98bc-b4f6679a9ce7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Gang of Youths[0m
+[32mINFO    [0m - Attached lastfm artist Gang of Youths from lastfm[0m
+[32mINFO    [0m - Artist Gang of Youths is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 56586be1-8cd8-450d-92ed-585f88285735[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 56586be1-8cd8-450d-92ed-585f88285735: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Kittyhawk[0m
+[32mINFO    [0m - Attached lastfm artist Kittyhawk from lastfm[0m
+[32mINFO    [0m - Artist Kittyhawk is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c3b3e679-fdce-4f55-a4e3-81a6d6242f28[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c3b3e679-fdce-4f55-a4e3-81a6d6242f28: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Jealous of the Birds[0m
+[32mINFO    [0m - Attached lastfm artist Jealous of the Birds from lastfm[0m
+[31mERROR   [0m - Artist Jealous of the Birds not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d504a79e-c16c-4e53-b122-2f91a9bed83e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d504a79e-c16c-4e53-b122-2f91a9bed83e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mamá Vudú[0m
+[32mINFO    [0m - Attached lastfm artist Mamá Vudú from lastfm[0m
+[31mERROR   [0m - Artist Mamá Vudú listeners 1408 and playcount 41329 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 66d43bca-0565-4ba7-8c0c-8441e9a0df71[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 66d43bca-0565-4ba7-8c0c-8441e9a0df71: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Happy Stars[0m
+[32mINFO    [0m - Attached lastfm artist Happy Stars from lastfm[0m
+[31mERROR   [0m - Artist Happy Stars listeners 99 and playcount 826 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3bf02f7d-1aed-494d-b9b3-69749b102881[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3bf02f7d-1aed-494d-b9b3-69749b102881: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Tired Lion[0m
+[32mINFO    [0m - Attached lastfm artist Tired Lion from lastfm[0m
+[31mERROR   [0m - Artist Tired Lion not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 40a98fcd-ca38-42ce-bd12-77d434b343ab[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 40a98fcd-ca38-42ce-bd12-77d434b343ab: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Flight Brigade[0m
+[32mINFO    [0m - Attached lastfm artist Flight Brigade from lastfm[0m
+[31mERROR   [0m - Artist Flight Brigade listeners 2314 and playcount 26392 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0f1705b1-8bd5-40de-85e5-3a639075cce8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0f1705b1-8bd5-40de-85e5-3a639075cce8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name YouCrane[0m
+[32mINFO    [0m - Attached lastfm artist YouCrane from lastfm[0m
+[31mERROR   [0m - Artist YouCrane listeners 449 and playcount 4994 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ddc73e11-1d6c-4e2b-9918-ea10cd67ff1a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ddc73e11-1d6c-4e2b-9918-ea10cd67ff1a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Fictonian[0m
+[32mINFO    [0m - Attached lastfm artist Fictonian from lastfm[0m
+[31mERROR   [0m - Artist Fictonian listeners 2757 and playcount 9899 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e1a55f87-f746-4a84-bb1e-9178bde4f1bd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e1a55f87-f746-4a84-bb1e-9178bde4f1bd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Sandcherries[0m
+[32mINFO    [0m - Attached lastfm artist The Sandcherries from lastfm[0m
+[31mERROR   [0m - Artist The Sandcherries listeners 277 and playcount 1302 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b927641e-77af-49b4-acff-1423c5d125f0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b927641e-77af-49b4-acff-1423c5d125f0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Wrong Windows[0m
+[32mINFO    [0m - Attached lastfm artist The Wrong Windows from lastfm[0m
+[31mERROR   [0m - Artist The Wrong Windows listeners 35 and playcount 226 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cf9655a8-ce1e-414e-9843-de1c4a60830d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid cf9655a8-ce1e-414e-9843-de1c4a60830d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Hippo Campus[0m
+[32mINFO    [0m - Attached lastfm artist Hippo Campus from lastfm[0m
+[31mERROR   [0m - Artist Hippo Campus listeners 626650 and playcount 22340263 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 23888140-fb2a-4225-a440-694a5d6fac45[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 23888140-fb2a-4225-a440-694a5d6fac45: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Jarrod Michael Alonge[0m
+[32mINFO    [0m - Attached lastfm artist Jarrod Michael Alonge from lastfm[0m
+[31mERROR   [0m - Artist Jarrod Michael Alonge listeners 7 and playcount 26 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Kittyhawk[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Kittyhawk[0m
+[32mINFO    [0m - Searching Spotify for Track: 'He Travels in a Suit' by Artist: 'Kittyhawk'[0m
+[32mINFO    [0m - Spotify Artist ID: 4BruyirCQvTlKJqacXO0bl[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Kittyhawk (ID: 4BruyirCQvTlKJqacXO0bl)[0m
+[32mINFO    [0m - Attached spotify artist Kittyhawk from lastfm top track[0m
+[31mERROR   [0m - Artist Kittyhawk followers (2549) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Horsebeach[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Horsebeach[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Let You Down' by Artist: 'Horsebeach'[0m
+[32mINFO    [0m - Spotify Artist ID: 1z0OEnD3fL4Zwyud1f1CNL[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Horsebeach (ID: 1z0OEnD3fL4Zwyud1f1CNL)[0m
+[32mINFO    [0m - Attached spotify artist Horsebeach from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Let You Down[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Horsebeach - Let You Down[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 6[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Bully[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Bully[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Trying' by Artist: 'Bully'[0m
+[32mINFO    [0m - Spotify Artist ID: 34LdbFt5sVXKTJOzf1iExQ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Bully (ID: 34LdbFt5sVXKTJOzf1iExQ)[0m
+[32mINFO    [0m - Attached spotify artist Bully from lastfm top track[0m
+[31mERROR   [0m - Artist Bully followers (94728) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Gang of Youths[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Gang of Youths[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Let Me Down Easy' by Artist: 'Gang of Youths'[0m
+[32mINFO    [0m - Spotify Artist ID: 142YBUGmLWCJigFLzgguf8[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Gang of Youths (ID: 142YBUGmLWCJigFLzgguf8)[0m
+[32mINFO    [0m - Attached spotify artist Gang of Youths from lastfm top track[0m
+[31mERROR   [0m - Artist Gang of Youths followers (400016) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Nilüfer Yanya[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Nilüfer Yanya[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Baby Blu' by Artist: 'Nilüfer Yanya'[0m
+[32mINFO    [0m - Spotify Artist ID: 09kXLeOXRyfNQMXRaDO4qA[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Nilüfer Yanya (ID: 09kXLeOXRyfNQMXRaDO4qA)[0m
+[32mINFO    [0m - Attached spotify artist Nilüfer Yanya from lastfm top track[0m
+[31mERROR   [0m - Artist Nilüfer Yanya followers (202130) too high[0m
+[32mINFO    [0m - artists checked: 150[0m
+[32mINFO    [0m - Checking offset 29 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7456e258-77f9-42b2-85e7-0d44e76abe04[0m
+[32mINFO    [0m - Attached lastfm artist 091 from lastfm[0m
+[31mERROR   [0m - Artist 091 not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 36e9cd6e-9396-4644-b1b0-7550e39d9a38[0m
+[32mINFO    [0m - Attached lastfm artist Tiara from lastfm[0m
+[32mINFO    [0m - Artist Tiara is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b12d7c92-2a3a-43b6-9560-277030127bd0[0m
+[32mINFO    [0m - Attached lastfm artist Megaphone from lastfm[0m
+[31mERROR   [0m - Artist Megaphone listeners 1409 and playcount 18157 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7bd92ac9-6b2e-4e88-812a-60499ec60a9d[0m
+[32mINFO    [0m - Attached lastfm artist I Am Kloot from lastfm[0m
+[32mINFO    [0m - Artist I Am Kloot is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2fb4db11-8349-47ab-b1a6-f04f011699ff[0m
+[32mINFO    [0m - Attached lastfm artist The Go‐Betweens from lastfm[0m
+[31mERROR   [0m - Artist The Go‐Betweens not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e4c226f2-ba57-483f-be6b-3391112244b8[0m
+[32mINFO    [0m - Attached lastfm artist Mirah from lastfm[0m
+[31mERROR   [0m - Artist Mirah listeners 689599 and playcount 12081903 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3198c4b8-c57a-42db-bdc5-939391054eb3[0m
+[32mINFO    [0m - Attached lastfm artist Topper from lastfm[0m
+[31mERROR   [0m - Artist Topper listeners 3354 and playcount 20407 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 665e92d7-be17-4670-ac07-5b6077acc345[0m
+[32mINFO    [0m - Attached lastfm artist Cheyenne from lastfm[0m
+[31mERROR   [0m - Artist Cheyenne not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 58f27fe8-0d3e-4768-a615-ef6a6de88a05[0m
+[32mINFO    [0m - Attached lastfm artist Varsity from lastfm[0m
+[32mINFO    [0m - Artist Varsity is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b9a4236e-5a23-469d-a596-60ac7e9241d2[0m
+[32mINFO    [0m - Attached lastfm artist Simone Pace from lastfm[0m
+[31mERROR   [0m - Artist Simone Pace listeners 148 and playcount 314 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 906cbb69-b793-463a-832d-b5bf850f01a2[0m
+[32mINFO    [0m - Attached lastfm artist Athlete from lastfm[0m
+[31mERROR   [0m - Artist Athlete listeners 902743 and playcount 13003024 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7d942b74-f556-49c5-8987-067dc0488c90[0m
+[32mINFO    [0m - Attached lastfm artist Karate from lastfm[0m
+[32mINFO    [0m - Artist Karate is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f8706364-9bc4-4fa6-976e-be39c3490d9f[0m
+[32mINFO    [0m - Attached lastfm artist Swell from lastfm[0m
+[32mINFO    [0m - Artist Swell is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 82b1e4a6-d763-4a6f-b817-ed97d53784b0[0m
+[32mINFO    [0m - Attached lastfm artist Log from lastfm[0m
+[31mERROR   [0m - Artist Log listeners 5311 and playcount 48473 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ff428f12-1c80-4437-bfff-0e9af6ff94c9[0m
+[32mINFO    [0m - Attached lastfm artist Planes Mistaken for Stars from lastfm[0m
+[31mERROR   [0m - Artist Planes Mistaken for Stars not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c08b441a-2d5b-417f-b8d9-466d4af01457[0m
+[32mINFO    [0m - Attached lastfm artist Pop Unknown from lastfm[0m
+[32mINFO    [0m - Artist Pop Unknown is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2b0ce8c8-9c9a-4807-9414-24b22af7a679[0m
+[32mINFO    [0m - Attached lastfm artist Owen from lastfm[0m
+[31mERROR   [0m - Artist Owen not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 491224e0-8a05-463d-9ce2-a81bee5329e7[0m
+[32mINFO    [0m - Attached lastfm artist The Ivory Coast from lastfm[0m
+[31mERROR   [0m - Artist The Ivory Coast listeners 4076 and playcount 25932 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 50df8a7c-ca0b-47c8-98e5-d27a57e04073[0m
+[32mINFO    [0m - Attached lastfm artist Baxter Dury from lastfm[0m
+[32mINFO    [0m - Artist Baxter Dury is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b36d22e9-7f2c-42ff-98a6-b0e3f2cb36f5[0m
+[32mINFO    [0m - Attached lastfm artist Ciccone Youth from lastfm[0m
+[31mERROR   [0m - Artist Ciccone Youth not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b6d42db0-0ee8-4236-9b1e-f783b3c576d3[0m
+[32mINFO    [0m - Attached lastfm artist second thoughts from lastfm[0m
+[32mINFO    [0m - Artist second thoughts is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 83568734-6c31-48a2-a172-7cae468c52c3[0m
+[32mINFO    [0m - Attached lastfm artist Levitation from lastfm[0m
+[31mERROR   [0m - Artist Levitation not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 21763d94-f834-4a18-88b9-c82bc028a344[0m
+[32mINFO    [0m - Attached lastfm artist The Rentals from lastfm[0m
+[32mINFO    [0m - Artist The Rentals is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7bfd0b45-f559-4dbc-be8a-1cbf87015f00[0m
+[32mINFO    [0m - Attached lastfm artist Treble Charger from lastfm[0m
+[31mERROR   [0m - Artist Treble Charger not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 57ad38d0-a486-486d-84be-ec292ac989c8[0m
+[32mINFO    [0m - Attached lastfm artist Tristan Psionic from lastfm[0m
+[31mERROR   [0m - Artist Tristan Psionic listeners 1050 and playcount 13251 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Tiara[0m
+[32mINFO    [0m - Searching Spotify for Track: '時をとめて' by Artist: 'Tiara'[0m
+[31mERROR   [0m - Could not find exact match for track 時をとめて by Tiara[0m
+[31mERROR   [0m - Couldn't find track 時をとめて by Tiara on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Tiara from track 時をとめて[0m
+[32mINFO    [0m - Searching Spotify for Track: '時をとめて (feat. WISE)' by Artist: 'Tiara'[0m
+[31mERROR   [0m - Could not find exact match for track 時をとめて (feat. WISE) by Tiara[0m
+[31mERROR   [0m - Couldn't find track 時をとめて (feat. WISE) by Tiara on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Tiara from track 時をとめて (feat. WISE)[0m
+[32mINFO    [0m - Searching Spotify for Track: 'be with you' by Artist: 'Tiara'[0m
+[32mINFO    [0m - Spotify Artist ID: 2i7pUrZo9AJeK9XR6nPhqD[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Tiara (ID: 2i7pUrZo9AJeK9XR6nPhqD)[0m
+[32mINFO    [0m - Attached spotify artist Tiara from lastfm top track[0m
+[31mERROR   [0m - Artist Tiara followers (8821) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Pop Unknown[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Writing It Down For You' by Artist: 'Pop Unknown'[0m
+[32mINFO    [0m - Spotify Artist ID: 4CLc2mcJfxXTAFGVHlonB7[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Pop Unknown (ID: 4CLc2mcJfxXTAFGVHlonB7)[0m
+[32mINFO    [0m - Attached spotify artist Pop Unknown from lastfm top track[0m
+[31mERROR   [0m - Artist Pop Unknown followers (6602) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Swell[0m
+[32mINFO    [0m - Searching Spotify for Track: 'I'm sorry (feat. shiloh)' by Artist: 'Swell'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'I'm sorry (feat. shiloh)' by 'Swell' with direct search: No Spotify tracks found for I'm sorry (feat. shiloh) by Swell.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Swell from track I'm sorry (feat. shiloh)[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Swell - I'm Sorry' by Artist: 'Swell'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Swell - I'm Sorry' by 'Swell' with direct search: No Spotify tracks found for Swell - I'm Sorry by Swell.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Swell from track Swell - I'm Sorry[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Then the World Stopped Moving and we were stuck where we wanted to be' by Artist: 'Swell'[0m
+[32mINFO    [0m - Spotify Artist ID: 78xSB1R1x8T6o0QuRaodez[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Swell (ID: 78xSB1R1x8T6o0QuRaodez)[0m
+[32mINFO    [0m - Attached spotify artist Swell from lastfm top track[0m
+[31mERROR   [0m - Artist Swell followers (54973) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for second thoughts[0m
+[32mINFO    [0m - Searching Spotify for Track: 'nicotine stains' by Artist: 'Second Thoughts'[0m
+[32mINFO    [0m - Spotify Artist ID: 7KSGahEAA5BSZlVgslhXzX[0m
+[32mINFO    [0m - Retrieved Spotify Artist: second thoughts (ID: 7KSGahEAA5BSZlVgslhXzX)[0m
+[32mINFO    [0m - Attached spotify artist second thoughts from lastfm top track[0m
+[31mERROR   [0m - Artist second thoughts followers (70649) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Karate[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sever' by Artist: 'Karate'[0m
+[32mINFO    [0m - Spotify Artist ID: 6U26vGPwnCQcNDr9Dpj0Y0[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Karate (ID: 6U26vGPwnCQcNDr9Dpj0Y0)[0m
+[32mINFO    [0m - Attached spotify artist Karate from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Sever[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Karate - Sever[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 7[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for I Am Kloot[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Life in a Day' by Artist: 'I Am Kloot'[0m
+[32mINFO    [0m - Spotify Artist ID: 4IDoKaZIEacb3QncU8RQMp[0m
+[32mINFO    [0m - Retrieved Spotify Artist: I Am Kloot (ID: 4IDoKaZIEacb3QncU8RQMp)[0m
+[32mINFO    [0m - Attached spotify artist I Am Kloot from lastfm top track[0m
+[31mERROR   [0m - Artist I Am Kloot followers (55313) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Varsity[0m
+[32mINFO    [0m - Searching Spotify for Track: 'A Friend Named Paul' by Artist: 'Varsity'[0m
+[32mINFO    [0m - Spotify Artist ID: 339XMxg3AyRbEfeIAlxB2c[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Varsity (ID: 339XMxg3AyRbEfeIAlxB2c)[0m
+[32mINFO    [0m - Attached spotify artist Varsity from lastfm top track[0m
+[31mERROR   [0m - Artist Varsity followers (63460) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Baxter Dury[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Isabel' by Artist: 'Baxter Dury'[0m
+[32mINFO    [0m - Spotify Artist ID: 0EgHhNmWcjusA7F2heSD0O[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Baxter Dury (ID: 0EgHhNmWcjusA7F2heSD0O)[0m
+[32mINFO    [0m - Attached spotify artist Baxter Dury from lastfm top track[0m
+[31mERROR   [0m - Artist Baxter Dury followers (129374) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Rentals[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Please Let That Be You' by Artist: 'The Rentals'[0m
+[32mINFO    [0m - Spotify Artist ID: 3NmdKZUM96z7NGvL35g5PC[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Rentals (ID: 3NmdKZUM96z7NGvL35g5PC)[0m
+[32mINFO    [0m - Attached spotify artist The Rentals from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Please Let That Be You[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: The Rentals - Please Let That Be You[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 8[0m
+[1;32mSUCCESS [0m - RATIO: 4.571428571428571%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 175[0m
+[32mINFO    [0m - Checking offset 4 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 72668f73-efd2-4588-af1f-12e3f9fd090b[0m
+[32mINFO    [0m - Attached lastfm artist Baby Animals from lastfm[0m
+[31mERROR   [0m - Artist Baby Animals not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7f5dde96-1573-4491-9673-f03fe7c5caaa[0m
+[32mINFO    [0m - Attached lastfm artist The American Analog Set from lastfm[0m
+[32mINFO    [0m - Artist The American Analog Set is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a1c29c2f-778f-4b02-9ac7-80f0c37cdea9[0m
+[32mINFO    [0m - Attached lastfm artist Sondre Lerche from lastfm[0m
+[31mERROR   [0m - Artist Sondre Lerche not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3a369807-6de5-42ea-bbaa-37524ad6989c[0m
+[32mINFO    [0m - Attached lastfm artist BMX Bandits from lastfm[0m
+[31mERROR   [0m - Artist BMX Bandits not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3e55d51d-687f-4a9d-af96-2fabccf802e5[0m
+[32mINFO    [0m - Attached lastfm artist The Cardigans from lastfm[0m
+[31mERROR   [0m - Artist The Cardigans listeners 2865477 and playcount 62140942 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9e0e2b01-41db-4008-bd8b-988977d6019a[0m
+[32mINFO    [0m - Attached lastfm artist The Police from lastfm[0m
+[31mERROR   [0m - Artist The Police listeners 3576246 and playcount 78508025 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid acf6c776-d0f6-4239-b5a2-a45a613ffa52[0m
+[32mINFO    [0m - Attached lastfm artist The Corrs from lastfm[0m
+[31mERROR   [0m - Artist The Corrs listeners 998753 and playcount 18050021 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1303b976-b862-4f04-94fd-a8d444e06714[0m
+[32mINFO    [0m - Attached lastfm artist The Proclaimers from lastfm[0m
+[31mERROR   [0m - Artist The Proclaimers listeners 1041970 and playcount 9178428 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e68a5fc7-6d1a-40fc-b1b3-e4f8e2c6b683[0m
+[32mINFO    [0m - Attached lastfm artist Gaslight Radio from lastfm[0m
+[31mERROR   [0m - Artist Gaslight Radio listeners 1271 and playcount 30870 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0f8d8bae-f387-4c36-9635-24769351f7d5[0m
+[32mINFO    [0m - Attached lastfm artist Evan Dando from lastfm[0m
+[31mERROR   [0m - Artist Evan Dando not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a506f761-2c22-4b2f-8a94-bd748c2c8f75[0m
+[32mINFO    [0m - Attached lastfm artist Neutral Milk Hotel from lastfm[0m
+[31mERROR   [0m - Artist Neutral Milk Hotel listeners 1930438 and playcount 89945587 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 142ec5db-16ab-49f5-9f1f-8784889a0675[0m
+[32mINFO    [0m - Attached lastfm artist Guitar Vader from lastfm[0m
+[31mERROR   [0m - Artist Guitar Vader not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 16aae9fa-d8f7-4e2c-a907-44aee1ad67fc[0m
+[32mINFO    [0m - Attached lastfm artist O.A.R. from lastfm[0m
+[31mERROR   [0m - Artist O.A.R. listeners 527001 and playcount 8393745 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6c8b9855-ba8b-48f9-ac1d-42167f7f7b18[0m
+[32mINFO    [0m - Attached lastfm artist The Shins from lastfm[0m
+[31mERROR   [0m - Artist The Shins listeners 2861531 and playcount 104212919 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 182d5d8a-94c7-4ef4-8222-a1838353a37b[0m
+[32mINFO    [0m - Attached lastfm artist Ian Brown from lastfm[0m
+[31mERROR   [0m - Artist Ian Brown listeners 563112 and playcount 9034406 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5837d14e-4d18-49cf-a759-e5818714bce4[0m
+[32mINFO    [0m - Attached lastfm artist American Music Club from lastfm[0m
+[32mINFO    [0m - Artist American Music Club is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c5f5dc27-3059-49c0-ae45-5009a01bb9ec[0m
+[32mINFO    [0m - Attached lastfm artist Super Furry Animals from lastfm[0m
+[31mERROR   [0m - Artist Super Furry Animals listeners 501934 and playcount 11239188 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e60d301d-3348-4d1d-a105-4a46391e3b6c[0m
+[32mINFO    [0m - Attached lastfm artist Dissident Prophet from lastfm[0m
+[31mERROR   [0m - Artist Dissident Prophet listeners 110 and playcount 2521 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0cda9358-1def-49aa-a0ff-10320f40522f[0m
+[32mINFO    [0m - Attached lastfm artist Ed Harcourt from lastfm[0m
+[31mERROR   [0m - Artist Ed Harcourt not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 03c2e506-e8bb-4bd6-9693-5aa97c8eea1c[0m
+[32mINFO    [0m - Attached lastfm artist Inspiral Carpets from lastfm[0m
+[31mERROR   [0m - Artist Inspiral Carpets not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 51b7f46f-6c0f-46f2-9496-08c9ec2624d4[0m
+[32mINFO    [0m - Attached lastfm artist Ben Folds from lastfm[0m
+[31mERROR   [0m - Artist Ben Folds listeners 1063805 and playcount 28991747 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0e1a1b82-904f-49b0-8955-086f0bf28afa[0m
+[32mINFO    [0m - Attached lastfm artist The Delta 72 from lastfm[0m
+[31mERROR   [0m - Artist The Delta 72 listeners 5690 and playcount 67253 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bbc5b66b-d037-4f26-aecf-0b129e7f876a[0m
+[32mINFO    [0m - Attached lastfm artist Jimmy Eat World from lastfm[0m
+[31mERROR   [0m - Artist Jimmy Eat World listeners 2877744 and playcount 91850678 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fbd86487-ccb5-4a57-a860-cc3d360b5115[0m
+[32mINFO    [0m - Attached lastfm artist Starsailor from lastfm[0m
+[31mERROR   [0m - Artist Starsailor listeners 883399 and playcount 12123851 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f181961b-20f7-459e-89de-920ef03c7ed0[0m
+[32mINFO    [0m - Attached lastfm artist The Strokes from lastfm[0m
+[31mERROR   [0m - Artist The Strokes listeners 4865972 and playcount 349463565 too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for American Music Club[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sick Of Food' by Artist: 'American Music Club'[0m
+[32mINFO    [0m - Spotify Artist ID: 6uHjKRsYGaElOrKWlSEji3[0m
+[32mINFO    [0m - Retrieved Spotify Artist: American Music Club (ID: 6uHjKRsYGaElOrKWlSEji3)[0m
+[32mINFO    [0m - Attached spotify artist American Music Club from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Sick Of Food[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: American Music Club - Sick Of Food[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 9[0m
+[1;32mSUCCESS [0m - RATIO: 4.5%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The American Analog Set[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Gone to Earth' by Artist: 'The American Analog Set'[0m
+[32mINFO    [0m - Spotify Artist ID: 376EkILFaF7BFBHr9Rzn7A[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The American Analog Set (ID: 376EkILFaF7BFBHr9Rzn7A)[0m
+[32mINFO    [0m - Attached spotify artist The American Analog Set from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Gone to Earth[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: The American Analog Set - Gone to Earth[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 10[0m
+[1;32mSUCCESS [0m - RATIO: 5.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 200[0m
+[32mINFO    [0m - Checking offset 1 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e161e595-7573-4c03-8596-b37c524010db[0m
+[32mINFO    [0m - Attached lastfm artist Sarge from lastfm[0m
+[32mINFO    [0m - Artist Sarge is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a96ac800-bfcb-412a-8a63-0a98df600700[0m
+[32mINFO    [0m - Attached lastfm artist Modest Mouse from lastfm[0m
+[31mERROR   [0m - Artist Modest Mouse listeners 3008669 and playcount 159087021 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 309c62ba-7a22-4277-9f67-4a162526d18a[0m
+[32mINFO    [0m - Attached lastfm artist Beck from lastfm[0m
+[31mERROR   [0m - Artist Beck listeners 3679558 and playcount 127596374 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 03ad1736-b7c9-412a-b442-82536d63a5c4[0m
+[32mINFO    [0m - Attached lastfm artist Elliott Smith from lastfm[0m
+[31mERROR   [0m - Artist Elliott Smith listeners 2526742 and playcount 206794011 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b5fa29f1-6c22-4321-a488-b5f363b06b06[0m
+[32mINFO    [0m - Attached lastfm artist The Stone Roses from lastfm[0m
+[31mERROR   [0m - Artist The Stone Roses listeners 1622048 and playcount 42298585 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1131e5da-dfdf-46c9-b6ff-b7ac552c2a3c[0m
+[32mINFO    [0m - Attached lastfm artist The Dismemberment Plan from lastfm[0m
+[32mINFO    [0m - Artist The Dismemberment Plan is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2feb192c-2363-46d6-b476-1c88a25cb294[0m
+[32mINFO    [0m - Attached lastfm artist The Afghan Whigs from lastfm[0m
+[32mINFO    [0m - Artist The Afghan Whigs is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e36e78eb-3ace-4acd-882c-16789e700ab7[0m
+[32mINFO    [0m - Attached lastfm artist Sleater‐Kinney from lastfm[0m
+[31mERROR   [0m - Artist Sleater‐Kinney listeners 633792 and playcount 22390186 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a74b1b7f-71a5-4011-9441-d0b5e4122711[0m
+[32mINFO    [0m - Attached lastfm artist Radiohead from lastfm[0m
+[31mERROR   [0m - Artist Radiohead listeners 6815000 and playcount 928426766 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f31ec2ac-9071-4306-acd1-d2c8321033b5[0m
+[32mINFO    [0m - Attached lastfm artist The Bangles from lastfm[0m
+[31mERROR   [0m - Artist The Bangles listeners 1321957 and playcount 11988655 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 05755bf1-380c-487f-983f-d1a02401fa28[0m
+[32mINFO    [0m - Attached lastfm artist Cat Power from lastfm[0m
+[31mERROR   [0m - Artist Cat Power listeners 2021297 and playcount 74467251 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3f542031-b054-454d-b57b-812fa2a81b11[0m
+[32mINFO    [0m - Attached lastfm artist Yo La Tengo from lastfm[0m
+[31mERROR   [0m - Artist Yo La Tengo listeners 1516608 and playcount 59949795 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 68ec1b08-3c2e-40b3-b0af-8f323743fdff[0m
+[32mINFO    [0m - Attached lastfm artist Soulwax from lastfm[0m
+[31mERROR   [0m - Artist Soulwax listeners 612232 and playcount 10440695 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7f2a8098-50e3-451c-8696-c5d9f64f4762[0m
+[32mINFO    [0m - Attached lastfm artist Wire from lastfm[0m
+[31mERROR   [0m - Artist Wire listeners 761753 and playcount 23360724 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7b885d42-3c41-4f43-9944-a5855ec5155e[0m
+[32mINFO    [0m - Attached lastfm artist Goldfrapp from lastfm[0m
+[31mERROR   [0m - Artist Goldfrapp listeners 1887270 and playcount 53528876 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8ca01f46-53ac-4af2-8516-55a909c0905e[0m
+[32mINFO    [0m - Attached lastfm artist My Bloody Valentine from lastfm[0m
+[31mERROR   [0m - Artist My Bloody Valentine listeners 1695798 and playcount 98216492 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 45be8e20-3c3c-4e78-98f0-b5bdecf2f703[0m
+[32mINFO    [0m - Attached lastfm artist Sparklehorse from lastfm[0m
+[31mERROR   [0m - Artist Sparklehorse listeners 840292 and playcount 18262769 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4de3cfed-b459-42bd-bfbb-7a843fbc73df[0m
+[32mINFO    [0m - Attached lastfm artist Galaxie 500 from lastfm[0m
+[31mERROR   [0m - Artist Galaxie 500 listeners 580311 and playcount 13303569 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0f96c38b-8e21-4571-afe0-cb11196a8acd[0m
+[32mINFO    [0m - Attached lastfm artist Gossip from lastfm[0m
+[31mERROR   [0m - Artist Gossip listeners 1102943 and playcount 24369112 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2f360fd9-6440-4896-9f45-8156e8b0b204[0m
+[32mINFO    [0m - Attached lastfm artist Pedro the Lion from lastfm[0m
+[32mINFO    [0m - Artist Pedro the Lion is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 490bde43-5edb-4a93-b3b3-7a0465fd8909[0m
+[32mINFO    [0m - Attached lastfm artist Television from lastfm[0m
+[31mERROR   [0m - Artist Television listeners 787269 and playcount 13084042 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0039c7ae-e1a7-4a7d-9b49-0cbc716821a6[0m
+[32mINFO    [0m - Attached lastfm artist Death Cab for Cutie from lastfm[0m
+[31mERROR   [0m - Artist Death Cab for Cutie listeners 3404698 and playcount 197361915 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 675ec992-a8e4-41f8-b28b-1aad0c8a9ad1[0m
+[32mINFO    [0m - Attached lastfm artist Jets to Brazil from lastfm[0m
+[32mINFO    [0m - Artist Jets to Brazil is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8ae5648d-d9b7-4083-b538-17f71672990f[0m
+[32mINFO    [0m - Attached lastfm artist Dominique A from lastfm[0m
+[31mERROR   [0m - Artist Dominique A not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b5fc48ee-f161-4d93-a1d2-a6c64f2878bd[0m
+[32mINFO    [0m - Attached lastfm artist Self from lastfm[0m
+[31mERROR   [0m - Artist Self not in genre indie rock[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Jets to Brazil[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Crown of the Valley' by Artist: 'Jets to Brazil'[0m
+[32mINFO    [0m - Spotify Artist ID: 03xcT10aipgYbYqusG7GWY[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Jets To Brazil (ID: 03xcT10aipgYbYqusG7GWY)[0m
+[32mINFO    [0m - Attached spotify artist Jets to Brazil from lastfm top track[0m
+[31mERROR   [0m - Artist Jets to Brazil followers (50895) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Afghan Whigs[0m
+[31mERROR   [0m - Song Be Sweet is by Afghan Whigs, not The Afghan Whigs[0m
+[31mERROR   [0m - Could not attach spotify artist The Afghan Whigs from track Be Sweet[0m
+[31mERROR   [0m - Song Gentlemen is by Afghan Whigs, not The Afghan Whigs[0m
+[31mERROR   [0m - Could not attach spotify artist The Afghan Whigs from track Gentlemen[0m
+[31mERROR   [0m - Song Debonair is by Afghan Whigs, not The Afghan Whigs[0m
+[31mERROR   [0m - Could not attach spotify artist The Afghan Whigs from track Debonair[0m
+[31mERROR   [0m - Song Algiers is by Afghan Whigs, not The Afghan Whigs[0m
+[31mERROR   [0m - Could not attach spotify artist The Afghan Whigs from track Algiers[0m
+[31mERROR   [0m - Song 66 is by Afghan Whigs, not The Afghan Whigs[0m
+[31mERROR   [0m - Could not attach spotify artist The Afghan Whigs from track 66[0m
+[32mINFO    [0m - artists checked: 225[0m
+[32mINFO    [0m - Checking offset 50 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2209c9f8-7063-4f34-8227-c8c76a9b2e12[0m
+[32mINFO    [0m - Attached lastfm artist Capsula from lastfm[0m
+[31mERROR   [0m - Artist Capsula not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid af428823-a2d7-4e31-9691-27614c59ad8e[0m
+[32mINFO    [0m - Attached lastfm artist Jen Cloher from lastfm[0m
+[31mERROR   [0m - Artist Jen Cloher not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3dbc4a01-2b76-4c01-b5bf-aff92689adf7[0m
+[32mINFO    [0m - Attached lastfm artist Love of Diagrams from lastfm[0m
+[32mINFO    [0m - Artist Love of Diagrams is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 991fd57a-75d6-4254-8064-3186a2a02a6e[0m
+[32mINFO    [0m - Attached lastfm artist Iron On from lastfm[0m
+[31mERROR   [0m - Artist Iron On not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8061867a-04bd-4dd2-9e1e-37f6d86d58b7[0m
+[32mINFO    [0m - Attached lastfm artist Lodger from lastfm[0m
+[32mINFO    [0m - Artist Lodger is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c63263f7-3b04-49d2-80ce-ff434704dde7[0m
+[32mINFO    [0m - Attached lastfm artist ModernDog from lastfm[0m
+[32mINFO    [0m - Artist ModernDog is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 637f5efb-846f-4200-8afa-3ad7331bd576[0m
+[32mINFO    [0m - Attached lastfm artist Pause from lastfm[0m
+[31mERROR   [0m - Artist Pause not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7417c7c5-b548-41c2-9ad0-4eccf5349de5[0m
+[32mINFO    [0m - Attached lastfm artist The Bites from lastfm[0m
+[31mERROR   [0m - Artist The Bites listeners 2576 and playcount 17466 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4365b045-388b-42a5-91b5-b860dbcbf9f7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4365b045-388b-42a5-91b5-b860dbcbf9f7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Gary Lightbody[0m
+[32mINFO    [0m - Attached lastfm artist Gary Lightbody from lastfm[0m
+[31mERROR   [0m - Artist Gary Lightbody not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 753ca46f-1da5-49a0-81cf-3208b7eb1f3a[0m
+[32mINFO    [0m - Attached lastfm artist The String and Return from lastfm[0m
+[31mERROR   [0m - Artist The String and Return listeners 646 and playcount 11170 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 407d7ae0-c297-491c-bd19-4185e2b12ef2[0m
+[32mINFO    [0m - Attached lastfm artist Tally Hall from lastfm[0m
+[31mERROR   [0m - Artist Tally Hall listeners 839284 and playcount 30259401 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2a785645-3b6b-42f9-b1ea-0e8626374d1e[0m
+[32mINFO    [0m - Attached lastfm artist Fly Ashtray from lastfm[0m
+[31mERROR   [0m - Artist Fly Ashtray listeners 1406 and playcount 37086 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8e8e27cb-8553-496e-98bc-67bbd72e98dc[0m
+[32mINFO    [0m - Attached lastfm artist I Am the Avalanche from lastfm[0m
+[31mERROR   [0m - Artist I Am the Avalanche not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a42d2c52-e224-4903-8c6e-fffb2f682fb7[0m
+[32mINFO    [0m - Attached lastfm artist Brett Anderson from lastfm[0m
+[31mERROR   [0m - Artist Brett Anderson not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3ef8c35a-bc9f-49e4-b17d-2df4238696c0[0m
+[32mINFO    [0m - Attached lastfm artist Sarah Neufeld from lastfm[0m
+[31mERROR   [0m - Artist Sarah Neufeld not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 928b0e29-31d2-4c67-8377-ec93d24721b3[0m
+[32mINFO    [0m - Attached lastfm artist Will Butler from lastfm[0m
+[32mINFO    [0m - Artist Will Butler is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 998815d5-03bc-4228-807f-b550c07038d2[0m
+[32mINFO    [0m - Attached lastfm artist Steve Shelley from lastfm[0m
+[31mERROR   [0m - Artist Steve Shelley listeners 170 and playcount 453 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ccda1120-b54c-4914-a8bd-6c392905a2a0[0m
+[32mINFO    [0m - Attached lastfm artist Intercooler from lastfm[0m
+[31mERROR   [0m - Artist Intercooler listeners 1666 and playcount 17069 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid deaddf4e-1209-4d93-bb75-f53780d1c0c4[0m
+[32mINFO    [0m - Attached lastfm artist Bomb the Music Industry! from lastfm[0m
+[31mERROR   [0m - Artist Bomb the Music Industry! not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 341e6ba8-e150-435a-95ca-0b833d1fce81[0m
+[32mINFO    [0m - Attached lastfm artist Voltaire from lastfm[0m
+[31mERROR   [0m - Artist Voltaire not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3c0eb318-d2ba-45aa-9077-b83746cc56da[0m
+[32mINFO    [0m - Attached lastfm artist Amanda Palmer from lastfm[0m
+[31mERROR   [0m - Artist Amanda Palmer not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 05dc942b-a070-4827-ba8c-d019f322ca0d[0m
+[32mINFO    [0m - Attached lastfm artist Riff Random from lastfm[0m
+[31mERROR   [0m - Artist Riff Random listeners 404 and playcount 6224 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 071d3d16-8ed7-4e06-be96-2c52defcf434[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 071d3d16-8ed7-4e06-be96-2c52defcf434: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Isaac Brock[0m
+[32mINFO    [0m - Attached lastfm artist Isaac Brock from lastfm[0m
+[31mERROR   [0m - Artist Isaac Brock listeners 273 and playcount 1328 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ffa9e172-d482-4adb-870c-efd40731d12d[0m
+[32mINFO    [0m - Attached lastfm artist Meneguar from lastfm[0m
+[32mINFO    [0m - Artist Meneguar is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d8a84e4f-c79d-4469-a699-c654d1e00090[0m
+[32mINFO    [0m - Attached lastfm artist Ben Ottewell from lastfm[0m
+[31mERROR   [0m - Artist Ben Ottewell not in genre indie rock[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Meneguar[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Freshman Thoughts' by Artist: 'Meneguar'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Freshman Thoughts' by 'Meneguar' with direct search: No Spotify tracks found for Freshman Thoughts by Meneguar.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Meneguar from track Freshman Thoughts[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Bury a Flower' by Artist: 'Meneguar'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'Bury a Flower' by 'Meneguar' with direct search: No Spotify tracks found for Bury a Flower by Meneguar.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Meneguar from track Bury a Flower[0m
+[32mINFO    [0m - Searching Spotify for Track: 'House of Cats' by Artist: 'Meneguar'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'House of Cats' by 'Meneguar' with direct search: No Spotify tracks found for House of Cats by Meneguar.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Meneguar from track House of Cats[0m
+[32mINFO    [0m - Searching Spotify for Track: 'The Temp' by Artist: 'Meneguar'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'The Temp' by 'Meneguar' with direct search: No Spotify tracks found for The Temp by Meneguar.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Meneguar from track The Temp[0m
+[32mINFO    [0m - Searching Spotify for Track: 'A Few Minutes an Hour' by Artist: 'Meneguar'[0m
+[33mWARNING [0m - Couldn't get Spotify track information for 'A Few Minutes an Hour' by 'Meneguar' with direct search: No Spotify tracks found for A Few Minutes an Hour by Meneguar.[0m
+[31mERROR   [0m - cannot access local variable 'spotify_tracks' where it is not associated with a value[0m
+[31mERROR   [0m - Could not attach spotify artist Meneguar from track A Few Minutes an Hour[0m
+[32mINFO    [0m - artists checked: 250[0m
+[32mINFO    [0m - Checking offset 41 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 81b37c88-b541-4e2c-b2df-8521e5c5af17[0m
+[32mINFO    [0m - Attached lastfm artist Pink Grease from lastfm[0m
+[31mERROR   [0m - Artist Pink Grease not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a4d486bd-6020-4a36-9c7d-bf5ce174bcd1[0m
+[32mINFO    [0m - Attached lastfm artist Steve Albini from lastfm[0m
+[31mERROR   [0m - Artist Steve Albini listeners 1504 and playcount 3957 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4fa9413b-7c10-4342-8ddb-b1cd8e82f9e1[0m
+[32mINFO    [0m - Attached lastfm artist Deloris from lastfm[0m
+[31mERROR   [0m - Artist Deloris listeners 3622 and playcount 63240 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3b273365-00f8-4a5d-8f74-e684e9149dfc[0m
+[32mINFO    [0m - Attached lastfm artist Anadivine from lastfm[0m
+[31mERROR   [0m - Artist Anadivine not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0eee89dc-7d86-4a15-97be-011652c49288[0m
+[32mINFO    [0m - Attached lastfm artist Conor Oberst from lastfm[0m
+[32mINFO    [0m - Artist Conor Oberst is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 13a36417-bc4b-48e0-a4cd-32c3daf13c33[0m
+[32mINFO    [0m - Attached lastfm artist Haywood from lastfm[0m
+[31mERROR   [0m - Artist Haywood not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a5931809-d6c4-42cb-9256-c2ff82415f1e[0m
+[32mINFO    [0m - Attached lastfm artist The World/Inferno Friendship Society from lastfm[0m
+[31mERROR   [0m - Artist The World/Inferno Friendship Society not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0c5d96a3-7a71-4feb-b95d-8ff49416af1c[0m
+[32mINFO    [0m - Attached lastfm artist House of Large Sizes from lastfm[0m
+[31mERROR   [0m - Artist House of Large Sizes listeners 1795 and playcount 32761 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e7439df3-3f93-4060-9345-1f7335411746[0m
+[32mINFO    [0m - Attached lastfm artist U.N.P.O.C. from lastfm[0m
+[31mERROR   [0m - Artist U.N.P.O.C. not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 21bbb4a9-823f-4146-8fa0-f30672fdc678[0m
+[32mINFO    [0m - Attached lastfm artist Elevator Division from lastfm[0m
+[31mERROR   [0m - Artist Elevator Division listeners 1218 and playcount 12902 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 13877426-5769-4559-94b6-204e81f04224[0m
+[32mINFO    [0m - Attached lastfm artist The Donkeys from lastfm[0m
+[31mERROR   [0m - Artist The Donkeys not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid aa0b8df3-0f55-430d-8a7a-0d135031e93e[0m
+[32mINFO    [0m - Attached lastfm artist The Hong Kong from lastfm[0m
+[31mERROR   [0m - Artist The Hong Kong listeners 3257 and playcount 18522 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d5fd4600-318d-457b-9cbb-b74633c51ed5[0m
+[32mINFO    [0m - Attached lastfm artist Shannon Wright from lastfm[0m
+[32mINFO    [0m - Artist Shannon Wright is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b493c06f-8316-4333-9573-2b4e40633c80[0m
+[32mINFO    [0m - Attached lastfm artist First Floor Power from lastfm[0m
+[31mERROR   [0m - Artist First Floor Power not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 58175e80-c8e6-4867-a19c-5f7a2560f632[0m
+[32mINFO    [0m - Attached lastfm artist Geoff Farina from lastfm[0m
+[31mERROR   [0m - Artist Geoff Farina not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e8986ff5-56e8-4768-8b22-77005c0e38cb[0m
+[32mINFO    [0m - Attached lastfm artist The Popguns from lastfm[0m
+[31mERROR   [0m - Artist The Popguns not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6290b769-173d-49d1-990e-660a4e333877[0m
+[32mINFO    [0m - Attached lastfm artist The Zutons from lastfm[0m
+[31mERROR   [0m - Artist The Zutons listeners 718794 and playcount 8407958 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 94879e7e-095a-44bf-8916-2246ea53e931[0m
+[32mINFO    [0m - Attached lastfm artist Joey Cape from lastfm[0m
+[31mERROR   [0m - Artist Joey Cape not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9386b36e-87f3-4716-a219-79a07a4e29cc[0m
+[32mINFO    [0m - Attached lastfm artist We Are Scientists from lastfm[0m
+[31mERROR   [0m - Artist We Are Scientists listeners 1336906 and playcount 26500939 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 36d6bac0-9f2a-48a5-8620-6701942cb95b[0m
+[32mINFO    [0m - Attached lastfm artist 자우림 from lastfm[0m
+[31mERROR   [0m - Artist 자우림 not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7493f016-7443-4030-a6b3-98b6d6752559[0m
+[32mINFO    [0m - Attached lastfm artist New Buffalo from lastfm[0m
+[31mERROR   [0m - Artist New Buffalo not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 12dda4a1-87ce-4447-823b-3f6a60e9d1af[0m
+[32mINFO    [0m - Attached lastfm artist Cathy Davey from lastfm[0m
+[31mERROR   [0m - Artist Cathy Davey not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64deac19-021e-4dc1-8d11-658be8763589[0m
+[32mINFO    [0m - Attached lastfm artist Great Lake Swimmers from lastfm[0m
+[31mERROR   [0m - Artist Great Lake Swimmers listeners 645894 and playcount 10198210 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a6909a9a-d24e-462f-9022-871e7b48b66c[0m
+[32mINFO    [0m - Attached lastfm artist Hungry Ghosts from lastfm[0m
+[31mERROR   [0m - Artist Hungry Ghosts not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8c538f11-c141-4588-8ecb-931083524186[0m
+[32mINFO    [0m - Attached lastfm artist Bloc Party from lastfm[0m
+[31mERROR   [0m - Artist Bloc Party listeners 2986865 and playcount 123560384 too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Shannon Wright[0m
+[32mINFO    [0m - Searching Spotify for Track: 'You'll Be the Death' by Artist: 'Shannon Wright'[0m
+[32mINFO    [0m - Spotify Artist ID: 0EFjqHtrF5Igj7ndAMb6Ug[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Shannon Wright (ID: 0EFjqHtrF5Igj7ndAMb6Ug)[0m
+[32mINFO    [0m - Attached spotify artist Shannon Wright from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for You'll Be the Death[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Shannon Wright - You'll Be the Death[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 11[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Conor Oberst[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Get-Well-Cards' by Artist: 'Conor Oberst'[0m
+[32mINFO    [0m - Spotify Artist ID: 2Z7gV3uEh1ckIaBzTUCE6R[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Conor Oberst (ID: 2Z7gV3uEh1ckIaBzTUCE6R)[0m
+[32mINFO    [0m - Attached spotify artist Conor Oberst from lastfm top track[0m
+[31mERROR   [0m - Artist Conor Oberst followers (163985) too high[0m
+[32mINFO    [0m - artists checked: 275[0m
+[32mINFO    [0m - Checking offset 51 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3a2d4937-5428-45bb-90d6-8e9fa4e39ead[0m
+[32mINFO    [0m - Attached lastfm artist Half Miler from lastfm[0m
+[31mERROR   [0m - Artist Half Miler listeners 53 and playcount 386 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 629e9ab7-1053-4acf-a54e-415eff1fd987[0m
+[32mINFO    [0m - Attached lastfm artist Thunderegg from lastfm[0m
+[31mERROR   [0m - Artist Thunderegg listeners 1637 and playcount 12405 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3ebb2aa0-c5ac-4aaf-b654-d6ad17526508[0m
+[32mINFO    [0m - Attached lastfm artist Brickfoot from lastfm[0m
+[31mERROR   [0m - Artist Brickfoot listeners 216 and playcount 3005 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a9ae7a19-be18-4737-8eb1-af560eb177de[0m
+[32mINFO    [0m - Attached lastfm artist Field Music from lastfm[0m
+[32mINFO    [0m - Artist Field Music is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2cc88ebd-a60e-4a50-af2c-016a8aed5d43[0m
+[32mINFO    [0m - Attached lastfm artist The Besties from lastfm[0m
+[31mERROR   [0m - Artist The Besties not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6d741a05-e4be-40e1-bd62-866746585dab[0m
+[32mINFO    [0m - Attached lastfm artist Toiling Midgets from lastfm[0m
+[31mERROR   [0m - Artist Toiling Midgets listeners 2022 and playcount 19583 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 32efc6ae-edf6-4fd1-b268-226073db9a36[0m
+[32mINFO    [0m - Attached lastfm artist Nightmare of You from lastfm[0m
+[32mINFO    [0m - Artist Nightmare of You is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b5bd9f88-962e-4730-84a7-795592ba42e8[0m
+[32mINFO    [0m - Attached lastfm artist Silversun Pickups from lastfm[0m
+[31mERROR   [0m - Artist Silversun Pickups listeners 1134755 and playcount 34272532 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid eb722df4-372e-4742-8586-f7ff658012d6[0m
+[32mINFO    [0m - Attached lastfm artist Jennyanykind from lastfm[0m
+[31mERROR   [0m - Artist Jennyanykind listeners 743 and playcount 5903 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 19202b40-eb93-48a0-b6fc-fce9568182aa[0m
+[32mINFO    [0m - Attached lastfm artist Fucked Up from lastfm[0m
+[31mERROR   [0m - Artist Fucked Up not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 41d12fde-bd65-4ec8-9a73-b4a987d89921[0m
+[32mINFO    [0m - Attached lastfm artist The Winter Blanket from lastfm[0m
+[31mERROR   [0m - Artist The Winter Blanket listeners 3462 and playcount 13602 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 98f17701-72c4-4692-b8ff-68d38e86aab6[0m
+[32mINFO    [0m - Attached lastfm artist Ethan Johns from lastfm[0m
+[31mERROR   [0m - Artist Ethan Johns listeners 7357 and playcount 59326 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 25ebd843-49c9-4b4f-93ce-34a81cd09cd1[0m
+[32mINFO    [0m - Attached lastfm artist Wwax from lastfm[0m
+[31mERROR   [0m - Artist Wwax listeners 362 and playcount 3095 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b7c4125d-2867-4e29-ba44-b19a69309c68[0m
+[32mINFO    [0m - Attached lastfm artist Jim James from lastfm[0m
+[31mERROR   [0m - Artist Jim James not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b4aeb2ed-0b11-4f24-9479-77de69334918[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b4aeb2ed-0b11-4f24-9479-77de69334918: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Toko Yasuda[0m
+[32mINFO    [0m - Attached lastfm artist Toko Yasuda from lastfm[0m
+[31mERROR   [0m - Artist Toko Yasuda listeners 1 and playcount 1 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a60e02d3-42ff-401c-b6fe-3c69d612b65f[0m
+[32mINFO    [0m - Attached lastfm artist Revolver from lastfm[0m
+[31mERROR   [0m - Artist Revolver not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 198f6a29-d176-4924-9747-d0b8071fcb3e[0m
+[32mINFO    [0m - Attached lastfm artist The Bots from lastfm[0m
+[31mERROR   [0m - Artist The Bots not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f1ce0a98-fed9-4337-b817-398720ff6bd8[0m
+[32mINFO    [0m - Attached lastfm artist Test Icicles from lastfm[0m
+[32mINFO    [0m - Artist Test Icicles is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2b7a7c7f-8c18-4e0c-aaf2-8c6f4e93cdbb[0m
+[32mINFO    [0m - Attached lastfm artist The Hush Sound from lastfm[0m
+[32mINFO    [0m - Artist The Hush Sound is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 93eb7110-0bc9-4d3f-816b-4b52ef982ec8[0m
+[32mINFO    [0m - Attached lastfm artist Metronomy from lastfm[0m
+[31mERROR   [0m - Artist Metronomy listeners 1377882 and playcount 51927787 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fb9ea43f-8635-4a57-89b1-a7c026113383[0m
+[32mINFO    [0m - Attached lastfm artist Louise Post from lastfm[0m
+[31mERROR   [0m - Artist Louise Post listeners 5624 and playcount 37349 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cbccb21f-96e0-4f76-8e4a-ebae988bc1bd[0m
+[32mINFO    [0m - Attached lastfm artist Kevin Drew from lastfm[0m
+[32mINFO    [0m - Artist Kevin Drew is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c485632c-b784-4ee9-8ea1-c5fb365681fc[0m
+[32mINFO    [0m - Attached lastfm artist MGMT from lastfm[0m
+[31mERROR   [0m - Artist MGMT listeners 4395445 and playcount 165030169 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid de2a9fe9-7f39-48b0-a63a-8e0cee4b9f83[0m
+[32mINFO    [0m - Attached lastfm artist Jason Lytle from lastfm[0m
+[32mINFO    [0m - Artist Jason Lytle is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f9ab1160-6271-448d-b1f8-c90bffcb0b52[0m
+[32mINFO    [0m - Attached lastfm artist The Null Set from lastfm[0m
+[31mERROR   [0m - Artist The Null Set listeners 120 and playcount 965 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Hush Sound[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sweet Tangerine' by Artist: 'The Hush Sound'[0m
+[32mINFO    [0m - Spotify Artist ID: 1RCoE2Dq19lePKhPzt9vM5[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Hush Sound (ID: 1RCoE2Dq19lePKhPzt9vM5)[0m
+[32mINFO    [0m - Attached spotify artist The Hush Sound from lastfm top track[0m
+[31mERROR   [0m - Artist The Hush Sound followers (87572) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Kevin Drew[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Love Vs. Porn' by Artist: 'Kevin Drew'[0m
+[32mINFO    [0m - Spotify Artist ID: 64RGS9OBGsUWkopEtO5Cz7[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Kevin Drew (ID: 64RGS9OBGsUWkopEtO5Cz7)[0m
+[32mINFO    [0m - Attached spotify artist Kevin Drew from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Love Vs. Porn[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Kevin Drew - Love Vs. Porn[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 12[0m
+[1;32mSUCCESS [0m - RATIO: 4.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Jason Lytle[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Yours Truly, The Commuter' by Artist: 'Jason Lytle'[0m
+[32mINFO    [0m - Spotify Artist ID: 2BqjUvq3HLFWNi1buGVxem[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Jason Lytle (ID: 2BqjUvq3HLFWNi1buGVxem)[0m
+[32mINFO    [0m - Attached spotify artist Jason Lytle from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Yours Truly, The Commuter[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Jason Lytle - Yours Truly, The Commuter[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 13[0m
+[1;32mSUCCESS [0m - RATIO: 4.333333333333334%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Field Music[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Them That Do Nothing' by Artist: 'Field Music'[0m
+[32mINFO    [0m - Spotify Artist ID: 5P1tdwsQdI6z9MXXfmYRDS[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Field Music (ID: 5P1tdwsQdI6z9MXXfmYRDS)[0m
+[32mINFO    [0m - Attached spotify artist Field Music from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Them That Do Nothing[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Field Music - Them That Do Nothing[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 14[0m
+[1;32mSUCCESS [0m - RATIO: 4.666666666666667%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Nightmare of You[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Dear Scene, I Wish I Were Deaf' by Artist: 'Nightmare Of You'[0m
+[32mINFO    [0m - Spotify Artist ID: 6k0ji2eoZH49ysnY3IgLWc[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Nightmare Of You (ID: 6k0ji2eoZH49ysnY3IgLWc)[0m
+[32mINFO    [0m - Attached spotify artist Nightmare of You from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Dear Scene, I Wish I Were Deaf[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Nightmare of You - Dear Scene, I Wish I Were Deaf[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 15[0m
+[1;32mSUCCESS [0m - RATIO: 5.0%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Test Icicles[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Interlude' by Artist: 'Test Icicles'[0m
+[31mERROR   [0m - Could not find exact match for track Interlude by Test Icicles[0m
+[31mERROR   [0m - Couldn't find track Interlude by Test Icicles on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Test Icicles from track Interlude[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Circle Square Triangle' by Artist: 'Test Icicles'[0m
+[31mERROR   [0m - Could not find exact match for track Circle Square Triangle by Test Icicles[0m
+[31mERROR   [0m - Couldn't find track Circle Square Triangle by Test Icicles on Spotify.[0m
+[31mERROR   [0m - Could not attach spotify artist Test Icicles from track Circle Square Triangle[0m
+[32mINFO    [0m - Searching Spotify for Track: 'All You Need Is Blood' by Artist: 'Test Icicles'[0m
+[32mINFO    [0m - Spotify Artist ID: 4L1GzFX6FhzqZTNyNIGXjQ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Test Icicles (ID: 4L1GzFX6FhzqZTNyNIGXjQ)[0m
+[32mINFO    [0m - Attached spotify artist Test Icicles from lastfm top track[0m
+[31mERROR   [0m - Could not find exact match for track Interlude by Test Icicles[0m
+[31mERROR   [0m - Couldn't find track Interlude by Test Icicles on Spotify.[0m
+[31mERROR   [0m - Could not find exact match for track Circle Square Triangle by Test Icicles[0m
+[31mERROR   [0m - Couldn't find track Circle Square Triangle by Test Icicles on Spotify.[0m
+[32mINFO    [0m - Attached spotify track info for All You Need Is Blood[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Test Icicles - All You Need Is Blood[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 16[0m
+[1;32mSUCCESS [0m - RATIO: 5.333333333333334%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 300[0m
+[32mINFO    [0m - Checking offset 103 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2e8a1d33-6f7b-4c77-a955-1a1bc2df506c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2e8a1d33-6f7b-4c77-a955-1a1bc2df506c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Color Up[0m
+[32mINFO    [0m - Attached lastfm artist The Color Up from lastfm[0m
+[31mERROR   [0m - Artist The Color Up listeners 24 and playcount 111 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 86fb6586-8f45-459f-9e37-f0e5ffedca8f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 86fb6586-8f45-459f-9e37-f0e5ffedca8f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TH da Freak[0m
+[32mINFO    [0m - Attached lastfm artist TH da Freak from lastfm[0m
+[31mERROR   [0m - Artist TH da Freak listeners 4144 and playcount 33918 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9c2916b2-11a0-495d-90c8-d700513342ac[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9c2916b2-11a0-495d-90c8-d700513342ac: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Junii[0m
+[32mINFO    [0m - Attached lastfm artist Junii from lastfm[0m
+[31mERROR   [0m - Artist Junii listeners 4685 and playcount 17371 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c659d90e-dae5-4925-91b0-7d8216aa0e15[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c659d90e-dae5-4925-91b0-7d8216aa0e15: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Smallville[0m
+[32mINFO    [0m - Attached lastfm artist Smallville from lastfm[0m
+[31mERROR   [0m - Artist Smallville listeners 7459 and playcount 47768 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d6a6f30c-cc14-4942-b9a3-71f46284a528[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d6a6f30c-cc14-4942-b9a3-71f46284a528: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Simon van Genderen[0m
+[32mINFO    [0m - Attached lastfm artist Simon van Genderen from lastfm[0m
+[31mERROR   [0m - Artist Simon van Genderen listeners 22 and playcount 43 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 55c69bca-562d-4a31-9a9d-347f38ae331c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 55c69bca-562d-4a31-9a9d-347f38ae331c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Egon Loosveldt[0m
+[33mWARNING [0m - Couldn't get lastfm artist by name Egon Loosveldt: 'NoneType' object has no attribute 'get'[0m
+[31mERROR   [0m - Couldn't get lastfm artist for Egon Loosveldt[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b3ed3773-2948-4e8b-8726-f02ae56b9398[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b3ed3773-2948-4e8b-8726-f02ae56b9398: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ghost Camp[0m
+[32mINFO    [0m - Attached lastfm artist Ghost Camp from lastfm[0m
+[31mERROR   [0m - Artist Ghost Camp listeners 79 and playcount 1221 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2278667e-23cb-4b95-a5e8-853b6f653699[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2278667e-23cb-4b95-a5e8-853b6f653699: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Slow Sliders[0m
+[32mINFO    [0m - Attached lastfm artist The Slow Sliders from lastfm[0m
+[31mERROR   [0m - Artist The Slow Sliders listeners 552 and playcount 5810 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f527e755-e941-42df-82f0-aa49bbc4038c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f527e755-e941-42df-82f0-aa49bbc4038c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name DYGL[0m
+[32mINFO    [0m - Attached lastfm artist DYGL from lastfm[0m
+[32mINFO    [0m - Artist DYGL is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 053c3c45-559a-4af7-adee-6cf3c7dd82c1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 053c3c45-559a-4af7-adee-6cf3c7dd82c1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Sincere Engineer[0m
+[32mINFO    [0m - Attached lastfm artist Sincere Engineer from lastfm[0m
+[32mINFO    [0m - Artist Sincere Engineer is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 702ee728-dc13-4db3-93d8-5e677322455f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 702ee728-dc13-4db3-93d8-5e677322455f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name SLEEP RADIO[0m
+[32mINFO    [0m - Attached lastfm artist SLEEP RADIO from lastfm[0m
+[31mERROR   [0m - Artist SLEEP RADIO not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5c0d31ec-8d1a-4d60-99f0-7d44ec75f6b8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5c0d31ec-8d1a-4d60-99f0-7d44ec75f6b8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Sobs[0m
+[32mINFO    [0m - Attached lastfm artist Sobs from lastfm[0m
+[32mINFO    [0m - Artist Sobs is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ecb154d5-171d-4fcd-9d62-25e7ab824746[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ecb154d5-171d-4fcd-9d62-25e7ab824746: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name New Moon Rising[0m
+[32mINFO    [0m - Attached lastfm artist New Moon Rising from lastfm[0m
+[31mERROR   [0m - Artist New Moon Rising listeners 323 and playcount 700 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fea2f92b-8d16-4817-b7ab-c379efb043a0[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fea2f92b-8d16-4817-b7ab-c379efb043a0: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Dark Romantics[0m
+[32mINFO    [0m - Attached lastfm artist The Dark Romantics from lastfm[0m
+[32mINFO    [0m - Artist The Dark Romantics is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7196f17e-a84b-4805-b623-7fc899f96334[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7196f17e-a84b-4805-b623-7fc899f96334: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Slow Crush[0m
+[32mINFO    [0m - Attached lastfm artist Slow Crush from lastfm[0m
+[31mERROR   [0m - Artist Slow Crush not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c4a28ea0-bc29-4627-8297-496ba40502c9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c4a28ea0-bc29-4627-8297-496ba40502c9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name John Wayne Gretzky[0m
+[32mINFO    [0m - Attached lastfm artist John Wayne Gretzky from lastfm[0m
+[31mERROR   [0m - Artist John Wayne Gretzky listeners 1 and playcount 1 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 64f0232e-20db-49b1-87c4-bb4df3412240[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 64f0232e-20db-49b1-87c4-bb4df3412240: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Standard Broadcast[0m
+[32mINFO    [0m - Attached lastfm artist Standard Broadcast from lastfm[0m
+[31mERROR   [0m - Artist Standard Broadcast listeners 65 and playcount 191 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid eec38ce9-ea62-40f8-a595-1a836847bfaa[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid eec38ce9-ea62-40f8-a595-1a836847bfaa: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Soft Girl[0m
+[32mINFO    [0m - Attached lastfm artist Soft Girl from lastfm[0m
+[31mERROR   [0m - Artist Soft Girl listeners 2479 and playcount 46093 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 330e5f77-07b9-46a9-85f1-371b2dc0d63a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 330e5f77-07b9-46a9-85f1-371b2dc0d63a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Verses the Octopus[0m
+[32mINFO    [0m - Attached lastfm artist Verses the Octopus from lastfm[0m
+[31mERROR   [0m - Artist Verses the Octopus listeners 31 and playcount 223 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c9dc6427-4aba-4af0-87b0-c87bd436aaa4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c9dc6427-4aba-4af0-87b0-c87bd436aaa4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Bears in Trees[0m
+[32mINFO    [0m - Attached lastfm artist Bears in Trees from lastfm[0m
+[31mERROR   [0m - Artist Bears in Trees not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f189c7ca-b76e-4ffc-a17e-f316cdaadf8a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f189c7ca-b76e-4ffc-a17e-f316cdaadf8a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Raymond Brake[0m
+[32mINFO    [0m - Attached lastfm artist The Raymond Brake from lastfm[0m
+[31mERROR   [0m - Artist The Raymond Brake listeners 1803 and playcount 51462 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5d9635f3-64ae-47b9-8006-e84713cb0e59[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5d9635f3-64ae-47b9-8006-e84713cb0e59: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Apollo Hero[0m
+[32mINFO    [0m - Attached lastfm artist Apollo Hero from lastfm[0m
+[31mERROR   [0m - Artist Apollo Hero listeners 4 and playcount 31 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1fb2fb4d-ec97-496a-a876-19da2083296a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1fb2fb4d-ec97-496a-a876-19da2083296a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Minor Poet[0m
+[32mINFO    [0m - Attached lastfm artist Minor Poet from lastfm[0m
+[31mERROR   [0m - Artist Minor Poet listeners 4946 and playcount 22187 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 88c55079-8fe8-4fba-9b88-fb29d3efa7c6[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 88c55079-8fe8-4fba-9b88-fb29d3efa7c6: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mallory Merk[0m
+[32mINFO    [0m - Attached lastfm artist Mallory Merk from lastfm[0m
+[31mERROR   [0m - Artist Mallory Merk not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3329e0ce-14b6-4b51-b658-85f6392554a3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3329e0ce-14b6-4b51-b658-85f6392554a3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Pillow Queens[0m
+[32mINFO    [0m - Attached lastfm artist Pillow Queens from lastfm[0m
+[32mINFO    [0m - Artist Pillow Queens is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Pillow Queens[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Pillow Queens[0m
+[32mINFO    [0m - Searching Spotify for Track: 'HowDoILook' by Artist: 'Pillow Queens'[0m
+[32mINFO    [0m - Spotify Artist ID: 7BDvurihyagH0uSPNDJX7d[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Pillow Queens (ID: 7BDvurihyagH0uSPNDJX7d)[0m
+[32mINFO    [0m - Attached spotify artist Pillow Queens from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for HowDoILook[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Pillow Queens - HowDoILook[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 17[0m
+[1;32mSUCCESS [0m - RATIO: 5.230769230769231%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Sobs[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Sobs[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Ocean Song' by Artist: 'SoBs'[0m
+[32mINFO    [0m - Spotify Artist ID: 2gj35CRyiuvuJ5VzjkX52i[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Sobs (ID: 2gj35CRyiuvuJ5VzjkX52i)[0m
+[32mINFO    [0m - Attached spotify artist Sobs from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Ocean Song[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Sobs - Ocean Song[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 18[0m
+[1;32mSUCCESS [0m - RATIO: 5.538461538461538%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Dark Romantics[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for The Dark Romantics[0m
+[32mINFO    [0m - Searching Spotify for Track: 'She's A Fire' by Artist: 'The Dark Romantics'[0m
+[32mINFO    [0m - Spotify Artist ID: 3NFL2O8bUygQSBBgBXSExE[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Dark Romantics (ID: 3NFL2O8bUygQSBBgBXSExE)[0m
+[32mINFO    [0m - Attached spotify artist The Dark Romantics from lastfm top track[0m
+[31mERROR   [0m - Artist The Dark Romantics followers (745) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for DYGL[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for DYGL[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Let It Sway' by Artist: 'DYGL'[0m
+[32mINFO    [0m - Spotify Artist ID: 43kKsfG1eZSFW785NtHDYs[0m
+[32mINFO    [0m - Retrieved Spotify Artist: DYGL (ID: 43kKsfG1eZSFW785NtHDYs)[0m
+[32mINFO    [0m - Attached spotify artist DYGL from lastfm top track[0m
+[31mERROR   [0m - Artist DYGL followers (69118) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Sincere Engineer[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Sincere Engineer[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Corn Dog Sonnet No. 7' by Artist: 'Sincere Engineer'[0m
+[32mINFO    [0m - Spotify Artist ID: 5l1QyUoZFlqTKJ1NrbCTu1[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Sincere Engineer (ID: 5l1QyUoZFlqTKJ1NrbCTu1)[0m
+[32mINFO    [0m - Attached spotify artist Sincere Engineer from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for Corn Dog Sonnet No. 7[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Sincere Engineer - Corn Dog Sonnet No. 7[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 19[0m
+[1;32mSUCCESS [0m - RATIO: 5.846153846153846%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m
+[32mINFO    [0m - artists checked: 325[0m
+[32mINFO    [0m - Checking offset 133 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8aaecf10-2442-4008-a743-457b7755086d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8aaecf10-2442-4008-a743-457b7755086d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name oui merci[0m
+[32mINFO    [0m - Attached lastfm artist oui merci from lastfm[0m
+[31mERROR   [0m - Artist oui merci listeners 707 and playcount 5761 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a707e757-128f-4c6a-898f-bdab422c3ab5[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a707e757-128f-4c6a-898f-bdab422c3ab5: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Fuckin Whatever[0m
+[32mINFO    [0m - Attached lastfm artist Fuckin Whatever from lastfm[0m
+[31mERROR   [0m - Artist Fuckin Whatever not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 860b0e7f-91d3-42e4-9242-22fd3b45796d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 860b0e7f-91d3-42e4-9242-22fd3b45796d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Sean Alan[0m
+[32mINFO    [0m - Attached lastfm artist Sean Alan from lastfm[0m
+[31mERROR   [0m - Artist Sean Alan listeners 1826 and playcount 5508 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e41b6da1-dfc1-4dcb-8706-ddcd885fd0c7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e41b6da1-dfc1-4dcb-8706-ddcd885fd0c7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Amadeus Chaffe[0m
+[32mINFO    [0m - Attached lastfm artist Amadeus Chaffe from lastfm[0m
+[31mERROR   [0m - Artist Amadeus Chaffe listeners 301 and playcount 5869 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d8088259-9e48-4e12-b530-3e582f569486[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d8088259-9e48-4e12-b530-3e582f569486: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Logan Oates[0m
+[32mINFO    [0m - Attached lastfm artist Logan Oates from lastfm[0m
+[31mERROR   [0m - Artist Logan Oates listeners 39 and playcount 152 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f4b6e451-5dce-4842-a555-f793892299b3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid f4b6e451-5dce-4842-a555-f793892299b3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Jane Remover[0m
+[32mINFO    [0m - Attached lastfm artist Jane Remover from lastfm[0m
+[31mERROR   [0m - Artist Jane Remover not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 4271355b-f8ae-4a76-b5d1-b0dc33df78dd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 4271355b-f8ae-4a76-b5d1-b0dc33df78dd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nesen[0m
+[32mINFO    [0m - Attached lastfm artist Nesen from lastfm[0m
+[31mERROR   [0m - Artist Nesen listeners 716 and playcount 13505 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 61b9dfb5-2983-4292-8dd2-7b1efcc3fa58[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 61b9dfb5-2983-4292-8dd2-7b1efcc3fa58: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Nervous Vulpis[0m
+[32mINFO    [0m - Attached lastfm artist Nervous Vulpis from lastfm[0m
+[31mERROR   [0m - Artist Nervous Vulpis listeners 76 and playcount 1155 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c3e0a6c6-3e70-4baa-aa08-a7bb5b0e8d4a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c3e0a6c6-3e70-4baa-aa08-a7bb5b0e8d4a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ten Hands High[0m
+[32mINFO    [0m - Attached lastfm artist Ten Hands High from lastfm[0m
+[31mERROR   [0m - Artist Ten Hands High listeners 4111 and playcount 20907 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid badf4044-1ba6-4973-8f58-6fab1b7f7efb[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid badf4044-1ba6-4973-8f58-6fab1b7f7efb: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name DUDE, MY DUDE[0m
+[32mINFO    [0m - Attached lastfm artist DUDE, MY DUDE from lastfm[0m
+[32mINFO    [0m - Artist DUDE, MY DUDE is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid acc5cbf0-5754-4435-8282-f430de88afbd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid acc5cbf0-5754-4435-8282-f430de88afbd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name frano[0m
+[32mINFO    [0m - Attached lastfm artist frano from lastfm[0m
+[31mERROR   [0m - Artist frano listeners 147 and playcount 2125 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7bca3da0-5cee-4ac8-8590-801dc9dd9cd1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7bca3da0-5cee-4ac8-8590-801dc9dd9cd1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Pulsr[0m
+[32mINFO    [0m - Attached lastfm artist Pulsr from lastfm[0m
+[32mINFO    [0m - Artist Pulsr is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 718d293c-90f2-4205-8059-80985aebd557[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 718d293c-90f2-4205-8059-80985aebd557: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Jess Matsen[0m
+[32mINFO    [0m - Attached lastfm artist Jess Matsen from lastfm[0m
+[31mERROR   [0m - Artist Jess Matsen listeners 52 and playcount 719 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 95d58334-7284-4894-a012-45ae6d4c0c07[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 95d58334-7284-4894-a012-45ae6d4c0c07: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Jeff Lownsbury[0m
+[32mINFO    [0m - Attached lastfm artist Jeff Lownsbury from lastfm[0m
+[31mERROR   [0m - Artist Jeff Lownsbury listeners 11 and playcount 214 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8c7d9f4f-a718-4603-a23b-7f44b7e6693e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8c7d9f4f-a718-4603-a23b-7f44b7e6693e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Otherly Love[0m
+[32mINFO    [0m - Attached lastfm artist Otherly Love from lastfm[0m
+[31mERROR   [0m - Artist Otherly Love listeners 368 and playcount 1058 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 13c31ab9-6171-47c1-8f96-b74cb78f94be[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 13c31ab9-6171-47c1-8f96-b74cb78f94be: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Katterwaul[0m
+[32mINFO    [0m - Attached lastfm artist Katterwaul from lastfm[0m
+[31mERROR   [0m - Artist Katterwaul listeners 80 and playcount 638 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0b5c5dde-2c0c-4f89-a4de-5bb3ec3e1450[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0b5c5dde-2c0c-4f89-a4de-5bb3ec3e1450: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name TRANK[0m
+[32mINFO    [0m - Attached lastfm artist TRANK from lastfm[0m
+[31mERROR   [0m - Artist TRANK listeners 473 and playcount 1282 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9fcbda9b-6507-4b22-abdb-8a5829f66ea7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9fcbda9b-6507-4b22-abdb-8a5829f66ea7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Bryan Porter Hinkley[0m
+[32mINFO    [0m - Attached lastfm artist Bryan Porter Hinkley from lastfm[0m
+[31mERROR   [0m - Artist Bryan Porter Hinkley listeners 585 and playcount 1155 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5ebdbfe6-62fa-46ee-9e2b-981d602a4c9a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5ebdbfe6-62fa-46ee-9e2b-981d602a4c9a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Acorn Bcorn[0m
+[32mINFO    [0m - Attached lastfm artist Acorn Bcorn from lastfm[0m
+[31mERROR   [0m - Artist Acorn Bcorn listeners 128 and playcount 1184 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e5adbd23-41ef-422a-8897-e84702b98859[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e5adbd23-41ef-422a-8897-e84702b98859: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Indigo Daydream[0m
+[32mINFO    [0m - Attached lastfm artist Indigo Daydream from lastfm[0m
+[31mERROR   [0m - Artist Indigo Daydream listeners 172 and playcount 1993 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fc6fe95d-ab24-44fd-a086-f33a505ad518[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fc6fe95d-ab24-44fd-a086-f33a505ad518: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name bar italia[0m
+[32mINFO    [0m - Attached lastfm artist bar italia from lastfm[0m
+[32mINFO    [0m - Artist bar italia is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9800d330-04f1-4724-850f-29c830a382dd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9800d330-04f1-4724-850f-29c830a382dd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Baby Kid[0m
+[32mINFO    [0m - Attached lastfm artist Baby Kid from lastfm[0m
+[31mERROR   [0m - Artist Baby Kid listeners 64 and playcount 1929 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6c533813-29bd-4a4d-975f-3007ab209ddc[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6c533813-29bd-4a4d-975f-3007ab209ddc: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Big Nothing[0m
+[32mINFO    [0m - Attached lastfm artist Big Nothing from lastfm[0m
+[32mINFO    [0m - Artist Big Nothing is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid fac0a47b-017e-4b05-a90f-9097d08f038a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid fac0a47b-017e-4b05-a90f-9097d08f038a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Chub Rub[0m
+[32mINFO    [0m - Attached lastfm artist Chub Rub from lastfm[0m
+[31mERROR   [0m - Artist Chub Rub listeners 239 and playcount 1279 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d7a4e767-3b56-4f68-bbf6-62a1c8d51a88[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d7a4e767-3b56-4f68-bbf6-62a1c8d51a88: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Glass House Point[0m
+[32mINFO    [0m - Attached lastfm artist Glass House Point from lastfm[0m
+[31mERROR   [0m - Artist Glass House Point listeners 4837 and playcount 25750 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for bar italia[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for bar italia[0m
+[32mINFO    [0m - Searching Spotify for Track: 'skylinny' by Artist: 'Bar Italia'[0m
+[32mINFO    [0m - Spotify Artist ID: 6tYmTHApvspl6KAgTfHjAY[0m
+[32mINFO    [0m - Retrieved Spotify Artist: bar italia (ID: 6tYmTHApvspl6KAgTfHjAY)[0m
+[32mINFO    [0m - Attached spotify artist bar italia from lastfm top track[0m
+[31mERROR   [0m - Artist bar italia followers (63016) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for DUDE, MY DUDE[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for DUDE, MY DUDE[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Eleanor's Detour' by Artist: 'DUDE, MY DUDE'[0m
+[32mINFO    [0m - Spotify Artist ID: 4v7JZCmpK8HUCeqadGBeuF[0m
+[32mINFO    [0m - Retrieved Spotify Artist: DUDE, MY DUDE (ID: 4v7JZCmpK8HUCeqadGBeuF)[0m
+[32mINFO    [0m - Attached spotify artist DUDE, MY DUDE from lastfm top track[0m
+[31mERROR   [0m - Artist DUDE, MY DUDE followers (6810) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Pulsr[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Pulsr[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Kaleidoscope' by Artist: 'Pulsr'[0m
+[32mINFO    [0m - Spotify Artist ID: 77XuU5ExD4bRv1LwcNGQHZ[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Pulsr (ID: 77XuU5ExD4bRv1LwcNGQHZ)[0m
+[32mINFO    [0m - Attached spotify artist Pulsr from lastfm top track[0m
+[31mERROR   [0m - Artist Pulsr followers (1520) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Big Nothing[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Big Nothing[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Always On My Mind' by Artist: 'Big Nothing'[0m
+[32mINFO    [0m - Spotify Artist ID: 29w4I1Z1XBfrr8opjHdofd[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Big Nothing (ID: 29w4I1Z1XBfrr8opjHdofd)[0m
+[32mINFO    [0m - Attached spotify artist Big Nothing from lastfm top track[0m
+[31mERROR   [0m - Artist Big Nothing followers (2628) too low[0m
+[32mINFO    [0m - artists checked: 350[0m
+[32mINFO    [0m - Checking offset 102 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0e9d7bbd-7fb9-42db-ad70-6a0a4a29d6eb[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0e9d7bbd-7fb9-42db-ad70-6a0a4a29d6eb: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name LUMER[0m
+[32mINFO    [0m - Attached lastfm artist LUMER from lastfm[0m
+[31mERROR   [0m - Artist LUMER listeners 5956 and playcount 35694 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 97529a9e-4b5a-4a9c-9c08-c42401d1c268[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 97529a9e-4b5a-4a9c-9c08-c42401d1c268: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name YUNGBLUD[0m
+[32mINFO    [0m - Attached lastfm artist YUNGBLUD from lastfm[0m
+[31mERROR   [0m - Artist YUNGBLUD listeners 843716 and playcount 30900375 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 60699ba5-cdfa-450b-a664-29eb81a92bf6[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 60699ba5-cdfa-450b-a664-29eb81a92bf6: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Snuts[0m
+[32mINFO    [0m - Attached lastfm artist The Snuts from lastfm[0m
+[32mINFO    [0m - Artist The Snuts is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1850cd0f-d311-42ed-a330-5ec0b320ecbe[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1850cd0f-d311-42ed-a330-5ec0b320ecbe: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name I Pixel[0m
+[32mINFO    [0m - Attached lastfm artist I Pixel from lastfm[0m
+[31mERROR   [0m - Artist I Pixel listeners 2778 and playcount 13569 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0597def3-4181-4e88-a40b-19600fdb9a6b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0597def3-4181-4e88-a40b-19600fdb9a6b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name College Transfer Student[0m
+[32mINFO    [0m - Attached lastfm artist College Transfer Student from lastfm[0m
+[31mERROR   [0m - Artist College Transfer Student listeners 2 and playcount 12 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 719edbf4-2404-4e70-abe5-74987c113ed3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 719edbf4-2404-4e70-abe5-74987c113ed3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Wild Horse[0m
+[32mINFO    [0m - Attached lastfm artist Wild Horse from lastfm[0m
+[31mERROR   [0m - Artist Wild Horse listeners 1562 and playcount 15965 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ef15c574-cf5f-4cc8-823f-f4a9e82833f3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ef15c574-cf5f-4cc8-823f-f4a9e82833f3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Symposium[0m
+[32mINFO    [0m - Attached lastfm artist The Symposium from lastfm[0m
+[32mINFO    [0m - Artist The Symposium is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b9381936-30b1-456d-b2a4-878cfd96dad4[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b9381936-30b1-456d-b2a4-878cfd96dad4: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name OVERHAUL[0m
+[32mINFO    [0m - Attached lastfm artist OVERHAUL from lastfm[0m
+[31mERROR   [0m - Artist OVERHAUL listeners 167 and playcount 12574 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 84b996fe-78be-4374-9c08-2e4cc368d294[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 84b996fe-78be-4374-9c08-2e4cc368d294: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mel Bryant[0m
+[32mINFO    [0m - Attached lastfm artist Mel Bryant from lastfm[0m
+[31mERROR   [0m - Artist Mel Bryant listeners 494 and playcount 6323 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 06e39d83-2844-4713-9508-06336150c9d2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 06e39d83-2844-4713-9508-06336150c9d2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Junction 25[0m
+[32mINFO    [0m - Attached lastfm artist Junction 25 from lastfm[0m
+[31mERROR   [0m - Artist Junction 25 listeners 2 and playcount 7 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c4074f9d-3358-4301-96c4-bbe72548958f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c4074f9d-3358-4301-96c4-bbe72548958f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Ajay Mathur[0m
+[32mINFO    [0m - Attached lastfm artist Ajay Mathur from lastfm[0m
+[31mERROR   [0m - Artist Ajay Mathur listeners 2228 and playcount 4647 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9dc20c0d-a074-4d1a-b30f-a5528eca0cd3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9dc20c0d-a074-4d1a-b30f-a5528eca0cd3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Grands Boulevards[0m
+[32mINFO    [0m - Attached lastfm artist Grands Boulevards from lastfm[0m
+[31mERROR   [0m - Artist Grands Boulevards listeners 63 and playcount 503 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e81c56d7-f9ae-4d56-8220-c905338ba35e[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e81c56d7-f9ae-4d56-8220-c905338ba35e: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Rainkings[0m
+[32mINFO    [0m - Attached lastfm artist The Rainkings from lastfm[0m
+[31mERROR   [0m - Artist The Rainkings listeners 534 and playcount 4938 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 84803b1d-dcb3-490d-9af5-debbba64a011[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 84803b1d-dcb3-490d-9af5-debbba64a011: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Soccer Mommy[0m
+[32mINFO    [0m - Attached lastfm artist Soccer Mommy from lastfm[0m
+[31mERROR   [0m - Artist Soccer Mommy listeners 670336 and playcount 21982617 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 0be07713-a6db-4840-8e8c-a3bca4709432[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 0be07713-a6db-4840-8e8c-a3bca4709432: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Katie von Schleicher[0m
+[32mINFO    [0m - Attached lastfm artist Katie von Schleicher from lastfm[0m
+[32mINFO    [0m - Artist Katie von Schleicher is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8b51f4cc-7aa0-446e-a3ae-4fd42d62da6f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8b51f4cc-7aa0-446e-a3ae-4fd42d62da6f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Neufundland[0m
+[32mINFO    [0m - Attached lastfm artist Neufundland from lastfm[0m
+[32mINFO    [0m - Artist Neufundland is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 71342142-b1d9-44ba-a5ad-3ee07715fa80[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 71342142-b1d9-44ba-a5ad-3ee07715fa80: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Drury Brothers[0m
+[32mINFO    [0m - Attached lastfm artist The Drury Brothers from lastfm[0m
+[31mERROR   [0m - Artist The Drury Brothers listeners 212 and playcount 469 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5790fa92-2b94-4aba-b491-0e9d5643fb5d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5790fa92-2b94-4aba-b491-0e9d5643fb5d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Guiding Light[0m
+[32mINFO    [0m - Attached lastfm artist Guiding Light from lastfm[0m
+[31mERROR   [0m - Artist Guiding Light listeners 710 and playcount 3861 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid e8ca1d63-90db-4f36-ad85-8add93f296d8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid e8ca1d63-90db-4f36-ad85-8add93f296d8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Prisma[0m
+[32mINFO    [0m - Attached lastfm artist Prisma from lastfm[0m
+[31mERROR   [0m - Artist Prisma not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 964aa2ce-f0a7-4405-b66d-9e4b9864205a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 964aa2ce-f0a7-4405-b66d-9e4b9864205a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Larry Wish & His Guys[0m
+[32mINFO    [0m - Attached lastfm artist Larry Wish & His Guys from lastfm[0m
+[31mERROR   [0m - Artist Larry Wish & His Guys listeners 77 and playcount 313 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ffe05370-bd73-4c40-9ddf-02490aaea5fb[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ffe05370-bd73-4c40-9ddf-02490aaea5fb: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Papa Watzke[0m
+[32mINFO    [0m - Attached lastfm artist Papa Watzke from lastfm[0m
+[31mERROR   [0m - Artist Papa Watzke listeners 29 and playcount 181 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 79670f9c-5832-49eb-aca6-f49b64266e5f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 79670f9c-5832-49eb-aca6-f49b64266e5f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Chestnut Bakery[0m
+[32mINFO    [0m - Attached lastfm artist Chestnut Bakery from lastfm[0m
+[31mERROR   [0m - Artist Chestnut Bakery not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1fd9d499-014d-41b7-af6d-1952c739f626[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 1fd9d499-014d-41b7-af6d-1952c739f626: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Velcro Shoes[0m
+[32mINFO    [0m - Attached lastfm artist The Velcro Shoes from lastfm[0m
+[31mERROR   [0m - Artist The Velcro Shoes listeners 12 and playcount 193 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6a7154da-1eb7-4e54-afd6-2ecf6d0e6994[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6a7154da-1eb7-4e54-afd6-2ecf6d0e6994: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Steve Amber[0m
+[32mINFO    [0m - Attached lastfm artist Steve Amber from lastfm[0m
+[31mERROR   [0m - Artist Steve Amber listeners 397 and playcount 2134 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 16d79670-274a-4991-ba55-d66a4b47524f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 16d79670-274a-4991-ba55-d66a4b47524f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Thisistoodifficult[0m
+[32mINFO    [0m - Attached lastfm artist Thisistoodifficult from lastfm[0m
+[32mINFO    [0m - Artist Thisistoodifficult is valid[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Thisistoodifficult[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Thisistoodifficult[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Once in a While' by Artist: 'Thisistoodifficult'[0m
+[32mINFO    [0m - Spotify Artist ID: 2pnA0B5xNikwknZXi6XFKV[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Thisistoodifficult (ID: 2pnA0B5xNikwknZXi6XFKV)[0m
+[32mINFO    [0m - Attached spotify artist Thisistoodifficult from lastfm top track[0m
+[31mERROR   [0m - Artist Thisistoodifficult followers (3983) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Symposium[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for The Symposium[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Streems' by Artist: 'The Symposium'[0m
+[32mINFO    [0m - Spotify Artist ID: 2FQgnKHydnhSnRS17BSy28[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Symposium (ID: 2FQgnKHydnhSnRS17BSy28)[0m
+[32mINFO    [0m - Attached spotify artist The Symposium from lastfm top track[0m
+[31mERROR   [0m - Artist The Symposium followers (91351) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Katie von Schleicher[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Katie von Schleicher[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Montagnard People' by Artist: 'Katie Von Schleicher'[0m
+[32mINFO    [0m - Spotify Artist ID: 68UA9076k6lewTq2slA1FN[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Katie Von Schleicher (ID: 68UA9076k6lewTq2slA1FN)[0m
+[32mINFO    [0m - Attached spotify artist Katie von Schleicher from lastfm top track[0m
+[31mERROR   [0m - Artist Katie von Schleicher followers (8809) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Snuts[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for The Snuts[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Juan Belmonte' by Artist: 'The Snuts'[0m
+[32mINFO    [0m - Spotify Artist ID: 4AzAfQNuAyKOFG4DZMsdAo[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Snuts (ID: 4AzAfQNuAyKOFG4DZMsdAo)[0m
+[32mINFO    [0m - Attached spotify artist The Snuts from lastfm top track[0m
+[31mERROR   [0m - Artist The Snuts followers (163489) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Neufundland[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Neufundland[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Eiskugel' by Artist: 'Neufundland'[0m
+[32mINFO    [0m - Spotify Artist ID: 2EOZCoVCpBwgOSP09Cg551[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Neufundland (ID: 2EOZCoVCpBwgOSP09Cg551)[0m
+[32mINFO    [0m - Attached spotify artist Neufundland from lastfm top track[0m
+[31mERROR   [0m - Artist Neufundland followers (6185) too low[0m
+[32mINFO    [0m - artists checked: 375[0m
+[32mINFO    [0m - Checking offset 14 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1d46cb3a-8071-45ba-855e-74e3cff20974[0m
+[32mINFO    [0m - Attached lastfm artist Deacon Blue from lastfm[0m
+[31mERROR   [0m - Artist Deacon Blue not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1305bd7e-27ef-4236-ae87-0a7d435234ca[0m
+[32mINFO    [0m - Attached lastfm artist Songs: Ohia from lastfm[0m
+[31mERROR   [0m - Artist Songs: Ohia listeners 457766 and playcount 14255260 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c1741e51-aa6b-43db-af02-e0901a49db49[0m
+[32mINFO    [0m - Attached lastfm artist Calla from lastfm[0m
+[32mINFO    [0m - Artist Calla is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ad92dd9c-56ef-4443-b2c0-ff2f7d9cca49[0m
+[32mINFO    [0m - Attached lastfm artist The Sounds from lastfm[0m
+[31mERROR   [0m - Artist The Sounds listeners 651724 and playcount 23117928 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid bf103bd9-7a20-4a7e-95e0-369fe494fc88[0m
+[32mINFO    [0m - Attached lastfm artist Moxy Früvous from lastfm[0m
+[31mERROR   [0m - Artist Moxy Früvous not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9d4c4835-c71a-4647-a4fc-263e26832cd0[0m
+[32mINFO    [0m - Attached lastfm artist Grandaddy from lastfm[0m
+[31mERROR   [0m - Artist Grandaddy listeners 824573 and playcount 16676767 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 244afcb7-fa9a-49b1-9aa6-0149512d1c52[0m
+[32mINFO    [0m - Attached lastfm artist Thrice from lastfm[0m
+[31mERROR   [0m - Artist Thrice listeners 1014609 and playcount 48223526 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 304cdd9d-a04e-4eb2-865c-980a553a0efd[0m
+[32mINFO    [0m - Attached lastfm artist Gomez from lastfm[0m
+[31mERROR   [0m - Artist Gomez listeners 572571 and playcount 9749011 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9c1ff574-2ae4-4fea-881f-83293d0d5881[0m
+[32mINFO    [0m - Attached lastfm artist …And You Will Know Us by the Trail of Dead from lastfm[0m
+[31mERROR   [0m - Artist …And You Will Know Us by the Trail of Dead listeners 613686 and playcount 17800690 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 63134699-ca51-464b-816d-3f32efd4a093[0m
+[32mINFO    [0m - Attached lastfm artist Space from lastfm[0m
+[31mERROR   [0m - Artist Space not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5739643e-3037-4349-8ceb-73e337158f2c[0m
+[32mINFO    [0m - Attached lastfm artist Har Mar Superstar from lastfm[0m
+[31mERROR   [0m - Artist Har Mar Superstar not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6c6f5412-f01d-4cce-b1bb-b2349cd7f8f2[0m
+[32mINFO    [0m - Attached lastfm artist Denali from lastfm[0m
+[32mINFO    [0m - Artist Denali is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 082c5f46-c59d-44b6-a247-6b6a5dd893be[0m
+[32mINFO    [0m - Attached lastfm artist Joe Pernice from lastfm[0m
+[31mERROR   [0m - Artist Joe Pernice listeners 7059 and playcount 83743 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7846e710-8e8c-4827-90ba-382ecdd28905[0m
+[32mINFO    [0m - Attached lastfm artist 31Knots from lastfm[0m
+[32mINFO    [0m - Artist 31Knots is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a2accb58-6099-4cb5-a3c8-f6332f364db5[0m
+[32mINFO    [0m - Attached lastfm artist James from lastfm[0m
+[31mERROR   [0m - Artist James listeners 878613 and playcount 15686961 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 1ea2c08f-323c-4207-9af1-e2fb8588f08e[0m
+[32mINFO    [0m - Attached lastfm artist Clinic from lastfm[0m
+[32mINFO    [0m - Artist Clinic is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 766a2b45-441f-4096-af05-dbbca9518c9d[0m
+[32mINFO    [0m - Attached lastfm artist Phantom Planet from lastfm[0m
+[31mERROR   [0m - Artist Phantom Planet listeners 970909 and playcount 11169056 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid f43f343e-1629-4bdc-a921-6c5f971809f8[0m
+[32mINFO    [0m - Attached lastfm artist Common Rider from lastfm[0m
+[31mERROR   [0m - Artist Common Rider not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d7471393-bdf1-429d-b000-ef6adf7e72df[0m
+[32mINFO    [0m - Attached lastfm artist The Zambonis from lastfm[0m
+[31mERROR   [0m - Artist The Zambonis listeners 7461 and playcount 64866 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5e372a49-5672-4fb8-ba14-18c90780c4f9[0m
+[32mINFO    [0m - Attached lastfm artist Calexico from lastfm[0m
+[31mERROR   [0m - Artist Calexico listeners 726329 and playcount 21589830 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ae97dec5-cbbc-40be-b4d6-6673b660b3d3[0m
+[32mINFO    [0m - Attached lastfm artist The Mother Hips from lastfm[0m
+[31mERROR   [0m - Artist The Mother Hips not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 024bea6e-e250-4348-9e69-2dfcad38442e[0m
+[32mINFO    [0m - Attached lastfm artist The Bluetones from lastfm[0m
+[32mINFO    [0m - Artist The Bluetones is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a16371b9-7d36-497a-a9d4-42b0a0440c5e[0m
+[32mINFO    [0m - Attached lastfm artist Slowdive from lastfm[0m
+[31mERROR   [0m - Artist Slowdive listeners 1592005 and playcount 101590699 too high[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9f505952-766f-4b0a-a9bb-c1c13c6bbe2f[0m
+[32mINFO    [0m - Attached lastfm artist Three Mile Pilot from lastfm[0m
+[32mINFO    [0m - Artist Three Mile Pilot is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5e7d5548-a03b-4bbf-8b5a-66541c4e3f4c[0m
+[32mINFO    [0m - Attached lastfm artist Deborah Conway from lastfm[0m
+[31mERROR   [0m - Artist Deborah Conway listeners 6861 and playcount 67564 too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Denali[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Lose Me' by Artist: 'Denali'[0m
+[32mINFO    [0m - Spotify Artist ID: 5PdZFyLYVjl2qeoQoeuvia[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Denali (ID: 5PdZFyLYVjl2qeoQoeuvia)[0m
+[32mINFO    [0m - Attached spotify artist Denali from lastfm top track[0m
+[31mERROR   [0m - Artist Denali followers (6443) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for The Bluetones[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Bluetonic' by Artist: 'The Bluetones'[0m
+[32mINFO    [0m - Spotify Artist ID: 66nOkPJTFgK25NMmojG04V[0m
+[32mINFO    [0m - Retrieved Spotify Artist: The Bluetones (ID: 66nOkPJTFgK25NMmojG04V)[0m
+[32mINFO    [0m - Attached spotify artist The Bluetones from lastfm top track[0m
+[31mERROR   [0m - Artist The Bluetones followers (115661) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Three Mile Pilot[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Way Of The Ocean' by Artist: 'Three Mile Pilot'[0m
+[32mINFO    [0m - Spotify Artist ID: 7wpQ6iKGinCGT4pRd7nXja[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Three Mile Pilot (ID: 7wpQ6iKGinCGT4pRd7nXja)[0m
+[32mINFO    [0m - Attached spotify artist Three Mile Pilot from lastfm top track[0m
+[31mERROR   [0m - Artist Three Mile Pilot followers (7885) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Clinic[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Distortions' by Artist: 'Clinic'[0m
+[32mINFO    [0m - Spotify Artist ID: 7icDkrFloDss50hoqQ3Kkj[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Clinic (ID: 7icDkrFloDss50hoqQ3Kkj)[0m
+[32mINFO    [0m - Attached spotify artist Clinic from lastfm top track[0m
+[31mERROR   [0m - Artist Clinic followers (48815) too high[0m
+[32mINFO    [0m - Attaching top tracks from mbid for 31Knots[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Sanctify' by Artist: '31Knots'[0m
+[32mINFO    [0m - Spotify Artist ID: 4nWVO2hfYWV6It7tKooj02[0m
+[32mINFO    [0m - Retrieved Spotify Artist: 31Knots (ID: 4nWVO2hfYWV6It7tKooj02)[0m
+[32mINFO    [0m - Attached spotify artist 31Knots from lastfm top track[0m
+[31mERROR   [0m - Artist 31Knots followers (2937) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Calla[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Fear of Fireflies' by Artist: 'Calla'[0m
+[32mINFO    [0m - Spotify Artist ID: 4mcVAxcVVry8r6zmPBpL1w[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Calla (ID: 4mcVAxcVVry8r6zmPBpL1w)[0m
+[32mINFO    [0m - Attached spotify artist Calla from lastfm top track[0m
+[31mERROR   [0m - Artist Calla followers (4917) too low[0m
+[32mINFO    [0m - artists checked: 400[0m
+[32mINFO    [0m - Checking offset 116 of 161[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid d2696295-991d-4c20-aaa8-886b5748d79f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid d2696295-991d-4c20-aaa8-886b5748d79f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Joyer[0m
+[32mINFO    [0m - Attached lastfm artist Joyer from lastfm[0m
+[32mINFO    [0m - Artist Joyer is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 86d00758-7974-429f-a5b1-6d8667c04de2[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 86d00758-7974-429f-a5b1-6d8667c04de2: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Pompadour[0m
+[32mINFO    [0m - Attached lastfm artist Pompadour from lastfm[0m
+[31mERROR   [0m - Artist Pompadour listeners 420 and playcount 4746 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 9861b813-3e8e-4e3a-b5ec-78ac6280489a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 9861b813-3e8e-4e3a-b5ec-78ac6280489a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Better Oblivion Community Center[0m
+[32mINFO    [0m - Attached lastfm artist Better Oblivion Community Center from lastfm[0m
+[32mINFO    [0m - Artist Better Oblivion Community Center is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 112c9b15-995b-4367-a081-b23671cc9aa1[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 112c9b15-995b-4367-a081-b23671cc9aa1: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Western Den[0m
+[32mINFO    [0m - Attached lastfm artist The Western Den from lastfm[0m
+[31mERROR   [0m - Artist The Western Den not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6175d6f3-c0e7-4ba8-86bd-b688cf2644f5[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6175d6f3-c0e7-4ba8-86bd-b688cf2644f5: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Valentine[0m
+[32mINFO    [0m - Attached lastfm artist Valentine from lastfm[0m
+[31mERROR   [0m - Artist Valentine not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid b208072b-445b-4147-8fad-e9f7d63ee87a[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid b208072b-445b-4147-8fad-e9f7d63ee87a: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Tupelo Honey[0m
+[32mINFO    [0m - Attached lastfm artist Tupelo Honey from lastfm[0m
+[31mERROR   [0m - Artist Tupelo Honey not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3aa50c5d-629d-4daf-9929-1a78f802c0d9[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3aa50c5d-629d-4daf-9929-1a78f802c0d9: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Noon Shift[0m
+[32mINFO    [0m - Attached lastfm artist Noon Shift from lastfm[0m
+[31mERROR   [0m - Artist Noon Shift listeners 791 and playcount 3817 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid eb0f7b19-4ca9-47b9-bcb0-9cfeb8f65c49[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid eb0f7b19-4ca9-47b9-bcb0-9cfeb8f65c49: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Joseph Thompson[0m
+[32mINFO    [0m - Attached lastfm artist Joseph Thompson from lastfm[0m
+[31mERROR   [0m - Artist Joseph Thompson listeners 54 and playcount 153 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 5ace349d-8b7a-4f1e-a13a-3d31440111f8[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 5ace349d-8b7a-4f1e-a13a-3d31440111f8: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name 55 Deltic[0m
+[32mINFO    [0m - Attached lastfm artist 55 Deltic from lastfm[0m
+[31mERROR   [0m - Artist 55 Deltic listeners 6511 and playcount 59349 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dbfe9a1b-eb42-4f09-acaa-50a67d26a462[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid dbfe9a1b-eb42-4f09-acaa-50a67d26a462: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Dirty Nice[0m
+[32mINFO    [0m - Attached lastfm artist Dirty Nice from lastfm[0m
+[32mINFO    [0m - Artist Dirty Nice is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 7a617cab-1ab3-4094-b5a2-86539902235d[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 7a617cab-1ab3-4094-b5a2-86539902235d: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Riley![0m
+[32mINFO    [0m - Attached lastfm artist Riley! from lastfm[0m
+[32mINFO    [0m - Artist Riley! is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 3ecd6e88-ccf5-4fd9-9296-3dc4ccc1fdf7[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 3ecd6e88-ccf5-4fd9-9296-3dc4ccc1fdf7: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Chelsea[0m
+[32mINFO    [0m - Attached lastfm artist Chelsea from lastfm[0m
+[31mERROR   [0m - Artist Chelsea not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 79639af9-789a-4b74-b705-fa4937fc4693[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 79639af9-789a-4b74-b705-fa4937fc4693: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Singing Adams[0m
+[32mINFO    [0m - Attached lastfm artist Singing Adams from lastfm[0m
+[31mERROR   [0m - Artist Singing Adams not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 00dbfe07-f6f8-4840-830f-5b9bceee3f23[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 00dbfe07-f6f8-4840-830f-5b9bceee3f23: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Barker[0m
+[32mINFO    [0m - Attached lastfm artist Barker from lastfm[0m
+[31mERROR   [0m - Artist Barker not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 77015c07-0281-4e46-8c68-3e7e1fb5898b[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 77015c07-0281-4e46-8c68-3e7e1fb5898b: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Christelle Bofale[0m
+[32mINFO    [0m - Attached lastfm artist Christelle Bofale from lastfm[0m
+[31mERROR   [0m - Artist Christelle Bofale not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid ddc3d5e5-9d3c-4ad2-ad91-5dd5c43b8cdd[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid ddc3d5e5-9d3c-4ad2-ad91-5dd5c43b8cdd: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Англия[0m
+[32mINFO    [0m - Attached lastfm artist Англия from lastfm[0m
+[31mERROR   [0m - Artist Англия not in genre indie rock[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 2f5cb130-c781-4e42-a83b-4f8d07fecc51[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 2f5cb130-c781-4e42-a83b-4f8d07fecc51: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name P. Kwiva[0m
+[32mINFO    [0m - Attached lastfm artist P. Kwiva from lastfm[0m
+[31mERROR   [0m - Artist P. Kwiva listeners 20 and playcount 154 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 6b877915-5c7e-4248-9e29-7b11f9e7d4ef[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 6b877915-5c7e-4248-9e29-7b11f9e7d4ef: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Mercury Hill[0m
+[32mINFO    [0m - Attached lastfm artist Mercury Hill from lastfm[0m
+[31mERROR   [0m - Artist Mercury Hill listeners 3 and playcount 5 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid cceff463-29ec-46a1-95a2-08ce77330ead[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid cceff463-29ec-46a1-95a2-08ce77330ead: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Val Astaire[0m
+[32mINFO    [0m - Attached lastfm artist Val Astaire from lastfm[0m
+[32mINFO    [0m - Artist Val Astaire is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 279f42bc-df42-49d1-92de-d7e747000bf3[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 279f42bc-df42-49d1-92de-d7e747000bf3: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Allie Crow Buckley[0m
+[32mINFO    [0m - Attached lastfm artist Allie Crow Buckley from lastfm[0m
+[32mINFO    [0m - Artist Allie Crow Buckley is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 8a6cfcdb-afdb-4f27-9f02-1257fa35c009[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 8a6cfcdb-afdb-4f27-9f02-1257fa35c009: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Elle PF[0m
+[32mINFO    [0m - Attached lastfm artist Elle PF from lastfm[0m
+[31mERROR   [0m - Artist Elle PF listeners 568 and playcount 3806 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid 174698a7-7b10-40bd-a6d0-18d14fcb8089[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid 174698a7-7b10-40bd-a6d0-18d14fcb8089: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Stop Laughing[0m
+[32mINFO    [0m - Attached lastfm artist Stop Laughing from lastfm[0m
+[31mERROR   [0m - Artist Stop Laughing listeners 17 and playcount 286 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid a8d894ce-0e6b-4ddd-a49b-46f6330a590f[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid a8d894ce-0e6b-4ddd-a49b-46f6330a590f: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Indigo De Souza[0m
+[32mINFO    [0m - Attached lastfm artist Indigo De Souza from lastfm[0m
+[32mINFO    [0m - Artist Indigo De Souza is valid[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid c04f806b-0c43-48dd-b5d6-50144649c70c[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid c04f806b-0c43-48dd-b5d6-50144649c70c: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name The Indieannas[0m
+[32mINFO    [0m - Attached lastfm artist The Indieannas from lastfm[0m
+[31mERROR   [0m - Artist The Indieannas listeners 25 and playcount 261 too low[0m
+[32mINFO    [0m - Searching for lastfm artist by mbid dcfd30ac-6e8f-408c-8ed2-a64ff2b42f64[0m
+[33mWARNING [0m - Couldn't get lastfm artist by mbid dcfd30ac-6e8f-408c-8ed2-a64ff2b42f64: 'NoneType' object has no attribute 'get'[0m
+[32mINFO    [0m - Searching for lastfm artist by name Aberdeen[0m
+[32mINFO    [0m - Attached lastfm artist Aberdeen from lastfm[0m
+[31mERROR   [0m - Artist Aberdeen not in genre indie rock[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Joyer[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Joyer[0m
+[32mINFO    [0m - Searching Spotify for Track: 'Silver Moon' by Artist: 'JoyeR'[0m
+[32mINFO    [0m - Spotify Artist ID: 6h4r9Vtm0iLRTFyJrj6zcF[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Joyer (ID: 6h4r9Vtm0iLRTFyJrj6zcF)[0m
+[32mINFO    [0m - Attached spotify artist Joyer from lastfm top track[0m
+[31mERROR   [0m - Artist Joyer followers (6237) too low[0m
+[32mINFO    [0m - Attaching top tracks from mbid for Allie Crow Buckley[0m
+[33mWARNING [0m - No tracks found[0m
+[32mINFO    [0m - Attaching top tracks from name for Allie Crow Buckley[0m
+[32mINFO    [0m - Searching Spotify for Track: 'You Thought You Had Me' by Artist: 'Allie Crow Buckley'[0m
+[32mINFO    [0m - Spotify Artist ID: 4zWJqtFs82kB6LSMY20ggp[0m
+[32mINFO    [0m - Retrieved Spotify Artist: Allie Crow Buckley (ID: 4zWJqtFs82kB6LSMY20ggp)[0m
+[32mINFO    [0m - Attached spotify artist Allie Crow Buckley from lastfm top track[0m
+[32mINFO    [0m - Attached spotify track info for You Thought You Had Me[0m
+[1;32mSUCCESS [0m - ADDED NICHE TRACK: Allie Crow Buckley - You Thought You Had Me[0m
+[1;32mSUCCESS [0m - TRACKS ADDED: 20[0m
+[1;32mSUCCESS [0m - RATIO: 4.705882352941177%[0m
+[33mWARNING [0m - song count has been reached OR Artist has hit song count[0m

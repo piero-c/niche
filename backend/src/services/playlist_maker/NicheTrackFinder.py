@@ -1,9 +1,9 @@
 # Module for finding the niche songs for a genre
 from auth.SpotifyUser import SpotifyUser
 
-from services.playlist_maker.PlaylistRequest import PlaylistRequest
-from services.playlist_maker.Playlist import NicheTrack
-from services.playlist_maker.Artist import Artist
+from services._shared_classes.PlaylistRequest import PlaylistRequest
+from services._shared_classes.Playlist import NicheTrack
+from services._shared_classes.Artist import Artist
 from services._shared_classes.Validator import Validator
 
 from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP

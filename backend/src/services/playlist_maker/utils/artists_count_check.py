@@ -2,7 +2,7 @@ from db.DB import DB
 from db.DAOs.RequestsDAO import RequestDAO
 from db.DAOs.ArtistsDAO import ArtistsDAO
 from models.pydantic.Request import Params
-from services.playlist_maker.PlaylistRequest import PlaylistRequest
+from services._shared_classes.PlaylistRequest import PlaylistRequest
 from utils.util import LANGMAP, NICHEMAP
 from numpy import mean
 

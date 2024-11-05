@@ -7,10 +7,9 @@ from utils.util import convert_ms_to_s
 from typing import List, TypedDict
 from utils.spotify_util import (
     get_artists_ids_and_genres_as_dict,
-    get_artist_ids_from_tracks
+    get_artist_ids_from_tracks,
+    extract_id
 )
-from services.profile.util import extract_playlist_id
-
 class Artists(TypedDict):
     artist_id: str
     artist_name: str
@@ -36,7 +35,7 @@ def get_playlist_tracks(playlist_link: str, user: SpotifyUser) -> List[PlaylistT
                     Returns an empty list if no tracks are found or an error occurs.
     """
     # Step 1: Extract Playlist ID from the URL
-    playlist_id = extract_playlist_id(playlist_link)
+    playlist_id = extract_id(playlist_link, 'playlist')
     if not playlist_id:
         print("Invalid Spotify playlist link.")
         return []

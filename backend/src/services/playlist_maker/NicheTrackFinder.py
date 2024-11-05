@@ -28,6 +28,8 @@ env    = load_env()
 # TODO - english name of artist or song like 力那 (li na)
 # TODO - Split into validator object
 
+# TODO - Logic for request type - like for stats sake dont count extenders as requests
+
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
 class NicheTrackFinder:
@@ -173,7 +175,7 @@ class NicheTrackFinder:
             return(False)
         if(artist.spotify_followers < self.request.spotify_followers_min):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
-            self._add_excluded_entry(artist,ReasonExcluded.TOO_FEW_SOMETHING) 
+            self._add_excluded_entry(artist, ReasonExcluded.TOO_FEW_SOMETHING) 
             return(False)
         # CHECK ARTIST LANGUAGE
         if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
@@ -289,8 +291,8 @@ class NicheTrackFinder:
             else:
                 valid_artists.append(artist)
         random.shuffle(valid_artists)
-        return(valid_artists
-)
+        return(valid_artists)
+
     def find_niche_tracks(self) -> list[NicheTrack]:
         """Make the playlist
 

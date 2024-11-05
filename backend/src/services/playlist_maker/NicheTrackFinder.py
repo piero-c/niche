@@ -25,10 +25,6 @@ env    = load_env()
 # TODO-  remove the bidicts? Mongo takes enums as lookups
 # TODO - Handle logic related to not having enough songs (api)
 # TODO - english name of artist or song like 力那 (li na)
-# TODO - Split into validator object
-
-# TODO - Logic for request type - like for stats sake dont count extenders as requests
-# TODO - decrease likeness? two cartoons artist slaps
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 

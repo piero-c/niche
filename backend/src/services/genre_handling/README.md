@@ -1,5 +1,9 @@
 # Genre Handling
 
+TODODODODODOD
+TODO - 'genre map' for seed genre (lastfm, musicbrainz, spotify, with mapping if needed)
+
+
 ### Description:
     Give the user genre recommendations based on their favourite genres
     Give the user a list of genres to select from for generating a playlist

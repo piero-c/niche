@@ -15,19 +15,31 @@ from utils.logger import logger
 
 import random
 
-# TODO - take api hits out here make interface fns w spotify user (maybe for client methods sleep for not interfaced ones)
-    # TODO - Work on adding spotify recs (get recs, validate artist, add track) (in other file)
-# TODO - Add logging here
-
-# TODO - take validation part out or wait just validate in the spotify thing and make sure this won't fail
-
 def _get_playlist_song_ids(playlist_url: str, user: SpotifyUser) -> list[str]:
+    """_summary_
+
+    Args:
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        list[str]: _description_
+    """
     # Get the ids of songs in the playlist to ensure we don't add a duplicate
     playlist_tracks = get_playlist_tracks(playlist_url, user)
     song_ids_in_playlist = [extract_id(track.get('spotify_track_url'), 'track') for track in playlist_tracks]
     return(song_ids_in_playlist)
 
 def _get_playlist_request(playlist_url: str, user: SpotifyUser) -> PlaylistRequest:
+    """_summary_
+
+    Args:
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        PlaylistRequest: _description_
+    """
     db = DB()
     pdao = PlaylistDAO(db)
     # Get the playlist entry by the link
@@ -48,6 +60,17 @@ def _get_playlist_request(playlist_url: str, user: SpotifyUser) -> PlaylistReque
     return(playlist_request)
 
 def _validate_track_for_insert(track: SpotifyTrack, user: SpotifyUser, request: PlaylistRequest, song_ids_in_playlist: list[str]) -> str | None:
+    """_summary_
+
+    Args:
+        track (SpotifyTrack): _description_
+        user (SpotifyUser): _description_
+        request (PlaylistRequest): _description_
+        song_ids_in_playlist (list[str]): _description_
+
+    Returns:
+        str | None: _description_
+    """
     validator = Validator(request, user)
 
     track_obj = Track(track.get('name'), "No Name", user)
@@ -58,6 +81,16 @@ def _validate_track_for_insert(track: SpotifyTrack, user: SpotifyUser, request: 
     return(None)
 
 def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str, user: SpotifyUser) -> bool:
+    """_summary_
+
+    Args:
+        artist (SpotifyArtist): _description_
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        bool: _description_
+    """
     playlist_request = _get_playlist_request(playlist_url, user)
     validator = Validator(playlist_request, user)
 
@@ -68,14 +101,33 @@ def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str, user: Spot
     return(True)
 
 def track_valid_for_insert(track: SpotifyTrack, playlist_url: str, user: SpotifyUser) -> str | None:
+    """_summary_
+
+    Args:
+        track (SpotifyTrack): _description_
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        str | None: _description_
+    """
     song_ids_in_playlist = _get_playlist_song_ids(playlist_url, user)
     playlist_request = _get_playlist_request(playlist_url, user)
-    logger.info(f'IDS IN PLAYLIST: {song_ids_in_playlist}')
 
     track_uri = _validate_track_for_insert(track, user, playlist_request, song_ids_in_playlist)
     return(track_uri)
 
 def validate_and_add_track(track: SpotifyTrack, playlist_url: str, user: SpotifyUser) -> str | None:
+    """_summary_
+
+    Args:
+        track (SpotifyTrack): _description_
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        str | None: _description_
+    """
     playlist_id = extract_id(playlist_url, 'playlist')
     track_uri = track_valid_for_insert(track, playlist_url, user)
 
@@ -89,7 +141,18 @@ def validate_and_add_track(track: SpotifyTrack, playlist_url: str, user: Spotify
     return(None)
 
 def add_valid_track(track_uri: str, playlist_url: str, user: SpotifyUser) -> str | None:
+    """_summary_
+
+    Args:
+        track_uri (str): _description_
+        playlist_url (str): _description_
+        user (SpotifyUser): _description_
+
+    Returns:
+        str | None: _description_
+    """
     playlist_id = extract_id(playlist_url, 'playlist')
+    logger.info(f'Adding track with uri {track_uri}')
     ## BEGIN REQUEST ##
     # Get the spotify artist
     user.execute('playlist_add_items', playlist_id=playlist_id, items=[track_uri])
@@ -98,12 +161,23 @@ def add_valid_track(track_uri: str, playlist_url: str, user: SpotifyUser) -> str
     return(track_uri)
 
 def add_more_songs_for_artist(playlist_url: str, artist_id: str, user: SpotifyUser, num_songs: int) -> list[str]:
+    """_summary_
+
+    Args:
+        playlist_url (str): _description_
+        artist_id (str): _description_
+        user (SpotifyUser): _description_
+        num_songs (int): _description_
+
+    Returns:
+        list[str]: _description_
+    """
+    logger.info(f'Adding tracks for artist id {artist_id}')
     ## BEGIN REQUEST ##
     # Get the spotify artist
     top_tracks = user.execute('artist_top_tracks', artist_id).get('tracks', [])
     sleep(RequestType.SPOTIFY)
     ## END REQUEST ##
-
     random.shuffle(top_tracks)
 
     uris_added = []

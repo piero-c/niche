@@ -255,10 +255,11 @@ class SpotifyUser:
             # Dynamically get the method from the Spotipy client
             method = getattr(self.client, method_name)
 
+            ## BEGIN REQUEST ##
             # Execute the method with provided arguments
             result = method(*args, **kwargs)
-
             sleep(RequestType.SPOTIFY)
+            ## END REQUEST ##
 
             return(result)
         except AttributeError:
@@ -268,7 +269,7 @@ class SpotifyUser:
         except Exception as e:
             logger.error(f"An unexpected error occurred while executing '{method_name}': {e}")
         
-        return None
+        return(None)
 
 
     def upload_playlist_cover_image(self, cover_image_path: str) -> None:

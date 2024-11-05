@@ -6,7 +6,8 @@
 ### Entry:
 
 
-TODO - update length db if artists added
+TODO - update length db if artists added (no)
+
     
 ### Features to Implement:
    - Button to try different niche level if the request doesnt generate enough songs (delete the playlist) or just keep it (frontend)

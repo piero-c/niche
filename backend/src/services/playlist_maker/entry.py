@@ -24,4 +24,4 @@ def playlist_likely_undersized(year_min: int, language: Language, niche_level: N
     return(likely_under_count_playlist(PlaylistRequest(user, year_min, language, niche_level, sec_min, sec_max, genre)))
 
 if __name__ == '__main__':
-    do(2000, Language.ANY, NicheLevel.ONLY_KINDA, 120, 360, 'indie rock')
+    do(2000, Language.ANY, NicheLevel.ONLY_KINDA, 120, 360, 'latin')

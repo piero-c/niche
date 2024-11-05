@@ -14,3 +14,6 @@
 ### Features to Implement:
    The service
    #(TODO - store genres in db) TODO ever update them? make a script
+
+
+   Union of genre seeds spotify, genre seeds lastfm, genre seeds musicbrainz (any conversion do it for translation like hip hop hip-hop)

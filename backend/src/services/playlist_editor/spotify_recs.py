@@ -1,13 +1,13 @@
-from utils.spotify_util import SpotifyTrack, SPOTIFY_MAX_LIMIT_RECS, SPOTIFY_MAX_SEEDS_RECS, SpotifyArtist
-from models.pydantic.Playlist import Playlist as PlaylistModel
-from models.pydantic.Request import Request as RequestModel
-from db.DAOs.RequestsDAO import RequestDAO
-from db.DAOs.PlaylistsDAO import PlaylistDAO
-from db.DB import DB
-from auth.SpotifyUser import SpotifyUser
-from utils.util import sleep, RequestType, convert_s_to_ms
-from services.profile.playlists import get_playlist_tracks, PlaylistTracks
-from services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
+from src.utils.spotify_util import SpotifyTrack, SPOTIFY_MAX_LIMIT_RECS, SPOTIFY_MAX_SEEDS_RECS, SpotifyArtist
+from src.models.pydantic.Playlist import Playlist as PlaylistModel
+from src.models.pydantic.Request import Request as RequestModel
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.db.DB import DB
+from src.auth.SpotifyUser import SpotifyUser
+from src.utils.util import sleep, RequestType, convert_s_to_ms
+from src.services.profile.playlists import get_playlist_tracks, PlaylistTracks
+from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
 
 import random
 

@@ -1,17 +1,17 @@
-from utils.spotify_util import extract_id, SpotifyTrack, SpotifyArtist
-from services._shared_classes.Validator import Validator
-from services._shared_classes.PlaylistRequest import PlaylistRequest
-from services._shared_classes.Track import Track
-from services._shared_classes.Artist import Artist
-from models.pydantic.Playlist import Playlist as PlaylistModel
-from models.pydantic.Request import Request as RequestModel
-from db.DAOs.RequestsDAO import RequestDAO
-from db.DAOs.PlaylistsDAO import PlaylistDAO
-from db.DB import DB
-from auth.SpotifyUser import SpotifyUser
-from utils.util import LANGMAP, NICHEMAP, sleep, RequestType
-from services.profile.playlists import get_playlist_tracks
-from utils.logger import logger
+from src.utils.spotify_util import extract_id, SpotifyTrack, SpotifyArtist
+from src.services._shared_classes.Validator import Validator
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+from src.services._shared_classes.Track import Track
+from src.services._shared_classes.Artist import Artist
+from src.models.pydantic.Playlist import Playlist as PlaylistModel
+from src.models.pydantic.Request import Request as RequestModel
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.db.DB import DB
+from src.auth.SpotifyUser import SpotifyUser
+from src.utils.util import LANGMAP, NICHEMAP, sleep, RequestType
+from src.services.profile.playlists import get_playlist_tracks
+from src.utils.logger import logger
 
 import random
 

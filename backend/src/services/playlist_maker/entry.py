@@ -1,8 +1,8 @@
-from services.playlist_maker.NicheTrackFinder import NicheTrackFinder
-from services._shared_classes.PlaylistRequest import PlaylistRequest, Language, NicheLevel
-from services._shared_classes.Playlist import Playlist
-from services.playlist_maker.utils.artists_count_check import likely_under_count_playlist
-from auth.SpotifyUser import SpotifyUser
+from src.services.playlist_maker.NicheTrackFinder import NicheTrackFinder
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language, NicheLevel
+from src.services._shared_classes.Playlist import Playlist
+from src.services.playlist_maker.utils.artists_count_check import likely_under_count_playlist
+from src.auth.SpotifyUser import SpotifyUser
 import time
 
 def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> str:

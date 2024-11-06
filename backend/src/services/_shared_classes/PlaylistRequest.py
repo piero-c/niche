@@ -1,10 +1,10 @@
-from utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
-from db.DB import DB
-from db.DAOs.RequestsDAO import RequestDAO
-from models.pydantic.Request import Request, Params
-from auth.SpotifyUser import SpotifyUser
+from src.utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
+from src.db.DB import DB
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.models.pydantic.Request import Request, Params
+from src.auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
-from utils.util import NICHE_APP_URL
+from src.utils.util import NICHE_APP_URL
 class PlaylistInfo(TypedDict):
     """Playlist info obj
 

@@ -1,25 +1,25 @@
 # Module for finding the niche songs for a genre
-from auth.SpotifyUser import SpotifyUser
+from src.auth.SpotifyUser import SpotifyUser
 
-from services._shared_classes.PlaylistRequest import PlaylistRequest
-from services._shared_classes.Playlist import NicheTrack
-from services._shared_classes.Artist import Artist
-from services._shared_classes.Validator import Validator
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+from src.services._shared_classes.Playlist import NicheTrack
+from src.services._shared_classes.Artist import Artist
+from src.services._shared_classes.Validator import Validator
 
-from utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
+from src.utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP
 
-from db.DB import DB
-from db.DAOs.ArtistsDAO import ArtistsDAO
-from db.DAOs.RequestsCacheDAO import RequestsCacheDAO
-from db.DAOs.RequestsDAO import RequestDAO
-from models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
-from models.pydantic.Request import Stats
+from src.db.DB import DB
+from src.db.DAOs.ArtistsDAO import ArtistsDAO
+from src.db.DAOs.RequestsCacheDAO import RequestsCacheDAO
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
+from src.models.pydantic.Request import Stats
 
 import random
 from numpy import mean as mean
 from datetime import datetime, timedelta
 
-from utils.logger import logger
+from src.utils.logger import logger
 env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups

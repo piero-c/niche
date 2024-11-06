@@ -1,9 +1,9 @@
 from typing import List, Union
 from pymongo.results import InsertOneResult, UpdateResult
 from bson import ObjectId
-from models.pydantic.RequestsCache import RequestsCache, Excluded, ParamsCache
-from db.DB import DB
-from db.DAOs.baseDAO import BaseDAO
+from src.models.pydantic.RequestsCache import RequestsCache, Excluded, ParamsCache
+from src.db.DB import DB
+from src.db.DAOs.baseDAO import BaseDAO
 
 class RequestsCacheDAO(BaseDAO[RequestsCache]):
     """

@@ -1,4 +1,4 @@
-from models.pydantic.BaseSchema import BaseSchema, PyObjectId
+from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
 
 class Playlist(BaseSchema):
     user: PyObjectId

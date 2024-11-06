@@ -1,8 +1,8 @@
 from typing import List
 from bson import ObjectId
-from models.pydantic.Playlist import Playlist
-from db.DB import DB
-from db.DAOs.baseDAO import BaseDAO
+from src.models.pydantic.Playlist import Playlist
+from src.db.DB import DB
+from src.db.DAOs.baseDAO import BaseDAO
 
 class PlaylistDAO(BaseDAO[Playlist]):
     """

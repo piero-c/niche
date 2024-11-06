@@ -1,17 +1,17 @@
 # Module for finding the niche songs for a genre
-from auth.SpotifyUser import SpotifyUser
-from auth.MusicBrainzRequests import MusicBrainzRequests
+from src.auth.SpotifyUser import SpotifyUser
+from src.auth.MusicBrainzRequests import MusicBrainzRequests
 
-from services._shared_classes.PlaylistRequest import PlaylistRequest, Language
-from services._shared_classes.Artist import Artist
-from services._shared_classes.Track import Track
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
+from src.services._shared_classes.Artist import Artist
+from src.services._shared_classes.Track import Track
 
 
-from models.pydantic.RequestsCache import ReasonExcluded
+from src.models.pydantic.RequestsCache import ReasonExcluded
 
 from numpy import mean as mean
 
-from utils.logger import logger
+from src.utils.logger import logger
 
 class Validator:
     """_summary_

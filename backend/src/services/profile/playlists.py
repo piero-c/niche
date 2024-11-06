@@ -1,11 +1,11 @@
-from db.DB import DB
-from db.DAOs.PlaylistsDAO import PlaylistDAO
-from auth.SpotifyUser import SpotifyUser
-from models.pydantic.Playlist import Playlist
-from utils.util import convert_ms_to_s
+from src.db.DB import DB
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.auth.SpotifyUser import SpotifyUser
+from src.models.pydantic.Playlist import Playlist
+from src.utils.util import convert_ms_to_s
 
 from typing import List, TypedDict
-from utils.spotify_util import (
+from src.utils.spotify_util import (
     get_artists_ids_and_genres_as_dict,
     get_artist_ids_from_tracks,
     extract_id

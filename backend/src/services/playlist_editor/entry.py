@@ -1,7 +1,7 @@
-from services.playlist_editor.add_songs import add_more_songs_for_artist
-from services.playlist_editor.spotify_recs import get_recommendations
-from auth.SpotifyUser import SpotifyUser
-from utils.spotify_util import SpotifyTrack
+from src.services.playlist_editor.add_songs import add_more_songs_for_artist
+from src.services.playlist_editor.spotify_recs import get_recommendations
+from src.auth.SpotifyUser import SpotifyUser
+from src.utils.spotify_util import SpotifyTrack
 def add_songs_by_artist(playlist_url: str, artist_id: str, user: SpotifyUser, num_songs: int) -> list[str]:
     """_summary_
 

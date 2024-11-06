@@ -1,10 +1,10 @@
-from services._shared_classes.Track import Track
-from utils.util import strcomp
-from utils.spotify_util import SpotifyArtist
-from auth.LastFMRequests import LastFmArtist, LastFMRequests
-from auth.SpotifyUser import SpotifyUser
-from utils.musicbrainz_util import MusicBrainzArtist
-from utils.logger import logger
+from src.services._shared_classes.Track import Track
+from src.utils.util import strcomp
+from src.utils.spotify_util import SpotifyArtist
+from src.auth.LastFMRequests import LastFmArtist, LastFMRequests
+from src.auth.SpotifyUser import SpotifyUser
+from src.utils.musicbrainz_util import MusicBrainzArtist
+from src.utils.logger import logger
 class Artist:
     """Representing an artist, at a high level
 

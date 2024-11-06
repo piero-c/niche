@@ -1,6 +1,6 @@
 # artist_dao.py
 
-from db.DB import DB
+from src.db.DB import DB
 from pymongo.collection import Collection
 from bson.objectid import ObjectId
 from pymongo.synchronous.cursor import Cursor

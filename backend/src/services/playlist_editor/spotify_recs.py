@@ -1,30 +1,29 @@
-from src.utils.spotify_util import SpotifyTrack, SPOTIFY_MAX_LIMIT_RECS, SPOTIFY_MAX_SEEDS_RECS, SpotifyArtist
+from src.utils.spotify_util import SpotifyTrack, SPOTIFY_MAX_LIMIT_RECS, SpotifyArtist
 from src.models.pydantic.Playlist import Playlist as PlaylistModel
 from src.models.pydantic.Request import Request as RequestModel
 from src.db.DAOs.RequestsDAO import RequestDAO
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.db.DB import DB
 from src.auth.SpotifyUser import SpotifyUser
-from src.utils.util import sleep, RequestType, convert_s_to_ms
-from src.services.profile.playlists import get_playlist_tracks, PlaylistTracks
+from src.utils.util import sleep, RequestType, convert_s_to_ms, MIN_SONGS_FOR_PLAYLIST_GEN
+from src.services.profile.playlists import get_playlist_tracks
 from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
-
+from src.services._shared_classes.Playlist import NicheTrack
 import random
 
-def _get_random_artist_ids(tracks: PlaylistTracks, num: int = 4) -> list[str]:
+def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[str]:
     """_summary_
 
     Args:
-        tracks (PlaylistTracks): _description_
+        tracks (NicheTrack): _description_
         num (int, optional): _description_. Defaults to 4.
 
     Returns:
         list[str]: _description_
     """
     tracks_copy = tracks.copy()
-    seed_ids = list(set([track.get('artists', [{}])[0].get('artist_id', '') for track in tracks_copy]))
+    seed_ids = list(set([track.get('artist_id', '') for track in tracks_copy]))
     return(random.sample(seed_ids, num) if len(seed_ids) > num else seed_ids)
-
 
 def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> list[SpotifyTrack]:
     """_summary_
@@ -38,7 +37,7 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
         list[SpotifyTrack]: _description_
     """
     assert(num > 0 and num <= 10)
-    artist_seeds_num = SPOTIFY_MAX_SEEDS_RECS - 1
+    artist_seeds_num = MIN_SONGS_FOR_PLAYLIST_GEN
     reccomended_tracks = []
 
     db = DB()

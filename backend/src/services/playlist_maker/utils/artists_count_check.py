@@ -8,15 +8,18 @@ from numpy import mean
 
 from src.auth.SpotifyUser import SpotifyUser
 
-def likely_under_count_playlist(request: PlaylistRequest) -> bool:
+def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
     """Return true if the playlist for the request is likely to be under the requested size
 
     Args:
         request (PlaylistRequest): The request
+        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
 
     Returns:
         bool: Will it likely be undersized
     """
+    if (not size):
+        size = request.playlist_length
     db = DB()
 
     rdao = RequestDAO(db)

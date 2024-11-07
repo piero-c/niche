@@ -9,7 +9,7 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from pathlib import Path
 
 
-COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
+COVER_IMAGE_PATH = Path('../assets/icon.jpg')
 
 class NicheTrack(TypedDict):
     """Niche track obj

@@ -277,11 +277,12 @@ class SpotifyUser:
         return(None)
 
 
-    def upload_playlist_cover_image(self, cover_image_path: str) -> None:
+    def upload_playlist_cover_image(self, cover_image_path: str, playlist_id: str) -> None:
         """_summary_
 
         Args:
             cover_image_path (str): _description_
+            playlist_id (str): _description_
         """
         # Open the image and convert it to a base64-encoded JPEG
         with Image.open(cover_image_path) as img:
@@ -291,7 +292,7 @@ class SpotifyUser:
             image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
         try:
-            self.client.playlist_upload_cover_image(self.id, image_base64)
+            self.client.playlist_upload_cover_image(playlist_id, image_base64)
         except requests.exceptions.ReadTimeout:
             # Handle the timeout exception as needed
             logger.error("Timeout occurred while uploading the cover image. Please try again later.")

@@ -5,6 +5,7 @@ from src.auth.MusicBrainzRequests import MusicBrainzRequests
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
 from src.services._shared_classes.Artist import Artist
 from src.services._shared_classes.Track import Track
+from src.services.genre_handling.valid_genres import convert_genre
 
 
 from src.models.pydantic.RequestsCache import ReasonExcluded
@@ -135,7 +136,7 @@ class Validator:
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
-            elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+            elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
                 logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                 return(ReasonExcluded.OTHER)
                 # Sanity check for artist match, no exclusion required here

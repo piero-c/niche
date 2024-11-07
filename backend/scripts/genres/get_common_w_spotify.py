@@ -2,6 +2,7 @@ import os
 import json
 import re
 import unicodedata
+from pathlib import Path
 
 def normalize_word(word):
     """Normalize word to be case-insensitive, ignore hyphens/spaces, and remove accents for comparison only."""
@@ -82,21 +83,21 @@ def main(master_file_path, data_dir):
     common_words, unmatched_words, partial_matches = find_common_words(master_file_path, other_files)
 
     # Save common words to JSON file
-    json_output_path = 'scripts/genres/data/master/genres.json'
+    json_output_path = Path('scripts/genres/data/master/genres.json')
     save_to_json(common_words, json_output_path)
     print(f"Data saved to {json_output_path}")
 
     # Save unmatched words to `not-covered.txt` in master folder
-    unmatched_output_path = 'scripts/genres/data/master/not-covered.txt'
+    unmatched_output_path = Path('scripts/genres/data/master/not-covered.txt')
     save_unmatched_words(unmatched_words, unmatched_output_path)
     print(f"Unmatched words saved to {unmatched_output_path}")
 
     # Save partial matches to `unmatched.txt` in master folder
-    partial_matches_output_path = 'scripts/genres/data/master/unmatched.txt'
+    partial_matches_output_path = Path('scripts/genres/data/master/unmatched.txt')
     save_partial_matches(partial_matches, partial_matches_output_path)
     print(f"Partial matches saved to {partial_matches_output_path}")
 
 # Example usage
-master_file_path = 'scripts/genres/data/SPOTIFY'  # Adjust path to the master file
-data_dir = 'scripts/genres/data'  # Directory where other files are stored
+master_file_path = Path('scripts/genres/data/SPOTIFY')  # Adjust path to the master file
+data_dir = Path('scripts/genres/data')  # Directory where other files are stored
 main(master_file_path, data_dir)

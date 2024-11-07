@@ -1,23 +1,20 @@
 # Genre Handling
 
-TODODODODODOD
-TODO - 'genre map' for seed genre (lastfm, musicbrainz, spotify, with mapping if needed)
-
-
 ### Description:
-    Give the user genre recommendations based on their favourite genres
-    Give the user a list of genres to select from for generating a playlist
+  Handle valid genres and different genre names across services
+  Get user's top genres from spotify
 
 ### Entry:
-    Call recs() with the user's top spotify genres
-      Returns a list of genres to recommend
-   
-    Call genres() to get valid genres for requests
-      Returns a list of valid genres
+    valid_genres.py
+      Call genres() to get valid genres for requests
+        Returns a list of valid genres
+      
+      get_genre_dict_list() and convert_genre() is used for other functions to use and is not for the client
+
+    top_genres.py
+    Get user's top genres from spotify
+    Call the do() function
+        Returns the top genres as a GenreInterestCount
 
 ### Features to Implement:
-   The service
-   #(TODO - store genres in db) TODO ever update them? make a script
-
-
-   Union of genre seeds spotify, genre seeds lastfm, genre seeds musicbrainz (any conversion do it for translation like hip hop hip-hop)
+    TODO Give the user genre recommendations based on their favourite genres  TODO (bleh probably add as a feature that will never be added -- would probably have to use open api or whatever ml slop nlp schtuff) - but still can get their top genres as like motivation or whatever make them do the work

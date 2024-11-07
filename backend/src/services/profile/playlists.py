@@ -2,12 +2,10 @@ from src.db.DB import DB
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.auth.SpotifyUser import SpotifyUser
 from src.models.pydantic.Playlist import Playlist
-from src.utils.util import convert_ms_to_s
+from src.services._shared_classes.Playlist import NicheTrack
 
 from typing import List, TypedDict
 from src.utils.spotify_util import (
-    get_artists_ids_and_genres_as_dict,
-    get_artist_ids_from_tracks,
     extract_id
 )
 class Artists(TypedDict):
@@ -15,14 +13,7 @@ class Artists(TypedDict):
     artist_name: str
     genres: list[str]
 
-class PlaylistTracks(TypedDict):
-    track_name: str
-    album_name: str
-    duration_s: float
-    spotify_track_url: str
-    artists: Artists
-
-def get_playlist_tracks(playlist_link: str, user: SpotifyUser) -> List[PlaylistTracks]:
+def get_playlist_tracks(playlist_link: str, user: SpotifyUser) -> List[NicheTrack]:
     """
     Retrieves all tracks and associated artist information from a Spotify playlist.
 
@@ -51,42 +42,21 @@ def get_playlist_tracks(playlist_link: str, user: SpotifyUser) -> List[PlaylistT
         print("The playlist contains no tracks.")
         return []
 
-    # Step 3: Gather Artist IDs from Tracks
-    artist_ids = get_artist_ids_from_tracks(tracks)
-
-    # Step 4: Retrieve Artists' Genres
-    artists = [user.get_spotify_artist_by_id(artist_id) for artist_id in list(artist_ids)]
-    artists_info = get_artists_ids_and_genres_as_dict(artists)
-
     # Step 5: Prepare Data for Frontend
-    playlist_data = []
+    playlist_data: list = []
     for track in tracks:
         # Safely retrieve nested dictionary values using .get() with default empty dictionaries or values
-        track_data = track.get('track', {})
-        album_data = track_data.get('album', {})
+        track_data    = track.get('track', {})
         external_urls = track_data.get('external_urls', {})
-        artists_list = track_data.get('artists', [])
+        artist_data   = track_data.get('artists', [{}])[0]
 
-        track_info = {
-            'track_name': track_data.get('name', 'Unknown Track Name'),
-            'album_name': album_data.get('name', 'Unknown Album Name'),
-            'duration_s': convert_ms_to_s(track_data.get('duration_ms', 0)),
-            'spotify_track_url': external_urls.get('spotify', ''),
-            'artists': []
+        track_info: NicheTrack = {
+            'track'      : track_data.get('name', 'Unknown Track Name'),
+            'spotify_url': external_urls.get('spotify', ''),
+            'spotify_uri': track_data.get('uri', ''),
+            'artist'     : artist_data.get('name', 'Unknown Artist'),
+            'artist_id'  : artist_data.get('id', '')
         }
-
-        for artist in artists_list:
-            artist_id = artist.get('id', '')
-            artist_name = artist.get('name', 'Unknown Artist')
-            genres = artists_info.get(artist_id, [])
-
-            artist_info = {
-                'artist_id': artist_id,
-                'artist_name': artist_name,
-                'genres': genres
-            }
-
-            track_info['artists'].append(artist_info)
 
         playlist_data.append(track_info)
 

@@ -39,6 +39,7 @@ class SpotifyUser:
         if(cls._instance is None):
             env = load_env()
             cls._instance = super(SpotifyUser, cls).__new__(cls)
+            ## BEGIN REQUEST ##
             cls._instance.client = spotipy.Spotify(auth_manager=SpotifyOAuth(
                 client_id     = env['SPOTIFY_CLIENT_ID'],
                 client_secret = env['SPOTIFY_CLIENT_SECRET'],
@@ -46,6 +47,9 @@ class SpotifyUser:
                 scope         = env['SCOPE'],
                 cache_path    = env['CACHE_PATH']
             ))
+            sleep(RequestType.SPOTIFY)
+            ## END REQUEST ##
+
             cls._instance.user = cls._instance.client.current_user()
             cls._instance.name = cls._instance.user['display_name']
             cls._instance.id   = cls._instance.user['id']
@@ -202,7 +206,8 @@ class SpotifyUser:
         # Return the genre dictionary
         return(filter_low_count_entries(genre_dict, count=2))
     
-    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[SpotifyTrack]:
+    # TODO - fetch normal spotify track here
+    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[dict]:
         """
         Fetches all tracks from a Spotify playlist, handling pagination.
 
@@ -210,7 +215,7 @@ class SpotifyUser:
             playlist_id (str): The unique identifier for the Spotify playlist.
 
         Returns:
-            List[SpotifyTrack]: A list of SpotifyTrack objects in the playlist.
+            List[dict]: A list of dict objects in the playlist.
         """
         tracks = []
         limit = SPOTIFY_MAX_LIMIT_PAGINATION  # Typically 100

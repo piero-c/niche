@@ -2,7 +2,7 @@ from src.db.DB import DB
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.auth.SpotifyUser import SpotifyUser
 from src.models.pydantic.Playlist import Playlist
-from src.services._shared_classes.Playlist import NicheTrack
+from src.utils.spotify_util import NicheTrack
 
 from typing import List, TypedDict
 from src.utils.spotify_util import (

@@ -1,10 +1,20 @@
 from src.utils.util import strcomp
-from src.services._shared_classes.Playlist import NicheTrack
 
-from typing import Optional
+from typing import Optional, TypedDict
 from urllib.parse import urlparse, parse_qs
 import re
 
+class NicheTrack(TypedDict):
+    """Niche track obj
+
+    Args:
+        TypedDict
+    """
+    artist     : str
+    artist_id  : str
+    track      : str
+    spotify_uri: str
+    spotify_url: str
 
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]

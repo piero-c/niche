@@ -3,6 +3,7 @@ run get common w spotify
 go thru unmatched and not covered and consolidate to genres json
 cd to scripts/db and npm run get_unpopular_genres
 Remove from genres json any in the unpopular genres txt file
+Once confirmed that everything in genres json is good npm run remove artists with no popular genres
 
 to add a new one: just add the corresponding genres for spotify and musicbrainz and lastfm to the genres json
 - and make sure it has over 200 in the db

@@ -11,7 +11,8 @@
     "add_artists_genre_index": "node ./createArtistIndex.js",
     "remove_empty_genres": "node ./removeEmptyGenres.js",
     "load_artists.dev": "ENV=dev npm run optimize_artists && npm run remove_old_artists_file && npm run import_artists && npm run add_artists_genre_index && npm run remove_empty_genres",
-    "get_unpopular_genres": "ENV=dev node getUnpopularGenres.js"
+    "get_unpopular_genres": "ENV=dev node getUnpopularGenres.js",
+    "remove_artists_with_no_popular_genres": "ENV=dev node removeArtistsWNoPopularGenres.js"
   },
   "keywords": [],
   "author": "",

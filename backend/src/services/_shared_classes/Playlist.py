@@ -1,27 +1,15 @@
 # Module for the final playlist
 from src.auth.SpotifyUser import SpotifyUser
-from typing import TypedDict
 from src.db.DB import DB
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.db.DAOs.RequestsDAO import RequestDAO
 from src.models.pydantic.Playlist import Playlist as PlaylistModel
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from pathlib import Path
+from src.utils.spotify_util import NicheTrack
 
 
 COVER_IMAGE_PATH = Path('../assets/icon.jpg')
-
-class NicheTrack(TypedDict):
-    """Niche track obj
-
-    Args:
-        TypedDict
-    """
-    artist     : str
-    artist_id  : str
-    track      : str
-    spotify_uri: str
-    spotify_url: str
 
 # Playlist Class (FOR GENERATION PURPOSES ONLY)
 class Playlist:
@@ -32,14 +20,18 @@ class Playlist:
         url (str): Spotify Playlist URL.
         name (str): Name of the playlist.
         description (str): Description of the playlist.
+        oid
+            Requires call: add_db_entry
+        in_db
     """
-    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser) -> None:
+    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser, add_to_db: bool = True) -> None:
         """Initialize the playlist
 
         Args:
             tracks (list[NicheTrack]): The tracks to add
             req (PlaylistRequest): The request that was used to generate the playlist
             user (SpotifyUser): The Spotify Authenticated User
+            add_to_db (bool, optional): Add the playlist to the db?. Default to true
         """
         playlist_info = req.get_playlist_info()
 
@@ -69,11 +61,19 @@ class Playlist:
         self.description = playlist['description']
         self.length      = len(tracks)
 
-        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH)
+        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id)
 
         self.user_oid = spotify_user.oid
-        self.request_oid = req.request_oid
+        self.request_oid = req.oid
 
+        self.in_db = False
+        if (add_to_db):
+            self.add_db_entry()
+
+
+    def add_db_entry(self) -> None:
+        if (self.in_db):
+            return (None)
         db = DB()
         dao = PlaylistDAO(db)
         entry = dao.create(
@@ -89,11 +89,13 @@ class Playlist:
 
         rdao = RequestDAO(db)
         rdao.update(
-            document_id=req.request_oid,
+            document_id=self.request_oid,
             update_data={
                 'playlist_generated': entry.inserted_id
             }
         )
+        self.in_db = True
+        return(None)
 
     def add_track(self, uri: str, spotify_user: SpotifyUser) -> None:
         """_summary_
@@ -135,6 +137,13 @@ class Playlist:
         # STEP 3: Delete entry in playlists collection
         pdao = PlaylistDAO(db)
         pdao.delete(self.oid)
+
+        return(None)
+    
+    def add_generated_time(self, time_mins: float) -> None:
+        db = DB()
+        pdao = PlaylistDAO(db)
+        pdao.update(self.oid, {'time_to_generate_mins': time_mins})
 
         return(None)
 

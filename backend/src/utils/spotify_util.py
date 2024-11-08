@@ -4,18 +4,6 @@ from typing import Optional, TypedDict
 from urllib.parse import urlparse, parse_qs
 import re
 
-class NicheTrack(TypedDict):
-    """Niche track obj
-
-    Args:
-        TypedDict
-    """
-    artist     : str
-    artist_id  : str
-    track      : str
-    spotify_uri: str
-    spotify_url: str
-
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]
 SpotifyArtistID           = str
@@ -24,6 +12,18 @@ SpotifyGenreInterestCount = dict[str, int|float]
 SPOTIFY_MAX_LIMIT_PAGINATION = 50
 SPOTIFY_MAX_SEEDS_RECS = 5
 SPOTIFY_MAX_LIMIT_RECS = 100
+
+class NicheTrack(TypedDict):
+    """Niche track obj
+
+    Args:
+        TypedDict
+    """
+    artist           : str
+    artist_spotify_id: SpotifyArtistID
+    track            : str
+    spotify_uri      : str
+    spotify_url      : str
 
 def get_artist_ids_from_artists(artists: list[SpotifyArtist]) -> set[SpotifyArtistID]:
     """Get artist ids from list of artist objects.
@@ -154,25 +154,25 @@ def extract_id(playlist_link: str, type: str) -> Optional[str]:
     return None
 
 def id_to_uri(id: str, type: str) -> str:
-    """_summary_
+    """Spotify id to uri
 
     Args:
-        id (str): _description_
-        type (str): _description_
+        id (str): Spotify id
+        type (str): Type of uri
 
     Returns:
-        str: _description_
+        str: uri
     """
     return(f'spotify:{type}:{id}')
 
 def convert_spotify_track_to_niche_track(track: SpotifyTrack) -> NicheTrack:
-    """_summary_
+    """Convert track as returned by spotify to uniform niche track format
 
     Args:
-        track (SpotifyTrack): _description_
+        track (SpotifyTrack): Track as returned by spotify (e.g. track getinfo)
 
     Returns:
-        NicheTrack: _description_
+        NicheTrack: The track info in NicheTrack format
     """
     artist_info = track.get('artists', [{}])[0]
     track_info  = track.get('name', 'Unknown Track Name')

@@ -7,30 +7,38 @@ from src.services._shared_classes.Track import Track
 from src.services.genre_handling.valid_genres import convert_genre
 
 
-from src.models.pydantic.RequestsCache import ReasonExcluded
-
 from numpy import mean as mean
 
 from src.utils.logger import logger
 
+from enum import Enum
+from bidict import bidict
+
+ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING', 'OTHER'] )
+REASONMAP: bidict = bidict({
+    ReasonExcluded.TOO_MANY_SOMETHING: "Too Many Followers / Listeners / Plays",
+    ReasonExcluded.NOT_LIKED_ENOUGH  : "Ratio of Listeners to Plays Too Small",
+    ReasonExcluded.WRONG_LANGUAGE    : "Artist Does Not Sing in the Requested Language",
+    ReasonExcluded.TOO_FEW_SOMETHING : "Too Few Followers / Listeners / Plays"
+})
+
 class Validator:
-    """_summary_
+    """Class for validating tracks and artists
 
-    Args:
-
+    Properties:
+        request
     """
 
     def __init__(self, request: PlaylistRequest) -> None:
-        """_summary_
+        """ Initialize
 
         Args:
-            request (PlaylistRequest): _description_
+            request (PlaylistRequest): Request to validate against
         """
         self.request = request
 
     def artist_likeness_invalid(self, artist: Artist) -> bool:
         """Valid according to request
-
         Requires:
             Artist has associated lastfm artist
         """
@@ -51,16 +59,16 @@ class Validator:
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     def artist_excluded_reason_spotify(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
+        """If there is one, get the reason the artist is excluded based on spotify stats
 
         Args:
-            artist (Artist): _description_
+            artist (Artist): The artist
         
         Requires:
             Artist has associated spotify artist
 
         Returns:
-            ReasonExcluded | None: _description_
+            ReasonExcluded | None: Reason excluded if it exists
         """
         mb = MusicBrainzRequests()
         if(artist.spotify_followers > self.request.spotify_followers_max):
@@ -76,16 +84,10 @@ class Validator:
         return(None)
 
     def validate_track(self, track: Track) -> bool:
-        """_summary_
+        """Is da track valid
 
-        Args:
-            track (Track): _description_
-        
         Requires:
             Track has spotify information attached
-
-        Returns:
-            bool: _description_
         """
         if (not track.is_original_with_lyrics()):
             logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
@@ -104,16 +106,16 @@ class Validator:
         return(True)
 
     def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
+        """If there is one, get the reason the artist is excluded based on lastfm stats
 
         Args:
-            artist (Artist): _description_
+            artist (Artist): The artist
         
         Requires:
             Artist has associated lastfm artist
 
         Returns:
-            ReasonExcluded | None: _description_
+            ReasonExcluded | None: Reason excluded if it exists
         """
         try:
             # Attach artist from lastfm
@@ -136,7 +138,6 @@ class Validator:
             elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
                 logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                 return(ReasonExcluded.OTHER)
-                # Sanity check for artist match, no exclusion required here
 
             else:
                 logger.info(f'Artist {artist.name} is valid')
@@ -147,33 +148,15 @@ class Validator:
             logger.error(e)
             return(ReasonExcluded.OTHER)
 
-    def check_artist_exclusion_spotify(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
-
-        Args:
-            artist (Artist): _description_
-        
-        Requires:
-            Artist has associated spotify artist (attached_spotify_artist_from_track)
-
-        Returns:
-            ReasonExcluded | None: _description_
-        """
-        # Requires call to attached_artist_spotify first
-        artist_excluded_reason = self.artist_excluded_reason_spotify(artist)
-        if (artist_excluded_reason):
-            return (artist_excluded_reason)
-        return (None)
-
     def attached_spotify_artist_from_track(self, artist: Artist, track: Track) -> bool:
-        """_summary_
+        """Attach the spotify artist to the artist from the track
 
         Args:
-            artist (Artist): _description_
-            track (Track): _description_
+            artist (Artist): Artist
+            track (Track): Track
 
         Returns:
-            bool: _description_
+            bool: Was it attached
         """
         try:
             artist.attach_spotify_artist_from_track(track)
@@ -183,19 +166,3 @@ class Validator:
             logger.error(e)
             return(False)
 
-    def get_top_tracks(self, artist: Artist) -> list[Track]:
-        """_summary_
-
-        Args:
-            artist (Artist): _description_
-
-        Returns:
-            list[Track]: _description_
-        """
-        try:
-            # Get artist's top tracks from lastfm
-            top_tracks = artist.get_artist_top_tracks_lastfm()
-            return(top_tracks)
-        except Exception as e:
-            logger.error(f"Error processing tracks for artist {artist.name}: {e}")
-            return([])

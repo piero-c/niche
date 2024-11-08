@@ -30,10 +30,10 @@ def convert_genre(from_service: str, to_service: str, genre: str) -> str:
         return(entry[to_service])
 
 def get_genre_dict_list() -> list[GenreDict]:
-    """_summary_
+    """Get the list of dicts of genres
 
     Returns:
-        list[GenreDict]: _description_
+        list[GenreDict]: the list of dicts of genres
     """
     with open(file_path, 'r') as file:
         data: list[GenreDict] = json.load(file)
@@ -41,10 +41,10 @@ def get_genre_dict_list() -> list[GenreDict]:
     return(data)
 
 def genres() -> list[str]:
-    """_summary_
+    """Get valid genres (spotify genre seed format)
 
     Returns:
-        list[str]: _description_
+        list[str]: List of genres
     """
     genre_list = []
     data = get_genre_dict_list()

@@ -52,6 +52,7 @@ class Track:
             raise Exception(f"Couldn't create track {name} by {artist_name} from lastfm: {e}")
 
     def _attach_valid_track(self, spotify_track: SpotifyTrack) -> SpotifyTrack:
+        """Attach a SpotifyTrack and associated spotify information to the track with no validations"""
         try:
             # Attach the Spotify track information to the current object
             self.spotify_track        = spotify_track
@@ -63,23 +64,20 @@ class Track:
             raise Exception(f"Unexpected error when attaching track {self.name} by {self.artist}: {e}")
 
     def attach_spotify_track_information_from_spotify_track(self, spotify_track: SpotifyTrack, artist_spotify_id: str = "") -> SpotifyTrack:
-        """_summary_
+        """validate and attach spotify track
 
         Args:
-            spotify_track (SpotifyTrack): _description_
-            artist_spotify_id (str, optional): _description_. Defaults to "".
-
-        Raises:
-            Exception: _description_
+            spotify_track (SpotifyTrack): The track
+            artist_spotify_id (str, optional): The artist who made the track Defaults to "".
 
         Returns:
-            SpotifyTrack: _description_
+            SpotifyTrack: Same as param
         """
         # Return existing Spotify track information if already attached
         if(getattr(self, 'spotify_track', None)):
             return(self.spotify_track)
 
-        if ((not artist_spotify_id) or self.artist_id_in_spotify_track(artist_spotify_id)):
+        if ((not artist_spotify_id) or (self.artist_id_in_spotify_track(artist_spotify_id))):
             return (self._attach_valid_track(spotify_track))
         else:
             logger.error(f"Track {self.name} not by {self.artist} {artist_spotify_id}")

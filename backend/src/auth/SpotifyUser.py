@@ -262,13 +262,13 @@ class SpotifyUser:
         *args,
         **kwargs
     ) -> Optional[any]:
-        """_summary_
+        """Execute arbitrary spotipy function
 
         Args:
-            method_name (str): _description_
+            method_name (str): spotipy fn
 
         Returns:
-            Optional[any]: _description_
+            Optional[any]: Whatever the fn returns
         """
         try:
             # Dynamically get the method from the Spotipy client
@@ -290,14 +290,8 @@ class SpotifyUser:
         
         return(None)
 
-
     def upload_playlist_cover_image(self, cover_image_path: str, playlist_id: str) -> None:
-        """_summary_
-
-        Args:
-            cover_image_path (str): _description_
-            playlist_id (str): _description_
-        """
+        """Upload cover image from path"""
         # Open the image and convert it to a base64-encoded JPEG
         with Image.open(cover_image_path) as img:
             img = img.convert("RGB")  # Ensure the image is in RGB format

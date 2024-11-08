@@ -5,7 +5,6 @@ from src.auth.SpotifyUser import spotify_user
 import os
 from pathlib import Path
 
-# TODO - Do a merger of the genres manually
 inc = 50
 lim = 2000
 
@@ -50,7 +49,7 @@ def collect_musicbrainz_genres(musicbrainz_requester: MusicBrainzRequests, limit
     return all_genres
 
 def collect_spotify_genres() -> List[str]:
-    """Collect genres from Spotify (single request)."""
+    """Collect genres from Spotify (genre seeds)"""
     
     response = spotify_user.client.recommendation_genre_seeds()
     return response.get("genres", [])

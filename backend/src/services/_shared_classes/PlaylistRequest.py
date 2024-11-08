@@ -1,7 +1,8 @@
 from src.utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
 from src.db.DB import DB
 from src.db.DAOs.RequestsDAO import RequestDAO
-from src.models.pydantic.Request import Request, Params
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.models.pydantic.Request import Request, Params, Stats
 from typing import TypedDict
 from src.utils.util import NICHE_APP_URL
 from src.services.genre_handling.valid_genres import genres as valid_genres
@@ -122,12 +123,12 @@ class PlaylistRequest:
             Request(
                 user = self.user_oid,
                 params = Params(
-                    songs_min_year_created=self.songs_min_year_created,
-                    songs_length_min_secs=self.songs_length_min_secs,
-                    songs_length_max_secs=self.songs_length_max_secs,
-                    language=LANGMAP.inv.get(self.language, {}),
-                    genre=self.genre,
-                    niche_level=NICHEMAP.inv.get(self.niche_level, {})
+                    songs_min_year_created = self.songs_min_year_created,
+                    songs_length_min_secs  = self.songs_length_min_secs,
+                    songs_length_max_secs  = self.songs_length_max_secs,
+                    language               = LANGMAP.inv.get(self.language, {}),
+                    genre                  = self.genre,
+                    niche_level            = NICHEMAP.inv.get(self.niche_level, {})
                 )
             )
         )
@@ -144,6 +145,51 @@ class PlaylistRequest:
             PlaylistInfo: the info
         """
         return({
-            'name': f'Niche {self.genre} Songs',
+            'name'       : f'Niche {self.genre} Songs',
             'description': f'Courtesy of the niche app :) ({NICHE_APP_URL})'
         })
+    
+    def update_stats(self, new_track_artist_followers: int = None, percent_artists_valid_new_val: float = None, previous_num_tracks: int = None) -> None:
+        """Update the stats part of the related db entry
+
+        Args:
+            new_track_artist_followers (int, optional): The number of followers of the artist who made the new track which was just added to the request's related playlist. Defaults to None.
+            percent_artists_valid_new_val (float, optional): The new value for the percent artists valid stat (complete override). Defaults to None.
+            previous_num_tracks (int, optional): The number of tracks before the current track was added. Defaults to either 0 or the length of the related playlist
+
+        """
+        assert(self.in_db)
+        db   = DB()
+        rdao = RequestDAO(db)
+        curr = rdao.read_by_id(self.oid)
+
+        # Get the previous number of tracks
+        if(previous_num_tracks):
+            pass
+        elif (curr.playlist_generated):
+            pdao = PlaylistDAO(db)
+            playlist = pdao.read_by_id(curr.playlist_generated)
+            previous_num_tracks = playlist.generated_length
+        else:
+            previous_num_tracks = 0
+
+        curr_average_followers = curr.stats.average_artist_followers or 0
+        curr_pct_valid         = curr.stats.percent_artists_valid or 0
+
+        # Create the appropriate update values for the stats based on args
+        update_val_pct       = curr_pct_valid
+        update_val_followers = curr_average_followers
+        if (percent_artists_valid_new_val):
+            update_val_pct = percent_artists_valid_new_val
+        if (new_track_artist_followers):
+            update_val_followers = (((curr_average_followers * previous_num_tracks) + new_track_artist_followers) / (previous_num_tracks + 1))
+
+        rdao.update(self.oid, {
+            'stats': Stats(
+                percent_artists_valid    = update_val_pct,
+                average_artist_followers = update_val_followers
+            )
+        })
+
+        return(None)
+    

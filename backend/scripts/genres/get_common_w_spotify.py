@@ -11,6 +11,7 @@ def normalize_word(word):
     return re.sub(r"[-\s]", "", word.strip().lower())
 
 def find_common_words(master_file_path, other_files):
+    """Find the common genres (not considering case or hyphens or accents)"""
     # Load master file words without modifying the actual words
     with open(master_file_path, 'r') as master_file:
         master_words = {normalize_word(word): word.strip() for word in master_file}

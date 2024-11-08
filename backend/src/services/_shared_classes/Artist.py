@@ -193,21 +193,21 @@ class Artist:
             except Exception:
                 logger.warning(f'Couldn\'t attach top tracks from name for {self.name}')
 
-        raise Exception(f'Couldn\'t get lastfm top tracks for {self.name}')
+        logger.error(f'Couldn\'t get lastfm top tracks for {self.name}')
+        return([])
 
     def attach_spotify_artist(self, artist: SpotifyArtist) -> SpotifyArtist:
-        """_summary_
+        """Attach spotify artist to artist from SpotifyArtist object
 
         Args:
-            artist (SpotifyArtist): _description_
+            artist (SpotifyArtist): Artist as returned by spotify (e.g. in /artist/)
 
         Raises:
-            Exception: _description_
-            Exception: _description_
-            Exception: _description_
+            Exception: Not same name
+            Exception: Other
 
         Returns:
-            SpotifyArtist: _description_
+            SpotifyArtist: The same as param
         """
         if(getattr(self, 'spotify_artist', None)):
             logger.info(f'Artist {self.name} has associated spotify artist')

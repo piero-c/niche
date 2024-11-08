@@ -64,7 +64,6 @@ class Playlist:
         spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id)
 
         self.user_oid = spotify_user.oid
-        self.request_oid = req.oid
 
         self.in_db = False
         if (add_to_db):
@@ -72,24 +71,27 @@ class Playlist:
 
 
     def add_db_entry(self) -> None:
+        """Add the playlist to the db"""
         if (self.in_db):
             return (None)
         db = DB()
+        # Playlist
         dao = PlaylistDAO(db)
         entry = dao.create(
             PlaylistModel(
                 user=self.user_oid,
                 name=self.name,
-                request=self.request_oid,
+                request=self.request.oid,
                 link=self.url,
                 generated_length=self.length
             )
         )
         self.oid = entry.inserted_id
 
+        # Attach playlist oid to its request
         rdao = RequestDAO(db)
         rdao.update(
-            document_id=self.request_oid,
+            document_id=self.request.oid,
             update_data={
                 'playlist_generated': entry.inserted_id
             }
@@ -97,15 +99,15 @@ class Playlist:
         self.in_db = True
         return(None)
 
-    def add_track(self, uri: str) -> None:
-        """_summary_
+    def add_track(self, track: NicheTrack) -> None:
+        """Add a track to the playlist (adds to the underlying, and updates generated length. Request stats must be updated separately)
 
         Args:
-            uri (str): _description_
+            uri (str): track uri
         """
         
         # STEP 1: Update plaulist on spotify
-        spotify_user.execute('playlist_add_items', playlist_id=self.id, items=[uri])
+        spotify_user.execute('playlist_add_items', playlist_id=self.id, items=[track.get('spotify_uri', '')])
         # STEP 2: Update playlist object
         self.length += 1
         # STEP 3: 
@@ -118,11 +120,7 @@ class Playlist:
         return (None)
     
     def delete(self) -> None:
-        """_summary_
-
-        Returns:
-            bool: _description_
-        """
+        """Delete the playlist and all associated info"""
         
         # STEP 1: Delete playlist on spotify
         spotify_user.execute('user_playlist_unfollow', user=spotify_user.id, playlist_id=self.id)
@@ -130,7 +128,7 @@ class Playlist:
         # STEP 2: Delete link from requests
         db = DB()
         rdao = RequestDAO(db)
-        rdao.update(self.request_oid, {'playlist_generated': None})
+        rdao.update(self.request.oid, {'playlist_generated': None})
 
         # STEP 3: Delete entry in playlists collection
         pdao = PlaylistDAO(db)
@@ -139,6 +137,7 @@ class Playlist:
         return(None)
     
     def add_generated_time(self, time_mins: float) -> None:
+        """Update the time to generate mind field"""
         db = DB()
         pdao = PlaylistDAO(db)
         pdao.update(self.oid, {'time_to_generate_mins': time_mins})

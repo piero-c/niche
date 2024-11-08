@@ -22,6 +22,8 @@ REASONMAP: bidict = bidict({
     ReasonExcluded.TOO_FEW_SOMETHING : "Too Few Followers / Listeners / Plays"
 })
 
+# Validator suited for main generation function only. Wrappers for adding songs to the playlist from spotify recommendations or an existing artist can be found in playlist_editor
+
 class Validator:
     """Class for validating tracks and artists
 

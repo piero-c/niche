@@ -8,7 +8,8 @@ from src.auth.SpotifyUser import SpotifyUser
 from src.utils.util import sleep, RequestType, convert_s_to_ms, MIN_SONGS_FOR_PLAYLIST_GEN
 from src.services.profile.playlists import get_playlist_tracks
 from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
-from src.services._shared_classes.Playlist import NicheTrack
+from src.utils.spotify_util import NicheTrack
+from src.utils.logger import logger
 import random
 
 def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[str]:
@@ -25,6 +26,7 @@ def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[str]:
     seed_ids = list(set([track.get('artist_id', '') for track in tracks_copy]))
     return(random.sample(seed_ids, num) if len(seed_ids) > num else seed_ids)
 
+# TODO - some kind of likeness metric
 def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> list[SpotifyTrack]:
     """_summary_
 
@@ -38,7 +40,7 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     """
     assert(num > 0 and num <= 10)
     artist_seeds_num = MIN_SONGS_FOR_PLAYLIST_GEN
-    reccomended_tracks = []
+    recommended_tracks = []
 
     db = DB()
     pdao = PlaylistDAO(db)
@@ -55,6 +57,7 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
 
     # Get 100, shuffle, get one, validate artist and track, ensure no otehr validations are needed by add track (no throw), return track
 
+    logger.info(f'Getting recommendations for playlist {playlist_url}...')
     ## BEGIN REQUEST ##
     recs = user.execute(
         'recommendations',
@@ -67,21 +70,25 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     sleep(RequestType.SPOTIFY)
     ## END REQUEST ##
 
+    logger.info(f'Recieved {len(recs.get('tracks'))} recommendations')
+
     rec_tracks = recs.get('tracks', '')
     random.shuffle(rec_tracks)
 
+    # TODO - here - for this when we r
     for track in rec_tracks:
+        logger.info(f'Checking validity for track {track.get('name', '')}')
         track_artist_id = track.get('artists', [{}])[0].get('id', '')
-        ## BEGIN REQUEST ##
         track_artist: SpotifyArtist = user.execute('artist', track_artist_id)
-        sleep(RequestType.SPOTIFY)
-        ## END REQUEST ##
+
+        if (not track_artist):
+            continue
         if (artist_valid_for_insert(track_artist, playlist_url, user) and track_valid_for_insert(track, playlist_url, user)):
-            reccomended_tracks.append(track)
-        if (len(reccomended_tracks) >= num):
+            recommended_tracks.append(track)
+        if (len(recommended_tracks) >= num):
             break
     
-    return(reccomended_tracks)
+    return(recommended_tracks)
 
 if __name__ == '__main__':
     print(add_valid_track(get_recommendations('https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n', SpotifyUser(), 1)[0].get('uri'), 'https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n', SpotifyUser()))

@@ -1,4 +1,4 @@
-from src.utils.spotify_util import extract_id, SpotifyTrack, SpotifyArtist
+from src.utils.spotify_util import extract_id, SpotifyTrack, SpotifyArtist, NicheTrack
 from src.services._shared_classes.Validator import Validator
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.services._shared_classes.Track import Track
@@ -15,20 +15,25 @@ from src.utils.logger import logger
 
 import random
 
-def _get_playlist_song_ids(playlist_url: str, user: SpotifyUser) -> list[str]:
+def _get_playlist_ids(playlist_url: str, user: SpotifyUser, type: str) -> list[str]:
     """_summary_
 
     Args:
         playlist_url (str): _description_
         user (SpotifyUser): _description_
+        type (str): _description_. Must be one of 'track', 'artist'
 
     Returns:
         list[str]: _description_
     """
     # Get the ids of songs in the playlist to ensure we don't add a duplicate
-    playlist_tracks = get_playlist_tracks(playlist_url, user)
-    song_ids_in_playlist = [extract_id(track.get('spotify_track_url'), 'track') for track in playlist_tracks]
-    return(song_ids_in_playlist)
+    playlist_tracks: list[NicheTrack] = get_playlist_tracks(playlist_url, user)
+    if (type == 'track'):
+        ids_in_playlist = [extract_id(track.get('spotify_url'), 'track') for track in playlist_tracks]
+    elif (type == 'artist'):
+        ids_in_playlist = [track.get('artist_id', '') for track in playlist_tracks]
+    
+    return(ids_in_playlist)
 
 def _get_playlist_request(playlist_url: str, user: SpotifyUser) -> PlaylistRequest:
     """_summary_
@@ -55,30 +60,10 @@ def _get_playlist_request(playlist_url: str, user: SpotifyUser) -> PlaylistReque
         niche_level=NICHEMAP.get(request.params.niche_level),
         songs_length_min_secs=request.params.songs_length_min_secs,
         songs_length_max_secs=request.params.songs_length_max_secs,
-        genre=request.params.genre
+        genre=request.params.genre,
+        add_to_db=False
     )    
     return(playlist_request)
-
-def _validate_track_for_insert(track: SpotifyTrack, user: SpotifyUser, request: PlaylistRequest, song_ids_in_playlist: list[str]) -> str | None:
-    """_summary_
-
-    Args:
-        track (SpotifyTrack): _description_
-        user (SpotifyUser): _description_
-        request (PlaylistRequest): _description_
-        song_ids_in_playlist (list[str]): _description_
-
-    Returns:
-        str | None: _description_
-    """
-    validator = Validator(request, user)
-
-    track_obj = Track(track.get('name'), "No Name", user)
-    # No need to check artist id since we don't care who made it (assume the artist was already considered valid)
-    track_obj.attach_spotify_track_information_from_spotify_track(track)
-    if(track.get('id') not in song_ids_in_playlist) and (validator.validate_track(track_obj)):
-        return(track_obj.spotify_uri)
-    return(None)
 
 def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str, user: SpotifyUser) -> bool:
     """_summary_
@@ -91,16 +76,19 @@ def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str, user: Spot
     Returns:
         bool: _description_
     """
+    artist_ids_in_playlist = _get_playlist_ids(playlist_url, user, 'artist')
     playlist_request = _get_playlist_request(playlist_url, user)
+
     validator = Validator(playlist_request, user)
 
     artist_obj = Artist(artist.get('name', ''), 'no id', user)
     artist_obj.attach_spotify_artist(artist)
-    if (validator.artist_excluded_reason_spotify(artist_obj)):
-        return(False)
-    return(True)
+    # If not excluded and the artist isnt already in the playlist
+    if ((not validator.artist_excluded_reason_spotify(artist_obj)) and ((artist_obj.spotify_artist_id) not in artist_ids_in_playlist)):
+        return(True)
+    return(False)
 
-def track_valid_for_insert(track: SpotifyTrack, playlist_url: str, user: SpotifyUser) -> str | None:
+def track_valid_for_insert(track: SpotifyTrack, playlist_url: str, user: SpotifyUser) -> bool:
     """_summary_
 
     Args:
@@ -111,11 +99,18 @@ def track_valid_for_insert(track: SpotifyTrack, playlist_url: str, user: Spotify
     Returns:
         str | None: _description_
     """
-    song_ids_in_playlist = _get_playlist_song_ids(playlist_url, user)
+    song_ids_in_playlist = _get_playlist_ids(playlist_url, user, 'track')
     playlist_request = _get_playlist_request(playlist_url, user)
 
-    track_uri = _validate_track_for_insert(track, user, playlist_request, song_ids_in_playlist)
-    return(track_uri)
+    validator = Validator(playlist_request, user)
+
+    track_obj = Track(track.get('name'), "No Name", user)
+    # No need to check artist id since we don't care who made it (assume the artist was already considered valid)
+    track_obj.attach_spotify_track_information_from_spotify_track(track)
+    if((track.get('id') not in song_ids_in_playlist) and (validator.validate_track(track_obj))):
+        return(True)
+    return(False)
+
 
 def validate_and_add_track(track: SpotifyTrack, playlist_url: str, user: SpotifyUser) -> str | None:
     """_summary_

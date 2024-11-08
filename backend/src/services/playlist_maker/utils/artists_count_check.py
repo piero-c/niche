@@ -1,22 +1,25 @@
-from db.DB import DB
-from db.DAOs.RequestsDAO import RequestDAO
-from db.DAOs.ArtistsDAO import ArtistsDAO
-from models.pydantic.Request import Params
-from services._shared_classes.PlaylistRequest import PlaylistRequest
-from utils.util import LANGMAP, NICHEMAP
+from src.db.DB import DB
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DAOs.ArtistsDAO import ArtistsDAO
+from src.models.pydantic.Request import Params
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+from src.utils.util import LANGMAP, NICHEMAP
 from numpy import mean
 
-from auth.SpotifyUser import SpotifyUser
+from src.auth.SpotifyUser import SpotifyUser
 
-def likely_under_count_playlist(request: PlaylistRequest) -> bool:
+def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
     """Return true if the playlist for the request is likely to be under the requested size
 
     Args:
         request (PlaylistRequest): The request
+        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
 
     Returns:
         bool: Will it likely be undersized
     """
+    if (not size):
+        size = request.playlist_length
     db = DB()
 
     rdao = RequestDAO(db)

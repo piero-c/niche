@@ -1,7 +1,7 @@
 from typing import Union
 from pymongo.results import InsertOneResult, UpdateResult
 from bson import ObjectId
-from models.pydantic.BaseSchema import PyObjectId  # Import your PyObjectId
+from src.models.pydantic.BaseSchema import PyObjectId  # Import your PyObjectId
 
 class OperationResult:
     """

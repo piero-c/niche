@@ -1,33 +1,17 @@
 # Module for the final playlist
-from auth.SpotifyUser import SpotifyUser
-from typing import TypedDict
-from db.DB import DB
-from db.DAOs.PlaylistsDAO import PlaylistDAO
-from db.DAOs.RequestsDAO import RequestDAO
-from models.pydantic.Playlist import Playlist as PlaylistModel
-from services._shared_classes.PlaylistRequest import PlaylistRequest
-from PIL import Image  # You may need to install Pillow if not already installed
-import io
-import base64
+from src.auth.SpotifyUser import SpotifyUser
+from src.db.DB import DB
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.models.pydantic.Playlist import Playlist as PlaylistModel
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from pathlib import Path
+from src.utils.spotify_util import NicheTrack
 
-from utils.logger import logger
-import requests
 
-COVER_IMAGE_PATH = Path('../../assets/icon.jpg')
+COVER_IMAGE_PATH = Path('../assets/icon.jpg')
 
-class NicheTrack(TypedDict):
-    """Niche track obj
-
-    Args:
-        TypedDict
-    """
-    artist     : str
-    track      : str
-    spotify_uri: str
-    spotify_url: str
-
-# Playlist Class
+# Playlist Class (FOR GENERATION PURPOSES ONLY)
 class Playlist:
     """Playlist Object
 
@@ -36,22 +20,24 @@ class Playlist:
         url (str): Spotify Playlist URL.
         name (str): Name of the playlist.
         description (str): Description of the playlist.
+        oid
+            Requires call: add_db_entry
+        in_db
     """
-    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser) -> None:
+    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser, add_to_db: bool = True) -> None:
         """Initialize the playlist
 
         Args:
             tracks (list[NicheTrack]): The tracks to add
             req (PlaylistRequest): The request that was used to generate the playlist
             user (SpotifyUser): The Spotify Authenticated User
+            add_to_db (bool, optional): Add the playlist to the db?. Default to true
         """
-        # Extract Spotify URIs from the provided tracks
-        track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
-
         playlist_info = req.get_playlist_info()
 
         # Create a new playlist with placeholder name and description
-        playlist = spotify_user.client.user_playlist_create(
+        playlist = spotify_user.execute(
+            'user_playlist_create',
             user          = spotify_user.id,
             name          = playlist_info['name'],
             public        = True,
@@ -59,11 +45,14 @@ class Playlist:
             collaborative = False
         )
 
+        # Extract Spotify URIs from the provided tracks
+        track_uris = [track.get('spotify_uri') for track in tracks if 'spotify_uri' in track]
+
         # Add the extracted tracks to the newly created playlist
         # Spotify API allows adding up to 100 tracks per request
         for i in range(0, len(track_uris), 100):
             batch = track_uris[i:i+100]
-            spotify_user.client.playlist_add_items(playlist_id=playlist['id'], items=batch)
+            spotify_user.execute('playlist_add_items', playlist_id=playlist['id'], items=batch)
 
         # Store playlist information as attributes
         self.id          = playlist['id']
@@ -72,41 +61,89 @@ class Playlist:
         self.description = playlist['description']
         self.length      = len(tracks)
 
-        self._upload_cover_image(spotify_user)
+        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id)
 
-        user_oid = spotify_user.oid
-        request_oid = req.request_oid
+        self.user_oid = spotify_user.oid
+        self.request_oid = req.oid
 
+        self.in_db = False
+        if (add_to_db):
+            self.add_db_entry()
+
+
+    def add_db_entry(self) -> None:
+        if (self.in_db):
+            return (None)
         db = DB()
         dao = PlaylistDAO(db)
         entry = dao.create(
             PlaylistModel(
-                user=user_oid,
+                user=self.user_oid,
                 name=self.name,
-                request=request_oid,
+                request=self.request_oid,
                 link=self.url,
                 generated_length=self.length
             )
         )
+        self.oid = entry.inserted_id
 
         rdao = RequestDAO(db)
         rdao.update(
-            document_id=req.request_oid,
+            document_id=self.request_oid,
             update_data={
                 'playlist_generated': entry.inserted_id
             }
         )
+        self.in_db = True
+        return(None)
 
-    def _upload_cover_image(self, spotify_user: SpotifyUser) -> None:
-        # Open the image and convert it to a base64-encoded JPEG
-        with Image.open(COVER_IMAGE_PATH) as img:
-            img = img.convert("RGB")  # Ensure the image is in RGB format
-            buffer = io.BytesIO()
-            img.save(buffer, format="JPEG")
-            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+    def add_track(self, uri: str, spotify_user: SpotifyUser) -> None:
+        """_summary_
 
-        try:
-            spotify_user.client.playlist_upload_cover_image(self.id, image_base64)
-        except requests.exceptions.ReadTimeout:
-            # Handle the timeout exception as needed
-            logger.error("Timeout occurred while uploading the cover image. Please try again later.")
+        Args:
+            uri (str): _description_
+            spotify_user (SpotifyUser): _description_
+        """
+        # STEP 1: Update plaulist on spotify
+        spotify_user.execute('playlist_add_items', playlist_id=self.id, items=[uri])
+        # STEP 2: Update playlist object
+        self.length += 1
+        # STEP 3: 
+        db = DB()
+        dao = PlaylistDAO(db)
+        dao.update(
+            self.oid, 
+            { 'generated_length': self.length }
+        )
+        return (None)
+    
+    def delete(self, user: SpotifyUser) -> None:
+        """_summary_
+
+        Args:
+            user (SpotifyUser): _description_
+
+        Returns:
+            bool: _description_
+        """
+        # STEP 1: Delete playlist on spotify
+        user.execute('user_playlist_unfollow', user=user.id, playlist_id=self.id)
+
+        # STEP 2: Delete link from requests
+        db = DB()
+        rdao = RequestDAO(db)
+        rdao.update(self.request_oid, {'playlist_generated': None})
+
+        # STEP 3: Delete entry in playlists collection
+        pdao = PlaylistDAO(db)
+        pdao.delete(self.oid)
+
+        return(None)
+    
+    def add_generated_time(self, time_mins: float) -> None:
+        db = DB()
+        pdao = PlaylistDAO(db)
+        pdao.update(self.oid, {'time_to_generate_mins': time_mins})
+
+        return(None)
+

@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime, timezone
-from models.pydantic.BaseSchema import BaseSchema
+from src.models.pydantic.BaseSchema import BaseSchema
 from enum import Enum
 from bidict import bidict
 

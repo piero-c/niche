@@ -1,19 +1,18 @@
 # Module for finding the niche songs for a genre
-from auth.SpotifyUser import SpotifyUser
-from auth.MusicBrainzRequests import MusicBrainzRequests
+from src.auth.SpotifyUser import SpotifyUser
+from src.auth.MusicBrainzRequests import MusicBrainzRequests
 
-from services._shared_classes.PlaylistRequest import PlaylistRequest, Language
-from services._shared_classes.Artist import Artist
-from services._shared_classes.Track import Track
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
+from src.services._shared_classes.Artist import Artist
+from src.services._shared_classes.Track import Track
+from src.services.genre_handling.valid_genres import convert_genre
 
 
-from models.pydantic.RequestsCache import ReasonExcluded
+from src.models.pydantic.RequestsCache import ReasonExcluded
 
 from numpy import mean as mean
 
-from utils.logger import logger
-
-# TODO - requires call to... here and in niche track finder
+from src.utils.logger import logger
 
 class Validator:
     """_summary_
@@ -34,25 +33,34 @@ class Validator:
 
     def artist_likeness_invalid(self, artist: Artist) -> bool:
         """Valid according to request
+
+        Requires:
+            Artist has associated lastfm artist
         """
         return(artist.lastfm_artist_likeness < self.request.lastfm_likeness_min)
 
     def artist_listeners_and_plays_too_low(self, artist: Artist) -> bool:
         """Too low according to request for nicheness level
+        Requires:
+            Artist has associated lastfm artist
         """
         return((artist.lastfm_artist_listeners < self.request.lastfm_listeners_min) and (artist.lastfm_artist_playcount < self.request.lastfm_playcount_min))
 
     def artist_listeners_and_plays_too_high(self, artist: Artist) -> bool:
         """Too high according to request for nicheness level
+        Requires:
+            Artist has associated lastfm artist
         """
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
-    # TODO - pydocs 4 these
     def artist_excluded_reason_spotify(self, artist: Artist) -> ReasonExcluded | None:
         """_summary_
 
         Args:
             artist (Artist): _description_
+        
+        Requires:
+            Artist has associated spotify artist
 
         Returns:
             ReasonExcluded | None: _description_
@@ -75,6 +83,9 @@ class Validator:
 
         Args:
             track (Track): _description_
+        
+        Requires:
+            Track has spotify information attached
 
         Returns:
             bool: _description_
@@ -88,19 +99,21 @@ class Validator:
             logger.warning(f"Skipping track '{track.name}' due to song length constraints.")
             return(False)
         
-                            # TODO
-            # # CHECK YEAR PUBLISHED
-            # if(year_published < self.request.songs_min_year_created):
-            #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
-            #     continue
+        # TODO
+        # # CHECK YEAR PUBLISHED
+        # if(year_published < self.request.songs_min_year_created):
+        #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
+        #     continue
         return(True)
 
-    # TODO - change name of this and track artist excl
     def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:
         """_summary_
 
         Args:
             artist (Artist): _description_
+        
+        Requires:
+            Artist has associated lastfm artist
 
         Returns:
             ReasonExcluded | None: _description_
@@ -123,10 +136,7 @@ class Validator:
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
-            # TODO - Deal with this - was excluding alot of artists (make sure we dont run into the issue of getting an artist not in the genre (remember the one the i pray girl fuzzy search thing)) 
-            # TODO - maybe remove this but make sure we dont run into the wrong artist thing
-            # TODO - for classic rock was not including alot that were actually in the genre (like 'hard rock' but for k-pop not soooo)
-            elif (not artist.artist_in_lastfm_genre(self.request.genre)):
+            elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
                 logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                 return(ReasonExcluded.OTHER)
                 # Sanity check for artist match, no exclusion required here
@@ -145,6 +155,9 @@ class Validator:
 
         Args:
             artist (Artist): _description_
+        
+        Requires:
+            Artist has associated spotify artist (attached_spotify_artist_from_track)
 
         Returns:
             ReasonExcluded | None: _description_

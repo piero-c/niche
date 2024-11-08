@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Optional
-from models.pydantic.BaseSchema import BaseSchema, PyObjectId
+from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
 
 class Params(BaseModel):
     songs_min_year_created: Optional[int] = None

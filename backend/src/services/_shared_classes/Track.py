@@ -1,10 +1,9 @@
-from utils.util import convert_ms_to_s
-from utils.spotify_util import SpotifyTrack, find_exact_match
-from utils.lastfm_util import LastFMTrack
-from auth.SpotifyUser import SpotifyUser
-from utils.logger import logger
+from src.utils.util import convert_ms_to_s
+from src.utils.spotify_util import SpotifyTrack, find_exact_match
+from src.utils.lastfm_util import LastFMTrack
+from src.auth.SpotifyUser import SpotifyUser
+from src.utils.logger import logger
 
-# TODO - implement lastfm get correction? What does it do ?? for track or get similar w same name check idk
 class Track:
     """High level Track
 

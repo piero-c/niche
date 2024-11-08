@@ -1,9 +1,20 @@
-from utils.util import strcomp
+from src.utils.util import strcomp
 
-from typing import Optional
+from typing import Optional, TypedDict
 from urllib.parse import urlparse, parse_qs
 import re
 
+class NicheTrack(TypedDict):
+    """Niche track obj
+
+    Args:
+        TypedDict
+    """
+    artist     : str
+    artist_id  : str
+    track      : str
+    spotify_uri: str
+    spotify_url: str
 
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]
@@ -141,3 +152,39 @@ def extract_id(playlist_link: str, type: str) -> Optional[str]:
         return query_params['list'][0]
 
     return None
+
+def id_to_uri(id: str, type: str) -> str:
+    """_summary_
+
+    Args:
+        id (str): _description_
+        type (str): _description_
+
+    Returns:
+        str: _description_
+    """
+    return(f'spotify:{type}:{id}')
+
+def convert_spotify_track_to_niche_track(track: SpotifyTrack) -> NicheTrack:
+    """_summary_
+
+    Args:
+        track (SpotifyTrack): _description_
+
+    Returns:
+        NicheTrack: _description_
+    """
+    artist_info = track.get('artists', [{}])[0]
+    track_info  = track.get('name', 'Unknown Track Name')
+    spotify_url = track.get('external_urls', {}).get('spotify', '')
+    spotify_uri = track.get('uri', '')
+
+    return(
+        {
+            "artist"     : artist_info.get('name', 'Unknown Artist'),
+            "artist_id"  : artist_info.get('id', ''),
+            "track"      : track_info,
+            'spotify_url': spotify_url,
+            'spotify_uri': spotify_uri
+        }
+    )

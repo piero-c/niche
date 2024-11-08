@@ -1,10 +1,11 @@
-from utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
-from db.DB import DB
-from db.DAOs.RequestsDAO import RequestDAO
-from models.pydantic.Request import Request, Params
-from auth.SpotifyUser import SpotifyUser
+from src.utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
+from src.db.DB import DB
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.models.pydantic.Request import Request, Params
+from src.auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
-from utils.util import NICHE_APP_URL
+from src.utils.util import NICHE_APP_URL
+from src.services.genre_handling.valid_genres import genres as valid_genres
 class PlaylistInfo(TypedDict):
     """Playlist info obj
 
@@ -62,9 +63,13 @@ class PlaylistRequest:
         niche_level
         lastfm_likeness_min 
         playlist_length     
+        user_oid
+        oid
+            Requires call: add_db_entry
+        in_db
     """
     def __init__(self, user: SpotifyUser, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
-                    songs_length_min_secs: int, songs_length_max_secs: int, genre: str) -> None:
+                    songs_length_min_secs: int, songs_length_max_secs: int, genre: str, add_to_db: bool = True) -> None:
         """Initialize the request
 
         Args:
@@ -75,13 +80,16 @@ class PlaylistRequest:
             songs_length_min_secs (int) : Min length of given song
             songs_length_max_secs (int) : Max length of given song
             genre (str)                 : requested genre
+            add_to_db (bool, optional)  : Add the playlist to the db?. Default to true
         """
+        assert(genre in valid_genres()) # Genre is spotify genre
         self.songs_min_year_created = songs_min_year_created
         self.songs_length_min_secs  = songs_length_min_secs
         self.songs_length_max_secs  = songs_length_max_secs
         self.language               = language # This stays as an enum
         self.genre                  = genre
         self.niche_level            = niche_level
+        self.user_oid               = user.oid
 
         # Based on the niche level set mins and maxes
         self.lastfm_listeners_max  = niche_level_map[niche_level]["lastfm_listeners_max"]
@@ -97,13 +105,20 @@ class PlaylistRequest:
 
         #self.playlist_length = 1
 
+        self.in_db = False
+        if (add_to_db):
+            self.add_db_entry()
+
+    def add_db_entry(self) -> None:
+        if (self.in_db):
+            return (None)
         db = DB()
         dao = RequestDAO(db)
 
         # Make the request
         db_entry = dao.create(
             Request(
-                user = user.oid,
+                user = self.user_oid,
                 params = Params(
                     songs_min_year_created=self.songs_min_year_created,
                     songs_length_min_secs=self.songs_length_min_secs,
@@ -115,7 +130,10 @@ class PlaylistRequest:
             )
         )
 
-        self.request_oid = db_entry.inserted_id
+        self.oid = db_entry.inserted_id
+
+        self.in_db = True
+        return(None)
 
     def get_playlist_info(self) -> PlaylistInfo:
         """Get the info for the playlist

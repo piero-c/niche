@@ -1,6 +1,6 @@
 # models/User.py
 
-from models.pydantic.BaseSchema import BaseSchema
+from src.models.pydantic.BaseSchema import BaseSchema
 
 class User(BaseSchema):
     display_name: str

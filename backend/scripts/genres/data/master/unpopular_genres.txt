@@ -1,0 +1,10 @@
+bossa nova: 158
+club: 121
+detroit techno: 39
+minimal techno: 97
+mpb: 195
+samba: 95
+uptempo hardcore: 15
+indian pop: 51
+persian pop: 91
+piano blues: 37

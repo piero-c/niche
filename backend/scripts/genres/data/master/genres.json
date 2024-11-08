@@ -1,0 +1,346 @@
+[
+    {
+        "SPOTIFY": "afrobeat",
+        "MUSICBRAINZ": "afrobeat",
+        "LASTFM": "afrobeat"
+    },
+    {
+        "SPOTIFY": "ambient",
+        "MUSICBRAINZ": "ambient",
+        "LASTFM": "ambient"
+    },
+    {
+        "SPOTIFY": "black-metal",
+        "MUSICBRAINZ": "black metal",
+        "LASTFM": "black metal"
+    },
+    {
+        "SPOTIFY": "bluegrass",
+        "MUSICBRAINZ": "bluegrass",
+        "LASTFM": "bluegrass"
+    },
+    {
+        "SPOTIFY": "blues",
+        "MUSICBRAINZ": "blues",
+        "LASTFM": "blues"
+    },
+    {
+        "SPOTIFY": "breakbeat",
+        "MUSICBRAINZ": "breakbeat",
+        "LASTFM": "breakbeat"
+    },
+    {
+        "SPOTIFY": "classical",
+        "MUSICBRAINZ": "classical",
+        "LASTFM": "Classical"
+    },
+    {
+        "SPOTIFY": "comedy",
+        "MUSICBRAINZ": "comedy",
+        "LASTFM": "comedy"
+    },
+    {
+        "SPOTIFY": "country",
+        "MUSICBRAINZ": "country",
+        "LASTFM": "country"
+    },
+    {
+        "SPOTIFY": "dance",
+        "MUSICBRAINZ": "dance",
+        "LASTFM": "dance"
+    },
+    {
+        "SPOTIFY": "dancehall",
+        "MUSICBRAINZ": "dancehall",
+        "LASTFM": "dancehall"
+    },
+    {
+        "SPOTIFY": "death-metal",
+        "MUSICBRAINZ": "death metal",
+        "LASTFM": "death metal"
+    },
+    {
+        "SPOTIFY": "deep-house",
+        "MUSICBRAINZ": "deep house",
+        "LASTFM": "deep house"
+    },
+    {
+        "SPOTIFY": "disco",
+        "MUSICBRAINZ": "disco",
+        "LASTFM": "Disco"
+    },
+    {
+        "SPOTIFY": "drum-and-bass",
+        "MUSICBRAINZ": "drum and bass",
+        "LASTFM": "Drum and bass"
+    },
+    {
+        "SPOTIFY": "dub",
+        "MUSICBRAINZ": "dub",
+        "LASTFM": "dub"
+    },
+    {
+        "SPOTIFY": "dubstep",
+        "MUSICBRAINZ": "dubstep",
+        "LASTFM": "dubstep"
+    },
+    {
+        "SPOTIFY": "edm",
+        "MUSICBRAINZ": "edm",
+        "LASTFM": "EDM"
+    },
+    {
+        "SPOTIFY": "electro",
+        "MUSICBRAINZ": "electro",
+        "LASTFM": "electro"
+    },
+    {
+        "SPOTIFY": "electronic",
+        "MUSICBRAINZ": "electronic",
+        "LASTFM": "electronic"
+    },
+    {
+        "SPOTIFY": "emo",
+        "MUSICBRAINZ": "emo",
+        "LASTFM": "emo"
+    },
+    {
+        "SPOTIFY": "folk",
+        "MUSICBRAINZ": "folk",
+        "LASTFM": "folk"
+    },
+    {
+        "SPOTIFY": "funk",
+        "MUSICBRAINZ": "funk",
+        "LASTFM": "funk"
+    },
+    {
+        "SPOTIFY": "gospel",
+        "MUSICBRAINZ": "gospel",
+        "LASTFM": "gospel"
+    },
+    {
+        "SPOTIFY": "grindcore",
+        "MUSICBRAINZ": "grindcore",
+        "LASTFM": "grindcore"
+    },
+    {
+        "SPOTIFY": "grunge",
+        "MUSICBRAINZ": "grunge",
+        "LASTFM": "Grunge"
+    },
+    {
+        "SPOTIFY": "hard-rock",
+        "MUSICBRAINZ": "hard rock",
+        "LASTFM": "hard rock"
+    },
+    {
+        "SPOTIFY": "hardstyle",
+        "MUSICBRAINZ": "hardstyle",
+        "LASTFM": "hardstyle"
+    },
+    {
+        "SPOTIFY": "heavy-metal",
+        "MUSICBRAINZ": "heavy metal",
+        "LASTFM": "heavy metal"
+    },
+    {
+        "SPOTIFY": "hip-hop",
+        "MUSICBRAINZ": "hip hop",
+        "LASTFM": "hiphop"
+    },
+    {
+        "SPOTIFY": "house",
+        "MUSICBRAINZ": "house",
+        "LASTFM": "House"
+    },
+    {
+        "SPOTIFY": "idm",
+        "MUSICBRAINZ": "idm",
+        "LASTFM": "idm"
+    },
+    {
+        "SPOTIFY": "indie-pop",
+        "MUSICBRAINZ": "indie pop",
+        "LASTFM": "indiepop"
+    },
+    {
+        "SPOTIFY": "industrial",
+        "MUSICBRAINZ": "industrial",
+        "LASTFM": "industrial"
+    },
+    {
+        "SPOTIFY": "j-pop",
+        "MUSICBRAINZ": "j-pop",
+        "LASTFM": "JPop"
+    },
+    {
+        "SPOTIFY": "j-rock",
+        "MUSICBRAINZ": "j-rock",
+        "LASTFM": "jrock"
+    },
+    {
+        "SPOTIFY": "jazz",
+        "MUSICBRAINZ": "jazz",
+        "LASTFM": "jazz"
+    },
+    {
+        "SPOTIFY": "k-pop",
+        "MUSICBRAINZ": "k-pop",
+        "LASTFM": "Kpop"
+    },
+    {
+        "SPOTIFY": "latin",
+        "MUSICBRAINZ": "latin",
+        "LASTFM": "latin"
+    },
+    {
+        "SPOTIFY": "metal",
+        "MUSICBRAINZ": "metal",
+        "LASTFM": "metal"
+    },
+    {
+        "SPOTIFY": "metalcore",
+        "MUSICBRAINZ": "metalcore",
+        "LASTFM": "metalcore"
+    },
+    {
+        "SPOTIFY": "mpb",
+        "MUSICBRAINZ": "mpb",
+        "LASTFM": "mpb"
+    },
+    {
+        "SPOTIFY": "new-age",
+        "MUSICBRAINZ": "new age",
+        "LASTFM": "new age"
+    },
+    {
+        "SPOTIFY": "opera",
+        "MUSICBRAINZ": "opera",
+        "LASTFM": "opera"
+    },
+    {
+        "SPOTIFY": "pop",
+        "MUSICBRAINZ": "pop",
+        "LASTFM": "pop"
+    },
+    {
+        "SPOTIFY": "power-pop",
+        "MUSICBRAINZ": "power pop",
+        "LASTFM": "powerpop"
+    },
+    {
+        "SPOTIFY": "progressive-house",
+        "MUSICBRAINZ": "progressive house",
+        "LASTFM": "Progressive House"
+    },
+    {
+        "SPOTIFY": "punk",
+        "MUSICBRAINZ": "punk",
+        "LASTFM": "punk"
+    },
+    {
+        "SPOTIFY": "punk-rock",
+        "MUSICBRAINZ": "punk rock",
+        "LASTFM": "Punk-Rock"
+    },
+    {
+        "SPOTIFY": "reggae",
+        "MUSICBRAINZ": "reggae",
+        "LASTFM": "reggae"
+    },
+    {
+        "SPOTIFY": "reggaeton",
+        "MUSICBRAINZ": "reggaeton",
+        "LASTFM": "Reggaeton"
+    },
+    {
+        "SPOTIFY": "rock",
+        "MUSICBRAINZ": "rock",
+        "LASTFM": "rock"
+    },
+    {
+        "SPOTIFY": "rockabilly",
+        "MUSICBRAINZ": "rockabilly",
+        "LASTFM": "rockabilly"
+    },
+    {
+        "SPOTIFY": "salsa",
+        "MUSICBRAINZ": "salsa",
+        "LASTFM": "salsa"
+    },
+    {
+        "SPOTIFY": "singer-songwriter",
+        "MUSICBRAINZ": "singer-songwriter",
+        "LASTFM": "singer songwriter"
+    },
+    {
+        "SPOTIFY": "ska",
+        "MUSICBRAINZ": "ska",
+        "LASTFM": "ska"
+    },
+    {
+        "SPOTIFY": "soul",
+        "MUSICBRAINZ": "soul",
+        "LASTFM": "soul"
+    },
+    {
+        "SPOTIFY": "synth-pop",
+        "MUSICBRAINZ": "synth-pop",
+        "LASTFM": "synth-pop"
+    },
+    {
+        "SPOTIFY": "tango",
+        "MUSICBRAINZ": "tango",
+        "LASTFM": "tango"
+    },
+    {
+        "SPOTIFY": "techno",
+        "MUSICBRAINZ": "techno",
+        "LASTFM": "techno"
+    },
+    {
+        "SPOTIFY": "trance",
+        "MUSICBRAINZ": "trance",
+        "LASTFM": "trance"
+    },
+    {
+        "SPOTIFY": "trip-hop",
+        "MUSICBRAINZ": "trip hop",
+        "LASTFM": "triphop"
+    },
+    {
+        "SPOTIFY": "acoustic",
+        "LASTFM": "acoustic"
+    },
+    {
+        "SPOTIFY": "alt-rock",
+        "LASTFM": "alt rock",
+        "MUSICBRAINZ": "alternative rock"
+    },
+    {
+        "SPOTIFY": "chill",
+        "LASTFM": "chill",
+        "MUSICBRAINZ": "chillout"
+    },
+    {
+        "SPOTIFY": "goth",
+        "LASTFM": "goth",
+        "MUSICBRAINZ": "gothic"
+    },
+    {
+        "SPOTIFY": "latino",
+        "LASTFM": "latino",
+        "MUSICBRAINZ": "latin"
+    },
+    {
+        "SPOTIFY": "r-n-b",
+        "LASTFM": "rnb",
+        "MUSICBRAINZ": "r&b"
+    },
+    {
+        "SPOTIFY": "rock-n-roll",
+        "LASTFM": "rock n roll",
+        "MUSICBRAINZ": "rock and roll"
+    }
+]

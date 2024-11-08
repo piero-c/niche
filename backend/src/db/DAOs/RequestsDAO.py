@@ -1,7 +1,7 @@
 from typing import List
-from models.pydantic.Request import Request, Params
-from db.DB import DB
-from db.DAOs.baseDAO import BaseDAO
+from src.models.pydantic.Request import Request, Params
+from src.db.DB import DB
+from src.db.DAOs.baseDAO import BaseDAO
 
 class RequestDAO(BaseDAO[Request]):
     """

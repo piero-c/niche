@@ -1,13 +1,18 @@
-from utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
-from utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
+from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from src.utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
 from typing import Optional, Type, ClassVar
 import spotipy
 from spotipy import SpotifyOAuth
-from models.pydantic.BaseSchema import PyObjectId
-from models.pydantic.User import User
-from db.DB import DB
-from db.DAOs.UsersDAO import UserDAO
+from src.models.pydantic.BaseSchema import PyObjectId
+from src.models.pydantic.User import User
+from src.db.DB import DB
+from src.db.DAOs.UsersDAO import UserDAO
+from PIL import Image
+import io
+import base64
 
+from src.utils.logger import logger
+import requests
 class SpotifyUser:
     """Spotify-Authenticated User
 
@@ -34,6 +39,7 @@ class SpotifyUser:
         if(cls._instance is None):
             env = load_env()
             cls._instance = super(SpotifyUser, cls).__new__(cls)
+            ## BEGIN REQUEST ##
             cls._instance.client = spotipy.Spotify(auth_manager=SpotifyOAuth(
                 client_id     = env['SPOTIFY_CLIENT_ID'],
                 client_secret = env['SPOTIFY_CLIENT_SECRET'],
@@ -41,6 +47,9 @@ class SpotifyUser:
                 scope         = env['SCOPE'],
                 cache_path    = env['CACHE_PATH']
             ))
+            sleep(RequestType.SPOTIFY)
+            ## END REQUEST ##
+
             cls._instance.user = cls._instance.client.current_user()
             cls._instance.name = cls._instance.user['display_name']
             cls._instance.id   = cls._instance.user['id']
@@ -197,7 +206,8 @@ class SpotifyUser:
         # Return the genre dictionary
         return(filter_low_count_entries(genre_dict, count=2))
     
-    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[SpotifyTrack]:
+    # TODO - fetch normal spotify track here
+    def fetch_all_playlist_tracks(self, playlist_id: str) -> list[dict]:
         """
         Fetches all tracks from a Spotify playlist, handling pagination.
 
@@ -205,7 +215,7 @@ class SpotifyUser:
             playlist_id (str): The unique identifier for the Spotify playlist.
 
         Returns:
-            List[SpotifyTrack]: A list of SpotifyTrack objects in the playlist.
+            List[dict]: A list of dict objects in the playlist.
         """
         tracks = []
         limit = SPOTIFY_MAX_LIMIT_PAGINATION  # Typically 100
@@ -231,4 +241,61 @@ class SpotifyUser:
             offset += limit
 
         return (tracks)
+
+    def execute(
+        self,
+        method_name: str,
+        *args,
+        **kwargs
+    ) -> Optional[any]:
+        """_summary_
+
+        Args:
+            method_name (str): _description_
+
+        Returns:
+            Optional[any]: _description_
+        """
+        try:
+            # Dynamically get the method from the Spotipy client
+            method = getattr(self.client, method_name)
+
+            ## BEGIN REQUEST ##
+            # Execute the method with provided arguments
+            result = method(*args, **kwargs)
+            sleep(RequestType.SPOTIFY)
+            ## END REQUEST ##
+
+            return(result)
+        except AttributeError:
+            logger.error(f"The Spotipy client does not have a method named '{method_name}'.")
+        except spotipy.exceptions.SpotifyException as e:
+            logger.error(f"SpotifyException occurred while executing '{method_name}': {e}")
+        except Exception as e:
+            logger.error(f"An unexpected error occurred while executing '{method_name}': {e}")
+        
+        return(None)
+
+
+    def upload_playlist_cover_image(self, cover_image_path: str, playlist_id: str) -> None:
+        """_summary_
+
+        Args:
+            cover_image_path (str): _description_
+            playlist_id (str): _description_
+        """
+        # Open the image and convert it to a base64-encoded JPEG
+        with Image.open(cover_image_path) as img:
+            img = img.convert("RGB")  # Ensure the image is in RGB format
+            buffer = io.BytesIO()
+            img.save(buffer, format="JPEG")
+            image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
+
+        try:
+            self.client.playlist_upload_cover_image(playlist_id, image_base64)
+        except requests.exceptions.ReadTimeout:
+            # Handle the timeout exception as needed
+            logger.error("Timeout occurred while uploading the cover image. Please try again later.")
+
+
 

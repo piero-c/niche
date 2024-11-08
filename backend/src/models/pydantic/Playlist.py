@@ -1,4 +1,5 @@
-from models.pydantic.BaseSchema import BaseSchema, PyObjectId
+from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
+from typing import Optional
 
 class Playlist(BaseSchema):
     user: PyObjectId
@@ -6,6 +7,7 @@ class Playlist(BaseSchema):
     request: PyObjectId
     link: str
     generated_length: int
+    time_to_generate_mins: Optional[float] = None
 
     class Config(BaseSchema.Config):
         json_schema_extra = {

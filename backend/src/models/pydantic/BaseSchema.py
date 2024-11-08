@@ -3,7 +3,7 @@
 from pydantic import BaseModel, Field
 from bson import ObjectId
 from datetime import datetime, timezone
-from db.config_loader import load_config
+from src.db.config_loader import load_config
 
 # Load configuration (ensure this is done outside the model to avoid side effects)
 config = load_config()

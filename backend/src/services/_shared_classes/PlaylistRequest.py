@@ -2,10 +2,10 @@ from src.utils.util import Language, NicheLevel, NICHEMAP, LANGMAP
 from src.db.DB import DB
 from src.db.DAOs.RequestsDAO import RequestDAO
 from src.models.pydantic.Request import Request, Params
-from src.auth.SpotifyUser import SpotifyUser
 from typing import TypedDict
 from src.utils.util import NICHE_APP_URL
 from src.services.genre_handling.valid_genres import genres as valid_genres
+from src.auth.SpotifyUser import spotify_user
 class PlaylistInfo(TypedDict):
     """Playlist info obj
 
@@ -68,12 +68,11 @@ class PlaylistRequest:
             Requires call: add_db_entry
         in_db
     """
-    def __init__(self, user: SpotifyUser, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
+    def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
                     songs_length_min_secs: int, songs_length_max_secs: int, genre: str, add_to_db: bool = True) -> None:
         """Initialize the request
 
         Args:
-            user(SpotifyUser)           : Spotify Authenticated user
             songs_min_year_created (int): Min year for the songs to be created in
             language (Language)         : Language for the songs to be in
             niche_level (NicheLevel)    : Level of nicheness
@@ -83,13 +82,16 @@ class PlaylistRequest:
             add_to_db (bool, optional)  : Add the playlist to the db?. Default to true
         """
         assert(genre in valid_genres()) # Genre is spotify genre
+
+        
+
         self.songs_min_year_created = songs_min_year_created
         self.songs_length_min_secs  = songs_length_min_secs
         self.songs_length_max_secs  = songs_length_max_secs
         self.language               = language # This stays as an enum
         self.genre                  = genre
         self.niche_level            = niche_level
-        self.user_oid               = user.oid
+        self.user_oid               = spotify_user.oid
 
         # Based on the niche level set mins and maxes
         self.lastfm_listeners_max  = niche_level_map[niche_level]["lastfm_listeners_max"]

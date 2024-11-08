@@ -6,8 +6,6 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.utils.util import LANGMAP, NICHEMAP
 from numpy import mean
 
-from src.auth.SpotifyUser import SpotifyUser
-
 def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
     """Return true if the playlist for the request is likely to be under the requested size
 
@@ -59,4 +57,4 @@ def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool
     return(artists_count < artists_needed)
 
 if __name__ == '__main__':
-    print(likely_under_count_playlist(PlaylistRequest(SpotifyUser(), 2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock')))
+    print(likely_under_count_playlist(PlaylistRequest(2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock')))

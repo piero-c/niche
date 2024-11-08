@@ -1,10 +1,10 @@
 # Module for the final playlist
-from src.auth.SpotifyUser import SpotifyUser
 from src.db.DB import DB
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.db.DAOs.RequestsDAO import RequestDAO
 from src.models.pydantic.Playlist import Playlist as PlaylistModel
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+from src.auth.SpotifyUser import spotify_user
 from pathlib import Path
 from src.utils.spotify_util import NicheTrack
 
@@ -24,17 +24,17 @@ class Playlist:
             Requires call: add_db_entry
         in_db
     """
-    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, spotify_user: SpotifyUser, add_to_db: bool = True) -> None:
+    def __init__(self, tracks: list[NicheTrack], req: PlaylistRequest, add_to_db: bool = True) -> None:
         """Initialize the playlist
 
         Args:
             tracks (list[NicheTrack]): The tracks to add
             req (PlaylistRequest): The request that was used to generate the playlist
-            user (SpotifyUser): The Spotify Authenticated User
             add_to_db (bool, optional): Add the playlist to the db?. Default to true
         """
         playlist_info = req.get_playlist_info()
 
+        
         # Create a new playlist with placeholder name and description
         playlist = spotify_user.execute(
             'user_playlist_create',
@@ -97,13 +97,13 @@ class Playlist:
         self.in_db = True
         return(None)
 
-    def add_track(self, uri: str, spotify_user: SpotifyUser) -> None:
+    def add_track(self, uri: str) -> None:
         """_summary_
 
         Args:
             uri (str): _description_
-            spotify_user (SpotifyUser): _description_
         """
+        
         # STEP 1: Update plaulist on spotify
         spotify_user.execute('playlist_add_items', playlist_id=self.id, items=[uri])
         # STEP 2: Update playlist object
@@ -117,17 +117,15 @@ class Playlist:
         )
         return (None)
     
-    def delete(self, user: SpotifyUser) -> None:
+    def delete(self) -> None:
         """_summary_
-
-        Args:
-            user (SpotifyUser): _description_
 
         Returns:
             bool: _description_
         """
+        
         # STEP 1: Delete playlist on spotify
-        user.execute('user_playlist_unfollow', user=user.id, playlist_id=self.id)
+        spotify_user.execute('user_playlist_unfollow', user=spotify_user.id, playlist_id=self.id)
 
         # STEP 2: Delete link from requests
         db = DB()

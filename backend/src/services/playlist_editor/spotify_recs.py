@@ -4,12 +4,12 @@ from src.models.pydantic.Request import Request as RequestModel
 from src.db.DAOs.RequestsDAO import RequestDAO
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.db.DB import DB
-from src.auth.SpotifyUser import SpotifyUser
 from src.utils.util import sleep, RequestType, convert_s_to_ms, MIN_SONGS_FOR_PLAYLIST_GEN
 from src.services.profile.playlists import get_playlist_tracks
 from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
 from src.utils.spotify_util import NicheTrack
 from src.utils.logger import logger
+from src.auth.SpotifyUser import spotify_user
 import random
 
 def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[str]:
@@ -27,12 +27,11 @@ def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[str]:
     return(random.sample(seed_ids, num) if len(seed_ids) > num else seed_ids)
 
 # TODO - some kind of likeness metric
-def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> list[SpotifyTrack]:
+def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     """_summary_
 
     Args:
         playlist_url (str): _description_
-        user (SpotifyUser): _description_
         num (int, optional): _description_. Defaults to 1.
 
     Returns:
@@ -50,7 +49,7 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     # Get the request from the playlist
     request: RequestModel = rdao.read_by_id(playlist.request)
 
-    playlist_tracks = get_playlist_tracks(playlist_url, user)
+    playlist_tracks = get_playlist_tracks(playlist_url)
     seed_artists = _get_random_artist_ids(playlist_tracks, artist_seeds_num)
 
     seed_genres = [request.params.genre]
@@ -58,8 +57,9 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     # Get 100, shuffle, get one, validate artist and track, ensure no otehr validations are needed by add track (no throw), return track
 
     logger.info(f'Getting recommendations for playlist {playlist_url}...')
+    
     ## BEGIN REQUEST ##
-    recs = user.execute(
+    recs = spotify_user.execute(
         'recommendations',
         seed_artists=seed_artists,
         seed_genres=seed_genres,
@@ -79,11 +79,11 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     for track in rec_tracks:
         logger.info(f'Checking validity for track {track.get('name', '')}')
         track_artist_id = track.get('artists', [{}])[0].get('id', '')
-        track_artist: SpotifyArtist = user.execute('artist', track_artist_id)
+        track_artist: SpotifyArtist = spotify_user.execute('artist', track_artist_id)
 
         if (not track_artist):
             continue
-        if (artist_valid_for_insert(track_artist, playlist_url, user) and track_valid_for_insert(track, playlist_url, user)):
+        if (artist_valid_for_insert(track_artist, playlist_url) and track_valid_for_insert(track, playlist_url)):
             recommended_tracks.append(track)
         if (len(recommended_tracks) >= num):
             break
@@ -91,4 +91,4 @@ def get_recommendations(playlist_url: str, user: SpotifyUser, num: int = 1) -> l
     return(recommended_tracks)
 
 if __name__ == '__main__':
-    print(add_valid_track(get_recommendations('https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n', SpotifyUser(), 1)[0].get('uri'), 'https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n', SpotifyUser()))
+    print(add_valid_track(get_recommendations('https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n', 1)[0].get('uri'), 'https://open.spotify.com/playlist/1w4iuLNHMAzGxI6ZOl6m5n'))

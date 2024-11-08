@@ -37,35 +37,49 @@ class SpotifyUser:
             SpotifyUser: The user, authenticated
         """
         if(cls._instance is None):
-            env = load_env()
             cls._instance = super(SpotifyUser, cls).__new__(cls)
-            ## BEGIN REQUEST ##
-            cls._instance.client = spotipy.Spotify(auth_manager=SpotifyOAuth(
-                client_id     = env['SPOTIFY_CLIENT_ID'],
-                client_secret = env['SPOTIFY_CLIENT_SECRET'],
-                redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
-                scope         = env['SCOPE'],
-                cache_path    = env['CACHE_PATH']
-            ))
-            sleep(RequestType.SPOTIFY)
-            ## END REQUEST ##
-
-            cls._instance.user = cls._instance.client.current_user()
-            cls._instance.name = cls._instance.user['display_name']
-            cls._instance.id   = cls._instance.user['id']
-            
-            db = DB()
-            dao = UserDAO(db)
-            db_entry = dao.create_or_update_by_spotify_id(
-                User(
-                    display_name=cls._instance.name,
-                    spotify_id=cls._instance.id
-                )
-            )
-
-            cls._instance.oid  = db_entry.id
-
         return(cls._instance)
+    '''
+    keep the refresh token in the db i guess or something idk look it up
+    todo frontend browser cookies
+    @app.route('/initialize_spotify_user', methods=['POST'])
+    def initialize_spotify_user():
+        data = request.json
+        auth_code = data.get('auth_code')
+        if(not auth_code):
+            return jsonify({'error': 'Authorization code required'}), 400
+
+        try:
+            # Initialize the Spotify user instance with the provided authorization code
+            spotify_user_instance.initialize(auth_code)
+            return jsonify({'message': 'Spotify user initialized successfully'}), 200
+    '''
+    def initialize(self, auth_code: str) -> None:
+        """Initialize the SpotifyUser instance with the provided authorization code."""
+        env = load_env()
+        auth_manager = SpotifyOAuth(
+            client_id     = env['SPOTIFY_CLIENT_ID'],
+            client_secret = env['SPOTIFY_CLIENT_SECRET'],
+            redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
+            scope         = env['SCOPE'],
+            cache_path    = env['CACHE_PATH']
+        )
+
+        # Exchange auth code for tokens
+        token_info = auth_manager.get_access_token(auth_code)
+        self.client = spotipy.Spotify(auth=token_info['access_token'])
+        self.user = self.client.current_user()
+        self.name = self.user['display_name']
+        self.id = self.user['id']
+
+        # Set up database entry for the user
+        db = DB()
+        dao = UserDAO(db)
+        db_entry = dao.create_or_update_by_spotify_id(
+            User(display_name = self.name, spotify_id = self.id)
+        )
+        self.oid = db_entry.id
+
     
     ## GENERAL SEARCH ##
     
@@ -297,5 +311,5 @@ class SpotifyUser:
             # Handle the timeout exception as needed
             logger.error("Timeout occurred while uploading the cover image. Please try again later.")
 
-
+spotify_user = SpotifyUser()
 

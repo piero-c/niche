@@ -1,11 +1,11 @@
 # Module for finding the niche songs for a genre
-from src.auth.SpotifyUser import SpotifyUser
 
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.services._shared_classes.Playlist import Playlist
 from src.utils.spotify_util import NicheTrack
 from src.services._shared_classes.Artist import Artist
 from src.services._shared_classes.Validator import Validator
+from src.auth.SpotifyUser import spotify_user
 
 from src.services.playlist_editor.spotify_recs import get_recommendations
 
@@ -44,17 +44,15 @@ class NicheTrackFinder:
         requests_cache
         excluded_artists
     """
-    def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
+    def __init__(self, request: PlaylistRequest) -> None:
         """Initialize the finder
 
         Args:
             request (PlaylistRequest): The playlist request
-            user (SpotifyUser): Spotify Authenticated User
         """
         self.request   = request
-        self.user      = user
 
-        self.validator        = Validator(request, user)
+        self.validator        = Validator(request)
         self.db               = DB()
         self.artistsDAO       = ArtistsDAO(self.db)
         self.requestsCacheDAO = RequestsCacheDAO(self.db)
@@ -81,9 +79,10 @@ class NicheTrackFinder:
         try:
             artist_list = []
             artists = self.artistsDAO.get_artists_in_genre(self.request.genre)
+            
             for artist in artists:
                 try:
-                    a = Artist.from_musicbrainz(artist, self.user)
+                    a = Artist.from_musicbrainz(artist)
                     if a:
                         artist_list.append(a)
                 except Exception as e:
@@ -206,32 +205,33 @@ class NicheTrackFinder:
         if (needed_size < 1):
             return(True)
     
+        
         # Create playlist object to facilitate recommendations
-        pl = Playlist(curr_tracks, self.request, self.user)
+        pl = Playlist(curr_tracks, self.request)
 
         attempt = 1
         # Get recommendations (valid ones that can be added to the playlist right away)
         # Add them to the list, as well as the playlist to be considered for random artist seed
         # max 10 attempts
         while len(added) < needed_size and attempt <= max_attempts:
-            recs = get_recommendations(pl.url, self.user, FETCH_SIZES)
+            recs = get_recommendations(pl.url, FETCH_SIZES)
             for track in recs:
                 if(len(added) >= needed_size):
                     break
                 niche_track: NicheTrack = convert_spotify_track_to_niche_track(track)
 
-                artist                   = self.user.execute('artist', niche_track.get('artist_id', None))
+                artist                   = spotify_user.execute('artist', niche_track.get('artist_id', None))
                 artists_total_followers += artist.get('followers', {}).get('total', 0)
 
                 logger.success(f'Adding track {niche_track.get('track', '')} by {niche_track.get('artist', '')} from spotify recommendations')
 
                 added.append(niche_track)
-                pl.add_track(niche_track.get('spotify_uri'), self.user)
+                pl.add_track(niche_track.get('spotify_uri'))
 
             attempt += 1
 
         # Delete all traces of playlist created to interface with get_recommendations
-        pl.delete(self.user)
+        pl.delete()
 
         num_added = len(added)
 

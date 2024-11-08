@@ -1,7 +1,7 @@
 from typing import Tuple, List
 from src.auth.LastFMRequests import LastFMRequests
 from src.auth.MusicBrainzRequests import MusicBrainzRequests
-from src.auth.SpotifyUser import SpotifyUser
+from src.auth.SpotifyUser import spotify_user
 import os
 from pathlib import Path
 
@@ -49,8 +49,9 @@ def collect_musicbrainz_genres(musicbrainz_requester: MusicBrainzRequests, limit
         offset += inc
     return all_genres
 
-def collect_spotify_genres(spotify_user: SpotifyUser) -> List[str]:
+def collect_spotify_genres() -> List[str]:
     """Collect genres from Spotify (single request)."""
+    
     response = spotify_user.client.recommendation_genre_seeds()
     return response.get("genres", [])
 
@@ -63,13 +64,12 @@ def write_genres_to_file(filename: str, genres: List[str]):
 
 def collect_all_genres(
     lastfm_requester: LastFMRequests,
-    musicbrainz_requester: MusicBrainzRequests,
-    spotify_user: SpotifyUser
+    musicbrainz_requester: MusicBrainzRequests
 ) -> Tuple[List[str], List[str], List[str]]:
     """Collect genres from Last.fm, MusicBrainz, and Spotify."""
     lastfm_genres = collect_lastfm_genres(lastfm_requester, lim)
     musicbrainz_genres = collect_musicbrainz_genres(musicbrainz_requester, lim)
-    spotify_genres = collect_spotify_genres(spotify_user)
+    spotify_genres = collect_spotify_genres()
 
 
     # Write each genre list to its own file in ./data/
@@ -82,6 +82,5 @@ def collect_all_genres(
 # Example usage (ensure classes are initialized properly)
 lastfm_requester = LastFMRequests()
 musicbrainz_requester = MusicBrainzRequests()
-spotify_user = SpotifyUser()
 
-all_genres = collect_all_genres(lastfm_requester, musicbrainz_requester, spotify_user)
+all_genres = collect_all_genres(lastfm_requester, musicbrainz_requester)

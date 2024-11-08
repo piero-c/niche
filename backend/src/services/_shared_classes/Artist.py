@@ -2,8 +2,8 @@ from src.services._shared_classes.Track import Track
 from src.utils.util import strcomp
 from src.utils.spotify_util import SpotifyArtist
 from src.auth.LastFMRequests import LastFmArtist, LastFMRequests
-from src.auth.SpotifyUser import SpotifyUser
 from src.utils.musicbrainz_util import MusicBrainzArtist
+from src.auth.SpotifyUser import spotify_user
 from src.utils.logger import logger
 class Artist:
     """Representing an artist, at a high level
@@ -11,7 +11,6 @@ class Artist:
     Attributes:
         name
         mbid
-        user: Spotify Authenticated User
         lastfm: LastFM requests obj
         lastfm_artist: Artist as returned by lastfm
             Requires call: attach_artist_lastfm
@@ -32,26 +31,23 @@ class Artist:
         lastfm_tags
             Requires call: artist_in_lastfm_genre
     """
-    def __init__(self, name: str, mbid: str, user: SpotifyUser) -> None:
+    def __init__(self, name: str, mbid: str) -> None:
         """Initialize the artist
 
         Args:
             name (str): Artist name
             mbid (str): Artist MBID
-            user (SpotifyUser): Spotify Authenticated User
         """
         self.name   = name
         self.mbid   = mbid
-        self.user   = user
         self.lastfm = LastFMRequests()
 
     @classmethod
-    def from_musicbrainz(cls, musicbrainz_artist_object: MusicBrainzArtist, user: SpotifyUser) -> 'Artist':
+    def from_musicbrainz(cls, musicbrainz_artist_object: MusicBrainzArtist) -> 'Artist':
         """Create artist from musicbrainz artist object
 
         Args:
             musicbrainz_artist_object (MusicBrainzArtist): Artist object as returned by musicbrainz
-            user (SpotifyUser): Spotify Authenticated user
 
         Raises:
             Exception: If the musicbrainz artist is missing name or mbid or user invalid
@@ -63,7 +59,7 @@ class Artist:
             name = musicbrainz_artist_object.get('name', "")
             mbid = musicbrainz_artist_object.get('id', "")
             if (name and mbid):
-                artist = cls(name, mbid, user)
+                artist = cls(name, mbid)
                 return(artist)
             else:
                 raise Exception('Name or ID doesn\'t exist')
@@ -86,7 +82,7 @@ class Artist:
         valid_tracks = []
         for track in tracks:
             try:
-                valid_tracks.append(Track.from_lastfm(track, self.user))
+                valid_tracks.append(Track.from_lastfm(track))
             except Exception as e:
                 logger.error(e)
         
@@ -275,7 +271,7 @@ class Artist:
             
             logger.info(f"Spotify Artist ID: {self.spotify_artist_id}")
 
-            spotify_artist         = self.user.get_spotify_artist_by_id(self.spotify_artist_id)
+            spotify_artist         = spotify_user.get_spotify_artist_by_id(self.spotify_artist_id)
             self.spotify_artist    = spotify_artist
             self.spotify_followers = int(spotify_artist.get('followers', {}).get('total', 0))
 

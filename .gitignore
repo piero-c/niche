@@ -9,3 +9,5 @@ db/artists.jsonl
 **/config.json
 documentation/process.txt
 backend/src/models/test.py
+**/.env
+backend/config/personal_init.py

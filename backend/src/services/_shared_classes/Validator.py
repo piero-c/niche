@@ -1,5 +1,4 @@
 # Module for finding the niche songs for a genre
-from src.auth.SpotifyUser import SpotifyUser
 from src.auth.MusicBrainzRequests import MusicBrainzRequests
 
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
@@ -21,15 +20,13 @@ class Validator:
 
     """
 
-    def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
+    def __init__(self, request: PlaylistRequest) -> None:
         """_summary_
 
         Args:
             request (PlaylistRequest): _description_
-            user (SpotifyUser): _description_
         """
         self.request = request
-        self.user    = user
 
     def artist_likeness_invalid(self, artist: Artist) -> bool:
         """Valid according to request

@@ -1,8 +1,8 @@
 from src.utils.util import convert_ms_to_s
 from src.utils.spotify_util import SpotifyTrack, find_exact_match
 from src.utils.lastfm_util import LastFMTrack
-from src.auth.SpotifyUser import SpotifyUser
 from src.utils.logger import logger
+from src.auth.SpotifyUser import spotify_user
 
 class Track:
     """High level Track
@@ -20,25 +20,22 @@ class Track:
         track_length_seconds
             Requires call: attach_spotify_track_information 
     """
-    def __init__(self, name: str, artist: str, user: SpotifyUser) -> None:
+    def __init__(self, name: str, artist: str) -> None:
         """Initialize the track
 
         Args:
             name (str): Track name
             artist (str): Track artist
-            user (SpotifyUser): Spotify Authenticated User
         """
         self.name   = name
         self.artist = artist
-        self.user   = user
 
     @classmethod
-    def from_lastfm(cls, lastfm_track: LastFMTrack, user: SpotifyUser) -> 'Track':
+    def from_lastfm(cls, lastfm_track: LastFMTrack) -> 'Track':
         """Create track from lastfm
 
         Args:
             lastfm_track (LastFMTrack): Track as returned by lastfm
-            user (SpotifyUser): Spotify Authenticated User
 
         Raises:
             Exception: Invalid track object or user
@@ -49,7 +46,7 @@ class Track:
         try:
             name        = lastfm_track.get('name', "")
             artist_name = lastfm_track.get('artist', {}).get('name', "")
-            track       = cls(name, artist_name, user)
+            track       = cls(name, artist_name)
             return(track)
         except Exception as e:
             raise Exception(f"Couldn't create track {name} by {artist_name} from lastfm: {e}")
@@ -106,7 +103,8 @@ class Track:
 
         spotify_track = None
         try:
-            spotify_tracks = self.user.get_spotify_tracks_direct(self.name, self.artist)
+            
+            spotify_tracks = spotify_user.get_spotify_tracks_direct(self.name, self.artist)
         except Exception as e:
             logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
 

@@ -337,10 +337,5 @@
         "SPOTIFY": "r-n-b",
         "LASTFM": "rnb",
         "MUSICBRAINZ": "r&b"
-    },
-    {
-        "SPOTIFY": "rock-n-roll",
-        "LASTFM": "rock and roll",
-        "MUSICBRAINZ": "rock and roll"
     }
 ]

@@ -240,6 +240,8 @@ class NicheTrackFinder:
         # TODO - make dynamic / selected by user?
         artist_max_songs        = 1
 
+        percent_artists_valid = 0
+
         niche_tracks = []
 
         desired_song_count     = self.request.playlist_length

@@ -162,7 +162,7 @@
     {
         "SPOTIFY": "indie-pop",
         "MUSICBRAINZ": "indie pop",
-        "LASTFM": "indiepop"
+        "LASTFM": "indie pop"
     },
     {
         "SPOTIFY": "industrial",
@@ -172,12 +172,12 @@
     {
         "SPOTIFY": "j-pop",
         "MUSICBRAINZ": "j-pop",
-        "LASTFM": "JPop"
+        "LASTFM": "j-pop"
     },
     {
         "SPOTIFY": "j-rock",
         "MUSICBRAINZ": "j-rock",
-        "LASTFM": "jrock"
+        "LASTFM": "j-rock"
     },
     {
         "SPOTIFY": "jazz",
@@ -187,7 +187,7 @@
     {
         "SPOTIFY": "k-pop",
         "MUSICBRAINZ": "k-pop",
-        "LASTFM": "Kpop"
+        "LASTFM": "k-pop"
     },
     {
         "SPOTIFY": "latin",
@@ -227,12 +227,12 @@
     {
         "SPOTIFY": "power-pop",
         "MUSICBRAINZ": "power pop",
-        "LASTFM": "powerpop"
+        "LASTFM": "power pop"
     },
     {
         "SPOTIFY": "progressive-house",
         "MUSICBRAINZ": "progressive house",
-        "LASTFM": "Progressive House"
+        "LASTFM": "progressive house"
     },
     {
         "SPOTIFY": "punk",
@@ -242,7 +242,7 @@
     {
         "SPOTIFY": "punk-rock",
         "MUSICBRAINZ": "punk rock",
-        "LASTFM": "Punk-Rock"
+        "LASTFM": "punk-rock"
     },
     {
         "SPOTIFY": "reggae",
@@ -272,7 +272,7 @@
     {
         "SPOTIFY": "singer-songwriter",
         "MUSICBRAINZ": "singer-songwriter",
-        "LASTFM": "singer songwriter"
+        "LASTFM": "singer-songwriter"
     },
     {
         "SPOTIFY": "ska",
@@ -307,7 +307,7 @@
     {
         "SPOTIFY": "trip-hop",
         "MUSICBRAINZ": "trip hop",
-        "LASTFM": "triphop"
+        "LASTFM": "trip-hop"
     },
     {
         "SPOTIFY": "acoustic",
@@ -315,7 +315,7 @@
     },
     {
         "SPOTIFY": "alt-rock",
-        "LASTFM": "alt rock",
+        "LASTFM": "alternative rock",
         "MUSICBRAINZ": "alternative rock"
     },
     {
@@ -340,7 +340,7 @@
     },
     {
         "SPOTIFY": "rock-n-roll",
-        "LASTFM": "rock n roll",
+        "LASTFM": "rock and roll",
         "MUSICBRAINZ": "rock and roll"
     }
 ]

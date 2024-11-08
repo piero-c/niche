@@ -138,7 +138,7 @@ class Validator:
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
             elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
-                logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
+                logger.error(f'Artist {artist.name} not in genre {convert_genre('SPOTIFY', 'LASTFM', self.request.genre)}')
                 return(ReasonExcluded.OTHER)
 
             else:

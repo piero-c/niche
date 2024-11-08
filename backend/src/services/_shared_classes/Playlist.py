@@ -64,6 +64,7 @@ class Playlist:
         spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id)
 
         self.user_oid = spotify_user.oid
+        self.request_oid = req.oid
 
         self.in_db = False
         if (add_to_db):
@@ -81,7 +82,7 @@ class Playlist:
             PlaylistModel(
                 user=self.user_oid,
                 name=self.name,
-                request=self.request.oid,
+                request=self.request_oid,
                 link=self.url,
                 generated_length=self.length
             )
@@ -91,7 +92,7 @@ class Playlist:
         # Attach playlist oid to its request
         rdao = RequestDAO(db)
         rdao.update(
-            document_id=self.request.oid,
+            document_id=self.request_oid,
             update_data={
                 'playlist_generated': entry.inserted_id
             }
@@ -128,7 +129,7 @@ class Playlist:
         # STEP 2: Delete link from requests
         db = DB()
         rdao = RequestDAO(db)
-        rdao.update(self.request.oid, {'playlist_generated': None})
+        rdao.update(self.request_oid, {'playlist_generated': None})
 
         # STEP 3: Delete entry in playlists collection
         pdao = PlaylistDAO(db)

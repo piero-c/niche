@@ -4,7 +4,7 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.services._shared_classes.Playlist import Playlist
 from src.utils.spotify_util import NicheTrack
 from src.services._shared_classes.Artist import Artist
-from src.services._shared_classes.Validator import Validator, ReasonExcluded
+from src.services._shared_classes.Validator import Validator, ReasonExcluded, REASONMAP
 from src.auth.SpotifyUser import spotify_user
 
 from src.services.playlist_editor.spotify_recs import get_recommendations
@@ -15,7 +15,7 @@ from src.utils.spotify_util import convert_spotify_track_to_niche_track
 from src.db.DB import DB
 from src.db.DAOs.ArtistsDAO import ArtistsDAO
 from src.db.DAOs.RequestsCacheDAO import RequestsCacheDAO
-from src.models.pydantic.RequestsCache import ParamsCache, REASONMAP, Excluded
+from src.models.pydantic.RequestsCache import ParamsCache, Excluded
 
 import random
 from numpy import mean as mean

@@ -71,7 +71,7 @@ def get_artists_ids_and_genres_from_artists(artists: list[SpotifyArtist]) -> tup
     artist_ids: set[SpotifyArtistID] = set()
     genres_count: SpotifyGenreInterestCount = {}
     
-    for artist_id, artist_genres in artist_genres.values():
+    for artist_id, artist_genres in artist_genres.items():
         artist_ids.add(artist_id)
         for genre in artist_genres:
             genres_count[genre] = genres_count.get(genre, 0) + 1

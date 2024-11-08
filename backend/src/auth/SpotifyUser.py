@@ -1,5 +1,5 @@
 from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
-from src.utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight
+from src.utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight, scale_from_highest
 from typing import Optional, Type, ClassVar
 import spotipy
 from spotipy import SpotifyOAuth
@@ -217,8 +217,12 @@ class SpotifyUser:
         # Merge genres with appropriate weights
         genre_dict = merge_dicts_with_weight([genres_top_artists, genres_top_tracks], [1, 1])
 
+        top_genres = filter_low_count_entries(genre_dict, count_min=2)
+
+        top_genres_scaled = scale_from_highest(top_genres, 100)
+
         # Return the genre dictionary
-        return(filter_low_count_entries(genre_dict, count=2))
+        return(top_genres_scaled)
     
     # TODO - fetch normal spotify track here
     def fetch_all_playlist_tracks(self, playlist_id: str) -> list[dict]:

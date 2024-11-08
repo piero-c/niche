@@ -79,6 +79,8 @@ def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str) -> bool:
 
     validator = Validator(playlist_request)
 
+    # TODO - language check will fail with no mbid :( find a way to look it up or get languages from spotify
+    #     TODO then go to issue list and sort shit out
     artist_obj = Artist(artist.get('name', ''), 'no id')
     artist_obj.attach_spotify_artist(artist)
     # If not excluded and the artist isnt already in the playlist

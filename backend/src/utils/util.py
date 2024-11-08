@@ -169,7 +169,7 @@ def filter_low_count_entries(dic: dict[any, float], pct_min: float = 0, count_mi
     """
     assert(not (pct_min and count_min))
     # No count min minimum cuz it makes sense
-    assert(pct_min > 0)
+    assert((not pct_min) or (pct_min > 0))
     
     dictCopy = dic.copy()
 
@@ -208,3 +208,27 @@ def obj_array_to_obj(obj_array: list[dict[str, any]], key: str) -> dict[str, dic
         new_obj[elem[key]] = elem
     
     return(new_obj)
+
+
+def scale_from_highest(d: dict[str, float], maxx: int) -> dict:
+    """Scale a dictionary of numbers, based on the scalar which multiplies the highest value in the dict to get it to max. Then sort in descending order
+
+    Args:
+        d (dict[str, float]): The dict
+        maxx (int): Highest val will be set to this
+
+    Returns:
+        dict: sorted and scaled
+    """
+    d_copy = d.copy()
+
+    d_copy = dict(sorted(d_copy.items(), key=lambda item: item[1], reverse=True))
+
+    max_value = list(d_copy.values())[0]
+
+    scaler = maxx / max_value
+
+    for k in d_copy.keys():
+        d_copy[k] = round(d_copy[k] * scaler, 2)
+    
+    return(d_copy)

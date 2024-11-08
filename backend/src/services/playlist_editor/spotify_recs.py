@@ -1,16 +1,20 @@
-from src.utils.spotify_util import SpotifyTrack, SPOTIFY_MAX_LIMIT_RECS, SpotifyArtist, SpotifyArtistID
-from src.models.pydantic.Playlist import Playlist as PlaylistModel
-from src.models.pydantic.Request import Request as RequestModel
-from src.db.DAOs.RequestsDAO import RequestDAO
-from src.db.DAOs.PlaylistsDAO import PlaylistDAO
-from src.db.DB import DB
-from src.utils.util import sleep, RequestType, convert_s_to_ms, MIN_SONGS_FOR_PLAYLIST_GEN
-from src.services.profile.playlists import get_playlist_tracks
-from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
-from src.utils.spotify_util import NicheTrack
-from src.utils.logger import logger
-from src.auth.SpotifyUser import spotify_user
 import random
+
+from src.utils.spotify_util import NicheTrack, SPOTIFY_MAX_LIMIT_RECS, SpotifyTrack, SpotifyArtist, SpotifyArtistID
+from src.utils.util         import sleep, convert_s_to_ms, MIN_SONGS_FOR_PLAYLIST_GEN, RequestType
+from src.utils.logger       import logger
+
+from src.models.pydantic.Playlist import Playlist as PlaylistModel
+from src.models.pydantic.Request  import Request as RequestModel
+
+from src.db.DAOs.RequestsDAO  import RequestDAO
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.db.DB                import DB
+
+from src.services.profile.playlists         import get_playlist_tracks
+from src.services.playlist_editor.add_songs import artist_valid_for_insert, track_valid_for_insert, add_valid_track
+
+from src.auth.SpotifyUser import spotify_user
 
 def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[SpotifyArtistID]:
     """Get num random artist spotify ids from the tracks

@@ -1,9 +1,11 @@
-from typing import Tuple, List
-from src.auth.LastFMRequests import LastFMRequests
-from src.auth.MusicBrainzRequests import MusicBrainzRequests
-from src.auth.SpotifyUser import spotify_user
 import os
+
 from pathlib import Path
+from typing  import Tuple, List
+
+from src.auth.LastFMRequests      import LastFMRequests
+from src.auth.MusicBrainzRequests import MusicBrainzRequests
+from src.auth.SpotifyUser         import spotify_user
 
 inc = 50
 lim = 2000

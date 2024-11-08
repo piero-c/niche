@@ -1,27 +1,25 @@
-# Module for finding the niche songs for a genre
-
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.services._shared_classes.Playlist import Playlist
-from src.utils.spotify_util import NicheTrack
-from src.services._shared_classes.Artist import Artist
-from src.services._shared_classes.Validator import Validator, ReasonExcluded, REASONMAP
-from src.auth.SpotifyUser import spotify_user
-
-from src.services.playlist_editor.spotify_recs import get_recommendations
-
-from src.utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP, MIN_SONGS_FOR_PLAYLIST_GEN
-from src.utils.spotify_util import convert_spotify_track_to_niche_track
-
-from src.db.DB import DB
-from src.db.DAOs.ArtistsDAO import ArtistsDAO
-from src.db.DAOs.RequestsCacheDAO import RequestsCacheDAO
-from src.models.pydantic.RequestsCache import ParamsCache, Excluded
-
 import random
-from numpy import mean as mean
+
+from numpy    import mean as mean
 from datetime import datetime, timedelta
 
-from src.utils.logger import logger
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+from src.services._shared_classes.Playlist        import Playlist
+from src.services._shared_classes.Artist          import Artist
+from src.services._shared_classes.Validator       import Validator, REASONMAP, ReasonExcluded
+from src.services.playlist_editor.spotify_recs    import get_recommendations
+
+from src.utils.util         import load_env, obj_array_to_obj, NICHEMAP, LANGMAP, MIN_SONGS_FOR_PLAYLIST_GEN
+from src.utils.spotify_util import NicheTrack, convert_spotify_track_to_niche_track
+from src.utils.logger       import logger
+
+from src.auth.SpotifyUser import spotify_user
+
+from src.db.DB                         import DB
+from src.db.DAOs.ArtistsDAO            import ArtistsDAO
+from src.db.DAOs.RequestsCacheDAO      import RequestsCacheDAO
+from src.models.pydantic.RequestsCache import ParamsCache, Excluded
+
 env    = load_env()
 
 # TODO-  remove the bidicts? Mongo takes enums as lookups

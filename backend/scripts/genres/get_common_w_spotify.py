@@ -2,6 +2,7 @@ import os
 import json
 import re
 import unicodedata
+
 from pathlib import Path
 
 def normalize_word(word):

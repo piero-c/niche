@@ -1,4 +1,5 @@
 from src.auth.SpotifyUser import spotify_user
+
 from config.personal_init import token
 
 def do():

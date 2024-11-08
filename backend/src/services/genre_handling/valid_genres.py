@@ -1,6 +1,7 @@
-import json
 from pathlib import Path
-from typing import TypedDict
+from typing  import TypedDict
+
+import json
 
 # Specify the path to your JSON file
 file_path = Path('src/services/genre_handling/genres.json')

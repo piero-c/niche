@@ -1,19 +1,25 @@
-from src.utils.spotify_util import extract_id, SpotifyTrack, SpotifyArtist, NicheTrack
-from src.services._shared_classes.Validator import Validator
+import random
+
+from src.utils.spotify_util import NicheTrack, extract_id, SpotifyTrack, SpotifyArtist
+from src.utils.logger       import logger
+from src.utils.util         import sleep, LANGMAP, NICHEMAP, RequestType
+
+from src.services._shared_classes.Validator       import Validator
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.services._shared_classes.Track import Track
-from src.services._shared_classes.Artist import Artist
+from src.services._shared_classes.Track           import Track
+from src.services._shared_classes.Artist          import Artist
+from src.services.profile.playlists               import get_playlist_tracks
+
 from src.models.pydantic.Playlist import Playlist as PlaylistModel
-from src.models.pydantic.Request import Request as RequestModel
-from src.db.DAOs.RequestsDAO import RequestDAO
+from src.models.pydantic.Request  import Request  as RequestModel
+
+from src.db.DAOs.RequestsDAO  import RequestDAO
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
-from src.db.DB import DB
-from src.utils.util import LANGMAP, NICHEMAP, sleep, RequestType
-from src.services.profile.playlists import get_playlist_tracks
-from src.utils.logger import logger
+from src.db.DB                import DB
+
 from src.auth.SpotifyUser import spotify_user
 
-import random
+
 
 def _get_playlist_ids(playlist_url: str, type: str) -> list[str]:
     """Get track or artist ids from playlist

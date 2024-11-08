@@ -1,7 +1,9 @@
+import requests
+
+from requests import Response
+
 from src.utils.util import load_env, sleep, RequestType
 from src.utils.lastfm_util import LastFmArtist
-import requests
-from requests import Response
 
 class LastFMRequests:
     """To create requests to the LastFM API

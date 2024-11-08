@@ -1,8 +1,9 @@
-from dotenv import load_dotenv
 import os
-from enum import Enum
 import time
 import pycountry
+
+from dotenv import load_dotenv
+from enum   import Enum
 from bidict import bidict
 
 NICHE_APP_URL = 'http://niche-app.net'

@@ -1,7 +1,9 @@
-from src.db.DB import DB
-from src.models.pydantic.Request import Request
-from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DB                import DB    
+from src.db.DAOs.RequestsDAO  import RequestDAO
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+
+from src.models.pydantic.Request import Request
+
 from src.auth.SpotifyUser import spotify_user
 
 def get_requests() -> list[Request]:

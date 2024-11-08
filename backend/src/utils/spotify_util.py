@@ -1,8 +1,9 @@
-from src.utils.util import strcomp
-
-from typing import Optional, TypedDict
-from urllib.parse import urlparse, parse_qs
 import re
+
+from typing       import Optional, TypedDict
+from urllib.parse import urlparse, parse_qs
+
+from src.utils.util import strcomp
 
 SpotifyArtist             = dict[str, any]
 SpotifyTrack              = dict[str, any]

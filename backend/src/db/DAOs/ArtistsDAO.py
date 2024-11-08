@@ -1,10 +1,10 @@
-# artist_dao.py
+from pymongo.collection         import Collection
+from bson.objectid              import ObjectId
+from pymongo.synchronous.cursor import Cursor
+
+from src.utils.musicbrainz_util import get_mb_genre
 
 from src.db.DB import DB
-from pymongo.collection import Collection
-from bson.objectid import ObjectId
-from pymongo.synchronous.cursor import Cursor
-from src.utils.musicbrainz_util import get_mb_genre
 
 class ArtistsDAO:
     """Artist Data Access Object

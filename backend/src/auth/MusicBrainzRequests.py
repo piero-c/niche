@@ -1,8 +1,12 @@
-from src.utils.util import load_env, sleep, RequestType, map_language_codes, filter_low_count_entries
-from src.utils.musicbrainz_util import MUSICBRAINZ_API_URL
-from src.services._shared_classes.PlaylistRequest import Language
 import requests
+
 from requests import Response
+
+from src.utils.util             import load_env, sleep, map_language_codes, filter_low_count_entries, RequestType
+from src.utils.musicbrainz_util import MUSICBRAINZ_API_URL
+
+from src.services._shared_classes.PlaylistRequest import Language
+
 
 class MusicBrainzRequests:
     """Class for making requests to MusicBrainz API

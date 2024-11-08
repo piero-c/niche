@@ -1,18 +1,25 @@
-from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
-from src.utils.util import load_env, sleep, RequestType, filter_low_count_entries, merge_dicts_with_weight, scale_from_highest
-from typing import Optional, Type, ClassVar
-import spotipy
-from spotipy import SpotifyOAuth
-from src.models.pydantic.BaseSchema import PyObjectId
-from src.models.pydantic.User import User
-from src.db.DB import DB
-from src.db.DAOs.UsersDAO import UserDAO
-from PIL import Image
 import io
 import base64
-
-from src.utils.logger import logger
+import spotipy
 import requests
+
+from PIL     import Image
+from typing  import Optional, Type, ClassVar
+from spotipy import SpotifyOAuth
+
+from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
+from src.utils.util         import load_env, sleep,filter_low_count_entries, merge_dicts_with_weight, scale_from_highest, RequestType
+from src.utils.logger       import logger
+
+from src.models.pydantic.BaseSchema import PyObjectId
+from src.models.pydantic.User       import User
+
+from src.db.DB            import DB
+from src.db.DAOs.UsersDAO import UserDAO
+
+
+
+
 class SpotifyUser:
     """Spotify-Authenticated User
 

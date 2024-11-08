@@ -1,11 +1,13 @@
-from src.services.playlist_maker.NicheTrackFinder import NicheTrackFinder
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language, NicheLevel
-from src.services._shared_classes.Playlist import Playlist
-from src.services.playlist_maker.utils.artists_count_check import likely_under_count_playlist
 import time
 
-from config.personal_init import token
+from src.services.playlist_maker.NicheTrackFinder          import NicheTrackFinder
+from src.services.playlist_maker.utils.artists_count_check import likely_under_count_playlist
+from src.services._shared_classes.PlaylistRequest          import PlaylistRequest, Language, NicheLevel
+from src.services._shared_classes.Playlist                 import Playlist
+
 from src.auth.SpotifyUser import spotify_user
+
+from config.personal_init import token
 
 def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> str:
     """Generate the playlist based on the request params, return the url

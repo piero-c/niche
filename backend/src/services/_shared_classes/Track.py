@@ -1,7 +1,8 @@
-from src.utils.util import convert_ms_to_s
-from src.utils.spotify_util import SpotifyTrack, find_exact_match
-from src.utils.lastfm_util import LastFMTrack
-from src.utils.logger import logger
+from src.utils.util         import convert_ms_to_s
+from src.utils.spotify_util import find_exact_match, SpotifyTrack
+from src.utils.lastfm_util  import LastFMTrack
+from src.utils.logger       import logger
+
 from src.auth.SpotifyUser import spotify_user
 
 class Track:

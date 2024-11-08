@@ -1,5 +1,7 @@
-from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
 from typing import Optional
+
+from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
+
 
 class Playlist(BaseSchema):
     user                 : PyObjectId

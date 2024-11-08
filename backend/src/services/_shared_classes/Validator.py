@@ -1,18 +1,15 @@
-# Module for finding the niche songs for a genre
+from enum   import Enum
+from bidict import bidict
+from numpy  import mean as mean
+
 from src.auth.MusicBrainzRequests import MusicBrainzRequests
 
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
-from src.services._shared_classes.Artist import Artist
-from src.services._shared_classes.Track import Track
-from src.services.genre_handling.valid_genres import convert_genre
-
-
-from numpy import mean as mean
+from src.services._shared_classes.Artist          import Artist
+from src.services._shared_classes.Track           import Track
+from src.services.genre_handling.valid_genres     import convert_genre
 
 from src.utils.logger import logger
-
-from enum import Enum
-from bidict import bidict
 
 ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING', 'OTHER'] )
 REASONMAP: bidict = bidict({

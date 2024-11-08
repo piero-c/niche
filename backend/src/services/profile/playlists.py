@@ -1,13 +1,14 @@
-from src.db.DB import DB
+from typing import List, TypedDict
+
+from src.db.DB                import DB
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+
 from src.models.pydantic.Playlist import Playlist
-from src.utils.spotify_util import NicheTrack
+
 from src.auth.SpotifyUser import spotify_user
 
-from typing import List, TypedDict
-from src.utils.spotify_util import (
-    extract_id
-)
+from src.utils.spotify_util import NicheTrack, extract_id
+
 class Artists(TypedDict):
     artist_id: str
     artist_name: str

@@ -1,8 +1,9 @@
-from typing import Type, TypeVar, Generic, Optional, Dict, Any
+from typing             import Type, TypeVar, Generic, Optional, Dict, Any
 from pymongo.collection import Collection
-from pymongo.results import InsertOneResult, UpdateResult, DeleteResult
-from bson import ObjectId
-from pydantic import BaseModel, ValidationError
+from pymongo.results    import InsertOneResult, UpdateResult, DeleteResult
+from pydantic           import BaseModel, ValidationError
+from bson               import ObjectId
+
 
 # Define a generic type variable for the data model
 T = TypeVar("T", bound=BaseModel)

@@ -1,7 +1,8 @@
+from dotenv  import load_dotenv
+from pathlib import Path
+
 import json
 import os
-from dotenv import load_dotenv
-from pathlib import Path
 
 load_dotenv(Path('./config/.env'))
 

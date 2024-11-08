@@ -1,11 +1,15 @@
-# Module for the final playlist
-from src.db.DB import DB
-from src.db.DAOs.PlaylistsDAO import PlaylistDAO
-from src.db.DAOs.RequestsDAO import RequestDAO
-from src.models.pydantic.Playlist import Playlist as PlaylistModel
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.auth.SpotifyUser import spotify_user
 from pathlib import Path
+
+from src.db.DB                import DB
+from src.db.DAOs.PlaylistsDAO import PlaylistDAO
+from src.db.DAOs.RequestsDAO  import RequestDAO
+
+from src.models.pydantic.Playlist import Playlist as PlaylistModel
+
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+
+from src.auth.SpotifyUser import spotify_user
+
 from src.utils.spotify_util import NicheTrack
 
 

@@ -1,5 +1,3 @@
-# models/User.py
-
 from src.models.pydantic.BaseSchema import BaseSchema
 
 class User(BaseSchema):

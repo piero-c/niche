@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing   import Optional
+
 from src.models.pydantic.BaseSchema import BaseSchema, PyObjectId
 
 class Params(BaseModel):

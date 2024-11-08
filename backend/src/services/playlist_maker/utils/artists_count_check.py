@@ -1,10 +1,15 @@
-from src.db.DB import DB
-from src.db.DAOs.RequestsDAO import RequestDAO
-from src.db.DAOs.ArtistsDAO import ArtistsDAO
-from src.models.pydantic.Request import Params
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.utils.util import LANGMAP, NICHEMAP
 from numpy import mean
+
+from src.db.DB               import DB
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DAOs.ArtistsDAO  import ArtistsDAO
+
+from src.models.pydantic.Request import Params
+
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+
+from src.utils.util import LANGMAP, NICHEMAP
+
 
 def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
     """Return true if the playlist for the request is likely to be under the requested size

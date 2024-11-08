@@ -1,8 +1,10 @@
 # models/BaseSchema.py
 
 from pydantic import BaseModel, Field
-from bson import ObjectId
+from bson     import ObjectId
+
 from datetime import datetime, timezone
+
 from src.db.config_loader import load_config
 
 # Load configuration (ensure this is done outside the model to avoid side effects)

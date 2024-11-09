@@ -7,7 +7,7 @@ from src.auth.MusicBrainzRequests import MusicBrainzRequests
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
 from src.services._shared_classes.Artist          import Artist
 from src.services._shared_classes.Track           import Track
-from src.services.genre_handling.valid_genres     import convert_genre
+from src.services.genre_handling.valid_genres     import convert_genre, genre_is_spotify
 
 from src.utils.logger import logger
 
@@ -58,6 +58,7 @@ class Validator:
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     def artist_excluded_reason_spotify(self, artist: Artist) -> ReasonExcluded | None:
+        # Final popularity check (followers)
         """If there is one, get the reason the artist is excluded based on spotify stats
 
         Args:
@@ -78,6 +79,7 @@ class Validator:
         return(None)
 
     def artist_excluded_language(self, artist: Artist, mb_check: bool = True) -> ReasonExcluded | None:
+        # Language
         """_summary_
 
         Args:
@@ -106,6 +108,7 @@ class Validator:
         Requires:
             Track has spotify information attached
         """
+        # CHECK IF ORIGINAL
         if (not track.is_original_with_lyrics()):
             logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
             return(False)
@@ -122,6 +125,7 @@ class Validator:
         return(True)
 
     def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:
+        # Pre-popularity check (listeners, plays), likeness, genre sanity check
         """If there is one, get the reason the artist is excluded based on lastfm stats
 
         Args:
@@ -151,8 +155,13 @@ class Validator:
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
-            elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
-                logger.error(f'Artist {artist.name} not in genre {convert_genre('SPOTIFY', 'LASTFM', self.request.genre)}')
+            if (genre_is_spotify(self.request.genre)):
+                converted_genre = convert_genre('SPOTIFY', 'LASTFM', self.request.genre)
+            else:
+                converted_genre = convert_genre('MUSICBRAINZ', 'LASTFM', self.request.genre)
+
+            if (not artist.artist_in_lastfm_genre(converted_genre)):
+                logger.error(f'Artist {artist.name} not in genre {converted_genre}')
                 return(ReasonExcluded.OTHER)
 
             else:

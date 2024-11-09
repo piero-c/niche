@@ -97,11 +97,10 @@ class Validator:
             logger.warning(f"Skipping track '{track.name}' due to song length constraints.")
             return(False)
         
-        # TODO
-        # # CHECK YEAR PUBLISHED
-        # if(year_published < self.request.songs_min_year_created):
-        #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
-        #     continue
+        # CHECK YEAR PUBLISHED
+        if(track.track_release_year < self.request.songs_min_year_created):
+            logger.warning(f"Skipping track '{track.name}' due to year published constraints.")
+            return(False)
         return(True)
 
     def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:

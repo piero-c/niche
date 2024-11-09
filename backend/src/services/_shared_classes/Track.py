@@ -20,6 +20,8 @@ class Track:
             Requires call: attach_spotify_track_information 
         track_length_seconds
             Requires call: attach_spotify_track_information 
+        track_release_year
+            Requires call: attach_spotify_track_information 
     """
     def __init__(self, name: str, artist: str) -> None:
         """Initialize the track
@@ -59,6 +61,7 @@ class Track:
             self.spotify_track        = spotify_track
             self.spotify_uri          = spotify_track.get('uri', '')
             self.spotify_url          = spotify_track.get('external_urls', {}).get('spotify', '')
+            self.track_release_year   = int(spotify_track.get('album', {}).get('release_date', '1900')[:4])
             self.track_length_seconds = convert_ms_to_s(spotify_track.get('duration_ms', 0))
             return(self.spotify_track)
         except Exception as e:
@@ -143,8 +146,8 @@ class Track:
             bool: True if original with lyrics, False otherwise.
         """
         keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version', 'dub', "background music", "no vocals",
-        "alternative version", "soundtrack"]
+        "alternative version", "soundtrack", 'theme', 'star wars']
         name_lower = self.name.lower()  # Convert to lowercase for case-insensitive comparison
-        return not any(keyword in name_lower for keyword in keywords)
+        return(not any(keyword in name_lower for keyword in keywords))
 
 

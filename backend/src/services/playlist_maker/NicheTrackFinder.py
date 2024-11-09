@@ -319,6 +319,7 @@ class NicheTrackFinder:
                                 break
                             elif (artist_exclusion_language):
                                 self._add_excluded_entry(artist, artist_exclusion_language)
+                                break
                             else:
                                 # Artist is valid. If it was previously excluded  delete that entry
                                 self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)

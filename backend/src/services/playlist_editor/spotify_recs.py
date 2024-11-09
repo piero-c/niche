@@ -69,6 +69,7 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
 
     logger.info(f'Getting recommendations for playlist {playlist_url}...')
 
+    # TODO - try to include the artist here
     if (seed_genres):
         recs = spotify_user.execute(
             'recommendations',
@@ -95,17 +96,17 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     # TODO - here - for this when we r
     # TODO - pass in already added artist and track ids to ensure no duplicates (like to x valid for insert pass in the recommended tracks and then in the fn when get playlist ids extend w the ids from the tracks)
     for track in rec_tracks:
+        if (len(recommended_tracks) > num):
+            break
         logger.info(f'Checking validity for track {track.get('name', '')}')
         track_artist_id = track.get('artists', [{}])[0].get('id', '')
         track_artist: SpotifyArtist = spotify_user.execute('artist', track_artist_id)
 
         if (not track_artist):
             continue
+        # TODO - try to make validity check for additional songs into an object so we dont have to query and shit
         elif (artist_valid_for_insert(track_artist, playlist_url) and track_valid_for_insert(track, playlist_url)):
             recommended_tracks.append(track)
-
-        if (len(recommended_tracks) >= num):
-            break
     
     return(recommended_tracks)
 

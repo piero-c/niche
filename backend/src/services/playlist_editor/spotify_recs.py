@@ -11,9 +11,10 @@ from src.db.DAOs.RequestsDAO  import RequestDAO
 from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 from src.db.DB                import DB
 
-from src.services.profile.playlists           import get_playlist_tracks
-from src.services.playlist_editor.add_songs   import artist_valid_for_insert, track_valid_for_insert
-from src.services.genre_handling.valid_genres import genre_is_spotify
+from src.services.profile.playlists               import get_playlist_tracks
+from src.services.playlist_editor.add_songs       import artist_valid_for_insert, track_valid_for_insert
+from src.services.genre_handling.valid_genres     import genre_is_spotify
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 
 from src.auth.SpotifyUser import spotify_user
 
@@ -47,6 +48,8 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     """
     artist_seeds_num = MIN_SONGS_FOR_PLAYLIST_GEN - 1
     recommended_tracks = []
+    added_artist_ids = []
+    added_track_ids = []
 
     db = DB()
     pdao = PlaylistDAO(db)
@@ -57,6 +60,7 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     request: RequestModel = rdao.read_by_id(playlist.request)
 
     playlist_tracks = get_playlist_tracks(playlist_url)
+    playlist_request = PlaylistRequest.from_model(request_model=request, add_to_db=False)
 
     if (genre_is_spotify(request.params.genre)):
         seed_artists = _get_random_artist_ids(playlist_tracks, artist_seeds_num)
@@ -69,7 +73,6 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
 
     logger.info(f'Getting recommendations for playlist {playlist_url}...')
 
-    # TODO - try to include the artist here
     if (seed_genres):
         recs = spotify_user.execute(
             'recommendations',
@@ -93,8 +96,6 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     rec_tracks = recs.get('tracks', '')
     random.shuffle(rec_tracks)
 
-    # TODO - here - for this when we r
-    # TODO - pass in already added artist and track ids to ensure no duplicates (like to x valid for insert pass in the recommended tracks and then in the fn when get playlist ids extend w the ids from the tracks)
     for track in rec_tracks:
         if (len(recommended_tracks) >= num):
             break
@@ -104,9 +105,12 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
 
         if (not track_artist):
             continue
-        # TODO - try to make validity check for additional songs into an object so we dont have to query and shit
-        elif (artist_valid_for_insert(track_artist, playlist_url) and track_valid_for_insert(track, playlist_url)):
+        # TODO - try to make validity check for additional songs into an object so we dont have to query and shit (give requests cache to validator and cache artist ids?)
+
+        elif (artist_valid_for_insert(track_artist, playlist_tracks, playlist_request, added_artist_ids) and track_valid_for_insert(track, playlist_tracks, playlist_request, added_track_ids)):
             recommended_tracks.append(track)
+            added_artist_ids.append(track_artist_id)
+            added_track_ids.append(track.get('id', ''))
     
     return(recommended_tracks)
 

@@ -2,7 +2,6 @@ import random
 
 from src.utils.spotify_util import NicheTrack, extract_id, SpotifyTrack, SpotifyArtist
 from src.utils.logger       import logger
-from src.utils.util         import LANGMAP, NICHEMAP
 
 from src.services._shared_classes.Validator       import Validator
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
@@ -60,59 +59,57 @@ def _get_playlist_request(playlist_url: str) -> PlaylistRequest:
     request: RequestModel = rdao.read_by_id(playlist.request)
 
     # Make a playlist request object from the request that generated the playlist at the request of the playlist generator. Don't add it to the db.
-    playlist_request = PlaylistRequest(
-        songs_min_year_created = request.params.songs_min_year_created,
-        language               = LANGMAP.get(request.params.language),
-        niche_level            = NICHEMAP.get(request.params.niche_level),
-        songs_length_min_secs  = request.params.songs_length_min_secs,
-        songs_length_max_secs  = request.params.songs_length_max_secs,
-        genre                  = request.params.genre,
-        add_to_db              = False
-    )    
+    playlist_request = PlaylistRequest.from_model(request_model=request, add_to_db=False)
+ 
     return(playlist_request)
 
-def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str) -> bool:
+# TODO - combine common functionality for these 2
+def artist_valid_for_insert(artist: SpotifyArtist, playlist_tracks: list[NicheTrack], playlist_request: PlaylistRequest, additional_ids_dont_include: list[str] = []) -> bool:
     """Check if an artist is valid to insert into a playlist
 
     Args:
         artist (SpotifyArtist): The artist as given by spotify
-        playlist_url (str): Url
+        playlist_tracks (list[NicheTrack]): The tracks in the playlist
+        playlist_request(PlaylistRequest): The request corresponding to the playlist
+        additional_ids_dont_include: (list[str]): Ids not already in the playlist to not include. Defaults to [].
 
     Returns:
         bool: Is it?
     """
-    artist_ids_in_playlist = _get_playlist_ids(playlist_url, 'artist')
-    playlist_request = _get_playlist_request(playlist_url)
+    artist_obj = Artist(artist.get('name', ''), 'no id')
+    artist_obj.attach_spotify_artist(artist)
+
+    artist_ids_in_playlist = [track.get('artist_spotify_id', '') for track in playlist_tracks]
+    artist_ids_in_playlist.extend(additional_ids_dont_include)
 
     validator = Validator(playlist_request)
 
-    # TODO - language check will fail with no mbid :( find a way to look it up or get languages from spotify
-    #     TODO then go to issue list and sort shit out
-    artist_obj = Artist(artist.get('name', ''), 'no id')
-    artist_obj.attach_spotify_artist(artist)
     # If not excluded and the artist isnt already in the playlist
     if (((artist_obj.spotify_artist_id) not in artist_ids_in_playlist) and (not validator.artist_excluded_reason_spotify(artist_obj)) and (not validator.artist_excluded_language(artist_obj, mb_check=False))):
         return(True)
     return(False)
 
-def track_valid_for_insert(track: SpotifyTrack, playlist_url: str) -> bool:
+def track_valid_for_insert(track: SpotifyTrack, playlist_tracks: list[NicheTrack], playlist_request: PlaylistRequest, additional_ids_dont_include: list[str] = []) -> bool:
     """Check if a track is valid to insert into a playlist
 
     Args:
         track (SpotifyTrack): The track as given by spotify
-        playlist_url (str): Url
+        playlist_tracks (list[NicheTrack]): The tracks in the playlist
+        playlist_request(PlaylistRequest): The request corresponding to the playlist
+        additional_ids_dont_include: (list[str]): Ids not already in the playlist to not include. Defaults to [].
 
     Returns:
-        bool: Is it!
+        bool: Is it?
     """
-    song_ids_in_playlist = _get_playlist_ids(playlist_url, 'track')
-    playlist_request = _get_playlist_request(playlist_url)
-
-    validator = Validator(playlist_request)
-
     track_obj = Track(track.get('name'), "No Name")
     # No need to check artist id since we don't care who made it (assume the artist was already considered valid)
     track_obj.attach_spotify_track_information_from_spotify_track(track)
+
+    song_ids_in_playlist = [extract_id(track.get('spotify_url'), 'track') for track in playlist_tracks]
+    song_ids_in_playlist.extend(additional_ids_dont_include)
+
+    validator = Validator(playlist_request)
+
     if((track.get('id') not in song_ids_in_playlist) and (validator.validate_track(track_obj))):
         return(True)
     return(False)

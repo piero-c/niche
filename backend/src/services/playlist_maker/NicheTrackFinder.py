@@ -309,7 +309,6 @@ class NicheTrackFinder:
                         # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
                         # Attach the spotify artist from the track and ensure it was attached
                         if (self.validator.attached_spotify_artist_from_track(artist, track)):
-
                             # Discard artist if excluded by spotify metrics
                             # I know this runs for every track but I attach the artist from the track and I'm not setting globals:)
                             artist_exclusion_spotify = self.validator.artist_excluded_reason_spotify(artist)

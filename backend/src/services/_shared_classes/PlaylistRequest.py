@@ -148,6 +148,27 @@ class PlaylistRequest:
         self.in_db = True
         return(None)
 
+    @classmethod
+    def from_model(cls, request_model: Request, add_to_db: bool = True) -> 'PlaylistRequest':
+        """Create a PlaylistRequest instance from a Request model.
+
+        Args:
+            request_model (Request): The Request model instance.
+            add_to_db (bool, optional): Whether to add the PlaylistRequest to the database. Defaults to False.
+
+        Returns:
+            PlaylistRequest: The created PlaylistRequest instance.
+        """
+        return (cls(
+            songs_min_year_created = request_model.params.songs_min_year_created,
+            language               = LANGMAP.get(request_model.params.language),
+            niche_level            = NICHEMAP.get(request_model.params.niche_level),
+            songs_length_min_secs  = request_model.params.songs_length_min_secs,
+            songs_length_max_secs  = request_model.params.songs_length_max_secs,
+            genre                  = request_model.params.genre,
+            add_to_db              = add_to_db
+        ))
+
     def get_playlist_info(self) -> PlaylistInfo:
         """Get the info for the playlist
 

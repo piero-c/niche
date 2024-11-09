@@ -105,10 +105,10 @@ class Track:
 
         spotify_track = None
         try:
-            
             spotify_tracks = spotify_user.get_spotify_tracks_direct(self.name, self.artist)
         except Exception as e:
             logger.warning(f"Couldn't get Spotify track information for '{self.name}' by '{self.artist}' with direct search: {e}")
+            return
 
         spotify_track = find_exact_match(spotify_tracks, self.name, self.artist)
 

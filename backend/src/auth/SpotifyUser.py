@@ -113,7 +113,7 @@ class SpotifyUser:
         ## END REQUEST ##
 
         # Extract the list of track items from the search results
-        spotify_tracks = search_results.get('tracks', {}).get('items', [])
+        spotify_tracks = search_results.get('tracks', {}).get('items', []) or None
         if(not spotify_tracks):
             raise Exception(f"No Spotify tracks found for {name} by {artist}.")
 

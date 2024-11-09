@@ -8,7 +8,7 @@ from bidict import bidict
 
 NICHE_APP_URL = 'http://niche-app.net'
 
-MIN_SONGS_FOR_PLAYLIST_GEN = 4
+MIN_SONGS_FOR_PLAYLIST_GEN = 5
 
 # Enumerations for request
 Language       = Enum('Language', ['ANY', 'ENGLISH', 'OTHER'])

@@ -52,11 +52,11 @@ def get_playlist_tracks(playlist_link: str) -> List[NicheTrack]:
         artist_data   = track_data.get('artists', [{}])[0]
 
         track_info: NicheTrack = {
-            'track'      : track_data.get('name', 'Unknown Track Name'),
-            'spotify_url': external_urls.get('spotify', ''),
-            'spotify_uri': track_data.get('uri', ''),
-            'artist'     : artist_data.get('name', 'Unknown Artist'),
-            'artist_id'  : artist_data.get('id', '')
+            'track'              : track_data.get('name', 'Unknown Track Name'),
+            'spotify_url'        : external_urls.get('spotify', ''),
+            'spotify_uri'        : track_data.get('uri', ''),
+            'artist'             : artist_data.get('name', 'Unknown Artist'),
+            'artist_spotify_id'  : artist_data.get('id', '')
         }
 
         playlist_data.append(track_info)

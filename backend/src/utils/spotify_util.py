@@ -183,7 +183,7 @@ def convert_spotify_track_to_niche_track(track: SpotifyTrack) -> NicheTrack:
     return(
         {
             "artist"     : artist_info.get('name', 'Unknown Artist'),
-            "artist_id"  : artist_info.get('id', ''),
+            "artist_spotify_id"  : artist_info.get('id', ''),
             "track"      : track_info,
             'spotify_url': spotify_url,
             'spotify_uri': spotify_uri

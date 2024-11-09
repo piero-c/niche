@@ -7,6 +7,7 @@ from src.utils.musicbrainz_util import MUSICBRAINZ_API_URL
 
 from src.services._shared_classes.PlaylistRequest import Language
 
+# TODO - authenticate and drop sleep time to .35 as per mb docs
 
 class MusicBrainzRequests:
     """Class for making requests to MusicBrainz API

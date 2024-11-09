@@ -2,7 +2,7 @@ import random
 
 from src.utils.spotify_util import NicheTrack, extract_id, SpotifyTrack, SpotifyArtist
 from src.utils.logger       import logger
-from src.utils.util         import sleep, LANGMAP, NICHEMAP, RequestType
+from src.utils.util         import LANGMAP, NICHEMAP
 
 from src.services._shared_classes.Validator       import Validator
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
@@ -19,6 +19,7 @@ from src.db.DB                import DB
 
 from src.auth.SpotifyUser import spotify_user
 
+# Add songs does not check for likeness or genre as it's methods are incapable of the former, and adherance to the latter is assumed
 
 
 def _get_playlist_ids(playlist_url: str, type: str) -> list[str]:
@@ -129,11 +130,8 @@ def add_valid_track(track_uri: str, playlist_url: str) -> str | None:
     playlist_id = extract_id(playlist_url, 'playlist')
     logger.info(f'Adding track with uri {track_uri}')
     
-    ## BEGIN REQUEST ##
     # Get the spotify artist
     spotify_user.execute('playlist_add_items', playlist_id=playlist_id, items=[track_uri])
-    sleep(RequestType.SPOTIFY)
-    ## END REQUEST ##
     return(track_uri)
 
 
@@ -167,11 +165,10 @@ def add_more_songs_for_artist(playlist_url: str, artist_spotify_id: str, num_son
     assert(artist_spotify_id in _get_playlist_ids(playlist_url, 'artist'))
     logger.info(f'Adding tracks for artist id {artist_spotify_id}')
     
-    ## BEGIN REQUEST ##
+
     # Get the spotify artist
     top_tracks = spotify_user.execute('artist_top_tracks', artist_spotify_id).get('tracks', [])
-    sleep(RequestType.SPOTIFY)
-    ## END REQUEST ##
+
     random.shuffle(top_tracks)
 
     uris_added = []

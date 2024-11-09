@@ -266,7 +266,7 @@ class Artist:
             spotify_track = track.attach_spotify_track_information()
 
             # Extract the artist ID from the Spotify track
-            for spotify_artist in spotify_track['artists']:
+            for spotify_artist in spotify_track.get('artists', []):
                 if(strcomp(spotify_artist['name'], track.artist)):
                     self.spotify_artist_id = spotify_artist['id']
                     break

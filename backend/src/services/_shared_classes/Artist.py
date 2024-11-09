@@ -1,8 +1,10 @@
+from langdetect  import detect
+
 from src.services._shared_classes.Track import Track
 
 from src.utils.musicbrainz_util import MusicBrainzArtist
 from src.utils.logger           import logger
-from src.utils.util             import strcomp
+from src.utils.util             import strcomp, map_language_codes, filter_low_count_entries
 from src.utils.spotify_util     import SpotifyArtist
 
 from src.auth.LastFMRequests import LastFMRequests, LastFmArtist
@@ -285,4 +287,22 @@ class Artist:
         except Exception as e:
             logger.error(e)
             raise Exception(f"Could not attach spotify artist {self.name} from track {track.name}")
+        
+    def get_language_guess_spotify(self) -> str:
+        assert(hasattr(self, 'spotify_artist'))
+        # Only 30% to be considered a language the artist sings in since this fn is prone to error
+        pct_min=30
+
+        top_tracks = spotify_user.execute('artist_top_tracks', self.spotify_artist_id)
+        track_names = [track.get('name') for track in top_tracks.get('tracks', [])]
+
+        languages = []
+        for name in track_names:
+            try:
+                language = detect(name)
+                languages.append(language)
+            except Exception:
+                continue
+
+        return(filter_low_count_entries(map_language_codes(language_codes=languages, iso639_type=1), pct_min=pct_min))
 

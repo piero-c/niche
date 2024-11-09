@@ -69,17 +69,35 @@ class Validator:
         Returns:
             ReasonExcluded | None: Reason excluded if it exists
         """
-        mb = MusicBrainzRequests()
         if(artist.spotify_followers > self.request.spotify_followers_max):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
             return(ReasonExcluded.TOO_MANY_SOMETHING)
         if(artist.spotify_followers < self.request.spotify_followers_min):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
             return(ReasonExcluded.TOO_FEW_SOMETHING)
-        # CHECK ARTIST LANGUAGE
-        if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
-            logger.error(f"Artist does not sing in {self.request.language}")
+        return(None)
+
+    def artist_excluded_language(self, artist: Artist, mb_check: bool = True) -> ReasonExcluded | None:
+        """_summary_
+
+        Args:
+            artist (Artist): _description_
+            mb_check (bool, optional): _description_. Defaults to True.
+
+        Returns:
+            ReasonExcluded | None: _description_
+        """
+        if (self.request.language == Language.ANY):
+            return(None)
+        elif (mb_check):
+            mb = MusicBrainzRequests()
+            if (self.request.language not in mb.get_artist_languages(artist.mbid)):
+                logger.error(f"Artist does not sing in {self.request.language}")
+                return(ReasonExcluded.WRONG_LANGUAGE)
+        elif (self.request.language not in artist.get_language_guess_spotify()):
+            logger.error(f"SPOTIFY CHECK - Artist does not sing in {self.request.language}")
             return(ReasonExcluded.WRONG_LANGUAGE)
+
         return(None)
 
     def validate_track(self, track: Track) -> bool:

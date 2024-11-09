@@ -75,6 +75,8 @@ def load_env() -> dict[str, str]:
         "APPLICATION_NAME"   : os.getenv("APPLICATION_NAME"),
         "APPLICATION_VERSION": os.getenv("APPLICATION_VERSION"),
         "APPLICATION_CONTACT": os.getenv("APPLICATION_CONTACT"),
+        "MB_CLIENT_ID"       : os.getenv("MB_CLIENT_ID"),
+        "MB_CLIENT_SECRET"   : os.getenv("MB_CLIENT_SECRET")
     })
 
 def sleep(type: RequestType) -> None:
@@ -129,12 +131,13 @@ def convert_language_to_language_enum(language: str) -> Language:
         return(LANGMAP.get(language))
     return(Language.OTHER)
 
-def map_language_codes(language_codes: list[str]) -> dict[Language, int]:
+def map_language_codes(language_codes: list[str], iso639_type: int = 3) -> dict[Language, int]:
     """
-    Maps ISO 639-3 language codes to full language names and counts occurrences.
+    Maps ISO 639 language codes to full language names and counts occurrences.
 
     Args:
         language_codes: A list of language codes.
+        iso639_type: The iso 639 type. Defaults to 3. Must be 1 or 3
 
     Returns:
         A dictionary where keys are language names and values are counts.
@@ -142,7 +145,10 @@ def map_language_codes(language_codes: list[str]) -> dict[Language, int]:
     language_counts: dict[str, int] = {}
     for code in language_codes:
         try:
-            language = pycountry.languages.get(alpha_3=code)
+            if(iso639_type == 3):
+                language = pycountry.languages.get(alpha_3=code)
+            else:
+                language = pycountry.languages.get(alpha_2=code)
             if language and hasattr(language, 'name'):
                 language_name = language.name
             else:

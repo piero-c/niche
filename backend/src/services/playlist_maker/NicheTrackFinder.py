@@ -285,9 +285,12 @@ class NicheTrackFinder:
                             # Discard artist if excluded by spotify metrics
                             # I know this runs for every track but I attach the artist from the track and I'm not setting globals:)
                             artist_exclusion_spotify = self.validator.artist_excluded_reason_spotify(artist)
+                            artist_exclusion_language = self.validator.artist_excluded_language(artist)
                             if ((artist_exclusion_spotify) and (artist_exclusion_spotify != ReasonExcluded.OTHER)):
                                 self._add_excluded_entry(artist, artist_exclusion_spotify)
                                 break
+                            elif (artist_exclusion_language):
+                                self._add_excluded_entry(artist, artist_exclusion_language)
                             else:
                                 # Artist is valid. If it was previously excluded  delete that entry
                                 self.requestsCacheDAO.delete_excluded_entry(self.requestsCacheOID, artist.mbid)

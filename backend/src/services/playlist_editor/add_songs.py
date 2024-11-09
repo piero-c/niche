@@ -90,7 +90,7 @@ def artist_valid_for_insert(artist: SpotifyArtist, playlist_url: str) -> bool:
     artist_obj = Artist(artist.get('name', ''), 'no id')
     artist_obj.attach_spotify_artist(artist)
     # If not excluded and the artist isnt already in the playlist
-    if ((not validator.artist_excluded_reason_spotify(artist_obj)) and ((artist_obj.spotify_artist_id) not in artist_ids_in_playlist)):
+    if (((artist_obj.spotify_artist_id) not in artist_ids_in_playlist) and (not validator.artist_excluded_reason_spotify(artist_obj)) and (not validator.artist_excluded_language(artist_obj, mb_check=False))):
         return(True)
     return(False)
 

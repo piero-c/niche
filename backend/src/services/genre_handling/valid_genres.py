@@ -6,12 +6,20 @@ import json
 # Specify the path to your JSON file
 file_path = Path('src/services/genre_handling/genres.json')
 
-service_genre_names = 'SPOTIFY'
+service_genre_names    = 'SPOTIFY'
+service_secondary_name = 'MUSICBRAINZ'
 
 class GenreDict(TypedDict):
     SPOTIFY    : str
     MUSICBRAINZ: str
     LASTFM     : str
+
+def genre_is_spotify(genre: str) -> bool:
+    data = get_genre_dict_list()
+    entry = next((item for item in data if item['SPOTIFY'] == genre), None)
+    if(entry):
+        return(True)
+    return(False)
 
 def convert_genre(from_service: str, to_service: str, genre: str) -> str:
     """Convert genre name from one service to another
@@ -51,7 +59,7 @@ def genres() -> list[str]:
     data = get_genre_dict_list()
     
     for genre in data:
-        genre_list.append(genre.get(service_genre_names))
+        genre_list.append(genre.get(service_genre_names) or genre.get(service_secondary_name))
     
     return (genre_list)
 

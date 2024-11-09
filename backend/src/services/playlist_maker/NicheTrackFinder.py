@@ -1,13 +1,16 @@
 import random
 
 from numpy    import mean as mean
+from numpy    import ceil
 from datetime import datetime, timedelta
 
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.services._shared_classes.Playlist        import Playlist
-from src.services._shared_classes.Artist          import Artist
-from src.services._shared_classes.Validator       import Validator, REASONMAP, ReasonExcluded
-from src.services.playlist_editor.spotify_recs    import get_recommendations
+from src.services._shared_classes.PlaylistRequest          import PlaylistRequest
+from src.services._shared_classes.Playlist                 import Playlist
+from src.services._shared_classes.Artist                   import Artist
+from src.services._shared_classes.Validator                import Validator, REASONMAP, ReasonExcluded
+from src.services.playlist_editor.spotify_recs             import get_recommendations
+from src.services.genre_handling.valid_genres              import genre_is_spotify
+from src.services.playlist_maker.utils.artists_count_check import average_valid_artists_pct
 
 from src.utils.util         import load_env, obj_array_to_obj, NICHEMAP, LANGMAP, MIN_SONGS_FOR_PLAYLIST_GEN
 from src.utils.spotify_util import NicheTrack, convert_spotify_track_to_niche_track
@@ -149,17 +152,17 @@ class NicheTrackFinder:
             excluded=self._create_excluded_object(artist, reason)
         )
 
-    def _fill_undersized_playlist(self, curr_tracks: list[NicheTrack]) -> bool:
-        """If the initial generation produced an under-sized playlist, fill it up with spotify recs"""
-        FETCH_SIZES  = 5
-        max_attempts = 10
-        needed_size  = self.request.playlist_length - len(curr_tracks)
+    def _add_from_recs(self, curr_tracks: list[NicheTrack], num_tracks: int) -> bool:
+        """Fill the playlist up with spotify recs"""
+        FETCH_SIZES  = 6
+        max_attempts = 15
+        min_size     = self.request.playlist_min_length - len(curr_tracks)
+        max_size     = num_tracks
         added        = []
 
-        if (needed_size < 1):
+        if (max_size - min_size < 1):
             return(True)
-    
-        
+
         # Create playlist object to facilitate recommendations
         pl = Playlist(curr_tracks, self.request)
 
@@ -167,10 +170,10 @@ class NicheTrackFinder:
         # Get recommendations (valid ones that can be added to the playlist right away)
         # Add them to the list, as well as the playlist to be considered for random artist seed
         # max 10 attempts
-        while len(added) < needed_size and attempt <= max_attempts:
+        while len(added) < max_size and attempt <= max_attempts:
             recs = get_recommendations(pl.url, FETCH_SIZES)
             for track in recs:
-                if(len(added) >= needed_size):
+                if(len(added) >= max_size):
                     break
                 niche_track: NicheTrack = convert_spotify_track_to_niche_track(track)
 
@@ -190,7 +193,7 @@ class NicheTrackFinder:
 
         num_added = len(added)
 
-        if(num_added < needed_size):
+        if(num_added < min_size):
             return(False)
         else:
             # Add the songs to the current tracks
@@ -236,16 +239,41 @@ class NicheTrackFinder:
         """
         artists_song_count = {}
         # TODO - make dynamic / selected by user?
-        artist_max_songs        = 1
+        artist_max_songs = 1
+
+        # TODO - explain
+        desired_valid_artists_multiple_of_min_len = 5
 
         percent_artists_valid = 0
 
         niche_tracks = []
 
-        desired_song_count     = self.request.playlist_length
+        # TODO - change desired sogn count to desired from mb and change up the sstuff make easier to understand spotify vs mb genre idk how but do itlllll
+
         artist_increment_count = 25
 
         artists_list = self._fetch_artists_from_musicbrainz()
+
+        # TODO - explain
+        if (not genre_is_spotify(self.request.genre)):
+            desired_song_count = self.request.playlist_min_length
+        else:
+            previous_valid_pcts = average_valid_artists_pct(self.request)
+            if (previous_valid_pcts < 0):
+                valid_pct_av = 2
+            else:
+                valid_pct_av = previous_valid_pcts
+            
+            expected_num_artists_valid = len(artists_list) * (valid_pct_av/100)
+            # 100 - dsc = 20, sc = 1
+            # 50  - dsc = 10, sc = .5
+            # 25  - dsc = 5, sc = .25
+            # TODO - explain
+            min_valid_for_max_on_min_pl_len = self.request.playlist_min_length * desired_valid_artists_multiple_of_min_len
+            rep_song_scalar = min(1, expected_num_artists_valid / min_valid_for_max_on_min_pl_len)
+            desired_song_count = max(int(ceil(self.request.playlist_min_length * rep_song_scalar) + 0.00001), MIN_SONGS_FOR_PLAYLIST_GEN)
+
+
         # Using list comprehension with padding to split into groups of 25
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
         # Generate random offsets of artists to search
@@ -274,7 +302,7 @@ class NicheTrackFinder:
                 top_tracks = artist.get_artist_top_tracks_lastfm()
                 for track in top_tracks:
                     # Enough tracks or max tracks for artist
-                    if (len(niche_tracks) >= self.request.playlist_length) or (artists_song_count.get(artist.mbid, 0) >= artist_max_songs):
+                    if (len(niche_tracks) >= self.request.playlist_min_length) or (artists_song_count.get(artist.mbid, 0) >= artist_max_songs):
                         logger.warning('Playlist or artist song count reached')
                         break
                     try:
@@ -302,12 +330,12 @@ class NicheTrackFinder:
                             # Ensure track length and type valid
                             if (self.validator.validate_track(track)):
                                 # Add track to niche_tracks
-                                niche_track = {
-                                    'artist'     : artist.name,
-                                    'artist_id'  : artist.spotify_artist_id,
-                                    'track'      : track.name,
-                                    'spotify_uri': track.spotify_uri,
-                                    'spotify_url': track.spotify_url,
+                                niche_track: NicheTrack = {
+                                    'artist'             : artist.name,
+                                    'artist_spotify_id'  : artist.spotify_artist_id,
+                                    'track'              : track.name,
+                                    'spotify_uri'        : track.spotify_uri,
+                                    'spotify_url'        : track.spotify_url,
                                 }
                                 niche_tracks.append(niche_track)
 
@@ -333,11 +361,12 @@ class NicheTrackFinder:
         # If not enough songs to extend playlist raise an error, else try to extend the playlist. If that doesnt work, throw an error
         if (len(niche_tracks) < MIN_SONGS_FOR_PLAYLIST_GEN):
             raise Exception("Not enough songs")
-        elif(len(niche_tracks) < self.request.playlist_length):
-            logger.info(f'Playlist length {len(niche_tracks)} undersized, fetching from spotify recommendations')
-            if(not self._fill_undersized_playlist(niche_tracks)):
+        else:
+            logger.info(f'Playlist length {len(niche_tracks)}, fetching from spotify recommendations')
+            if(not self._add_from_recs(niche_tracks, self.request.playlist_max_length - len(niche_tracks))):
                 raise Exception("Not enough songs")
 
         return(niche_tracks)
+    
             
 

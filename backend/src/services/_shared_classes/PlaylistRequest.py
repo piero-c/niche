@@ -8,7 +8,7 @@ from src.db.DAOs.PlaylistsDAO import PlaylistDAO
 
 from src.models.pydantic.Request import Request, Params, Stats
 
-from src.services.genre_handling.valid_genres import genres as valid_genres
+from src.services.genre_handling.valid_genres import genres as valid_genres, genre_is_spotify
 
 from src.auth.SpotifyUser import spotify_user
 class PlaylistInfo(TypedDict):
@@ -67,8 +67,10 @@ class PlaylistRequest:
         spotify_followers_min               
         niche_level
         lastfm_likeness_min 
-        playlist_length     
+        playlist_min_length   
+        playlist_max_length  
         user_oid
+        genre_is_spotify_seed_genre
         oid
             Requires call: add_db_entry
         in_db
@@ -98,6 +100,11 @@ class PlaylistRequest:
         self.niche_level            = niche_level
         self.user_oid               = spotify_user.oid
 
+        if (genre_is_spotify(self.genre)):
+            self.genre_is_spotify_seed_genre = True
+        else:
+            self.genre_is_spotify_seed_genre = False
+
         # Based on the niche level set mins and maxes
         self.lastfm_listeners_max  = niche_level_map[niche_level]["lastfm_listeners_max"]
         self.lastfm_listeners_min  = niche_level_map[niche_level]["lastfm_listeners_min"]
@@ -108,9 +115,10 @@ class PlaylistRequest:
 
         # Hardcoded vals
         self.lastfm_likeness_min  = 3.5
-        self.playlist_length      = 20
+        self.playlist_min_length  = 20
+        self.playlist_max_length  = 60
 
-        #self.playlist_length = 1
+        #self.playlist_min_length = 1
 
         self.in_db = False
         if (add_to_db):

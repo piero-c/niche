@@ -10,26 +10,17 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 
 from src.utils.util import LANGMAP, NICHEMAP
 
-
-def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
-    """Return true if the playlist for the request is likely to be under the requested size
+def average_valid_artists_pct(request: PlaylistRequest) -> float:
+    """_summary_
 
     Args:
-        request (PlaylistRequest): The request
-        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
+        request (PlaylistRequest): _description_
 
     Returns:
-        bool: Will it likely be undersized
+        float: _description_
     """
-    if (not size):
-        size = request.playlist_length
     db = DB()
-
     rdao = RequestDAO(db)
-    adao = ArtistsDAO(db)
-
-    # Get artists in the genre
-    artists_count = adao.count_artists_in_genre(request.genre)
     # Get all previous requests that match this one
     old_requests = rdao.read_by_params(
         Params(
@@ -43,18 +34,39 @@ def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool
     )
 
     # Get all requests that have a percent_artists_valid field
-    pcts = [r.stats.percent_artists_valid / 100 for r in old_requests if r.stats.percent_artists_valid]
+    pcts = [r.stats.percent_artists_valid for r in old_requests if r.stats.percent_artists_valid]
 
     if (not pcts):
+        return(-1)
+
+    return(mean(pcts))
+
+def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
+    """Return true if the playlist for the request is likely to be under the requested size
+
+    Args:
+        request (PlaylistRequest): The request
+        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
+
+    Returns:
+        bool: Will it likely be undersized
+    """
+    if (not size):
+        size = request.playlist_min_length
+    db = DB()
+
+    adao = ArtistsDAO(db)
+
+    # Get artists in the genre
+    artists_count = adao.count_artists_in_genre(request.genre)
+
+    avg = average_valid_artists_pct(request) / 100
+
+    if (avg < 0):
         return(False)
 
-    avg = mean(pcts)
-
-    if (avg <= 0):
-        return(True)
-
     # Get the expected number of artists needed
-    artists_needed = request.playlist_length / avg
+    artists_needed = size / avg
 
     # Give 11% optimism error (if its likely to generate like 18 we'll be fine)
     artists_needed -= (artists_needed / 11)

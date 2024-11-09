@@ -96,7 +96,7 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     # TODO - here - for this when we r
     # TODO - pass in already added artist and track ids to ensure no duplicates (like to x valid for insert pass in the recommended tracks and then in the fn when get playlist ids extend w the ids from the tracks)
     for track in rec_tracks:
-        if (len(recommended_tracks) > num):
+        if (len(recommended_tracks) >= num):
             break
         logger.info(f'Checking validity for track {track.get('name', '')}')
         track_artist_id = track.get('artists', [{}])[0].get('id', '')

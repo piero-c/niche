@@ -88,9 +88,7 @@ class PlaylistRequest:
             genre (str)                 : requested genre
             add_to_db (bool, optional)  : Add the playlist to the db?. Default to true
         """
-        assert(genre in valid_genres()) # Genre is spotify genre
-
-        
+        assert(genre in valid_genres()) # Genre is valid
 
         self.songs_min_year_created = songs_min_year_created
         self.songs_length_min_secs  = songs_length_min_secs

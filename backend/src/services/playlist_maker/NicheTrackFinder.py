@@ -159,6 +159,7 @@ class NicheTrackFinder:
         min_size     = self.request.playlist_min_length - len(curr_tracks)
         max_size     = num_tracks
         added        = []
+        added_num    = 0
 
         if (max_size - min_size < 1):
             return(True)
@@ -170,10 +171,10 @@ class NicheTrackFinder:
         # Get recommendations (valid ones that can be added to the playlist right away)
         # Add them to the list, as well as the playlist to be considered for random artist seed
         # max 10 attempts
-        while len(added) < max_size and attempt <= max_attempts:
-            recs = get_recommendations(pl.url, FETCH_SIZES)
+        while added_num < max_size and attempt <= max_attempts:
+            recs = get_recommendations(pl.url, min(FETCH_SIZES, max_size - added_num))
             for track in recs:
-                if(len(added) >= max_size):
+                if(added_num >= max_size):
                     break
                 niche_track: NicheTrack = convert_spotify_track_to_niche_track(track)
 
@@ -184,6 +185,7 @@ class NicheTrackFinder:
 
                 self.request.update_stats(new_track_artist_followers=artist_followers, previous_num_tracks=len(curr_tracks) + len(added))
                 added.append(niche_track)
+                added_num += 1
                 pl.add_track(niche_track)
 
             attempt += 1
@@ -191,9 +193,7 @@ class NicheTrackFinder:
         # Delete all traces of playlist created to interface with get_recommendations
         pl.delete()
 
-        num_added = len(added)
-
-        if(num_added < min_size):
+        if(added_num < min_size):
             return(False)
         else:
             # Add the songs to the current tracks

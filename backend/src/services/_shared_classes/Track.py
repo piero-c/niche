@@ -145,7 +145,7 @@ class Track:
         Returns:
             bool: True if original with lyrics, False otherwise.
         """
-        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version', 'dub', "background music", "no vocals",
+        keywords = ['instrumental', 'cover', 'inst.', 'cov.', 'ver.', 'version', "background music", "no vocals",
         "alternative version", "soundtrack", 'theme', 'star wars']
         name_lower = self.name.lower()  # Convert to lowercase for case-insensitive comparison
         return(not any(keyword in name_lower for keyword in keywords))

@@ -118,11 +118,11 @@ def add_valid_track(track_uri: str, playlist_url: str) -> str | None:
     """Add pre-validated track
 
     Args:
-        track_uri (str): _description_
-        playlist_url (str): _description_
+        track_uri (str): The track uri to add
+        playlist_url (str): The url of the playlist
 
     Returns:
-        str | None: _description_
+        str | None: The uri if added
     """
     playlist_id = extract_id(playlist_url, 'playlist')
     logger.info(f'Adding track with uri {track_uri}')

@@ -8,7 +8,7 @@ from src.models.pydantic.Request import Params
 
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 
-from src.utils.util import LANGMAP, NICHEMAP
+from src.utils.util import LANGMAP, NICHEMAP, MIN_SONGS_FOR_PLAYLIST_GEN
 
 def average_valid_artists_pct(request: PlaylistRequest) -> float:
     """From past requests, the average percentage of valid artists
@@ -41,7 +41,7 @@ def average_valid_artists_pct(request: PlaylistRequest) -> float:
 
     return(mean(pcts))
 
-def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
+def likely_under_count_playlist(request: PlaylistRequest, size: int = MIN_SONGS_FOR_PLAYLIST_GEN) -> bool:
     """Return true if the playlist for the request is likely to be under the requested size
 
     Args:
@@ -67,9 +67,6 @@ def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool
 
     # Get the expected number of artists needed
     artists_needed = size / avg
-
-    # Give 11% optimism error (if its likely to generate like 18 we'll be fine)
-    artists_needed -= (artists_needed / 11)
 
     return(artists_count < artists_needed)
 

@@ -22,7 +22,7 @@ class PlaylistInfo(TypedDict):
 
 # Dictionary for maximums and minimums for "nicheness"
 #  All must apply EXCEPT lastfm playcount and listeners, where EITHER may apply
-# All values go up by multiples of 3, except spotify followers min
+# All values go up by multiples of 3, except spotify followers min which goes up by y = .0001x^2 + 7500 where every 10 000th x step is the next level up
 niche_level_map = {
     NicheLevel.VERY: {
         "lastfm_listeners_min" : 1_000,
@@ -30,7 +30,7 @@ niche_level_map = {
         "lastfm_playcount_min" : 10_000,
         "lastfm_playcount_max" : 500_000,
         "spotify_followers_min": 100,
-        "spotify_followers_max": 5_000
+        "spotify_followers_max": 7_500
     },
     NicheLevel.MODERATELY: {
         "lastfm_listeners_min" : 3_000,
@@ -38,7 +38,7 @@ niche_level_map = {
         "lastfm_playcount_min" : 30_000,
         "lastfm_playcount_max" : 1_500_000,
         "spotify_followers_min": 1_000,
-        "spotify_followers_max": 15_000
+        "spotify_followers_max": 17_500
     },
     NicheLevel.ONLY_KINDA: {
         "lastfm_listeners_min" : 9_000,
@@ -46,7 +46,7 @@ niche_level_map = {
         "lastfm_playcount_min" : 90_000,
         "lastfm_playcount_max" : 4_500_000,
         "spotify_followers_min": 10_000,
-        "spotify_followers_max": 45_000
+        "spotify_followers_max": 47_500
     }
 }
 

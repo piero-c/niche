@@ -80,11 +80,11 @@ class Validator:
 
     def artist_excluded_language(self, artist: Artist, mb_check: bool = True) -> ReasonExcluded | None:
         # Language
-        """_summary_
+        """Return wrong language exclusion if artist is in wrong language
 
         Args:
-            artist (Artist): _description_
-            mb_check (bool, optional): _description_. Defaults to True.
+            artist (Artist): The Artist
+            mb_check (bool, optional): Perform a check from mb works?. Defaults to True. Artist must have an mbid.
 
         Returns:
             ReasonExcluded | None: _description_
@@ -92,6 +92,7 @@ class Validator:
         if (self.request.language == Language.ANY):
             return(None)
         elif (mb_check):
+            assert(artist.mbid)
             mb = MusicBrainzRequests()
             if (self.request.language not in mb.get_artist_languages(artist.mbid)):
                 logger.error(f"Artist does not sing in {self.request.language}")

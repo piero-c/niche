@@ -11,13 +11,13 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.utils.util import LANGMAP, NICHEMAP
 
 def average_valid_artists_pct(request: PlaylistRequest) -> float:
-    """_summary_
+    """From past requests, the average percentage of valid artists
 
     Args:
-        request (PlaylistRequest): _description_
+        request (PlaylistRequest): The request
 
     Returns:
-        float: _description_
+        float: The average valid percent
     """
     db = DB()
     rdao = RequestDAO(db)

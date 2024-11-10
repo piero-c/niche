@@ -25,10 +25,6 @@ from src.models.pydantic.RequestsCache import ParamsCache, Excluded
 
 env    = load_env()
 
-# TODO-  remove the bidicts? Mongo takes enums as lookups
-# TODO - Handle logic related to not having enough songs (api)
-# TODO - english name of artist or song like 力那 (li na)
-
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
 class NicheTrackFinder:
@@ -238,7 +234,6 @@ class NicheTrackFinder:
             list[NicheTrack]: List of niche tracks
         """
         artists_song_count = {}
-        # TODO - make dynamic / selected by user?
         artist_max_songs = 1
 
         # TODO - explain
@@ -248,7 +243,7 @@ class NicheTrackFinder:
 
         niche_tracks = []
 
-        # TODO - change desired sogn count to desired from mb and change up the sstuff make easier to understand spotify vs mb genre idk how but do itlllll
+        # TODO - change up the sstuff make easier to understand spotify vs mb genre (i.e. like having a spotify seed genre vs mb) idk how but do itlllll
 
         artist_increment_count = 25
 
@@ -256,7 +251,7 @@ class NicheTrackFinder:
 
         # TODO - explain
         if (not genre_is_spotify(self.request.genre)):
-            desired_song_count = self.request.playlist_min_length
+            desired_song_count_from_mb_artists = self.request.playlist_min_length
         else:
             previous_valid_pcts = average_valid_artists_pct(self.request)
             if (previous_valid_pcts < 0):
@@ -271,7 +266,7 @@ class NicheTrackFinder:
             # TODO - explain
             min_valid_for_max_on_min_pl_len = self.request.playlist_min_length * desired_valid_artists_multiple_of_min_len
             rep_song_scalar = min(1, expected_num_artists_valid / min_valid_for_max_on_min_pl_len)
-            desired_song_count = max(int(ceil(self.request.playlist_min_length * rep_song_scalar) + 0.00001), MIN_SONGS_FOR_PLAYLIST_GEN)
+            desired_song_count_from_mb_artists = max(int(ceil(self.request.playlist_min_length * rep_song_scalar) + 0.00001), MIN_SONGS_FOR_PLAYLIST_GEN)
 
 
         # Using list comprehension with padding to split into groups of 25
@@ -281,7 +276,7 @@ class NicheTrackFinder:
         random.shuffle(offsets_list)
 
         for i in range(len(offsets_list)):
-            if(len(niche_tracks) >= desired_song_count):
+            if(len(niche_tracks) >= desired_song_count_from_mb_artists):
                 break
 
             logger.info(f'artists checked: {i * artist_increment_count}')
@@ -295,7 +290,7 @@ class NicheTrackFinder:
             valid_artists = self.fetch_valid_artists(artists)
 
             for artist in valid_artists:
-                if(len(niche_tracks) >= desired_song_count):
+                if(len(niche_tracks) >= desired_song_count_from_mb_artists):
                     break
 
                 # Check the artist's top tracks

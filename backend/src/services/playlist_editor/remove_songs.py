@@ -6,6 +6,12 @@ from config.personal_init import token
 
 # TODO - for this and add valid update stats of request? nah
 def remove_song(track_uri: str, playlist_url: str):
+    """_summary_
+
+    Args:
+        track_uri (str): _description_
+        playlist_url (str): _description_
+    """
     playlist_id = extract_id(playlist_url, 'playlist')
 
     logger.info(f'Removing track with uri {track_uri}')

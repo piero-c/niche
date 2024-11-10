@@ -42,4 +42,4 @@ def playlist_likely_undersized(year_min: int, language: Language, niche_level: N
 
 if __name__ == '__main__':
     spotify_user.initialize(token)
-    do(0, Language.ANY, NicheLevel.ONLY_KINDA, 120, 360, 'indie rock')
+    do(0, Language.ANY, NicheLevel.ONLY_KINDA, 120, 360, 'k-pop')

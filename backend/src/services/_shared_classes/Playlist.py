@@ -65,7 +65,7 @@ class Playlist:
         self.description = playlist['description']
         self.length      = len(tracks)
 
-        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id)
+        spotify_user.upload_playlist_cover_image(COVER_IMAGE_PATH, self.id, genre=req.genre)
 
         self.user_oid = spotify_user.oid
         self.request_oid = req.oid

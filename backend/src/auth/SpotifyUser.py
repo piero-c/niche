@@ -3,9 +3,10 @@ import base64
 import spotipy
 import requests
 
-from PIL     import Image
+from PIL     import Image, ImageDraw, ImageFont
 from typing  import Optional, Type, ClassVar
 from spotipy import SpotifyOAuth
+from pathlib import Path
 
 from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from src.utils.util         import load_env, sleep,filter_low_count_entries, merge_dicts_with_weight, scale_from_highest, RequestType
@@ -17,8 +18,7 @@ from src.models.pydantic.User       import User
 from src.db.DB            import DB
 from src.db.DAOs.UsersDAO import UserDAO
 
-
-
+from config.personal_init import token
 
 class SpotifyUser:
     """Spotify-Authenticated User
@@ -73,7 +73,7 @@ class SpotifyUser:
         )
 
         # Exchange auth code for tokens
-        token_info = auth_manager.get_access_token(auth_code)
+        token_info = auth_manager.get_access_token(auth_code, as_dict=True)
         self.client = spotipy.Spotify(auth=token_info['access_token'])
         self.user = self.client.current_user()
         self.name = self.user['display_name']
@@ -301,11 +301,37 @@ class SpotifyUser:
         
         return(None)
 
-    def upload_playlist_cover_image(self, cover_image_path: str, playlist_id: str) -> None:
-        """Upload cover image from path"""
-        # Open the image and convert it to a base64-encoded JPEG
+    def upload_playlist_cover_image(self, cover_image_path: str, playlist_id: str, genre: str = "") -> None:
+        """Upload cover image from path, adding text to the image before uploading"""
+        # Open the image and convert it to RGB
         with Image.open(cover_image_path) as img:
             img = img.convert("RGB")  # Ensure the image is in RGB format
+            image_width, image_height = img.size  # Get image dimensions
+
+            # Create a drawing context
+            draw = ImageDraw.Draw(img)
+
+            # Choose a font and size (you can use a specific font file if desired)
+            font_size = int(image_height * 0.125)  # Set font size to 12.5% of image height
+            font = ImageFont.truetype(font=Path('../assets/Times_New_Roman_Bold.ttf'), size=font_size)
+
+            # Get text dimensions
+            text = genre
+            bbox = draw.textbbox((0, 0), text, font=font)
+            text_width = bbox[2] - bbox[0]
+            text_height = bbox[3] - bbox[1] 
+
+            # Calculate position for horizontally centered text with 10% bottom padding
+            x = (image_width - text_width) / 2  # Center horizontally
+            y = image_height - text_height - (image_height * 0.10)  # 10% padding from the bottom
+
+            text_position = (x, y)
+
+            # Add text to the image
+            text_color = (112, 112, 112)  # Gray color
+            draw.text(text_position, text, fill=text_color, font=font)
+
+            # Save the modified image to a buffer
             buffer = io.BytesIO()
             img.save(buffer, format="JPEG")
             image_base64 = base64.b64encode(buffer.getvalue()).decode("utf-8")
@@ -318,3 +344,7 @@ class SpotifyUser:
 
 spotify_user = SpotifyUser()
 
+
+if __name__ == '__main__':
+    spotify_user.initialize(token)
+    spotify_user.upload_playlist_cover_image('../assets/icon.jpg', '1ljPwSlR7JLT1jdr5tPB3f', 'k-pop')

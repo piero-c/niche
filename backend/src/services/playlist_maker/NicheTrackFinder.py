@@ -236,7 +236,7 @@ class NicheTrackFinder:
         artists_song_count = {}
         artist_max_songs = 1
 
-        # TODO - explain
+        # TODO - explain - here - do expls and docs for scripts then merge branch and onto middlewares / frontend / frontend learning
         desired_valid_artists_multiple_of_min_len = 5
 
         percent_artists_valid = 0

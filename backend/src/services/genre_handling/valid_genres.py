@@ -16,7 +16,7 @@ class GenreDict(TypedDict):
 
 def genre_is_spotify(genre: str) -> bool:
     data = get_genre_dict_list()
-    entry = next((item for item in data if item['SPOTIFY'] == genre), None)
+    entry = next((item for item in data if item.get('SPOTIFY', '') == genre), None)
     if(entry):
         return(True)
     return(False)
@@ -34,7 +34,7 @@ def convert_genre(from_service: str, to_service: str, genre: str) -> str:
     assert((from_service == 'MUSICBRAINZ') or (from_service == 'SPOTIFY') or (from_service == 'LASTFM'))
     assert((to_service == 'MUSICBRAINZ') or (to_service == 'SPOTIFY') or (to_service == 'LASTFM'))
     data = get_genre_dict_list()
-    entry = next((item for item in data if item[from_service] == genre), None)
+    entry = next((item for item in data if item.get(from_service, '') == genre), None)
     if(entry):
         return(entry[to_service])
 

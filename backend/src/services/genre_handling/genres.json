@@ -25,11 +25,6 @@
         "LASTFM": "blues"
     },
     {
-        "SPOTIFY": "breakbeat",
-        "MUSICBRAINZ": "breakbeat",
-        "LASTFM": "breakbeat"
-    },
-    {
         "SPOTIFY": "classical",
         "MUSICBRAINZ": "classical",
         "LASTFM": "Classical"
@@ -70,34 +65,9 @@
         "LASTFM": "Disco"
     },
     {
-        "SPOTIFY": "drum-and-bass",
-        "MUSICBRAINZ": "drum and bass",
-        "LASTFM": "Drum and bass"
-    },
-    {
-        "SPOTIFY": "dub",
-        "MUSICBRAINZ": "dub",
-        "LASTFM": "dub"
-    },
-    {
-        "SPOTIFY": "dubstep",
-        "MUSICBRAINZ": "dubstep",
-        "LASTFM": "dubstep"
-    },
-    {
         "SPOTIFY": "edm",
         "MUSICBRAINZ": "edm",
         "LASTFM": "EDM"
-    },
-    {
-        "SPOTIFY": "electro",
-        "MUSICBRAINZ": "electro",
-        "LASTFM": "electro"
-    },
-    {
-        "SPOTIFY": "electronic",
-        "MUSICBRAINZ": "electronic",
-        "LASTFM": "electronic"
     },
     {
         "SPOTIFY": "emo",
@@ -113,16 +83,6 @@
         "SPOTIFY": "funk",
         "MUSICBRAINZ": "funk",
         "LASTFM": "funk"
-    },
-    {
-        "SPOTIFY": "gospel",
-        "MUSICBRAINZ": "gospel",
-        "LASTFM": "gospel"
-    },
-    {
-        "SPOTIFY": "grindcore",
-        "MUSICBRAINZ": "grindcore",
-        "LASTFM": "grindcore"
     },
     {
         "SPOTIFY": "grunge",
@@ -200,11 +160,6 @@
         "LASTFM": "metal"
     },
     {
-        "SPOTIFY": "metalcore",
-        "MUSICBRAINZ": "metalcore",
-        "LASTFM": "metalcore"
-    },
-    {
         "SPOTIFY": "mpb",
         "MUSICBRAINZ": "mpb",
         "LASTFM": "mpb"
@@ -213,11 +168,6 @@
         "SPOTIFY": "new-age",
         "MUSICBRAINZ": "new age",
         "LASTFM": "new age"
-    },
-    {
-        "SPOTIFY": "opera",
-        "MUSICBRAINZ": "opera",
-        "LASTFM": "opera"
     },
     {
         "SPOTIFY": "pop",
@@ -242,7 +192,7 @@
     {
         "SPOTIFY": "punk-rock",
         "MUSICBRAINZ": "punk rock",
-        "LASTFM": "punk-rock"
+        "LASTFM": "punk rock"
     },
     {
         "SPOTIFY": "reggae",
@@ -287,7 +237,7 @@
     {
         "SPOTIFY": "synth-pop",
         "MUSICBRAINZ": "synth-pop",
-        "LASTFM": "synth-pop"
+        "LASTFM": "synthpop"
     },
     {
         "SPOTIFY": "tango",
@@ -319,16 +269,6 @@
         "MUSICBRAINZ": "alternative rock"
     },
     {
-        "SPOTIFY": "chill",
-        "LASTFM": "chill",
-        "MUSICBRAINZ": "chillout"
-    },
-    {
-        "SPOTIFY": "goth",
-        "LASTFM": "goth",
-        "MUSICBRAINZ": "gothic"
-    },
-    {
         "SPOTIFY": "latino",
         "LASTFM": "latino",
         "MUSICBRAINZ": "latin"
@@ -337,5 +277,113 @@
         "SPOTIFY": "r-n-b",
         "LASTFM": "rnb",
         "MUSICBRAINZ": "r&b"
+    },
+    {
+        "MUSICBRAINZ": "indie rock",
+        "LASTFM": "indie rock"
+    },
+    {
+        "MUSICBRAINZ": "trap",
+        "LASTFM": "trap"
+    },
+    {
+        "MUSICBRAINZ": "lo-fi",
+        "LASTFM": "lo-fi"
+    },
+    {
+        "MUSICBRAINZ": "post-rock",
+        "LASTFM": "post-rock"
+    },
+    {
+        "MUSICBRAINZ": "progressive rock",
+        "LASTFM": "progressive rock"
+    },
+    {
+        "MUSICBRAINZ": "new wave",
+        "LASTFM": "new wave"
+    },
+    {
+        "MUSICBRAINZ": "experimental",
+        "LASTFM": "experimental"
+    },
+    {
+        "MUSICBRAINZ": "post-punk",
+        "LASTFM": "post-punk"
+    },
+    {
+        "MUSICBRAINZ": "latin pop",
+        "LASTFM": "latin pop"
+    },
+    {
+        "MUSICBRAINZ": "classic rock",
+        "LASTFM": "classic rock"
+    },
+    {
+        "MUSICBRAINZ": "acoustic rock",
+        "LASTFM": "Acoustic Rock"
+    },
+    {
+        "MUSICBRAINZ": "alternative country",
+        "LASTFM": "alternative country"
+    },
+    {
+        "MUSICBRAINZ": "alternative pop",
+        "LASTFM": "alternative pop"
+    },
+    {
+        "MUSICBRAINZ": "brutal death metal",
+        "LASTFM": "Brutal Death Metal"
+    },
+    {
+        "MUSICBRAINZ": "celtic",
+        "LASTFM": "celtic"
+    },
+    {
+        "MUSICBRAINZ": "dream pop",
+        "LASTFM": "dream pop"
+    },
+    {
+        "MUSICBRAINZ": "easy listening",
+        "LASTFM": "easy listening"
+    },
+    {
+        "MUSICBRAINZ": "indie folk",
+        "LASTFM": "indie folk"
+    },
+    {
+        "MUSICBRAINZ": "indietronica",
+        "LASTFM": "indietronica"
+    },
+    {
+        "MUSICBRAINZ": "pop rock",
+        "LASTFM": "pop rock"
+    },
+    {
+        "MUSICBRAINZ": "psychedelic",
+        "LASTFM": "psychedelic"
+    },
+    {
+        "MUSICBRAINZ": "soft rock",
+        "LASTFM": "soft rock"
+    },
+    {
+        "MUSICBRAINZ": "synthwave",
+        "LASTFM": "synthwave"
+    },
+    {
+        "MUSICBRAINZ": "vaporwave",
+        "LASTFM": "vaporwave"
+    },
+    {
+        "MUSICBRAINZ": "contemporary r&b",
+        "LASTFM": "contemporary rnb"
+    },
+    {
+        "MUSICBRAINZ": "soul jazz",
+        "LASTFM": "soul jazz"
+    },
+    {
+        "MUSICBRAINZ": "bedroom pop",
+        "LASTFM": "bedroom pop"
     }
 ]

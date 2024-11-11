@@ -151,7 +151,7 @@ class NicheTrackFinder:
     def _add_from_recs(self, curr_tracks: list[NicheTrack], num_tracks: int) -> bool:
         """Fill the playlist up with spotify recs"""
         FETCH_SIZES  = 6
-        max_attempts = 15
+        max_attempts = 16
         min_size     = self.request.playlist_min_length - len(curr_tracks)
         max_size     = num_tracks
         added        = []

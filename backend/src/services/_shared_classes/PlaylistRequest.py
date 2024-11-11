@@ -113,7 +113,7 @@ class PlaylistRequest:
 
         # Hardcoded vals
         self.lastfm_likeness_min  = 3.5
-        self.playlist_min_length  = 20
+        self.playlist_min_length  = 12
         self.playlist_max_length  = 60
 
         #self.playlist_min_length = 1

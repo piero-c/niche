@@ -103,6 +103,9 @@ class Artist:
         tags: dict[str, str] = self.lastfm_artist.get("tags", {}).get("tag", [])
         tag_names = [tag["name"] for tag in tags if "name" in tag]
         self.lastfm_tags = tag_names
+
+        logger.info(f'Artist {self.name} lastfm tags: {self.lastfm_tags}')
+
         return(self.lastfm_tags)
 
     def attach_artist_lastfm(self) -> LastFmArtist:

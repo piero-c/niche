@@ -7,7 +7,6 @@ from src.auth.MusicBrainzRequests import MusicBrainzRequests
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
 from src.services._shared_classes.Artist          import Artist
 from src.services._shared_classes.Track           import Track
-from src.services.genre_handling.valid_genres     import convert_genre, genre_is_spotify
 
 from src.utils.logger import logger
 
@@ -148,28 +147,26 @@ class Validator:
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
                 return(ReasonExcluded.TOO_MANY_SOMETHING)
 
-            elif (self.artist_listeners_and_plays_too_low(artist)):
+            if (self.artist_listeners_and_plays_too_low(artist)):
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
                 return(ReasonExcluded.TOO_FEW_SOMETHING)
 
-            elif (self.artist_likeness_invalid(artist)):
+            if (self.artist_likeness_invalid(artist)):
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
-            if (genre_is_spotify(self.request.genre)):
-                converted_genre = convert_genre('SPOTIFY', 'LASTFM', self.request.genre)
-            else:
-                converted_genre = convert_genre('MUSICBRAINZ', 'LASTFM', self.request.genre)
+            if (not artist.artist_in_lastfm_genre(self.request.genre)):
+                logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
+                return(ReasonExcluded.OTHER)
 
-            if (not artist.artist_in_lastfm_genre(converted_genre)):
-                logger.error(f'Artist {artist.name} not in genre {converted_genre}')
+            if (artist.lastfm_page_is_conglomerate()):
+                logger.error(f'Artist {artist.name} lastfm page is a conglomerate page')
                 return(ReasonExcluded.OTHER)
 
             else:
                 logger.info(f'Artist {artist.name} is valid')
                 # Artist passes all checks
                 return(None)
-
         except Exception as e:
             logger.error(e)
             return(ReasonExcluded.OTHER)

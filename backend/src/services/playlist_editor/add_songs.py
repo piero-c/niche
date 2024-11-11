@@ -8,7 +8,6 @@ from src.services._shared_classes.PlaylistRequest import PlaylistRequest
 from src.services._shared_classes.Track           import Track
 from src.services._shared_classes.Artist          import Artist
 from src.services.profile.playlists               import get_playlist_tracks
-from src.services.genre_handling.valid_genres     import convert_genre, genre_is_spotify
 
 from src.models.pydantic.Playlist import Playlist as PlaylistModel
 from src.models.pydantic.Request  import Request  as RequestModel
@@ -88,20 +87,16 @@ def artist_valid_for_insert(artist: SpotifyArtist, playlist_tracks: list[NicheTr
     # If not excluded and the artist isnt already in the playlist
     if (((artist_obj.spotify_artist_id) not in artist_ids_in_playlist) and (not validator.artist_excluded_reason_spotify(artist_obj)) and (not validator.artist_excluded_language(artist_obj, mb_check=False))):
         try:
-            # TODO --- yeeeeeaaaa name search is fine here cuz its fine elsewhere if no mbid and if no tags oh whale bruh
             artist_obj.attach_artist_lastfm()
-            # TODO -this and other artist in lastfm genre call remove conversion put it in the fn
-            if (genre_is_spotify(playlist_request.genre)):
-                # TODO - change?????? Need validation here??????????
-                # Assume artist in genre because the seed genre was included
-                return(True)
-            # TODO - err messages log
-            else:
-                converted_genre = convert_genre('MUSICBRAINZ', 'LASTFM', playlist_request.genre)
+            # Check likeness and genre
+            if (validator.artist_likeness_invalid(artist_obj)):
+                logger.error(f'Artist {artist_obj} likeness invalid')
+                return(False)
 
-            if (artist_obj.artist_in_lastfm_genre(converted_genre)):
+            if (artist_obj.artist_in_lastfm_genre(playlist_request.genre)):
                 return(True)
             else:
+                logger.error(f'Artist {artist_obj} not in genre {playlist_request.genre}')
                 return(False)
         except Exception as e:
             logger.error(f'No lastfm artist for {artist_obj.name}, skipping : {e}')

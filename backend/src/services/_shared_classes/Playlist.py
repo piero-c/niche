@@ -44,7 +44,7 @@ class Playlist:
             'user_playlist_create',
             user          = spotify_user.id,
             name          = playlist_info['name'],
-            public        = True,
+            public        = req.public,
             description   = playlist_info['description'],
             collaborative = False
         )

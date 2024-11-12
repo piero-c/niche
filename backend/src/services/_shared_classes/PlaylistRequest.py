@@ -71,12 +71,13 @@ class PlaylistRequest:
         playlist_max_length  
         user_oid
         genre_is_spotify_seed_genre
+        public
         oid
             Requires call: add_db_entry
         in_db
     """
     def __init__(self, songs_min_year_created: int, language: Language, niche_level: NicheLevel, 
-                    songs_length_min_secs: int, songs_length_max_secs: int, genre: str, add_to_db: bool = True) -> None:
+                    songs_length_min_secs: int, songs_length_max_secs: int, genre: str, public: bool, add_to_db: bool = True) -> None:
         """Initialize the request
 
         Args:
@@ -86,6 +87,7 @@ class PlaylistRequest:
             songs_length_min_secs (int) : Min length of given song
             songs_length_max_secs (int) : Max length of given song
             genre (str)                 : requested genre
+            public (bool)              : Should the playlist be public?
             add_to_db (bool, optional)  : Add the playlist to the db?. Default to true
         """
         assert(genre in valid_genres()) # Genre is valid
@@ -97,6 +99,7 @@ class PlaylistRequest:
         self.genre                  = genre
         self.niche_level            = niche_level
         self.user_oid               = spotify_user.oid
+        self.public                 = public
 
         if (genre_is_spotify(self.genre)):
             self.genre_is_spotify_seed_genre = True

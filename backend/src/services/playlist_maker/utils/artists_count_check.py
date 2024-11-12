@@ -1,32 +1,26 @@
-from src.db.DB import DB
-from src.db.DAOs.RequestsDAO import RequestDAO
-from src.db.DAOs.ArtistsDAO import ArtistsDAO
-from src.models.pydantic.Request import Params
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.utils.util import LANGMAP, NICHEMAP
 from numpy import mean
 
-from src.auth.SpotifyUser import SpotifyUser
+from src.db.DB               import DB
+from src.db.DAOs.RequestsDAO import RequestDAO
+from src.db.DAOs.ArtistsDAO  import ArtistsDAO
 
-def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool:
-    """Return true if the playlist for the request is likely to be under the requested size
+from src.models.pydantic.Request import Params
+
+from src.services._shared_classes.PlaylistRequest import PlaylistRequest
+
+from src.utils.util import LANGMAP, NICHEMAP, MIN_SONGS_FOR_PLAYLIST_GEN
+
+def average_valid_artists_pct(request: PlaylistRequest) -> float:
+    """From past requests, the average percentage of valid artists
 
     Args:
         request (PlaylistRequest): The request
-        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
 
     Returns:
-        bool: Will it likely be undersized
+        float: The average valid percent
     """
-    if (not size):
-        size = request.playlist_length
     db = DB()
-
     rdao = RequestDAO(db)
-    adao = ArtistsDAO(db)
-
-    # Get artists in the genre
-    artists_count = adao.count_artists_in_genre(request.genre)
     # Get all previous requests that match this one
     old_requests = rdao.read_by_params(
         Params(
@@ -40,23 +34,41 @@ def likely_under_count_playlist(request: PlaylistRequest, size: int = 0) -> bool
     )
 
     # Get all requests that have a percent_artists_valid field
-    pcts = [r.stats.percent_artists_valid / 100 for r in old_requests if r.stats.percent_artists_valid]
+    pcts = [r.stats.percent_artists_valid for r in old_requests if r.stats.percent_artists_valid]
 
     if (not pcts):
+        return(-1)
+
+    return(mean(pcts))
+
+def likely_under_count_playlist(request: PlaylistRequest, size: int = MIN_SONGS_FOR_PLAYLIST_GEN) -> bool:
+    """Return true if the playlist for the request is likely to be under the requested size
+
+    Args:
+        request (PlaylistRequest): The request
+        size (int, Optional): The size of the playlist. Defaults to 0 (request playlist length)
+
+    Returns:
+        bool: Will it likely be undersized
+    """
+    if (not size):
+        size = request.playlist_min_length
+    db = DB()
+
+    adao = ArtistsDAO(db)
+
+    # Get artists in the genre
+    artists_count = adao.count_artists_in_genre(request.genre)
+
+    avg = average_valid_artists_pct(request) / 100
+
+    if (avg < 0):
         return(False)
 
-    avg = mean(pcts)
-
-    if (avg <= 0):
-        return(True)
-
     # Get the expected number of artists needed
-    artists_needed = request.playlist_length / avg
-
-    # Give 11% optimism error (if its likely to generate like 18 we'll be fine)
-    artists_needed -= (artists_needed / 11)
+    artists_needed = size / avg
 
     return(artists_count < artists_needed)
 
 if __name__ == '__main__':
-    print(likely_under_count_playlist(PlaylistRequest(SpotifyUser(), 2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock')))
+    print(likely_under_count_playlist(PlaylistRequest(2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock')))

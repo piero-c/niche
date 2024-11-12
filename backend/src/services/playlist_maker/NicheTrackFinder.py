@@ -1,34 +1,29 @@
-# Module for finding the niche songs for a genre
-from src.auth.SpotifyUser import SpotifyUser
-
-from src.services._shared_classes.PlaylistRequest import PlaylistRequest
-from src.services._shared_classes.Playlist import Playlist
-from src.utils.spotify_util import NicheTrack
-from src.services._shared_classes.Artist import Artist
-from src.services._shared_classes.Validator import Validator
-
-from src.services.playlist_editor.spotify_recs import get_recommendations
-
-from src.utils.util import load_env, obj_array_to_obj, NICHEMAP, LANGMAP, MIN_SONGS_FOR_PLAYLIST_GEN
-from src.utils.spotify_util import convert_spotify_track_to_niche_track
-
-from src.db.DB import DB
-from src.db.DAOs.ArtistsDAO import ArtistsDAO
-from src.db.DAOs.RequestsCacheDAO import RequestsCacheDAO
-from src.db.DAOs.RequestsDAO import RequestDAO
-from src.models.pydantic.RequestsCache import ParamsCache, REASONMAP, ReasonExcluded, Excluded
-from src.models.pydantic.Request import Stats
-
 import random
-from numpy import mean as mean
+
+from numpy    import mean as mean
+from numpy    import ceil
 from datetime import datetime, timedelta
 
-from src.utils.logger import logger
-env    = load_env()
+from src.services._shared_classes.PlaylistRequest          import PlaylistRequest
+from src.services._shared_classes.Playlist                 import Playlist
+from src.services._shared_classes.Artist                   import Artist
+from src.services._shared_classes.Validator                import Validator, REASONMAP, ReasonExcluded
+from src.services.playlist_editor.spotify_recs             import get_recommendations
+from src.services.genre_handling.valid_genres              import genre_is_spotify
+from src.services.playlist_maker.utils.artists_count_check import average_valid_artists_pct
 
-# TODO-  remove the bidicts? Mongo takes enums as lookups
-# TODO - Handle logic related to not having enough songs (api)
-# TODO - english name of artist or song like 力那 (li na)
+from src.utils.util         import load_env, obj_array_to_obj, NICHEMAP, LANGMAP, MIN_SONGS_FOR_PLAYLIST_GEN
+from src.utils.spotify_util import NicheTrack, convert_spotify_track_to_niche_track
+from src.utils.logger       import logger
+
+from src.auth.SpotifyUser import spotify_user
+
+from src.db.DB                         import DB
+from src.db.DAOs.ArtistsDAO            import ArtistsDAO
+from src.db.DAOs.RequestsCacheDAO      import RequestsCacheDAO
+from src.models.pydantic.RequestsCache import ParamsCache, Excluded
+
+env    = load_env()
 
 ARTIST_EXCLUDED_EARLIEST_DATE = datetime.today() - timedelta(days=182)
 
@@ -44,28 +39,29 @@ class NicheTrackFinder:
         requests_cache
         excluded_artists
     """
-    def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
+    def __init__(self, request: PlaylistRequest) -> None:
         """Initialize the finder
 
         Args:
             request (PlaylistRequest): The playlist request
-            user (SpotifyUser): Spotify Authenticated User
         """
         self.request   = request
-        self.user      = user
 
-        self.validator        = Validator(request, user)
-        self.db               = DB()
-        self.artistsDAO       = ArtistsDAO(self.db)
-        self.requestsCacheDAO = RequestsCacheDAO(self.db)
+        db                    = DB()
 
+        self.validator        = Validator(request)
+        # NTF Can own its own requests cache dao
+        self.requestsCacheDAO = RequestsCacheDAO(db)
+
+        # Create an entry in requests cache for params if it doesnt exist
         self.requests_cache = self.requestsCacheDAO.create_if_not_exists(
             ParamsCache(
-                language=LANGMAP.inv.get(self.request.language),
-                genre=self.request.genre,
-                niche_level=NICHEMAP.inv.get(self.request.niche_level)
+                language    = LANGMAP.inv.get(self.request.language),
+                genre       = self.request.genre,
+                niche_level = NICHEMAP.inv.get(self.request.niche_level)
             )
         )
+        # Get the id of the entry and a reference of the entry
         try:
             self.requestsCacheOID = self.requests_cache.inserted_id
             self.requests_cache = self.requestsCacheDAO.read_by_id(self.requestsCacheOID)
@@ -76,14 +72,16 @@ class NicheTrackFinder:
         self.excluded_artists = obj_array_to_obj([excl.model_dump(by_alias=True) for excl in self.requests_cache.excluded], 'mbid')
 
     def _fetch_artists_from_musicbrainz(self) -> list[Artist]:
-        """Get artists from musicbrainz in the requested genre
-        """
+        """Get artists from musicbrainz in the requested genre"""
         try:
             artist_list = []
-            artists = self.artistsDAO.get_artists_in_genre(self.request.genre)
+            db                    = DB()
+            artistsDAO            = ArtistsDAO(db)
+            artists = artistsDAO.get_artists_in_genre(self.request.genre)
+            
             for artist in artists:
                 try:
-                    a = Artist.from_musicbrainz(artist, self.user)
+                    a = Artist.from_musicbrainz(artist)
                     if a:
                         artist_list.append(a)
                 except Exception as e:
@@ -139,111 +137,74 @@ class NicheTrackFinder:
         ))
     
     def _add_excluded_entry(self, artist: Artist, reason: ReasonExcluded) -> None:
-        """_summary_
+        """Add an entry in requests cache for the artist
 
         Args:
-            artist (Artist): _description_
-            reason (ReasonExcluded): _description_
+            artist (Artist): The artist
+            reason (ReasonExcluded): Reason excluded
         """
         self.requestsCacheDAO.check_and_update_or_add_excluded(
             cache_id=self.requestsCacheOID,
             excluded=self._create_excluded_object(artist, reason)
         )
 
-    def _update_request_stats(self, artists_average_followers: int, percent_artists_valid: float, tracks_to_update_with: list[NicheTrack], previous_num_tracks: int = 0) -> None:
-        """_summary_
-
-        Args:
-            artists_average_followers (int): _description_
-            percent_artists_valid (float): _description_
-            tracks_to_update_with (list[NicheTrack]): _description_
-            previous_num_tracks (int, optional): _description_. Defaults to 0.
-
-        Returns:
-            bool: _description_
-        """
-        rdao = RequestDAO(self.db)
-        curr = rdao.read_by_id(self.request.oid)
-
-        curr_pct                      = curr.stats.percent_artists_valid or 0
-        curr_pct_scaled               = curr_pct * previous_num_tracks
-        curr_average_followers        = curr.stats.average_artist_followers or 0
-        curr_average_followers_scaled = curr_average_followers * previous_num_tracks
-
-        new_pct_scaled               = percent_artists_valid * len(tracks_to_update_with)
-        new_average_followers_scaled = artists_average_followers * len(tracks_to_update_with)
-
-        if (percent_artists_valid < 0):
-            new_pct_scaled = curr_pct * len(tracks_to_update_with)
-        if (artists_average_followers < 0):
-            new_average_followers_scaled = curr_average_followers * len(tracks_to_update_with)
-
-        rdao.update(self.request.oid, {
-            'stats': Stats(
-                percent_artists_valid    = ((new_pct_scaled + curr_pct_scaled) / (previous_num_tracks + len(tracks_to_update_with))),
-                average_artist_followers = ((curr_average_followers_scaled + new_average_followers_scaled) / (previous_num_tracks + len(tracks_to_update_with)))
-            )
-        })
-
-        return(None)
-
-    def _fill_undersized_playlist(self, curr_tracks: list[NicheTrack]) -> bool:
-        """_summary_
-
-        Args:
-            curr_tracks (list[NicheTrack]): _description_
-
-        Returns:
-            bool: _description_
-        """
-        FETCH_SIZES  = 5
-        max_attempts = 10
-        needed_size  = self.request.playlist_length - len(curr_tracks)
+    def _add_from_recs(self, curr_tracks: list[NicheTrack], num_tracks: int) -> bool:
+        """Fill the playlist up with spotify recs"""
+        FETCH_SIZES  = 6
+        max_attempts = 16
+        min_size     = self.request.playlist_min_length - len(curr_tracks)
+        max_size     = num_tracks
         added        = []
+        added_num    = 0
 
-        artists_total_followers = 0
-
-        if (needed_size < 1):
+        if (max_size - min_size < 1):
             return(True)
-    
+
         # Create playlist object to facilitate recommendations
-        pl = Playlist(curr_tracks, self.request, self.user)
+        pl = Playlist(curr_tracks, self.request)
 
         attempt = 1
         # Get recommendations (valid ones that can be added to the playlist right away)
         # Add them to the list, as well as the playlist to be considered for random artist seed
         # max 10 attempts
-        while len(added) < needed_size and attempt <= max_attempts:
-            recs = get_recommendations(pl.url, self.user, FETCH_SIZES)
+        while added_num < max_size and attempt <= max_attempts:
+            recs = get_recommendations(pl.url, min(FETCH_SIZES, max_size - added_num))
             for track in recs:
-                if(len(added) >= needed_size):
+                if(added_num >= max_size):
                     break
                 niche_track: NicheTrack = convert_spotify_track_to_niche_track(track)
 
-                artist                   = self.user.execute('artist', niche_track.get('artist_id', None))
-                artists_total_followers += artist.get('followers', {}).get('total', 0)
+                artist           = spotify_user.execute('artist', niche_track.get('artist_spotify_id', None))
+                artist_followers = artist.get('followers', {}).get('total', 0)
 
                 logger.success(f'Adding track {niche_track.get('track', '')} by {niche_track.get('artist', '')} from spotify recommendations')
 
+                self.request.update_stats(new_track_artist_followers=artist_followers, previous_num_tracks=len(curr_tracks) + len(added))
                 added.append(niche_track)
-                pl.add_track(niche_track.get('spotify_uri'), self.user)
+                added_num += 1
+                pl.add_track(niche_track)
 
             attempt += 1
 
         # Delete all traces of playlist created to interface with get_recommendations
-        pl.delete(self.user)
+        pl.delete()
 
-        num_added = len(added)
-
-        if(num_added < needed_size):
+        if(added_num < min_size):
             return(False)
         else:
-            # Update the request stats and add the songs to the current tracks
-            self._update_request_stats(artists_total_followers / num_added, -1, added, len(curr_tracks))
+            # Add the songs to the current tracks
             curr_tracks.extend(added)
             return(True)
 
     def fetch_valid_artists(self, artists: list[Artist]) -> list[Artist]:
+        """From the list of artists, return the valid ones for the request
+
+        Args:
+            artists (list[Artist]): The list
+
+        Returns:
+            list[Artist]: The valid list
+        """
         valid_artists: list[Artist] = []
         for artist in artists:
             # Check if artist is invalid in cache
@@ -273,16 +234,41 @@ class NicheTrackFinder:
             list[NicheTrack]: List of niche tracks
         """
         artists_song_count = {}
-        # TODO - make dynamic / selected by user?
-        artist_max_songs        = 1
-        artists_total_followers = 0
+        artist_max_songs = 1
+
+        # TODO - explain - here - do expls and docs for scripts then merge branch and onto middlewares / frontend / frontend learning
+        desired_valid_artists_multiple_of_min_len = 5
+
+        percent_artists_valid = 0
 
         niche_tracks = []
 
-        desired_song_count     = self.request.playlist_length
+        # TODO - change up the sstuff make easier to understand spotify vs mb genre (i.e. like having a spotify seed genre vs mb) idk how but do itlllll
+
         artist_increment_count = 25
 
         artists_list = self._fetch_artists_from_musicbrainz()
+
+        # TODO - explain
+        if (not genre_is_spotify(self.request.genre)):
+            desired_song_count_from_mb_artists = self.request.playlist_min_length
+        else:
+            previous_valid_pcts = average_valid_artists_pct(self.request)
+            if (previous_valid_pcts < 0):
+                valid_pct_av = 2
+            else:
+                valid_pct_av = previous_valid_pcts
+            
+            expected_num_artists_valid = len(artists_list) * (valid_pct_av/100)
+            # 100 - dsc = 20, sc = 1
+            # 50  - dsc = 10, sc = .5
+            # 25  - dsc = 5, sc = .25
+            # TODO - explain
+            min_valid_for_max_on_min_pl_len = self.request.playlist_min_length * desired_valid_artists_multiple_of_min_len
+            rep_song_scalar = min(1, expected_num_artists_valid / min_valid_for_max_on_min_pl_len)
+            desired_song_count_from_mb_artists = max(int(ceil(self.request.playlist_min_length * rep_song_scalar) + 0.00001), MIN_SONGS_FOR_PLAYLIST_GEN)
+
+
         # Using list comprehension with padding to split into groups of 25
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]
         # Generate random offsets of artists to search
@@ -290,11 +276,12 @@ class NicheTrackFinder:
         random.shuffle(offsets_list)
 
         for i in range(len(offsets_list)):
-            if(len(niche_tracks) >= desired_song_count):
+            if(len(niche_tracks) >= desired_song_count_from_mb_artists):
                 break
 
             logger.info(f'artists checked: {i * artist_increment_count}')
 
+            # Get random subset of artists
             random_offset = offsets_list[i]
             artists: list[Artist] = artists_sublists[random_offset]
 
@@ -303,26 +290,29 @@ class NicheTrackFinder:
             valid_artists = self.fetch_valid_artists(artists)
 
             for artist in valid_artists:
-                if(len(niche_tracks) >= desired_song_count):
+                if(len(niche_tracks) >= desired_song_count_from_mb_artists):
                     break
 
                 # Check the artist's top tracks
-                top_tracks = self.validator.get_top_tracks(artist)
+                top_tracks = artist.get_artist_top_tracks_lastfm()
                 for track in top_tracks:
                     # Enough tracks or max tracks for artist
-                    if (len(niche_tracks) >= self.request.playlist_length) or (artists_song_count.get(artist.mbid, 0) >= artist_max_songs):
+                    if (len(niche_tracks) >= self.request.playlist_min_length) or (artists_song_count.get(artist.mbid, 0) >= artist_max_songs):
                         logger.warning('Playlist or artist song count reached')
                         break
                     try:
                         # Get the spotify artist from the lastfm top tracks (so that we decrease the chance of getting the wrong artist from name search alone)
                         # Attach the spotify artist from the track and ensure it was attached
                         if (self.validator.attached_spotify_artist_from_track(artist, track)):
-
                             # Discard artist if excluded by spotify metrics
                             # I know this runs for every track but I attach the artist from the track and I'm not setting globals:)
-                            artist_exclusion_spotify = self.validator.check_artist_exclusion_spotify(artist)
+                            artist_exclusion_spotify = self.validator.artist_excluded_reason_spotify(artist)
+                            artist_exclusion_language = self.validator.artist_excluded_language(artist)
                             if ((artist_exclusion_spotify) and (artist_exclusion_spotify != ReasonExcluded.OTHER)):
                                 self._add_excluded_entry(artist, artist_exclusion_spotify)
+                                break
+                            elif (artist_exclusion_language):
+                                self._add_excluded_entry(artist, artist_exclusion_language)
                                 break
                             else:
                                 # Artist is valid. If it was previously excluded  delete that entry
@@ -335,18 +325,22 @@ class NicheTrackFinder:
                             # Ensure track length and type valid
                             if (self.validator.validate_track(track)):
                                 # Add track to niche_tracks
-                                niche_track = {
-                                    'artist'     : artist.name,
-                                    'artist_id'  : artist.spotify_artist_id,
-                                    'track'      : track.name,
-                                    'spotify_uri': track.spotify_uri,
-                                    'spotify_url': track.spotify_url,
+                                niche_track: NicheTrack = {
+                                    'artist'             : artist.name,
+                                    'artist_spotify_id'  : artist.spotify_artist_id,
+                                    'track'              : track.name,
+                                    'spotify_uri'        : track.spotify_uri,
+                                    'spotify_url'        : track.spotify_url,
                                 }
                                 niche_tracks.append(niche_track)
 
+                                # Update variables related to the generation
                                 artists_song_count[artist.mbid] = artists_song_count.get(artist.mbid, 0) + 1
-                                artists_total_followers += artist.spotify_followers
+                                artist_followers = artist.spotify_followers
                                 percent_artists_valid = (len(niche_tracks) / ((i + 1) * artist_increment_count)) * 100
+
+                                # Update the stats of the request
+                                self.request.update_stats(new_track_artist_followers=artist_followers, previous_num_tracks=len(niche_tracks)-1)
 
                                 logger.success(f"ADDED NICHE TRACK: {artist.name} - {track.name}")
                                 logger.success(f"TRACKS ADDED: {len(niche_tracks)}")
@@ -356,17 +350,18 @@ class NicheTrackFinder:
                         logger.error(f"Error processing tracks for artist {artist.name}: {e}")
                         continue
 
-        # Update the stats of the request
-        self._update_request_stats(artists_total_followers / len(niche_tracks), percent_artists_valid, niche_tracks)
+        # Update the valid percent stat of the request
+        self.request.update_stats(percent_artists_valid_new_val=percent_artists_valid)
 
         # If not enough songs to extend playlist raise an error, else try to extend the playlist. If that doesnt work, throw an error
         if (len(niche_tracks) < MIN_SONGS_FOR_PLAYLIST_GEN):
             raise Exception("Not enough songs")
-        elif(len(niche_tracks) < self.request.playlist_length):
-            logger.info(f'Playlist length {len(niche_tracks)} undersized, fetching from spotify recommendations')
-            if(not self._fill_undersized_playlist(niche_tracks)):
+        else:
+            logger.info(f'Playlist length {len(niche_tracks)}, fetching from spotify recommendations')
+            if(not self._add_from_recs(niche_tracks, self.request.playlist_max_length - len(niche_tracks))):
                 raise Exception("Not enough songs")
 
         return(niche_tracks)
+    
             
 

@@ -1,8 +1,10 @@
 # models/BaseSchema.py
 
 from pydantic import BaseModel, Field
-from bson import ObjectId
+from bson     import ObjectId
+
 from datetime import datetime, timezone
+
 from src.db.config_loader import load_config
 
 # Load configuration (ensure this is done outside the model to avoid side effects)
@@ -41,17 +43,17 @@ class PyObjectId(ObjectId):
         field_schema.update(type="string")
 
 class BaseSchema(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    created_by: str = Field(default=config.get('user'))
-    updated_by: str = Field(default=config.get('user'))
-    v: int = Field(default=0, alias="__v")
+    id         : PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    created_at: datetime    = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime    = Field(default_factory=lambda: datetime.now(timezone.utc))
+    created_by: str         = Field(default=config.get('user'))
+    updated_by: str         = Field(default=config.get('user'))
+    v          : int        = Field(default=0, alias="__v")
 
-    class Config:
-        populate_by_name = True
+    class Config: 
+        populate_by_name        = True
         arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
+        json_encoders           = {ObjectId: str}
     
 def clean_update_data(update_data: dict, exclude_fields: list[str] = ["_id", "created_at", "created_by"]) -> dict:
     """

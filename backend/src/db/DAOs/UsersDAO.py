@@ -1,11 +1,13 @@
-from typing import Optional, List
+from typing          import Optional, List
 from pymongo.results import UpdateResult, DeleteResult
-from bson import ObjectId
-from src.models.pydantic.User import User
-from src.db.DB import DB
-from src.db.DAOs.baseDAO import BaseDAO
+from bson            import ObjectId
+
+from src.models.pydantic.User       import User
 from src.models.pydantic.BaseSchema import clean_update_data
-from src.db.util import OperationResult
+
+from src.db.DB           import DB
+from src.db.DAOs.baseDAO import BaseDAO
+from src.db.util         import OperationResult
 
 class UserDAO(BaseDAO[User]):
     """

@@ -2,7 +2,10 @@ import os
 import json
 import re
 import unicodedata
+
 from pathlib import Path
+
+# lastfm is wonk cuz it does first match and has no pattern like indiepop indie pop indie-pop
 
 def normalize_word(word):
     """Normalize word to be case-insensitive, ignore hyphens/spaces, and remove accents for comparison only."""
@@ -11,6 +14,7 @@ def normalize_word(word):
     return re.sub(r"[-\s]", "", word.strip().lower())
 
 def find_common_words(master_file_path, other_files):
+    """Find the common genres (not considering case or hyphens or accents)"""
     # Load master file words without modifying the actual words
     with open(master_file_path, 'r') as master_file:
         master_words = {normalize_word(word): word.strip() for word in master_file}
@@ -83,7 +87,7 @@ def main(master_file_path, data_dir):
     common_words, unmatched_words, partial_matches = find_common_words(master_file_path, other_files)
 
     # Save common words to JSON file
-    json_output_path = Path('scripts/genres/data/master/genres.json')
+    json_output_path = Path('scripts/genres/data/master/genres.json3')
     save_to_json(common_words, json_output_path)
     print(f"Data saved to {json_output_path}")
 

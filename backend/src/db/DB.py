@@ -1,11 +1,12 @@
 # db.py
 
-from pymongo import MongoClient
+from pymongo            import MongoClient
 from pymongo.collection import Collection
-from pymongo.database import Database
+from pymongo.database   import Database
+from typing             import Optional, Type, ClassVar
+
 from src.db.config_loader import load_config
-from typing import Optional, Type, ClassVar
-from src.utils.logger import logger
+from src.utils.logger     import logger
 
 class DB:
     """The DB

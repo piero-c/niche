@@ -1,39 +1,42 @@
-# Module for finding the niche songs for a genre
-from src.auth.SpotifyUser import SpotifyUser
+from enum   import Enum
+from bidict import bidict
+from numpy  import mean as mean
+
 from src.auth.MusicBrainzRequests import MusicBrainzRequests
 
 from src.services._shared_classes.PlaylistRequest import PlaylistRequest, Language
-from src.services._shared_classes.Artist import Artist
-from src.services._shared_classes.Track import Track
-from src.services.genre_handling.valid_genres import convert_genre
-
-
-from src.models.pydantic.RequestsCache import ReasonExcluded
-
-from numpy import mean as mean
+from src.services._shared_classes.Artist          import Artist
+from src.services._shared_classes.Track           import Track
 
 from src.utils.logger import logger
 
+ReasonExcluded = Enum('ReasonExcluded', ['TOO_MANY_SOMETHING', 'NOT_LIKED_ENOUGH', 'WRONG_LANGUAGE', 'TOO_FEW_SOMETHING', 'OTHER'] )
+REASONMAP: bidict = bidict({
+    ReasonExcluded.TOO_MANY_SOMETHING: "Too Many Followers / Listeners / Plays",
+    ReasonExcluded.NOT_LIKED_ENOUGH  : "Ratio of Listeners to Plays Too Small",
+    ReasonExcluded.WRONG_LANGUAGE    : "Artist Does Not Sing in the Requested Language",
+    ReasonExcluded.TOO_FEW_SOMETHING : "Too Few Followers / Listeners / Plays"
+})
+
+# Validator suited for main generation function only. Wrappers for adding songs to the playlist from spotify recommendations or an existing artist can be found in playlist_editor
+
 class Validator:
-    """_summary_
+    """Class for validating tracks and artists
 
-    Args:
-
+    Properties:
+        request
     """
 
-    def __init__(self, request: PlaylistRequest, user: SpotifyUser) -> None:
-        """_summary_
+    def __init__(self, request: PlaylistRequest) -> None:
+        """ Initialize
 
         Args:
-            request (PlaylistRequest): _description_
-            user (SpotifyUser): _description_
+            request (PlaylistRequest): Request to validate against
         """
         self.request = request
-        self.user    = user
 
     def artist_likeness_invalid(self, artist: Artist) -> bool:
         """Valid according to request
-
         Requires:
             Artist has associated lastfm artist
         """
@@ -54,42 +57,58 @@ class Validator:
         return((artist.lastfm_artist_listeners > self.request.lastfm_listeners_max) and (artist.lastfm_artist_playcount > self.request.lastfm_playcount_max))
 
     def artist_excluded_reason_spotify(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
+        # Final popularity check (followers)
+        """If there is one, get the reason the artist is excluded based on spotify stats
 
         Args:
-            artist (Artist): _description_
+            artist (Artist): The artist
         
         Requires:
             Artist has associated spotify artist
 
         Returns:
-            ReasonExcluded | None: _description_
+            ReasonExcluded | None: Reason excluded if it exists
         """
-        mb = MusicBrainzRequests()
         if(artist.spotify_followers > self.request.spotify_followers_max):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too high')
             return(ReasonExcluded.TOO_MANY_SOMETHING)
         if(artist.spotify_followers < self.request.spotify_followers_min):
             logger.error(f'Artist {artist.name} followers ({artist.spotify_followers}) too low')
             return(ReasonExcluded.TOO_FEW_SOMETHING)
-        # CHECK ARTIST LANGUAGE
-        if((self.request.language != Language.ANY) and (self.request.language not in mb.get_artist_languages(artist.mbid))):
-            logger.error(f"Artist does not sing in {self.request.language}")
+        return(None)
+
+    def artist_excluded_language(self, artist: Artist, mb_check: bool = True) -> ReasonExcluded | None:
+        # Language
+        """Return wrong language exclusion if artist is in wrong language
+
+        Args:
+            artist (Artist): The Artist
+            mb_check (bool, optional): Perform a check from mb works?. Defaults to True. Artist must have an mbid.
+
+        Returns:
+            ReasonExcluded | None: _description_
+        """
+        if (self.request.language == Language.ANY):
+            return(None)
+        elif (mb_check):
+            assert(artist.mbid)
+            mb = MusicBrainzRequests()
+            if (self.request.language not in mb.get_artist_languages(artist.mbid)):
+                logger.error(f"Artist does not sing in {self.request.language}")
+                return(ReasonExcluded.WRONG_LANGUAGE)
+        elif (self.request.language not in artist.get_language_guess_spotify()):
+            logger.error(f"SPOTIFY CHECK - Artist does not sing in {self.request.language}")
             return(ReasonExcluded.WRONG_LANGUAGE)
+
         return(None)
 
     def validate_track(self, track: Track) -> bool:
-        """_summary_
+        """Is da track valid
 
-        Args:
-            track (Track): _description_
-        
         Requires:
             Track has spotify information attached
-
-        Returns:
-            bool: _description_
         """
+        # CHECK IF ORIGINAL
         if (not track.is_original_with_lyrics()):
             logger.warning(f'Track {track.name} is a cover, instrumental, or special version of a song')
             return(False)
@@ -99,24 +118,24 @@ class Validator:
             logger.warning(f"Skipping track '{track.name}' due to song length constraints.")
             return(False)
         
-        # TODO
-        # # CHECK YEAR PUBLISHED
-        # if(year_published < self.request.songs_min_year_created):
-        #     logger.warning(f"Skipping track '{track.name}' by '{artist.name}' due to year published constraints.")
-        #     continue
+        # CHECK YEAR PUBLISHED
+        if(track.track_release_year < self.request.songs_min_year_created):
+            logger.warning(f"Skipping track '{track.name}' due to year published constraints.")
+            return(False)
         return(True)
 
     def artist_excluded_reason_lastfm(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
+        # Pre-popularity check (listeners, plays), likeness, genre sanity check
+        """If there is one, get the reason the artist is excluded based on lastfm stats
 
         Args:
-            artist (Artist): _description_
+            artist (Artist): The artist
         
         Requires:
             Artist has associated lastfm artist
 
         Returns:
-            ReasonExcluded | None: _description_
+            ReasonExcluded | None: Reason excluded if it exists
         """
         try:
             # Attach artist from lastfm
@@ -128,55 +147,39 @@ class Validator:
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too high')
                 return(ReasonExcluded.TOO_MANY_SOMETHING)
 
-            elif (self.artist_listeners_and_plays_too_low(artist)):
+            if (self.artist_listeners_and_plays_too_low(artist)):
                 logger.error(f'Artist {artist.name} listeners {artist.lastfm_artist_listeners} and playcount {artist.lastfm_artist_playcount} too low')
                 return(ReasonExcluded.TOO_FEW_SOMETHING)
 
-            elif (self.artist_likeness_invalid(artist)):
+            if (self.artist_likeness_invalid(artist)):
                 logger.error(f'Artist likeness ({artist.lastfm_artist_likeness}) invalid')
                 return(ReasonExcluded.NOT_LIKED_ENOUGH)
 
-            elif (not artist.artist_in_lastfm_genre(convert_genre('SPOTIFY', 'LASTFM', self.request.genre))):
+            if (not artist.artist_in_lastfm_genre(self.request.genre)):
                 logger.error(f'Artist {artist.name} not in genre {self.request.genre}')
                 return(ReasonExcluded.OTHER)
-                # Sanity check for artist match, no exclusion required here
+
+            if (artist.lastfm_page_is_conglomerate()):
+                logger.error(f'Artist {artist.name} lastfm page is a conglomerate page')
+                return(ReasonExcluded.OTHER)
 
             else:
                 logger.info(f'Artist {artist.name} is valid')
                 # Artist passes all checks
                 return(None)
-
         except Exception as e:
             logger.error(e)
             return(ReasonExcluded.OTHER)
 
-    def check_artist_exclusion_spotify(self, artist: Artist) -> ReasonExcluded | None:
-        """_summary_
-
-        Args:
-            artist (Artist): _description_
-        
-        Requires:
-            Artist has associated spotify artist (attached_spotify_artist_from_track)
-
-        Returns:
-            ReasonExcluded | None: _description_
-        """
-        # Requires call to attached_artist_spotify first
-        artist_excluded_reason = self.artist_excluded_reason_spotify(artist)
-        if (artist_excluded_reason):
-            return (artist_excluded_reason)
-        return (None)
-
     def attached_spotify_artist_from_track(self, artist: Artist, track: Track) -> bool:
-        """_summary_
+        """Attach the spotify artist to the artist from the track
 
         Args:
-            artist (Artist): _description_
-            track (Track): _description_
+            artist (Artist): Artist
+            track (Track): Track
 
         Returns:
-            bool: _description_
+            bool: Was it attached
         """
         try:
             artist.attach_spotify_artist_from_track(track)
@@ -186,19 +189,3 @@ class Validator:
             logger.error(e)
             return(False)
 
-    def get_top_tracks(self, artist: Artist) -> list[Track]:
-        """_summary_
-
-        Args:
-            artist (Artist): _description_
-
-        Returns:
-            list[Track]: _description_
-        """
-        try:
-            # Get artist's top tracks from lastfm
-            top_tracks = artist.get_artist_top_tracks_lastfm()
-            return(top_tracks)
-        except Exception as e:
-            logger.error(f"Error processing tracks for artist {artist.name}: {e}")
-            return([])

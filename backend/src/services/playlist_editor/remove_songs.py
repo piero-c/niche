@@ -4,13 +4,12 @@ from src.utils.logger import logger
 
 from config.personal_init import token
 
-# TODO - for this and add valid update stats of request? nah
 def remove_song(track_uri: str, playlist_url: str):
-    """_summary_
+    """Remove a song from the playlist
 
     Args:
-        track_uri (str): _description_
-        playlist_url (str): _description_
+        track_uri (str): The track URI
+        playlist_url (str): The playlist to remove from
     """
     playlist_id = extract_id(playlist_url, 'playlist')
 

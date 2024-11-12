@@ -34,7 +34,6 @@ def _get_random_artist_ids(tracks: list[NicheTrack], num: int = 4) -> list[Spoti
     seed_ids = list(set([track.get('artist_spotify_id', '') for track in tracks_copy]))
     return(random.sample(seed_ids, num) if len(seed_ids) > num else seed_ids)
 
-# TODO - some kind of likeness metric
 def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
     """Get num recommendations for the playlist from spotify
 
@@ -105,7 +104,7 @@ def get_recommendations(playlist_url: str, num: int = 1) -> list[SpotifyTrack]:
 
         if (not track_artist):
             continue
-        # TODO - try to make validity check for additional songs into an object so we dont have to query and shit (give requests cache to validator and cache artist ids?)
+        # TODO - try to make validity check for additional songs into an object so we dont have to query and stuff (give requests cache to validator and cache artist ids?)
 
         elif (artist_valid_for_insert(track_artist, playlist_tracks, playlist_request, added_artist_ids) and track_valid_for_insert(track, playlist_tracks, playlist_request, added_track_ids)):
             recommended_tracks.append(track)

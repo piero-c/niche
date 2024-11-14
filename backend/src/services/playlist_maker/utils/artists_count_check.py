@@ -71,4 +71,4 @@ def likely_under_count_playlist(request: PlaylistRequest, size: int = MIN_SONGS_
     return(artists_count < artists_needed)
 
 if __name__ == '__main__':
-    print(likely_under_count_playlist(PlaylistRequest(2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock')))
+    print(likely_under_count_playlist(PlaylistRequest(2000, LANGMAP.get('English'), NICHEMAP.get('Moderately'), 120, 360, 'classic rock', False)))

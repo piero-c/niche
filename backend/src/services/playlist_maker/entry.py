@@ -24,7 +24,7 @@ def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int,
         str: Playlist url
     """
     t0     = time.time()
-    req    = PlaylistRequest(year_min, language, niche_level, sec_min, sec_max, genre)
+    req    = PlaylistRequest(year_min, language, niche_level, sec_min, sec_max, genre, True)
     finder = NicheTrackFinder(req)
     songs  = finder.find_niche_tracks()
     pl     = Playlist(songs, req)
@@ -38,8 +38,8 @@ def do(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int,
 
 def playlist_likely_undersized(year_min: int, language: Language, niche_level: NicheLevel, sec_min: int, sec_max: int, genre: str) -> bool:
     """Will the playlist likely be undersized? (And hence throw an error)"""
-    return(likely_under_count_playlist(PlaylistRequest(year_min, language, niche_level, sec_min, sec_max, genre)))
+    return(likely_under_count_playlist(PlaylistRequest(year_min, language, niche_level, sec_min, sec_max, genre, False)))
 
 if __name__ == '__main__':
     spotify_user.initialize(token)
-    do(0, Language.ANY, NicheLevel.MODERATELY, 120, 360, 'progressive rock')
+    do(0, Language.ANY, NicheLevel.ONLY_KINDA, 120, 10000, 'jazz')

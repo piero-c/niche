@@ -10,6 +10,7 @@ class Params(BaseModel):
     language              : str
     genre                 : str
     niche_level           : str
+    public                : Optional[bool] = True
 
     class Config:
         json_schema_extra = {
@@ -19,7 +20,8 @@ class Params(BaseModel):
                 "songs_length_max_secs" : 300,
                 "language"              : "English",
                 "genre"                 : "pop",
-                "niche_level"           : "Very"
+                "niche_level"           : "Very",
+                "public"                : True
             }
         }
 

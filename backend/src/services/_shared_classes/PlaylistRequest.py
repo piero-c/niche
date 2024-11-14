@@ -169,6 +169,7 @@ class PlaylistRequest:
             songs_length_min_secs  = request_model.params.songs_length_min_secs,
             songs_length_max_secs  = request_model.params.songs_length_max_secs,
             genre                  = request_model.params.genre,
+            public                 = request_model.params.public,
             add_to_db              = add_to_db
         ))
 

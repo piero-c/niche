@@ -207,27 +207,33 @@ class Artist:
 
             # Regular expression pattern
             pattern = rf"""
-                ^there\s+(?:is|are)\s+                          # Match 'there is' or 'there are' at the start
+                ^
                 (?:
-                    (?:at\s+least\s+)?                          # Optional 'at least'
-                    (?:\d+|{number_words_pattern})|             # Digits or number words
-                    multiple|                                   # or 'multiple'
-                    many|                                       # or 'many'
-                    several|                                    # or 'several'
-                    numerous|                                   # or 'numerous'
-                    a\s+couple|                                 # or 'a couple'
-                    a\s+few                                     # or 'a few'
+                    there\s+(?:is|are)\s+                          # Match 'there is' or 'there are' at the start
+                    (?:
+                        (?:at\s+least\s+)?                          # Optional 'at least'
+                        (?:\d+|{number_words_pattern})|             # Digits or number words
+                        multiple|                                   # or 'multiple'
+                        many|                                       # or 'many'
+                        several|                                    # or 'several'
+                        numerous|                                   # or 'numerous'
+                        a\s+couple|                                 # or 'a couple'
+                        a\s+few                                     # or 'a few'
+                    )
+                    \s+
+                    (?:bands|artists|groups|singers|musicians|duos)     # One of the specified words
+                    (?:
+                        \s+(?:and|or)\s+                            # 'and' or 'or' with surrounding spaces
+                        (?:bands|artists|groups|singers|musicians|duos) # Another specified word
+                    )?
+                    \s+
+                    (?:named|called)                                # 'named' or 'called'
+                    (?:\s+\S+)*                                     # Optionally, additional words after 'named' or 'called'
+                    \s*[\.,:]*                                      # Optional trailing punctuation
+                |
+                    (?:\s*(?:\d+|{number_words_pattern})\s*\)\s*)   # Match '1)', 'one)', '1 )', etc. at the start
+                    .*                                              # Match anything else after that
                 )
-                \s+
-                (?:bands|artists|groups|singers|musicians|duos)     # One of the specified words
-                (?:
-                    \s+(?:and|or)\s+                            # 'and' or 'or' with surrounding spaces
-                    (?:bands|artists|groups|singers|musicians|duos) # Another specified word
-                )?
-                \s+
-                (?:named|called)                                # 'named' or 'called'
-                (?:\s+\S+)*                                     # Optionally, additional words after 'named' or 'called'
-                \s*[\.,:]*                                      # Optional trailing punctuation
             """
 
             # Compile the regex pattern with IGNORECASE and VERBOSE flags

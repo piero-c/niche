@@ -244,6 +244,7 @@ class NicheTrackFinder:
         niche_tracks = []
 
         # TODO - change up the sstuff make easier to understand spotify vs mb genre (i.e. like having a spotify seed genre vs mb) idk how but do itlllll
+        # TODO - 
 
         artist_increment_count = 25
 
@@ -254,10 +255,12 @@ class NicheTrackFinder:
             desired_song_count_from_mb_artists = self.request.playlist_min_length
         else:
             previous_valid_pcts = average_valid_artists_pct(self.request)
-            if (previous_valid_pcts < 0):
+            if (previous_valid_pcts < 0 or not previous_valid_pcts):
                 valid_pct_av = 2
             else:
                 valid_pct_av = previous_valid_pcts
+
+            logger.info(f'Average \% artists valid: {valid_pct_av}')
             
             expected_num_artists_valid = len(artists_list) * (valid_pct_av/100)
             # 100 - dsc = 20, sc = 1

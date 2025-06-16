@@ -36,7 +36,7 @@ def average_valid_artists_pct(request: PlaylistRequest) -> float:
     # Get all requests that have a percent_artists_valid field
     pcts = [r.stats.percent_artists_valid for r in old_requests if r.stats.percent_artists_valid]
 
-    if (not pcts):
+    if (not len(pcts)):
         return(-1)
 
     return(mean(pcts))

@@ -249,15 +249,17 @@ class NicheTrackFinder:
 
         artists_list = self._fetch_artists_from_musicbrainz()
 
-        # TODO - explain
+        # TODO - explain -- oh to seed properly
         if (not genre_is_spotify(self.request.genre)):
             desired_song_count_from_mb_artists = self.request.playlist_min_length
         else:
             previous_valid_pcts = average_valid_artists_pct(self.request)
-            if (previous_valid_pcts < 0):
+            if (previous_valid_pcts < 0 or not previous_valid_pcts):
                 valid_pct_av = 2
             else:
                 valid_pct_av = previous_valid_pcts
+
+            logger.info(f'Average pct artists valid: {valid_pct_av}')
             
             expected_num_artists_valid = len(artists_list) * (valid_pct_av/100)
             # 100 - dsc = 20, sc = 1
@@ -267,7 +269,6 @@ class NicheTrackFinder:
             min_valid_for_max_on_min_pl_len = self.request.playlist_min_length * desired_valid_artists_multiple_of_min_len
             rep_song_scalar = min(1, expected_num_artists_valid / min_valid_for_max_on_min_pl_len)
             desired_song_count_from_mb_artists = max(int(ceil(self.request.playlist_min_length * rep_song_scalar) + 0.00001), MIN_SONGS_FOR_PLAYLIST_GEN)
-
 
         # Using list comprehension with padding to split into groups of 25
         artists_sublists = [artists_list[i:i+artist_increment_count] if len(artists_list[i:i+artist_increment_count]) == artist_increment_count else artists_list[i:i+artist_increment_count] + [None]*(artist_increment_count - len(artists_list[i:i+artist_increment_count])) for i in range(0, len(artists_list), artist_increment_count)]

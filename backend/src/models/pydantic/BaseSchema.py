@@ -1,6 +1,8 @@
 # models/BaseSchema.py
 
-from pydantic import BaseModel, Field
+from pydantic      import BaseModel, Field, ConfigDict, GetCoreSchemaHandler, field_serializer
+from pydantic_core import core_schema
+
 from bson     import ObjectId
 
 from datetime import datetime, timezone
@@ -12,35 +14,22 @@ config = load_config()
 
 class PyObjectId(ObjectId):
     @classmethod
-    def __get_validators__(cls):
-        yield cls.validate
+    def __get_pydantic_core_schema__(cls, source_type, handler: GetCoreSchemaHandler):
+        def validate(value):
+            if isinstance(value, ObjectId):
+                return value
+            if not ObjectId.is_valid(value):
+                raise ValueError("Invalid ObjectId")
+            return ObjectId(value)
+        return core_schema.no_info_plain_validator_function(
+            function=validate,
+            serialization=core_schema.to_string_ser_schema(),
+        )
 
     @classmethod
-    def validate(cls, v, values=None, config=None, field=None):
-        """
-        Validates the given value, allowing it to be an ObjectId instance or a valid ObjectId string.
-        
-        Args:
-            v: The value to validate.
-            values: Optional additional values (ignored).
-            config: Optional configuration (ignored).
-            field: Optional field metadata (ignored).
-        
-        Returns:
-            ObjectId: The validated ObjectId.
-        
-        Raises:
-            ValueError: If the value is not a valid ObjectId.
-        """
-        if isinstance(v, ObjectId):
-            return v
-        elif isinstance(v, str) and ObjectId.is_valid(v):
-            return ObjectId(v)
-        raise ValueError("Invalid ObjectId format")
+    def __get_pydantic_json_schema__(cls, core_schema, handler):
+        return handler(core_schema.str_schema())
 
-    @classmethod
-    def __get_pydantic_json_schema__(cls, field_schema):
-        field_schema.update(type="string")
 
 class BaseSchema(BaseModel):
     id         : PyObjectId = Field(default_factory=PyObjectId, alias="_id")
@@ -50,10 +39,11 @@ class BaseSchema(BaseModel):
     updated_by: str         = Field(default=config.get('user'))
     v          : int        = Field(default=0, alias="__v")
 
-    class Config: 
-        populate_by_name        = True
-        arbitrary_types_allowed = True
-        json_encoders           = {ObjectId: str}
+    model_config = ConfigDict(populate_by_name=True, arbitrary_types_allowed=True)
+
+    @field_serializer("id")
+    def serialize_id(self, id_value):
+        return str(id_value)
     
 def clean_update_data(update_data: dict, exclude_fields: list[str] = ["_id", "created_at", "created_by"]) -> dict:
     """

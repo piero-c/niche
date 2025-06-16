@@ -3,10 +3,10 @@ import base64
 import spotipy
 import requests
 
-from PIL     import Image, ImageDraw, ImageFont
-from typing  import Optional, Type, ClassVar
-from spotipy import SpotifyOAuth
-from pathlib import Path
+from PIL            import Image, ImageDraw, ImageFont
+from typing         import Optional, Type, ClassVar
+from spotipy.oauth2 import CacheFileHandler, SpotifyOAuth
+from pathlib        import Path
 
 from src.utils.spotify_util import get_artists_ids_and_genres_from_artists, get_artist_ids_from_tracks, SpotifyArtist, SpotifyTrack, SpotifyArtistID, SpotifyGenreInterestCount, SPOTIFY_MAX_LIMIT_PAGINATION
 from src.utils.util         import load_env, sleep,filter_low_count_entries, merge_dicts_with_weight, scale_from_highest, RequestType
@@ -64,17 +64,23 @@ class SpotifyUser:
     def initialize(self, auth_code: str) -> None:
         """Initialize the SpotifyUser instance with the provided authorization code."""
         env = load_env()
-        auth_manager = SpotifyOAuth(
-            client_id     = env['SPOTIFY_CLIENT_ID'],
-            client_secret = env['SPOTIFY_CLIENT_SECRET'],
-            redirect_uri  = env['SPOTIFY_REDIRECT_URI'],
-            scope         = env['SCOPE'],
-            cache_path    = env['CACHE_PATH']
+        handler = CacheFileHandler(
+            cache_path=env['CACHE_PATH'],
+            username=env.get('SPOTIFY_USERNAME', None)  # Optional: only if you use usernames
         )
-
+        auth_manager = SpotifyOAuth(
+            client_id=env['SPOTIFY_CLIENT_ID'],
+            client_secret=env['SPOTIFY_CLIENT_SECRET'],
+            redirect_uri=env['SPOTIFY_REDIRECT_URI'],
+            scope=env['SCOPE'],
+            cache_handler=handler
+        )
         # Exchange auth code for tokens
-        token_info = auth_manager.get_access_token(auth_code, as_dict=True)
-        self.client = spotipy.Spotify(auth=token_info['access_token'])
+        token_info: str = auth_manager.get_access_token(auth_code, as_dict=False)
+
+        # TODO ehre see perplexity for sol to the string id problem
+
+        self.client = spotipy.Spotify(auth=token_info)
         self.user = self.client.current_user()
         self.name = self.user['display_name']
         self.id = self.user['id']
@@ -83,10 +89,9 @@ class SpotifyUser:
         db = DB()
         dao = UserDAO(db)
         db_entry = dao.create_or_update_by_spotify_id(
-            User(display_name = self.name, spotify_id = self.id)
+            User(display_name=self.name, spotify_id=self.id)
         )
         self.oid = db_entry.id
-
     
     ## GENERAL SEARCH ##
     
